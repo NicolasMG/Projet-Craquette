@@ -1,5 +1,4 @@
 <!doctype html>
-<!-- Test drrr-->
 <html lang="fr">
 
 	<head> <!-- en tête du fichier -->
