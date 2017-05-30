@@ -5,6 +5,8 @@
     catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
         die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
     }
+    
+    include('header.php');
 ?>
 
 
@@ -13,23 +15,8 @@
 ?>
         
 
-            <!doctype html>
-<html lang="fr">
-
-	<head> 
-		<meta charset="utf-8"/>
-		<title>Craquette - Connexion</title>
-		<link rel="stylesheet" href="bootstrap.css"/>
-	</head>
-	<body>
-		<header> <!-- header = en tête page -->
-            <p>
-                <img src="Images/logo.jpg" alt="logo" title="Logo de Craquette" height=100px width=100px/>
-            </p>
-            <p>Craquette</p>
-		</header>
 		
-		<section id="contenu"> <!-- Contenu principal de la page -->
+		<section> <!-- Contenu principal de la page -->
 	
             <h2>Inscription</h2>
 				
@@ -43,21 +30,21 @@
 					<input type="text" class="input-medium search-query" name="nom" placeholder= "Votre nom" />  
 				</div>
                 
-                <div class="form-group">
+                <div>
 					<label for="prenom">
 						Prénom:
 					</label>
 					<input type="text" class="input-medium search-query" name="prenom" placeholder= "Votre prénom" />
                 </div>
                 
-                <div class="form-group">
+                <div>
 					<label for="mail">
 						Mail:
 					</label>
 					<input type="email" class="input-medium search-query" class="form-control" name="mail" placeholder= "Votre email" />
 				</div>
                 
-                  <div class="form-group">
+                  <div>
 					<label for="adresse">
 						Adresse:
 					</label>
@@ -95,7 +82,7 @@
                 
                 
                 
-                <div class="form-group">
+                <div>
 					<label for="datenaissance">
 						Date de naissance:
 					</label>
@@ -103,21 +90,21 @@
 				</div>
 				
                 
-                <div class="form-group">
+                <div >
 				    <label>
 					 <a href='profil.php'><button type="submit" class="btn" name="inscription">Inscription</button></a>
 					 <a href='inscription.php'><button type="reset" class="btn">Effacer</button></a>
 				
                     </label>
                 </div>
-                <div class="form-group">
+                <div>
 					<label for="bla">
 						C'est fini 
 					</label> 
 				</div>
 			</form>
             
-                         
+</section>             
     
  <?php 
 
