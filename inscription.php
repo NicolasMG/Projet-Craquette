@@ -27,7 +27,7 @@
 	<body>
 		<header> <!-- header = en tête page -->
             <p>
-                <img src="logo.jpg" alt="logo" title="Logo de Craquette" height=100px width=100px/>
+                <img src="Images/logo.jpg" alt="logo" title="Logo de Craquette" height=100px width=100px/>
             </p>
             <p>Craquette</p>
 		</header>
