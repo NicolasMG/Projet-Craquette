@@ -103,7 +103,7 @@
                     <label for="adresse">
                        Adresse:
                     </label>
-                    <input type="text" class="input-medium search-query" name="adrese" placeholder="Votre adresse">
+                    <input type="text" class="input-medium search-query" name="adresse" placeholder="Votre adresse">
 		
                 </div>
 				<p>
