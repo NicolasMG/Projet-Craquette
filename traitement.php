@@ -1,7 +1,7 @@
             <!doctype html>
 <html lang="fr">
 
-	<head> <!-- en tête du fichier -->
+	<head> 
 		<meta charset="utf-8"/>
 		<title>Craquette - Connexion</title>
 		<link rel="stylesheet" href="bootstrap.css"/>
@@ -50,5 +50,10 @@ if(isset($_POST['envoi'])){ // si le bouton envoi a été cliqué
      
 
 ?>
-
- <a href='profil.php'><button type="submit" class="btn">Inscription</button></a>
+            <p>Votre profil a bien était crée. </p>
+ <a href='profil.php'><button type="submit" class="btn">Voir mon profil</button></a>
+            
+<?php
+  include('footer.php');          
+            
+?>
