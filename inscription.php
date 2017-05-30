@@ -113,7 +113,7 @@
 				</p>
                  <div class="form-group">
 					<label for="bla">
-						C'est fini 
+						C'est fini <!--les bouton veulent pas s'afficher sinon-->
 					</label> 
 				</div>
 			</form>
