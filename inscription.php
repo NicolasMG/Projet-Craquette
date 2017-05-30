@@ -9,7 +9,7 @@
 
 
 <?php
-     $reponse2 = $bdd->query('SELECT * FROM contact ORDER BY id DESC');
+     $reponse2 = $bdd->query('SELECT * FROM profil ORDER BY id DESC');
 
     //include("header.php");
   

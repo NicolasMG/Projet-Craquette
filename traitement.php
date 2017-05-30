@@ -50,10 +50,13 @@ if(isset($_POST['envoi'])){ // si le bouton envoi a été cliqué
      
 
 ?>
-            <p>Votre profil a bien était crée. </p>
+            <p>Votre profil a bien été créé. </p>
  <a href='profil.php'><button type="submit" class="btn">Voir mon profil</button></a>
             
 <?php
+            echo '<p>'.$prenom.' '.$nom.', merci de nous rejoindre .</p>';
+            
+            
   include('footer.php');          
             
 ?>
