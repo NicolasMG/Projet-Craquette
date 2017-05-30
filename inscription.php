@@ -107,7 +107,7 @@
 		
                 </div>
 				<p>
-					 <a href='accueil.php'><button type="submit" class="btn">Inscription</button></a>
+					 <a href='accueil.php'><button type="submit" name="inscription" class="btn">Inscription</button></a>
 					 <a href='inscription.php'><button type="reset" class="btn">Effacer</button></a>
 				
 				</p>
