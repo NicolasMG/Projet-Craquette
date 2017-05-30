@@ -1,5 +1,5 @@
 <?php
-    try{ // essaie
+    try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
     }
     catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
@@ -9,17 +9,14 @@
 
 
 <?php
-     $reponse2 = $bdd->query('SELECT * FROM profil ORDER BY id DESC');
-
-    //include("header.php");
-  
+     $reponse2 = $bdd->query('SELECT * FROM profil ORDER BY id DESC'); 
 ?>
         
 
             <!doctype html>
 <html lang="fr">
 
-	<head> <!-- en tête du fichier -->
+	<head> 
 		<meta charset="utf-8"/>
 		<title>Craquette - Connexion</title>
 		<link rel="stylesheet" href="bootstrap.css"/>
@@ -34,19 +31,16 @@
 		
 		<section id="contenu"> <!-- Contenu principal de la page -->
 	
-			<h2>Inscription</h2>
-			<!--<form method="post" class="form-horizontal"> <!--raction="traitement.php"-->
+            <h2>Inscription</h2>
 				
                 
             <form class="form-horizontal" method="post" action="traitement.php" >
              
-                <!--method="post" raction="traitement.php-->
                 <div class="form-group">
 					<label for="nom">
 						Nom:
 					</label>
-					<input type="text" class="input-medium search-query" name="nom" placeholder= "Votre nom" />
-                    
+					<input type="text" class="input-medium search-query" name="nom" placeholder= "Votre nom" />  
 				</div>
                 
                 <div class="form-group">
@@ -55,15 +49,24 @@
 					</label>
 					<input type="text" class="input-medium search-query" name="prenom" placeholder= "Votre prénom" />
                 </div>
-				<div class="form-group">
+                
+                <div class="form-group">
 					<label for="mail">
 						Mail:
 					</label>
 					<input type="email" class="input-medium search-query" class="form-control" name="mail" placeholder= "Votre email" />
 				</div>
+                
+                  <div class="form-group">
+					<label for="adresse">
+						Adresse:
+					</label>
+					<input type="text" class="input-medium search-query" name="adresse" placeholder= "Votre adresse" />
+                </div>
+                
            
 				<p>
-                <label for="mail">
+                <label for="filiere">
 						Filiere:
 					</label>
 				<select name="filiere">
@@ -78,7 +81,7 @@
 				</select>
                 </p>
                 <p>
-                    <label for="mail">
+                    <label for="promo">
 						Année d'etude:
 					</label>
                     <select name="promo">
@@ -93,33 +96,30 @@
                 
                 
                 <div class="form-group">
-					<label for="date de naissance">
+					<label for="datenaissance">
 						Date de naissance:
 					</label>
-					<input type="text" class="input-medium search-query" name="date de naissance" placeholder= "jour/mois/année" />
+					<input type="date" class="input-medium search-query" name="datenaissance" placeholder= "jour/mois/année" />
 				</div>
 				
+                
                 <div class="form-group">
-                    <label for="adresse">
-                       Adresse:
-                    </label>
-                    <input type="text" class="input-medium search-query" name="adresse" placeholder="Votre adresse">
-		
-                </div>
-				<p>
-					 <a href='accueil.php'><button type="submit" name="inscription" class="btn">Inscription</button></a>
+				    <label>
+					 <a href='profil.php'><button type="submit" class="btn" name="inscription">Inscription</button></a>
 					 <a href='inscription.php'><button type="reset" class="btn">Effacer</button></a>
 				
-				</p>
-                 <div class="form-group">
+                    </label>
+                </div>
+                <div class="form-group">
 					<label for="bla">
-						C'est fini <!--les bouton veulent pas s'afficher sinon-->
+						C'est fini 
 					</label> 
 				</div>
 			</form>
+            
+                         
     
- <?php
-   
+ <?php 
 
     include('footer.php'); 
 ?>
