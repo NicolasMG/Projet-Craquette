@@ -1,0 +1,68 @@
+
+		<section id="contenu">
+			<h2>Contact</h2>
+			<form method="post" action="traitement.php"> <!--toujours ou presque "post" -->
+				<p>
+					<label for="nom">
+						Nom:
+					</label>
+					<input type="text" name="nom" placeholder= "Votre nom" />
+				</p>
+				<p>
+					<label for="prenom">
+						Prénom:
+					</label>
+					<input type="text" name="prenom" placeholder= "Votre prénom" />
+				</p>
+				<p>
+					<label for="mail">
+						Mail:
+					</label>
+					<input type="email" name="mail" placeholder= "Votre email" />
+				</p>
+				<p>
+				<select name="filiere">
+					<option value="IR"> IR </option>
+					<option value="AS"> AS </option>
+                    <option value="TF"> TF</option>
+                    <option value="Méca"> Méca </option>
+                    <option vallue="Fip"> FIP</option>
+                    <option value="enseignant"> enseignant</option>
+                    <option value="autre">autre</option>    
+                    
+				</select>
+                </p>
+                <p>
+                    <select name="promo">
+                        <option value="1A">1A</option>
+                        <option value="2A">2A</option>
+                        <option value="3A">3A</option>
+                        <option value="sortie d'ecole"> sortie d'ecole</option>
+                        <option value="autre"> autre</option>
+                    </select>
+                </p>
+                
+                
+                
+                <p>
+					<label for="date de naissance">
+						Date de naissance:
+					</label>
+					<input type="text" name="date de naissance" placeholder= "Votre date de naissance( jour/mois/anné)" />
+				</p>
+				<p>
+                
+                
+                </p>
+                    <label for="adresse">
+                       Adresse:
+                    </label>
+                    <input type="text" name="adrese" placeholder="Votre adresse">
+		
+
+				<p>
+					<input type="submit" value="Inscription"/>
+					<input type="reset" value="Vider le formulaire"/>
+				
+				</p>
+			</form>
