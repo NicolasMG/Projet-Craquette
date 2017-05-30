@@ -111,25 +111,34 @@
 					 <a href='inscription.php'><button type="reset" class="btn">Effacer</button></a>
 				
 				</p>
+                 <div class="form-group">
+					<label for="bla">
+						C'est fini 
+					</label> 
+				</div>
 			</form>
             
             <?php
             
+      
              if(isset($_POST['envoi'])){ // si le bouton envoi a été cliqué
         if(!empty($_POST['nom'])){ // si le champ nom a été rempli
             $nom = $_POST['nom']; // stocker la valeur qu'il contient dans une variable
             if(!empty($_POST['prenom'])){ // si le champ prenom a été rempli
                 $prenom = $_POST['prenom']; // stocker la valeur qu'il contient dans une variable
-                if(!empty($_POST['mail'])){ // si le champ mail a été rempli
-                    $mail = $_POST['mail']; // stocker la valeur qu'il contient dans une variable
-                    if(!empty($_POST['ecoles'])){ // si le champ ecoles a été rempli
-                        $ecoles = $_POST['ecoles']; // stocker la valeur qu'il contient dans une variable
-                        if(!empty($_POST['objet'])){ // si le champ objet a été rempli
-                            $objet = $_POST['objet']; // stocker la valeur qu'il contient dans une variable
-                            if(!empty($_POST['message'])){ // si le champ message a été rempli
-                                $message = $_POST['message']; // stocker la valeur qu'il contient dans une variable
-            
-                                $insertion = $bdd->prepare('INSERT INTO profil VALUES(NULL,"'.$nom.'","'.$prenom.'","'.$mail.'","'.$ecoles.'","'.$objet.'","'.$message.'")'); // préparation de la requête d'insertion dans la base de données
+                if(!empty($_POST['adresse'])){ 
+                    $adresse = $_POST['adresse']; 
+                    if(!empty($_POST['mail'])){ // si le champ mail a été rempli
+                        $mail = $_POST['mail']; // stocker la valeur qu'il contient dans une variable
+                        if(!empty($_POST['date de naissance'])){ 
+                            $date = $_POST['date de naissance']; 
+                            if(!empty($_POST['promo'])){ 
+                                $promo = $_POST['promo']; 
+                                if(!empty($_POST['filiere'])){ 
+                                    $filiere = $_POST['filiere']; 
+                                    
+                                 
+                                $insertion = $bdd->prepare('INSERT INTO profil VALUES("'.$nom.'","'.$prenom.'","'.$adresse.'","'.$mail.'","'.$date.'","'.$promo.'","'.$filiere.'","'.$date.'")'); // préparation de la requête d'insertion dans la base de données
                                 $insertion->execute();  // exécution de l'insertion
                             }
                         }
@@ -138,7 +147,7 @@
             }
         }
     }
-
+}
                                 
                                 
                                 
