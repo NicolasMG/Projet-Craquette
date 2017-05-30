@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Test -->
 <html lang="fr">
 
 	<head> <!-- en tête du fichier -->
