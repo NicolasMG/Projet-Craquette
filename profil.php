@@ -4,7 +4,6 @@
     //include("connexion.php");
     $mail=$_SESSION['ID'];
    //$mail="rachel.noireau@uha.fr";
-   echo($mail);
     try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); 
     }
@@ -84,7 +83,7 @@
                 
             </div>
             
-                 <a href='modifprofil.php'><button type="button" class="btn" name="modifierprofil">Modifier mon profil</button></a>
+                 <a href='modifprofil.php'><button type="submit" class="btn" name="modifierprofil">Modifier mon profil</button></a>
         </div>
         <div id="Emploidutemps">
             <img id="EmploiDuTEmpsDeLaSemaine" src="Images/Emloi_du_temps/29-05-2017.png">   
