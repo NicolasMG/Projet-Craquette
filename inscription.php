@@ -100,6 +100,19 @@
 					<input type="password" class="input-medium search-query" name="MDPconfirmation" placeholder= "Confirmer votre mot de passe" />
 				</div>
                 
+                <div>
+					<label for="MDP">
+						Mot de passe:
+					</label>
+					<input type="password" class="input-medium search-query" name="MPD" placeholder= "Votre mot de passe" />
+				</div>
+                
+                 <div>
+					<label for="MDPconfirmation">
+						Confirmation de mot de passe:
+					</label>
+					<input type="password" class="input-medium search-query" name="MDPconfirmation" placeholder= "Confirmer votre mot de passe" />
+				</div>
                 
                 <div >
 				    <label>

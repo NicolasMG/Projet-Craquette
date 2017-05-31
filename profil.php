@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <?php
-<<<<<<< HEAD
+
      session_start();
     //include("header3.php");
     $mail=$_SESSION['ID'];
