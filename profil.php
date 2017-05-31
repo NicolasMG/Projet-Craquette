@@ -1,8 +1,9 @@
 
 <!DOCTYPE html>
 <?php
-    //include(header.php);
-    $mail="rachel.noireau@uha.fr";
+     session_start();
+    //include("header3.php");
+    $mail=$_SESSION['ID'];
 ?>
 <?php
     try{ 
@@ -11,6 +12,7 @@
     catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
         die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
     }
+
 ?>
 
 
