@@ -5,18 +5,16 @@
     catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
         die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
     }
-    
+	
     include('header.php');
-
+	
     // $reponse2 = $bdd->query('SELECT * FROM profil ORDER BY id DESC'); 
 ?>
-        
 
 		
 		<section> <!-- Contenu principal de la page -->
 	
             <h2>Inscription</h2>
-				
                 
             <form class="form-horizontal" method="post" action="traitement.php" >
              
@@ -41,14 +39,7 @@
 					<input type="email" class="input-medium search-query" class="form-control" name="mail" placeholder= "Votre email" />
 				</div>
                 
-                  <div>
-					<label for="adresse">
-						Adresse:
-					</label>
-					<input type="text" class="input-medium search-query" name="adresse" placeholder= "Votre adresse" />
-                </div>
-                
-           
+          
 				<p>
                 <label for="filiere">
 						Filiere:
@@ -61,7 +52,6 @@
                     <option vallue="Fip"> FIP</option>
                     <option value="enseignant"> enseignant</option>
                     <option value="autre"> autre</option>    
-                    
 				</select>
                 </p>
                 <p>
@@ -98,27 +88,11 @@
 						Confirmation de mot de passe:
 					</label>
 					<input type="password" class="input-medium search-query" name="MDPconfirmation" placeholder= "Confirmer votre mot de passe" />
-				</div>
-                
-                <div>
-					<label for="MDP">
-						Mot de passe:
-					</label>
-					<input type="password" class="input-medium search-query" name="MPD" placeholder= "Votre mot de passe" />
-				</div>
-                
-                 <div>
-					<label for="MDPconfirmation">
-						Confirmation de mot de passe:
-					</label>
-					<input type="password" class="input-medium search-query" name="MDPconfirmation" placeholder= "Confirmer votre mot de passe" />
-				</div>
-                
+				</div>              
                 <div >
 				    <label>
 					 <a href='profil.php'><button type="submit" class="btn" name="inscription">Inscription</button></a>
 					 <a href='inscription.php'><button type="reset" class="btn">Effacer</button></a>
-				
                     </label>
                 </div>
                 <div>

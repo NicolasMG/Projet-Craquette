@@ -29,16 +29,20 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `profil` (
+  `Id` int(100) NOT NULL,
   `Nom` varchar(225) COLLATE utf8_unicode_ci NOT NULL,
   `Prenom` varchar(225) COLLATE utf8_unicode_ci NOT NULL,
+  `motDePass` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `adresse` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `date de naissance` date NOT NULL,
+  `datenaissance` date NOT NULL,
   `promo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `filiere` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `telephone` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+ALTER TABLE `profil`
+ADD PRIMARY KEY (`Id`);
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
