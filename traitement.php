@@ -79,9 +79,10 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
  <a href='profil.php'><button type="submit" class="btn">Voir mon profil</button></a>
          <p><br></p> 
 <?php
-             echo '<p>'.$prenom.' '.$nom.', merci de nous rejoindre .</p>';          
+             echo '<p>'.$prenom.' '.$nom.', merci de nous rejoindre.</p>';          
             /* echo '<p>'.$promo.' '.$adresse.'</p>'; 
             echo'<p>'.$date.'</p>';*/
+             echo '<p>Un mail va etre envoyer à l\'adresse '.$mail.' pour confirmer votre inscription .</p>';
   include('footer.php');          
             
 ?>
