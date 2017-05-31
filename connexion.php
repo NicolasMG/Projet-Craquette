@@ -15,7 +15,8 @@ if($testMotDePass == 0) {
 else {
 
         session_start();
-        $_SESSION['ID'];
+        $_SESSION['ID']=$_POST['ID'];//s="rachel.noireau@uha.fr";
+        //echo $_SESSION['ID'];
        // <a href="./profil.php">mon compte</a>
 
 }   // pas sur si on doit d'arreter ici ou plus loin (doute de mon niveau de php)
