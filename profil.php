@@ -70,8 +70,8 @@
                 </div>
                 <div id : Infopousse>
                     <p>Date de naissance :<?php  $response =$bdd->query('SELECT datenaissance FROM profil WHERE email="'.$mail.'"'); 
-                                       // $row = $response->fetch();
-                                       // echo($row['datenaissance']);
+                                        $row = $response->fetch();
+                                        echo($row['datenaissance']);
                     ?></p>
                     
                     <p>Addresse :<?php  $response =$bdd->query('SELECT adresse FROM profil WHERE email="'.$mail.'"'); 
