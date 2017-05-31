@@ -23,4 +23,18 @@
                 
             </form>
     </section>
+
+<?php
+
+//verification de l'adress mail
+
+
+
+//verification du mot de passe ici
+    session_start();
+    $_SESSION['ID'];
+   // <a href="./profil.php">mon compte</a>
+   //
+?>
+
 <?php include("footer.php"); ?>
