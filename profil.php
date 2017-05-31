@@ -63,6 +63,10 @@
                     <p>CV : <a href="Documents/Mon%20CV.txt">Mon CV</a></p>    
                 </div>
             </div>
+            
+            <div>
+            <a href='modifprofil.php'><button type="button" class="btn" name="modifierprofil">Modifier mon profil</button></a>
+            </div>
         </div>
         <div id="Emploidutemps">
             <img id="EmploiDuTEmpsDeLaSemaine" src="Images/Emloi_du_temps/29-05-2017.png">   
