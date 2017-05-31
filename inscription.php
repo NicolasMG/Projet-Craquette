@@ -7,11 +7,8 @@
     }
     
     include('header.php');
-?>
 
-
-<?php
-     $reponse2 = $bdd->query('SELECT * FROM profil ORDER BY id DESC'); 
+    // $reponse2 = $bdd->query('SELECT * FROM profil ORDER BY id DESC'); 
 ?>
         
 
