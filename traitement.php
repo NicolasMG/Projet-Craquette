@@ -9,6 +9,7 @@
 
 
 <?php
+	$id = mysql_query('SELECT max(Id) FROM profil ') + 1;// recupérer id suivant de base de données 
      $reponse2 = $bdd->query('SELECT * FROM profil ORDER BY id DESC'); 
 ?>
     
@@ -36,38 +37,43 @@
 <?php
 
 if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
-        if(!empty($_POST['nom'])){ // si le champ nom a été rempli
-            $nom = $_POST['nom']; // stocker la valeur qu'il contient dans une variable
-            
-            if(!empty($_POST['prenom'])){ 
-                $prenom = $_POST['prenom'];     
-                
-                 if(!empty($_POST['adresse'])){ 
-                     $adresse = $_POST['adresse']; 
-                    
-                    if(!empty($_POST['mail'])){ 
-                        $mail = $_POST['mail'];
-                        
-                        if(!empty($_POST['datenaissance'])){ 
-                            $date = $_POST['datenaissance'];
-                            
-                            if(!empty($_POST['promo'])){ 
-                                $promo = $_POST['promo']; 
-                                
-                                if(!empty($_POST['filiere'])){ 
-                                    $filiere = $_POST['filiere']; 
-                                    
-                                 
-                                $insertion = $bdd->prepare('INSERT INTO profil VALUES("'.$nom.'","'.$prenom.'","'.$adresse.'","'.$mail.'","'.$date.'","'.$promo.'","'.$filiere.'","NULL")'); // préparation de la requête d'insertion dans la base de données
-                                $insertion->execute();  // exécution de l'insertion
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+	if(!empty($_POST['nom'])){ // si le champ nom a été rempli
+		$nom = $_POST['nom']; // stocker la valeur qu'il contient dans une variable
+		
+		if(!empty($_POST['prenom'])){ 
+			$prenom = $_POST['prenom'];     
+				
+			if(!empty($_POST['mail'])){ 
+				$mail = $_POST['mail'];
+				
+				if(!empty($_POST['datenaissance'])){ 
+					$date = $_POST['datenaissance'];
+					
+					if(!empty($_POST['promo'])){ 
+						$promo = $_POST['promo']; 
+						
+						if(!empty($_POST['filiere'])){ 
+							$filiere = $_POST['filiere']; 
+							
+						 	if((!empty($_POST['MPD'])) AND ($_POST['MDP'] == $_POST['MDPconfirmation'])){ 
+								$motDePass=$_POST['MPD'];
+								$id = $id + 1 ;
+								$option = [
+									$nom -> $id,
+									$prenom -> $id + 5,
+								];
+								$sel = password_hash($motDePass,PASSWORD_DEFAULT, $options);
+								
+								$insertion = $bdd->prepare('INSERT INTO profil VALUES("'.$nom.'","'.$nom.'","'.$prenom.'","'.$MPD.'","'.$mail.'","NULL","'.$date.'","'.$promo.'","'.$filiere.'","NULL")'); // préparation de la requête d'insertion dans la base de données
+								$insertion->execute();  // exécution de l'insertion
+						}
+					}
+				}
+			}
+		}
+	}
 }
+
      
 
 ?>
