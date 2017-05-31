@@ -58,7 +58,7 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                                     $filiere = $_POST['filiere']; 
                                     
                                  
-                                $insertion = $bdd->prepare('INSERT INTO profil VALUES("'.$nom.'","'.$prenom.'","'.$adresse.'","'.$mail.'","'.$date.'","'.$promo.'","'.$filiere.'","NULL")'); // préparation de la requête d'insertion dans la base de données
+                                $insertion = $bdd->prepare('INSERT INTO profil VALUES("'.$nom.'","'.$prenom.'","'.$mail.'","'.$adresse.'","'.$date.'","'.$promo.'","'.$filiere.'","NULL")'); // préparation de la requête d'insertion dans la base de données
                                 $insertion->execute();  // exécution de l'insertion
                             }
                         }
