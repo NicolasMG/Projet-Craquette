@@ -6183,7 +6183,7 @@ a.badge:focus {
  
  header,footer {
 	/*background-color:Maroon;*/
-    background-image:url(images/gradientby3.jpg)
+    background-image:url(images/gradientby3.jpg);
  }
  
 
@@ -6235,24 +6235,76 @@ p .inscription{
     text-align:center;
 }
 
-#contenu_gauche{
-    width: 300px;
-    text-align: center;
-    border:1px solid black;
-}
-
-#contenu_centre{
-    width:1080px;
-    text-align: center;
-    border:1px solid black;
-}
-
-#contenu_droite{
-    width: :300px;
-    text-align: center;
-    border:1px solid black;
-}
 #contenu div{
     display: inline-block;
     vertical-align: top;
 }
+
+
+#contenu_gauche{
+    width: 300px;
+    height: 780px;
+    border:1px solid black;
+}
+
+#profil{
+    width:300px;
+    height:200px;
+}
+
+#profil img {
+    margin:10px;
+}
+
+ul{
+    margin-bottom: 30px;
+}
+
+#groupes {
+    margin:20px;
+}
+
+li:first-child{
+    margin-top:10px;
+}
+#groupes li {
+    margin-left:40px;
+}
+
+#contenu_centre{
+    /*border:1px solid black;*/
+}
+
+#post{
+    width: :650px;
+    border:1px solid black;
+}
+
+.textemessage{
+    margin-left: 50px;
+    margin-top: 7px;
+}
+
+#filactualite{
+    width: 650px;
+    height: 500px;
+    border:1px solid black;
+}
+
+#contenu_droite{
+    width:300px;
+    text-align: center;
+    border:1px solid black;
+    height: 780px;
+}
+
+#vide_gauche, #vide_droit{
+    width:200px;
+    height:780px;
+}
+
+#couverture{
+    margin-left:10px;
+    margin-right: 10px;
+}
+
