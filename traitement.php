@@ -9,8 +9,10 @@
 
 
 <?php
-	$id = mysql_query('SELECT max(Id) FROM profil ') + 1;// recupérer id suivant de base de données 
-     $reponse2 = $bdd->query('SELECT * FROM profil ORDER BY id DESC'); 
+	$id = $bdd ->query('SELECT max(Id) FROM profil ') + 1;// recupérer id suivant de base d
+    //echo($id);
+//$id = $reponse->fetch();
+     //$reponse2 = $bdd->query('SELECT * FROM profil ORDER BY id DESC'); 
 ?>
     
 
@@ -54,26 +56,30 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
 						
 						if(!empty($_POST['filiere'])){ 
 							$filiere = $_POST['filiere']; 
-							
-						 	if((!empty($_POST['MPD'])) AND ($_POST['MDP'] == $_POST['MDPconfirmation'])){ 
-								$motDePass=$_POST['MPD'];
-								$id = $id + 1 ;
-								$option = [
-									$nom -> $id,
-									$prenom -> $id + 5,
-								];
-								$sel = password_hash($motDePass,PASSWORD_DEFAULT, $options);
-								
-								$insertion = $bdd->prepare('INSERT INTO profil VALUES("'.$nom.'","'.$nom.'","'.$prenom.'","'.$MPD.'","'.$mail.'","NULL","'.$date.'","'.$promo.'","'.$filiere.'","NULL")'); // préparation de la requête d'insertion dans la base de données
-								$insertion->execute();  // exécution de l'insertion
-						}
-					}
-				}
-			}
-		}
-	}
+							echo("azed");
+                            
+						 	if(!empty($_POST['MDP'])) {
+                                echo("coucou");
+                                if($_POST['MDP'] == $_POST['MDPconfirmation']){ 
+                                    $motDePass=$_POST['MDP'];
+                                    $id = $id + 1 ;
+                                    $option = [
+                                        $nom -> $id,
+                                        $prenom -> $id + 5,
+                                    ];
+                                    $sel = password_hash($motDePass,PASSWORD_DEFAULT, $option);
+                                    echo("coucou");
+                                    $insertion = $bdd->prepare('INSERT INTO profil VALUES("'.$id.'","'.$nom.'","'.$prenom.'","'.$sel.'","'.$mail.'","NULL","'.$date.'","'.$promo.'","'.$filiere.'","NULL")'); // préparation de la requête d'insertion dans la base de données
+                                    $insertion->execute();  // exécution de l'insertion
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
-
      
 
 ?>
@@ -88,6 +94,7 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
              echo '<p>'.$prenom.' '.$nom.', merci de nous rejoindre .</p>';          
             /* echo '<p>'.$promo.' '.$adresse.'</p>'; 
             echo'<p>'.$date.'</p>';*/
-  include('footer.php');          
+ // include('footer.php');          
             
 ?>
+
