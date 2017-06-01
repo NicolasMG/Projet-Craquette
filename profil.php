@@ -10,11 +10,18 @@
         
     session_start();
     $mail=$_SESSION['ID'];
+    //$imageprofil=$bdd->query('SELECT imageprofil FROM profil WHERE email="'.$mail.'"');
+    $photoprofil="Images/Cigogne%20proposition%20logo%201.png";
+
+    $photocouverture="Images/Portrait_Unfallen_a.png";
 ?>
 
 
 <!DOCTYPE html>
 <html land="fr">
+    <br>
+    <br>
+    
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
@@ -34,8 +41,21 @@
     </div>
     <div id="Body">
         <div id="photosduprofil">
-            <img id="PhotoDeCouverture" src="Images/Portrait_Unfallen_a.png">
-            <img id="PhotoDeProfil" src="Images/Cigogne%20proposition%20logo%201.png" >    
+            <img id="PhotoDeCouverture" src="<?php 
+                    $response =$bdd->query('SELECT imagecouverture FROM profil WHERE email="'.$mail.'"'); 
+                    $row = $response->fetch();
+                    echo($row['imagecouverture']);                                              
+                                             ?>">
+            
+            
+            
+            
+            
+            <img id="PhotoDeProfil" src="<?php 
+                    $response =$bdd->query('SELECT imageprofil FROM profil WHERE email="'.$mail.'"'); 
+                    $row = $response->fetch();
+                    echo($row['imageprofil']);               
+                                         ?>" >   
         </div>
         <div id="Core">
             <h2>Á propos :</h2>
@@ -46,7 +66,7 @@
                                         echo($row['nom']);
                     
                     
-                    ?> </p>
+                    ?> 
                     
                    <p>Prénom : <?php $response = $bdd->query('SELECT prenom FROM profil WHERE email="'.$mail.'"'); 
                                         $row = $response->fetch();
@@ -63,7 +83,7 @@
                                         echo($row['promo']);
                     ?></p>
                     
-                    <p>Adresse mail : s<?php  
+                    <p>Adresse mail : <?php  
                                         echo($mail);
                     ?></p>
                 </div>
@@ -77,11 +97,16 @@
                     <p>CV : <a href="Documents/Mon%20CV.txt">Mon CV</a></p>    
                 </div>
             </div>
+            <section>
+                
             <a href='modifprofil.php'><button type="submit" class="btn">Mettre à jour mon profil</button></a>
+            </section>
+            <p><br></p>
         </div>
         <div id="Emploidutemps">
             <img id="EmploiDuTEmpsDeLaSemaine" src="Images/Emloi_du_temps/29-05-2017.png">   
         </div>
+        <p><br></p>
        
     </div>
 </div>

@@ -1,5 +1,6 @@
 <?php
 
+if(!empty($_POST['nom'])){
 //verification de l'adress mail :
 
 
@@ -21,6 +22,7 @@
        // <a href="./profil.php">mon compte</a>
 
 //}   // pas sur si on doit d'arreter ici ou plus loin (doute de mon niveau de php)
+}
 ?>
         <!DOCTYPE html>
        <a href="./profil.php">mon compte</a>

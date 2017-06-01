@@ -14,13 +14,37 @@
     }
 ?>
 
-
-<p>Remplisez uniquement les champs que vous souhaiter modifier
+<section>
+<p>
+    <br>
+    <br>
+    <br>
+    Remplisez uniquement les champs que vous souhaiter modifier
 <br>
 </p>
 <form class="form-horizontal" method="post" action="traitementmodif.php" >
           <form class="form-horizontal" method="post" action="traitement.php" >
-             
+                
+              
+              
+              
+              <div>
+					<label for="imagecouverture">
+						Photo de couverture:
+					</label>
+					<input type="text" class="input-medium search-query" class="form-control" name="imagecouverture" placeholder= "Chemin pour l'image" />
+				</div>
+              
+              <div>
+					<label for="imageprofil">
+						Photo de profil:
+					</label>
+					<input type="text" class="input-medium search-query" class="form-control" name="imageprofil" placeholder= "Chemin pour l'image" />
+				</div>
+              
+              
+              
+              
                 <div class="form-group">
 					<label for="nom">
 						Nom:
@@ -89,9 +113,9 @@
 				</div>
                 
     
-    
+    <p><br></p>
      <input type="submit" value="Appliquer" name="modif"/>
     
-</form>
-                
+    </form>
+  
          

@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<section>
 <?php
      session_start();
     
@@ -14,6 +16,24 @@
 
  
 if(isset($_POST['modif'])){
+      
+    
+    if(!empty($_POST['imagecouverture'])){ 
+          $imagecouverture = $_POST['imagecouverture']; 
+          $response =$bdd->query('Update profil set imagecouverture="'.$imagecouverture.'" WHERE email="'.$mail.'"'); 
+          $row = $response->fetch();
+          echo($row['imagecouverture']);
+      }
+    
+      if(!empty($_POST['imageprofil'])){ 
+          $imageprofil = $_POST['imageprofil']; 
+          $response =$bdd->query('Update profil set imageprofil="'.$imageprofil.'" WHERE email="'.$mail.'"'); 
+          $row = $response->fetch();
+          echo($row['imageprofil']);
+      }
+    
+    
+    
       if(!empty($_POST['nom'])){ 
           $nom = $_POST['nom']; 
           $response =$bdd->query('Update profil set nom="'.$nom.'" WHERE email="'.$mail.'"'); 
@@ -54,10 +74,13 @@ if(isset($_POST['modif'])){
           echo($row['prenom']);
       }
 }
-
-    echo("les modifications ont bien était effectués");
+?>
+<p><br><br><br></p>
+<?php
+    echo("Les modifications ont bien était effectués");
    
 
 ?>
 <p><br></p>
 <a href='profil.php'><button type="submit" class="btn">revenir à mon compte</button></a>
+</section>
