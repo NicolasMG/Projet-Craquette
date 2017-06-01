@@ -1,0 +1,63 @@
+*{
+	margin:0px;
+	font-family: Helvetica,Arial;
+}
+#Page{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#PanneauGauche{
+    height: all;
+    width: 12%;
+    background-color: powderblue;    
+}
+
+#Body{
+   width:80%;
+}
+
+#photosduprofil{
+    position:relative;
+    margin-left: 2%;
+}
+#PhotoDeCouverture{
+    margin-left:auto; 
+    width:800px;
+}
+#PhotoDeProfil{
+    position:absolute;
+    bottom:4px;
+    left:4px;
+    width:200px;
+}
+#Core{
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+h2{
+    margin-left: 100px;
+}
+#Information{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+#Infogenerale{
+    margin-left: 8px;
+}
+#Infopouss{
+}
+
+#EmploiDuTEmpsDeLaSemaine{
+    bottom:8px;
+    left:8px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
