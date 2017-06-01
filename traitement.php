@@ -7,18 +7,17 @@
     }
     include('header.php');
 ?>
-<p><br><br><br><br><br><br></p>
+<p><br><br><br><br><br><br><br><br><br><br><br></p>
 
 <?php
 
-	$id = $bdd ->query('SELECT max(Id) FROM profil ') + 1;// recupérer id suivant de base d
+	//$id = $bdd ->query('SELECT max(Id) FROM profil ') + 1;// recupérer id suivant de base d
     //echo($id);
 //$id = $reponse->fetch();
      //$reponse2 = $bdd->query('SELECT * FROM profil ORDER BY id DESC'); 
 ?>
     
 
-<!doctype html>
 <html lang="fr">
 
 	<head> <!-- en tête du fichier -->
@@ -59,10 +58,9 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
 						
 						if(!empty($_POST['filiere'])){ 
 							$filiere = $_POST['filiere']; 
-							echo("azed");
-                            
-						 	if(!empty($_POST['MDP'])) {
-                                echo("coucou");
+                                
+						 	/*if(!empty($_POST['MDP'])) {
+                                echo("mot de passe detecter");
                                 if($_POST['MDP'] == $_POST['MDPconfirmation']){ 
                                     $motDePass=$_POST['MDP'];
                                     $id = $id + 1 ; //id est auto incrementé ça sert a rien de faire ça
@@ -70,14 +68,14 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                                         $nom -> $id,
                                         $prenom -> $id + 5,
                                     ];
-                                    $sel = password_hash($motDePass,PASSWORD_DEFAULT, $option);
-                                    echo("coucou");
-                                    $insertion = $bdd->prepare('INSERT INTO profil VALUES("'.$id.'","'.$nom.'","'.$prenom.'","'.$sel.'","'.$mail.'","'.$date.'","'.$promo.'","'.$filiere.'","NULL","NULL","Images/profilpardefaut.png","Images/couverturepardefaut.jpg")'); // préparation de la requête d'insertion dans la base de données
+                                    $sel = password_hash($motDePass,PASSWORD_DEFAULT, $option);*/
+                                    
+                                    $insertion = $bdd->prepare('INSERT INTO profil VALUES("'.$nom.'","'.$prenom.'","NULL","'.$mail.'","'.$date.'","'.$promo.'","'.$filiere.'","NULL","NULL","Images/profilpardefaut.png","Images/couverturepardefaut.jpg","NULL")'); // préparation de la requête d'insertion dans la base de données
                                     $insertion->execute();  // exécution de l'insertion
-                                }
+                               /* }
 
-                            }
-                        }
+                            }*/
+                        }   //REMETTRE SEL ET ID DANS LA DERNIERE REQUETE SQL
                     }
                 }
             }
@@ -85,8 +83,18 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
     }
 }
      
+//VERIFIER L'ADRESSE MAIL
+      //SI C'EST BIEN QQN DE L'ENSISA:
+            session_start();
+            $_SESSION['mail']= $mail;
+            
+            
+            
 
-?>
+           $response =$bdd->query('SELECT nom FROM profil WHERE email="'.$mail.'"'); 
+         $row = $response->fetch();
+            echo($row['nom']); 
+ ?>        
             <p> 
             <br>
                 Votre profil a bien été créé.
@@ -96,8 +104,6 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
          <p><br></p> 
 <?php
              echo '<p>'.$prenom.' '.$nom.', merci de nous rejoindre .</p>';          
-            /* echo '<p>'.$promo.' '.$adresse.'</p>'; 
-            echo'<p>'.$date.'</p>';*/
- // include('footer.php');          
-            
+                    
+             echo '<p>'.$filiere.' '.$promo.', merci de nous rejoindre .</p>';  
 ?>

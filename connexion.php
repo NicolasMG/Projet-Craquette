@@ -9,41 +9,42 @@
 
 
 
-$droitconnexion="erreurconnexion.php";
+$droitconnexion="erreurconnexion.php"; //SI UN DES IF N'EST PAS VERIFIER RENVOIE SUR L'EURREUR
 //verification de l'adress mail :
-if(!empty($_POST['ID'])){
-    $mail=$_POST['ID'];
+if(!empty($_POST['mail'])){
+    $mail=$_POST['mail'];
     $requete='Select email From profil Where email="'.$mail.'"';
     $reponse=$bdd->prepare('Select email From profil Where email="'.$mail.'"');
-    $mail=htmlentities($_POST['ID']);
-    $reponse->execute(array('.$mail.'=>$_POST['ID']));
-    
+    $mail=htmlentities($_POST['mail']);
+    $reponse->execute(array('.$mail.'=>$_POST['mail']));
     $reponse2=$reponse->fetch();
-    //$reponse->binValue('mail',$mail,PDO::PPARM_STR);
-   // $reponse->execute();
-    //$reponse2=$reponse->rowCount();
-   // echo($reponse2);
     if($reponse2){
-        //echo("salut2");
+
    
 
 
 
 
-//verification du mot de passe ici :
-//$motDePass = /*  */;
-//$sel = /*  */;
-//$testMotDePass = password_verify($motDePass, $sel);
-//if($testMotDePass == 0) {
-    // Mauvais mot de passe
-    //renvoyer sur page de connexion avec message d'erreur;
-//}
-//else {
-        //test
+        //verification du mot de passe ici :
+        //$motDePass = /*  */;
+        //$sel = /*  */;
+        //$testMotDePass = password_verify($motDePass, $sel);
+        //if($testMotDePass == 0) {
+        // Mauvais mot de passe
+        //renvoyer sur page de connexion avec message d'erreur;
+        //}
+        //else {    //PAS DE ELSE:FAIRE UNE SUITE DES DIFFERANTES CONDITION
+            //test
         
         session_start();
-        $_SESSION['ID']=$_POST['ID'];//s="rachel.noireau@uha.fr";
-        echo $_SESSION['ID'];
+        $_SESSION['mail']=$_POST['mail'];//s="rachel.noireau@uha.fr";
+        echo $_SESSION['mail'];
+        /*
+       $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
+       $row = $response->fetch();
+        echo($row['id']);
+         $_SESSION['ID']= $row['id''];*/
+        
        // <a href="./profil.php">mon compte</a>
         $droitconnexion="./profil.php";
 //}   // pas sur si on doit d'arreter ici ou plus loin (doute de mon niveau de php)

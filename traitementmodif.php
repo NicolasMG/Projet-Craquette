@@ -3,7 +3,7 @@
 <?php
      session_start();
     
-    $mail=$_SESSION['ID'];
+    $mail=$_SESSION['mail'];
     include('header.php');
     try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
@@ -47,6 +47,15 @@ if(isset($_POST['modif'])){
           $response =$bdd->query('Update profil set prenom="'.$prenom.'" WHERE email="'.$mail.'"'); 
           $row = $response->fetch();
           echo($row['prenom']);
+      }
+    
+    
+     if(!empty($_POST['mail'])){ 
+          $mail2 = $_POST['mail']; 
+          $response =$bdd->query('Update profil set prenom="'.$mail2.'" WHERE email="'.$mail.'"'); 
+          $row = $response->fetch();
+          echo($row['prenom']);
+         $_SESSION['mail']=$mail2;
       }
     
       if(!empty($_POST['filiere'])){ 

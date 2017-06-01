@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
     session_start();
-    $mail = $_SESSION['ID'];
+    $mail = $_SESSION['mail'];
    //$mail="rachel.noireau@uha.fr";
    // echo($mail);
     

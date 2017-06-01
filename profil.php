@@ -1,3 +1,4 @@
+<p><br><br><br></p>
 <?php
 
     include('header.php');
@@ -9,7 +10,7 @@
     }
         
     session_start();
-    $mail=$_SESSION['ID'];
+    $mail=$_SESSION['mail'];
     //$imageprofil=$bdd->query('SELECT imageprofil FROM profil WHERE email="'.$mail.'"');
     //$photoprofil="Images/Cigogne%20proposition%20logo%201.png";
 

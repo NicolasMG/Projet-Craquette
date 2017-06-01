@@ -91,7 +91,7 @@
 				</div>              
                 <div >
 				    <label>
-					 <a href='profil.php'><button type="submit" class="btn" name="inscription">Inscription</button></a>
+					 <a href='traitement.php'><button type="submit" class="btn" name="inscription">Inscription</button></a>
 					 <a href='inscription.php'><button type="reset" class="btn">Effacer</button></a>
                     </label>
                 </div>

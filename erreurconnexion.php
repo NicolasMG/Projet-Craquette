@@ -28,8 +28,8 @@
                 
                 <div>
                     
-                    <label for="ID">Adresse Email :</label>
-                    <input class="input-medium search-query" type="Email" name="ID" placeholder="prenom.nom@uha.fr" />
+                    <label for="mail">Adresse Email :</label>
+                    <input class="input-medium search-query" type="Email" name="mail" placeholder="prenom.nom@uha.fr" />
                     
                 </div>
                 <div>
