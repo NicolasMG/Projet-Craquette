@@ -9,6 +9,7 @@
 
 
 <?php
+
 	$id = $bdd ->query('SELECT max(Id) FROM profil ') + 1;// recupérer id suivant de base d
     //echo($id);
 //$id = $reponse->fetch();
@@ -39,6 +40,7 @@
 <?php
 
 if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
+
 	if(!empty($_POST['nom'])){ // si le champ nom a été rempli
 		$nom = $_POST['nom']; // stocker la valeur qu'il contient dans une variable
 		
@@ -72,6 +74,7 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                                     $insertion = $bdd->prepare('INSERT INTO profil VALUES("'.$id.'","'.$nom.'","'.$prenom.'","'.$sel.'","'.$mail.'","NULL","'.$date.'","'.$promo.'","'.$filiere.'","NULL")'); // préparation de la requête d'insertion dans la base de données
                                     $insertion->execute();  // exécution de l'insertion
                                 }
+
                             }
                         }
                     }
