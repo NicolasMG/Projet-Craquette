@@ -32,18 +32,38 @@
             <h2>Á propos :</h2>
             <div id="Information">
                 <div id="Infogenerale">
-                    <p>Nom :</p> <?php 
+                    <p>Nom : <?php  $response =$bdd->query('SELECT nom FROM profil WHERE email="'.$mail.'"'); 
+                                        $row = $response->fetch();
+                                        echo($row['nom']);
                     
                     
-                    ?>
-                    <p>Prénom :</p> 
-                    <p>Filière :</p>
-                    <p>Promo :</p>
-                    <p>Adresse mail :</p>
+                    ?> </p>
+                    
+                   <p>Prénom : <?php $response = $bdd->query('SELECT prenom FROM profil WHERE email="'.$mail.'"'); 
+                                        $row = $response->fetch();
+                                        echo($row['prenom']); 
+                        ?> </p>
+                    
+                    <p>Filière :<?php  $response =$bdd->query('SELECT filiere FROM profil WHERE email="'.$mail.'"'); 
+                                        $row = $response->fetch();
+                                        echo($row['filiere']);
+                    ?></p>
+                    
+                    <p>Promo :<?php  $response =$bdd->query('SELECT promo FROM profil WHERE email="'.$mail.'"'); 
+                                        $row = $response->fetch();
+                                        echo($row['promo']);
+                    ?></p>
+                    
+                    <p>Adresse mail :<?php  
+                                        echo($mail);
+                    ?></p>
                 </div>
                 <div id : Infopousse>
-                    <p>Date de naissance :</p>
-                    <p>Addresse :</p>
+                    <p>Date de naissance :<?php  $response =$bdd->query('SELECT datenaissance FROM profil WHERE email="'.$mail.'"'); 
+                                        $row = $response->fetch();
+                                        echo($row['datenaissance']);
+                    ?></p>
+                    
                     <p>Compétences :</p>
                     <p>CV : <a href="Documents/Mon%20CV.txt">Mon CV</a></p>    
                 </div>
