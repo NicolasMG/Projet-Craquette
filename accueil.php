@@ -1,4 +1,4 @@
-<?php include('header.php'); ?>
+<?php include('entete.php'); ?>
 
 <div class="inlineblock">
    
@@ -6,14 +6,12 @@
 	
 	
 	
-
-    <div id="vide_gauche"></div>
-    <div id="contenu_gauche">    
+    <div id="contenu_gauche">  
         <div id="profil">
-            <a href='profil.php'><img style="display:block; position:absolute; left:205px; top:45px; width:280px; height:103px;" src="Images/couverture.jpg" alt="couverture" title="couverture" height=50px width=50px/></a>
-             <a href='profil.php'><img class="img-circle" style="display:block; position:absolute; left:225px; top:80px; width:100px; height:100px;" src="Images/photo_profil.jpg" alt="photo_profil" title="photo_profil" height=100px width=100px/></a>
-            <p style="display:block; position:absolute; left:235px; top:70px;font-weight: bold; color:white;">Jean-Michel LeSaumon</p>
-            <a href="desconnexion.php" >   <button type="submit" class="btn" style="display:block; position:absolute; left:360px; top:155px;">Se déconnecter</button></a>
+            <a href='profil.php'><img style="display:block; position:absolute; left:-1.5%; top:-1%; width:91%" src="Images/couverture.jpg" alt="couverture" title="couverture" /></a>
+        <a href='profil.php'><img class="img-circle" style="display:block; position:absolute; left:5%; top:4%; width:33%; height:12%;" src="Images/photo_profil.jpg" alt="photo_profil" title="photo_profil"/></a>
+            <p style="display:block; position:absolute; left:12.5%; top:2.5%;font-weight: bold; color:white;">Jean-Michel LeSaumon</p>
+            <a href="deconnexion.php" ><button type="submit" class="btn" style="display:block; position:absolute; left:50%; top:15%;">Se déconnecter</button></a>
         </div>
         <div id="groupes">
             <ul>Groupes

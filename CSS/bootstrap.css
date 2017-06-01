@@ -6172,48 +6172,23 @@ a.badge:focus {
 	margin:0; /* marge externe */
 	padding:0; /* marge interne */
  	font-family: Helvetica, Arial;
-
  }
  
-
  body {
 	background-color:white;
-
  }
- 
- header{
-    background-image:url(images/gradientby3.jpg);
- }
- 
-
-
-footer p{
-	line-height:50px;
-}
 
 header{
 	width:100%; 
     position: fixed;
     top:0;
+    background-image:url(images/gradientby3.jpg);
+    background-size: 100% 150px;
 }
 
-header p{
-    color:white;
-}
 
 section {
     text-align: center;
-}
-
-
-h2{
-    margin-top: 70px; 
-    margin-bottom: 70px;
-    font-size:30px;
-}
-
-.btn{
-    margin-top: 20px;
 }
 
 form label{
@@ -6224,36 +6199,45 @@ p .inscription{
     text-align:center;
 }
 
-/*
-.inlineblock div {
+.inlineblock{
+    width: 100%;
+    height: 100%;
+}
+.inlineblock #contenu_gauche,#contenu_centre,#contenu_droite,#calendrier{
     display:inline-block;
     vertical-align:top;
 }
-*/
-.inlineblock #contenu_gauche,#contenu_centre,#contenu_droite,#calendrier,#vide_gauche {
-    display:inline-block;
-    vertical-align:top;
+
+#contenu_gauche,#contenu_droite,#filactualite,#post, #amis,.cal_calendrier,.cal_calendrier th,.cal_calendrier td{
+    border:1px solid black;
 }
+
+#contenu_gauche, #post, #filactualite,#contenu_droite,#calendrier{
+    margin-top:50px;
+}
+
+#contenu_centre,#contenu_droit,#calendrier{
+    margin-left:27.4%;
+}
+
 
 #contenu_gauche{
-    margin-top:50px;
-    width: 300px;
+    margin-left:11%;
     height: 835px;
-    border:1px solid black;
-
+    width: 16%;
+    position: fixed;
 }
 
 #profil{
-    width:300px;
     height:200px;
 }
 
 #profil img {
     margin:15px;
-    margin-left: 20px;
+    margin-left: 18px;
 }
 
-ul{
+#contenu_gauche ul{
     margin-bottom: 30px;
 }
 
@@ -6261,60 +6245,51 @@ ul{
     margin:20px;
 }
 
-li:first-child{
+#groupes li:first-child{
     margin-top:10px;
 }
 #groupes li {
     margin-left:40px;
 }
 
+
+#contenu_centre {
+    width: 35%;
+}
+
 #post{
-    margin-top:50px;
-    width:650px;
+    width:35%;
     height:100px;
-    border:1px solid black;
     position:fixed;
 }
 
 .textemessage{
-    margin-left: 50px;
-    margin-top: 7px;
+    margin-left: 13.5%;
+    margin-top: 1.5%;
 }
 
 #filactualite{
-    margin-top:50px;
-    width: 650px;
+    width: 100%;
     height: 10000px;
-    border:1px solid black;
 }
 
 #contenu_droite{
-    margin-top:50px;
-    margin-left:4px;
-    width:210px;
-    border:1px solid black;
+    margin-left:0.3%;
+    width:12%;
     height: 825px;
     position: fixed;
-    padding:5px;
+    padding:0.3%;
     display:inline-block;
     vertical-align: top;
     
 }
 
-#vide_gauche{
-    margin-top:50px;
-    width:210px;
-}
-
 #amis{
-    width: 169px;
-    padding-left:40px;
-    padding-top:20px;
-    border:1px solid black;
+    width: 81%;
+    padding-left:18%;
+    padding-top:10%;
     overflow:scroll;
     height: 800px;
-}
-    
 }
 
 #couverture{
@@ -6323,120 +6298,119 @@ li:first-child{
 }
 
 #calendrier{
-    margin-top:50px;
-    margin-left:230px;
+    margin-left:13.5%;
     position: fixed;
+    width:50%;
+
 }
+
 .calendrier{
-    margin-bottom: 30px;
+    margin-bottom: 10%;
 }
+
 .cal_calendrier
 {
-    border:1px solid black;
-    padding:1px;
-    width:250px;
-    margin:auto;
+    width:28%;
     height:200px;
 }
+
 .cal_calendrier th
 {
-    border:1px solid black;
     background-color:#EEEEEE;
 }
+
 .cal_calendrier td
 {
-    border:1px solid black;
     background-color:#EEEEEE;
     text-align:center;
 }
+
 .cal_aujourdhui
 {
     font-weight: bold;
     color:#ff0000;
 }
+
 .cal_jours_av_ap
 {
     color:#5a779e;
 }
 
-ul #menu_horizontal {  /*Ici , c'est ma configuration, à vous de la changer */
+ul #menu_horizontal { 
     margin: 0px;
     padding: 0;
     width : 100%;
     height : 150px;
-
-    background-image:url(images/gradientby3.jpg);
-    background-size:1680px 150px;
-    background-repeat: no-repeat;
-    list-style-type : none; /* Car sinon les puces se placent n'importe où */
+   /* background-image:url(images/gradientby3.jpg);
+    background-size:1500px 150px;
+    background-repeat: no-repeat;*/
 }
 
-
-
-
 .topnav {
-  overflow: hidden;
-  background-image:url('images.jpg');
-background-size:1680px 50px;
-background-repeat: no-repeat;
+    overflow: hidden;
+   /* background-image:url('images/gradientby3.jpg');
+    background-size:1680px 50px;
+    background-repeat: no-repeat;*/
 
 }
 
 
 .topnav a {
-  float: left;
-  display: inline-block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
+    /* float: left;*/
+    display: inline-block;
+    /* color: #f2f2f2;*/
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
 }
 
 .topnav img {
-  float: left;
-  display: inline-block;
-  color: #f2f2f2;
-  text-align: center;
+    float: left;
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
 }
 
 .topnav a.active{
-float:right;
+    float:right;
 }
 
 .topnav a.active:hover {
-  background-color: #ddd;
-  color: grey;
+    background-color: #ddd;
+    color: grey;
  
 }
 
 .topnav .icon {
-  display: none;
+    display: none;
 }
 
 @media screen and (max-width: 600px) {
-  .topnav a:not(:first-child) {display: none;
-   background-image:url('images.jpg');
-background-size:1680px 50px;
-background-repeat: no-repeat;
-  }
-  .topnav a.icon {
-    float: right;
-    display: inline-block;
-  }
-  
+    .topnav a:not(:first-child) {
+        display: none;
+        background-image:url('images/gradientby3.jpg');
+        background-size:1680px 50px;
+        background-repeat: no-repeat;
+    }
+    .topnav a.icon {
+        float: right;
+        display: inline-block;
+    } 
 }
 
 @media screen and (max-width: 600px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right:0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }    
+    .topnav.responsive {
+        position: relative;
+    }
+    .topnav.responsive .icon {
+        position: absolute;
+        right:0;
+        top: 0;
+    }
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }    
 }
