@@ -30,17 +30,21 @@ if(isset($_POST['modif'])){
       }
     
       if(!empty($_POST['filiere'])){ 
-          $filiere = $_POST['filiere']; 
-          $response =$bdd->query('Update profil set filiere="'.$filiere.'" WHERE email="'.$mail.'"'); 
-          $row = $response->fetch();
-          echo($row['filiere']);
+          if($_POST['filiere'] != "ne pas modifier"){
+              $filiere = $_POST['filiere']; 
+              $response =$bdd->query('Update profil set filiere="'.$filiere.'" WHERE           email="'.$mail.'"'); 
+              $row = $response->fetch();
+                echo($row['filiere']);
+          }
       }
     
       if(!empty($_POST['promo'])){ 
-          $promo = $_POST['promo']; 
-          $response =$bdd->query('Update profil set promo="'.$promo.'" WHERE email="'.$mail.'"'); 
-          $row = $response->fetch();
-          echo($row['promo']);
+          if($_POST['filiere'] != "ne pas modifier"){
+              $promo = $_POST['promo']; 
+              $response =$bdd->query('Update profil set promo="'.$promo.'" WHERE email="'.$mail.'"'); 
+              $row = $response->fetch();
+              echo($row['promo']);
+          }
       }
     
       if(!empty($_POST['datenaissance'])){ 

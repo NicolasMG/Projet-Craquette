@@ -15,7 +15,9 @@
 ?>
 
 
-
+<p>Remplisez uniquement les champs que vous souhaiter modifier
+<br>
+</p>
 <form class="form-horizontal" method="post" action="traitementmodif.php" >
           <form class="form-horizontal" method="post" action="traitement.php" >
              
@@ -46,12 +48,12 @@
 						Filiere:
 					</label>
 				<select name="filiere">
-                    <option value="Aucune"> Aucune</option>
+                    <option value="ne pas modifier"> ne pas modifier</option>
 					<option value="IR"> IR </option>
 					<option value="AS"> AS </option>
                     <option value="TF"> TF</option>
                     <option value="Méca"> Méca </option>
-                    <option vallue=" Fip"> FIP</option>
+                    <option vallue="Fip"> FIP</option>
                     <option value="enseignant"> enseignant</option>
                     <option value="autre"> autre</option>    
 				</select>
@@ -61,7 +63,7 @@
 						Année d'etude:
 					</label>
                     <select name="promo">
-                        <option value="Aucune"> Aucune</option>
+                        <option value="ne pas modifier"> ne pas modifier</option>
                         <option value="1A"> 1A</option>
                         <option value="2A"> 2A</option>
                         <option value="3A"> 3A</option>
