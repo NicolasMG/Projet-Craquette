@@ -64,14 +64,14 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                                 echo("coucou");
                                 if($_POST['MDP'] == $_POST['MDPconfirmation']){ 
                                     $motDePass=$_POST['MDP'];
-                                    $id = $id + 1 ;
+                                    $id = $id + 1 ; //id est auto incrementé ça sert a rien de faire ça
                                     $option = [
                                         $nom -> $id,
                                         $prenom -> $id + 5,
                                     ];
                                     $sel = password_hash($motDePass,PASSWORD_DEFAULT, $option);
                                     echo("coucou");
-                                    $insertion = $bdd->prepare('INSERT INTO profil VALUES("'.$id.'","'.$nom.'","'.$prenom.'","'.$sel.'","'.$mail.'","NULL","'.$date.'","'.$promo.'","'.$filiere.'","NULL")'); // préparation de la requête d'insertion dans la base de données
+                                    $insertion = $bdd->prepare('INSERT INTO profil VALUES("'.$id.'","'.$nom.'","'.$prenom.'","'.$sel.'","'.$mail.'","'.$date.'","'.$promo.'","'.$filiere.'","NULL","NULL")'); // préparation de la requête d'insertion dans la base de données
                                     $insertion->execute();  // exécution de l'insertion
                                 }
 
