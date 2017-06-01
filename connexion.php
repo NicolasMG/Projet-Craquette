@@ -39,11 +39,11 @@ if(!empty($_POST['mail'])){
         session_start();
         $_SESSION['mail']=$_POST['mail'];//s="rachel.noireau@uha.fr";
         echo $_SESSION['mail'];
-        /*
+        
        $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
        $row = $response->fetch();
         echo($row['id']);
-         $_SESSION['ID']= $row['id''];*/
+         $_SESSION['ID']= $row['id'];
         
        // <a href="./profil.php">mon compte</a>
         $droitconnexion="./profil.php";
