@@ -30,7 +30,7 @@
                 <div>
                     
                     <label for="MDP">Mot de passe :</label>
-                    <input class="input-medium search-query" type="text" name="MDP" 
+                    <input class="input-medium search-query" type="password" name="MDP" 
                     placeholder="Mot de passe" />
                     
                 </div>
