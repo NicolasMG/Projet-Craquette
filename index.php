@@ -19,7 +19,7 @@
     <section> <!-- Contenu principal de la page -->
        <h2>Connexion</h2>
 
-            <form class="form-horizontal" method="post" action="accueil.php" >
+            <form class="form-horizontal" method="post" action="connexion.php" >
                 
                 <div>
                     
@@ -35,7 +35,7 @@
                     
                 </div>
                 <p><a href="inscription.php">Pas de compte ? Inscrivez vous !</a></p>
-                <a href='accueil.php'><button type="submit" class="btn">Se connecter</button></a>
+                <a href='connexion.php'><button type="submit" class="btn">Se connecter</button></a>
                 
             </form>
     </section>

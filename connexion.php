@@ -13,7 +13,7 @@
     //renvoyer sur page de connexion avec message d'erreur;
 //}
 //else {
-        
+        //test
         
         session_start();
         $_SESSION['mail']=$_POST['mail'];//s="rachel.noireau@uha.fr";
