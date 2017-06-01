@@ -16,11 +16,11 @@
         //test
         
         session_start();
-        $_SESSION['mail']=$_POST['mail'];//s="rachel.noireau@uha.fr";
-        echo $_SESSION['mail'];
+        $_SESSION['ID']=$_POST['ID'];//s="rachel.noireau@uha.fr";
+        echo $_SESSION['ID'];
        // <a href="./profil.php">mon compte</a>
 
-}   // pas sur si on doit d'arreter ici ou plus loin (doute de mon niveau de php)
+//}   // pas sur si on doit d'arreter ici ou plus loin (doute de mon niveau de php)
 ?>
         <!DOCTYPE html>
        <a href="./profil.php">mon compte</a>
