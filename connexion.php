@@ -5,18 +5,19 @@
 
 
 //verification du mot de passe ici :
-$motDePass = /*  */;
-$sel = /*  */;
-$testMotDePass = password_verify($motDePass, $sel);
-if($testMotDePass == 0) {
+//$motDePass = /*  */;
+//$sel = /*  */;
+//$testMotDePass = password_verify($motDePass, $sel);
+//if($testMotDePass == 0) {
     // Mauvais mot de passe
     //renvoyer sur page de connexion avec message d'erreur;
-}
-else {
-
+//}
+//else {
+        
+        
         session_start();
-        $_SESSION['ID']=$_POST['ID'];//s="rachel.noireau@uha.fr";
-        //echo $_SESSION['ID'];
+        $_SESSION['mail']=$_POST['mail'];//s="rachel.noireau@uha.fr";
+        echo $_SESSION['mail'];
        // <a href="./profil.php">mon compte</a>
 
 }   // pas sur si on doit d'arreter ici ou plus loin (doute de mon niveau de php)

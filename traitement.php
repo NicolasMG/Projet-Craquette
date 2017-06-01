@@ -97,4 +97,3 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
  // include('footer.php');          
             
 ?>
-
