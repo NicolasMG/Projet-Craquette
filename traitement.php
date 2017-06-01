@@ -5,8 +5,9 @@
     catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
         die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
     }
+    include('header.php');
 ?>
-
+<p><br><br><br><br><br><br></p>
 
 <?php
 
@@ -71,7 +72,7 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                                     ];
                                     $sel = password_hash($motDePass,PASSWORD_DEFAULT, $option);
                                     echo("coucou");
-                                    $insertion = $bdd->prepare('INSERT INTO profil VALUES("'.$id.'","'.$nom.'","'.$prenom.'","'.$sel.'","'.$mail.'","'.$date.'","'.$promo.'","'.$filiere.'","NULL","NULL")'); // préparation de la requête d'insertion dans la base de données
+                                    $insertion = $bdd->prepare('INSERT INTO profil VALUES("'.$id.'","'.$nom.'","'.$prenom.'","'.$sel.'","'.$mail.'","'.$date.'","'.$promo.'","'.$filiere.'","NULL","NULL","Images/profilpardefaut.png","Images/couverturepardefaut.jpg")'); // préparation de la requête d'insertion dans la base de données
                                     $insertion->execute();  // exécution de l'insertion
                                 }
 

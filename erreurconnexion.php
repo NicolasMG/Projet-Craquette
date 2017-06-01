@@ -19,6 +19,11 @@
     <section> <!-- Contenu principal de la page -->
        <h2>Connexion</h2>
 
+
+
+        <h4>Oups...il y a une Erreur dans votre email ou dans votre mot de passe...</h4>
+
+
             <form class="form-horizontal" method="post" action="connexion.php" >
                 
                 <div>

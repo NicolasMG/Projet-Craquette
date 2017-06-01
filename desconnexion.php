@@ -5,7 +5,8 @@
 <?php
     
     include('header.php');
-    
+    // PAS CE HEADER
+    session_start();
     session_unset();
 
 

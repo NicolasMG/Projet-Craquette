@@ -11,9 +11,9 @@
     session_start();
     $mail=$_SESSION['ID'];
     //$imageprofil=$bdd->query('SELECT imageprofil FROM profil WHERE email="'.$mail.'"');
-    $photoprofil="Images/Cigogne%20proposition%20logo%201.png";
+    //$photoprofil="Images/Cigogne%20proposition%20logo%201.png";
 
-    $photocouverture="Images/Portrait_Unfallen_a.png";
+    //$photocouverture="Images/Portrait_Unfallen_a.png";
 ?>
 
 
