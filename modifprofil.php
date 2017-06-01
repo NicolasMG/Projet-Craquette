@@ -39,7 +39,38 @@
 					</label>
 					<input type="email" class="input-medium search-query" class="form-control" name="mail" placeholder= "Votre email" />
 				</div>
- 
+                    
+              
+            <p>
+                <label for="filiere">
+						Filiere:
+					</label>
+				<select name="filiere">
+                    <option value="Aucune"> Aucune</option>
+					<option value="IR"> IR </option>
+					<option value="AS"> AS </option>
+                    <option value="TF"> TF</option>
+                    <option value="Méca"> Méca </option>
+                    <option vallue=" Fip"> FIP</option>
+                    <option value="enseignant"> enseignant</option>
+                    <option value="autre"> autre</option>    
+				</select>
+                </p>
+                <p>
+                    <label for="promo">
+						Année d'etude:
+					</label>
+                    <select name="promo">
+                        <option value="Aucune"> Aucune</option>
+                        <option value="1A"> 1A</option>
+                        <option value="2A"> 2A</option>
+                        <option value="3A"> 3A</option>
+                        <option value="sortie d'ecole"> sortie d'ecole</option>
+                        <option value="autre"> autre</option>
+                    </select>
+                </p>
+              
+              
                 
                 <div>
 					<label for="datenaissance">

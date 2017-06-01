@@ -56,22 +56,22 @@
                                         echo($row['prenom']); 
                         ?> </p>
                     
-                    <p>Filière :<?php  $response =$bdd->query('SELECT filiere FROM profil WHERE email="'.$mail.'"'); 
+                    <p>Filière : <?php  $response =$bdd->query('SELECT filiere FROM profil WHERE email="'.$mail.'"'); 
                                         $row = $response->fetch();
                                         echo($row['filiere']);
                     ?></p>
                     
-                    <p>Promo :<?php  $response =$bdd->query('SELECT promo FROM profil WHERE email="'.$mail.'"'); 
+                    <p>Promo : <?php  $response =$bdd->query('SELECT promo FROM profil WHERE email="'.$mail.'"'); 
                                         $row = $response->fetch();
                                         echo($row['promo']);
                     ?></p>
                     
-                    <p>Adresse mail :<?php  
+                    <p>Adresse mail : s<?php  
                                         echo($mail);
                     ?></p>
                 </div>
                 <div id : Infopousse>
-                    <p>Date de naissance :<?php  $response =$bdd->query('SELECT datenaissance FROM profil WHERE email="'.$mail.'"'); 
+                    <p>Date de naissance : <?php  $response =$bdd->query('SELECT datenaissance FROM profil WHERE email="'.$mail.'"'); 
                                         $row = $response->fetch();
                                         echo($row['datenaissance']);
                     ?></p>
