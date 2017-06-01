@@ -1,19 +1,10 @@
+
+
+
 <!DOCTYPE html>
 <?php
-    session_start();
-    //include("connexion.php");
-    $mail=$_SESSION['ID'];
-   //$mail="rachel.noireau@uha.fr";
-    try{ 
-        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); 
-    }
-    catch(Exception $e){ 
-        die('Erreur : '.$e->getMessage()); 
-    }
-
+    //include(header.php);
 ?>
-
-
 <html land="fr">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -48,7 +39,7 @@
                     
                     ?> </p>
                     
-                    <p>Prénom : <?php $response = $bdd->query('SELECT prenom FROM profil WHERE email="'.$mail.'"'); 
+                   <p>Prénom : <?php $response = $bdd->query('SELECT prenom FROM profil WHERE email="'.$mail.'"'); 
                                         $row = $response->fetch();
                                         echo($row['prenom']); 
                         ?> </p>
@@ -73,21 +64,16 @@
                                         echo($row['datenaissance']);
                     ?></p>
                     
-                    <p>Addresse :<?php  $response =$bdd->query('SELECT adresse FROM profil WHERE email="'.$mail.'"'); 
-                                        $row = $response->fetch();
-                                        echo($row['adresse']);
-                    ?></p>
                     <p>Compétences :</p>
                     <p>CV : <a href="Documents/Mon%20CV.txt">Mon CV</a></p>    
                 </div>
-                
             </div>
-            
-                 <a href='modifprofil.php'><button type="submit" class="btn" name="modifierprofil">Modifier mon profil</button></a>
+            <a href='modifprofil.php'><button type="submit" class="btn">Mettre à jour mon profil</button></a>
         </div>
         <div id="Emploidutemps">
             <img id="EmploiDuTEmpsDeLaSemaine" src="Images/Emloi_du_temps/29-05-2017.png">   
         </div>
+       
     </div>
 </div>
 </body>
