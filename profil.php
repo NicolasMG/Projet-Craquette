@@ -1,4 +1,6 @@
 <?php
+
+    include('header.php');
     try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
     }
@@ -27,7 +29,7 @@
     <div id="PanneauGauche">
         <nav>
             <ul>
-                <li><a href="index.html">Accueil</a></li>
+                <li><a href="accueil.php">Accueil</a></li>
                 <li><a href="forum.html">Forum</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
