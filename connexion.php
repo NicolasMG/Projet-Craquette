@@ -18,18 +18,20 @@ if(!empty($_POST['mail'])) {
     $mail=htmlentities($_POST['mail']);
     $reponse->execute(array('.$email.'=>$_POST['mail']));
     $reponse2=$reponse->fetch();
-    if($reponse2){
+    
         echo $_POST['MDP'];
         $MDP=$_POST['MDP'];
-        if(!empty($MDP)){
-            $sql=$bdd->prepare('Select motDePass From profil Where email="'.$mail.'"');
-            $sql->execute(array('.$email.'=>$_POST['mail']));
-            $sel = $sql->fetch();
-            echo $sel['motDePass'];
-            $testMotDePass = password_verify($MDP, $sel['motDePass']);
-            if($testMotDePass != 0) {
-            }
-        }
+    if(!empty($MDP)){
+        $sql=$bdd->prepare('Select motDePasse From profil Where email="'.$mail.'"');
+        $sql->execute(array('.$email.'=>$_POST['mail']));
+        $sel = $sql->fetch();
+        echo $sel['motDePasse'];
+        $testMotDePass = password_verify($MDP, $sel['motDePasse']);
+        echo $testMotDePass;
+        if($testMotDePass != 0) {
+                
+            if($reponse2){
+
 
 
 
@@ -56,6 +58,9 @@ if(!empty($_POST['mail'])) {
        // <a href="./profil.php">mon compte</a>
         $droitconnexion="./profil.php";
 //}   // pas sur si on doit d'arreter ici ou plus loin (doute de mon niveau de php)
+        
+            }
+        }
     }
 }
 ?>
