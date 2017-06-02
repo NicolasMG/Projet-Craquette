@@ -22,7 +22,7 @@
     Remplisez uniquement les champs que vous souhaiter modifier
 <br>
 </p>
-<form class="form-horizontal" method="post" action="traitementmodif.php" >
+<form class="form-horizontal" method="post" action="traitementmodif.php" enctype="multipart/form-data">
           <form class="form-horizontal" method="post" action="traitement.php" >
                 
               
@@ -32,16 +32,29 @@
 					<label for="imagecouverture">
 						Photo de couverture:
 					</label>
-					<input type="text" class="input-medium search-query" class="form-control" name="imagecouverture" placeholder= "Chemin pour l'image" />
+					<!--<input type="text" class="input-medium search-query" class="form-control" name="imagecouverture" placeholder= "Chemin pour l'image" />-->
+                  <input type="file" name="imagecouverture" id="imagecouverture"/>
+                    <input type="hidden" name="MAX_FILE_SIZE" value="12345">
 				</div>
               
               <div>
 					<label for="imageprofil">
 						Photo de profil:
 					</label>
-					<input type="text" class="input-medium search-query" class="form-control" name="imageprofil" placeholder= "Chemin pour l'image" />
+					<!--<input type="text" class="input-medium search-query" class="form-control" name="imageprofil" placeholder= "Chemin pour l'image" />-->
                   <br>
-                    <input type="file" name="nom"/>
+                    <input type="file" name="imageprofil" id="imageprofil"/>
+                    <input type="hidden" name="MAX_FILE_SIZE" value="12345">
+                    
+                  <?php /*
+                        mkdir('fichier2/1',0777, true);
+                        $nom=md5(uniqid(rand(),true));  
+                        $resultat=move_uploaded_file($_FILES['imageprofil']['tmp_name'], $nom);
+                        if($resultat){echo "coucou";}
+                        */
+                    ?>
+                  
+                  
 				</div>
               
               

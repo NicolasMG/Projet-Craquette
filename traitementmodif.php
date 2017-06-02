@@ -18,21 +18,44 @@
  
 if(isset($_POST['modif'])){
       
-    
-    if(!empty($_POST['imagecouverture'])){ 
-          $imagecouverture = $_POST['imagecouverture']; 
-          $response =$bdd->query('Update profil set imagecouverture="'.$imagecouverture.'" WHERE email="'.$mail.'"'); 
+    if(!$_FILES['imagecouverture']['error']>0){
+    if(!empty($_FILES['imagecouverture'])){ 
+          $imagecouverture = $_FILES['imagecouverture']; 
+          //if($imagecouverture==NULL){echo "c'est null";} ;
+        /*  $response =$bdd->query('Update profil set imagecouverture="'.$imagecouverture.'" WHERE email="'.$mail.'"'); 
+          $row = $response->fetch();
+          echo($row['imagecouverture']);*/
+                   
+                $nom1=md5(uniqid(rand(),true)); 
+                $nom="Images/$nom1";
+                $resultat=move_uploaded_file($_FILES['imagecouverture']['tmp_name'], $nom);
+                //if($resultat){echo "coucou";}
+          
+          $response =$bdd->query('Update profil set imagecouverture="Images/'.$nom1.'" WHERE email="'.$mail.'"'); //ok
           $row = $response->fetch();
           echo($row['imagecouverture']);
-        
-      }
+      }}
     
-      if(!empty($_POST['imageprofil'])){ 
-          $imageprofil = $_POST['imageprofil']; 
-          $response =$bdd->query('Update profil set imageprofil="'.$imageprofil.'" WHERE email="'.$mail.'"'); 
+      if(!empty($_FILES['imageprofil'])){ 
+          $imageprofil = $_FILES['imageprofil']['name']; 
+        /*  $response =$bdd->query('Update profil set imageprofil="Images/'.$imageprofil.'" WHERE email="'.$mail.'"'); 
           $row = $response->fetch();
           echo($row['imageprofil']);
-          copy("'.$imageprofil.'","Images/licorne.png");
+          echo("salut");*/
+          
+               // mkdir('fichier6',0777, true); //fichier cré               
+                $nom1=md5(uniqid(rand(),true)); 
+                $nom="Images/$nom1";
+                $resultat=move_uploaded_file($_FILES['imageprofil']['tmp_name'], $nom);
+                //if($resultat){echo "coucou";}
+          
+          $response =$bdd->query('Update profil set imageprofil="Images/'.$nom1.'" WHERE email="'.$mail.'"'); //ok
+          $row = $response->fetch();
+          echo($row['imageprofil']);
+          //echo("salut");
+          //echo($row['imageprofil']);
+                
+            
       }
     
     
