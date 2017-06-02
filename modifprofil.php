@@ -40,6 +40,8 @@
 						Photo de profil:
 					</label>
 					<input type="text" class="input-medium search-query" class="form-control" name="imageprofil" placeholder= "Chemin pour l'image" />
+                  <br>
+                    <input type="file" name="nom"/>
 				</div>
               
               

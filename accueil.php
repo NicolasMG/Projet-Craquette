@@ -27,7 +27,15 @@
                     echo($row['imageprofil']);               
                                          ?>" >  </a>
        <!-- <a href='profil.php'><img class="img-circle" style="display:block; position:absolute; left:5%; top:4%; width:33%; height:12%;" src="Images/photo_profil.jpg" alt="photo_profil" title="photo_profil"/></a>-->
-            <p style="display:block; position:absolute; left:12.5%; top:2.5%;font-weight: bold; color:white;">Jean-Michel LeSaumon</p>
+            <p style="display:block; position:absolute; left:12.5%; top:2.5%;font-weight: bold; color:black;"><?php $response = $bdd->query('SELECT prenom FROM profil WHERE email="'.$mail.'"'); 
+                                        $row = $response->fetch();
+                                        echo($row['prenom']); 
+                        ?> <?php  $response =$bdd->query('SELECT nom FROM profil WHERE email="'.$mail.'"'); 
+                                        $row = $response->fetch();
+                                        echo($row['nom']);
+                    
+                    
+                    ?>
             <a href="deconnexion.php" ><button type="submit" class="btn" style="display:block; position:absolute; left:50%; top:15%;">Se déconnecter</button></a>
         </div>
         <div id="groupes">
@@ -49,15 +57,22 @@
         </div>
     </div>
     <div id="contenu_centre">
-        <div id="post">
-            <div class="textemessage">
-                Poster un message :
-                <textarea name="message" rows="3" cols="200"></textarea>
-                <button type="submit" class="btn">Publier</button>        
-            </div>
-        </div>
+        
         <div id="filactualite">
-                  
+               <div id="conteneur_du_post">
+				
+				<div id="conteneur_du_post_2">
+					
+					<img src="Images/profil.png" />
+					
+					
+					<form method="post" action="traitement2.php">
+						<textarea cols="46" row='8' name="message" placeholder="Quoi de neuf ?"></textarea>
+						<input value="Craquetter" type="submit" name="craquetter"/>
+					</form>
+				</div>
+			<?php include ('news_accueil.php') ; ?>
+			</div>   
         </div>
     </div>
 
@@ -67,7 +82,7 @@
             <p>Groupe Ensisa</p>
             <p>Groupe Enscmu</p>
             <p>Groupe Potes</p>
-            <button type="submit" class="btn" style="display:block; position:absolute; left:17%; top:15%;">Créer un groupe</button>
+            <a href="creegroup.php"><button type="submit" class="btn" style="display:block; position:absolute; left:17%; top:15%;">Créer un groupe</button></a>
         </div>
     </div>
     <div id="calendrier">
