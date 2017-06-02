@@ -1,5 +1,14 @@
 <!doctype html>
 <html lang="fr">
+    
+    <?php
+       try{ 
+        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); 
+    }
+    catch(Exception $e){ 
+        die('Erreur : '.$e->getMessage()); 
+    }
+    ?>
 
 	<head> <!-- en tête du fichier -->
 		<meta charset="utf-8"/>
@@ -36,5 +45,6 @@ function myFunction() {
 </script>
 
 		</header>
+    
 		
 		
