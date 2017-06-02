@@ -63,9 +63,7 @@ if(!empty($_POST['mail'])) {
         }
     }
 }
+echo "<script>window.location = "."'".$droitconnexion."'"."</script>";
 ?>
-        <!DOCTYPE html>
-       <a href="<?php echo $droitconnexion ?>">mon compte</a>
-    <!--peut etre inserer ailleur/autrement pour pas avoir de page en plus-->
-
+        
 
