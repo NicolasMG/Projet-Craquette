@@ -57,15 +57,22 @@
         </div>
     </div>
     <div id="contenu_centre">
-        <div id="post">
-            <div class="textemessage">
-                Poster un message :
-                <textarea name="message" rows="3" cols="200"></textarea>
-                <button type="submit" class="btn">Publier</button>        
-            </div>
-        </div>
+        
         <div id="filactualite">
-                  
+               <div id="conteneur_du_post">
+				
+				<div id="conteneur_du_post_2">
+					
+					<img src="Images/profil.png" />
+					
+					
+					<form method="post" action="traitement2.php">
+						<textarea cols="46" row='8' name="message" placeholder="Quoi de neuf ?"></textarea>
+						<input value="Craquetter" type="submit" name="craquetter"/>
+					</form>
+				</div>
+			<?php include ('news_accueil.php') ; ?>
+			</div>   
         </div>
     </div>
 
