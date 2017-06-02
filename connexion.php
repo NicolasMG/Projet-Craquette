@@ -21,14 +21,27 @@ if(!empty($_POST['mail'])) {
     
         echo $_POST['MDP'];
         $MDP=$_POST['MDP'];
+        echo $MDP;
     if(!empty($MDP)){
-        $sql=$bdd->prepare('Select motDePasse From profil Where email="'.$mail.'"');
+        echo 'test2';
+        $sql=$bdd->prepare('Select motDePasse,Nom,Prenom,id From profil Where email="'.$mail.'"');
         $sql->execute(array('.$email.'=>$_POST['mail']));
         $sel = $sql->fetch();
+        
+        echo "<br>";
         echo $sel['motDePasse'];
-        $testMotDePass = password_verify($MDP, $sel['motDePasse']);
-        echo $testMotDePass;
-        if($testMotDePass != 0) {
+
+        $self=$sel['motDePasse'];
+        echo $sel['id'];
+            $option = [
+                $sel['Nom']=> $sel['id'],
+                $sel['Prenom'] => $sel['id'] + 5,
+            ];
+            $MDPS = password_hash($MDP,PASSWORD_DEFAULT, $option);
+
+
+        
+        if(password_verify($MDPS, $self)) {
                 
             if($reponse2){
 
@@ -49,7 +62,7 @@ if(!empty($_POST['mail'])) {
         session_start();
         $_SESSION['mail']=$_POST['mail'];//s="rachel.noireau@uha.fr";
         echo $_SESSION['mail'];
-        
+        echo "<br>";
        $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
        $row = $response->fetch();
         echo($row['id']);

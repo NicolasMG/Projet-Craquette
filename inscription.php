@@ -80,7 +80,7 @@
 					<label for="MDP">
 						Mot de passe:
 					</label>
-					<input type="password" class="input-medium search-query" name="MPD" placeholder= "Votre mot de passe" />
+					<input type="password" class="input-medium search-query" name="MDP" placeholder= "Votre mot de passe" />
 				</div>
                 
                  <div>

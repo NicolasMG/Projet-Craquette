@@ -17,6 +17,11 @@
     $id=$id+1;*/
 //$id = $reponse->fetch();
      //$reponse2 = $bdd->query('SELECT * FROM profil ORDER BY id DESC'); 
+        $sql=$bdd->prepare('SELECT max(Id) FROM profil ');
+        $sql->execute();
+        $id = $sql->fetch();
+
+
 ?>
     
 
@@ -49,43 +54,66 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
 	if(!empty($_POST['nom'])){ // si le champ nom a été rempli
 		$nom = $_POST['nom']; // stocker la valeur qu'il contient dans une variable
 		
-		if(!empty($_POST['prenom'])){ 
+		if(!empty($_POST['prenom'])){
 			$prenom = $_POST['prenom'];     
 				
-			if(!empty($_POST['mail'])){ 
+			if(!empty($_POST['mail'])){
 				$mail = $_POST['mail'];
 				
-				if(!empty($_POST['datenaissance'])){ 
+				if(!empty($_POST['datenaissance'])){
 					$date = $_POST['datenaissance'];
 					
 					if(!empty($_POST['promo'])){ 
 						$promo = $_POST['promo']; 
 						
-						if(!empty($_POST['filiere'])){ 
-							$filiere = $_POST['filiere']; 
-                                
+						if(!empty($_POST['filiere'])){
+							$filiere = $_POST['filiere'];
+                            
+                                echo 'hello';
                                 $MDP=$_POST['MDP'];
                                 $MDPC=$_POST['MDPconfirmation'];
-						 	if(!empty($MDP)) {
-                                if($MDP == $MDPC){ 
-                                    $id = $id + 1 ; //id est auto incrementé se serai mieux
-                                    $option = [
-                                        $nom -> $id,
-                                        $prenom -> $id + 5,
-                                    ];
-                                    $sel = password_hash($motDePass,PASSWORD_DEFAULT, $option);*/
-                                     
                             
-                                     //VERIFIER L'ADRESSE MAIL
-                                    //SI C'EST BIEN QQN DE L'ENSISA:                                   
+						 	if(!empty($MDP) && !empty($MDPC)) {
+                                
+                                echo ' ici ';
+                                
+                                if($MDP == $MDPC){ 
+                                    $ide = $id[0] ; //id est auto incrementé se serai mieux
+                                    $option = [
+                                        $nom => $ide + 1,
+                                        $prenom => $ide + 6,
+                                    ];
+                                    echo "<br>";
+                                    echo $MDP;
+                                    $sel = password_hash($MDP,PASSWORD_DEFAULT, $option);
+                                                                 
 
                                     $reponse=$bdd->prepare('Select email From profil Where email="'.$mail.'"');
                                     $mail=htmlentities($_POST['mail']);
                                     $reponse->execute(array('.$mail.'=>$_POST['mail']));
                                     $reponse2=$reponse->fetch();
+                                    
                                     if(!$reponse2){
-                                        
-                                        $insertion = $bdd->prepare('INSERT INTO profil VALUES(22,"'.$nom.'","'.$prenom.'","$MDP","'.$mail.'","'.$date.'","'.$promo.'","'.$filiere.'","NULL","NULL","Images/profilpardefaut.png","Images/couverturepardefaut.jpg","NULL")'); // préparation de la requête d'insertion dans la base de données
+                                        echo "ca marche";
+                                        echo "<br>";
+                                        echo $ide +1;
+                                        echo "<br>";
+                                        echo $nom;
+                                        echo "<br>";
+                                        echo $prenom;
+                                        echo "<br>";
+                                        echo $sel;
+                                        echo "<br>";
+                                        echo $mail;
+                                        echo "<br>";
+                                        echo $date;
+                                        echo "<br>";
+                                        echo $promo;
+                                        echo "<br>";
+                                        echo $filiere;
+                                        echo "<br>";
+                                        $idef = $ide +1 ;
+                                        $insertion = $bdd->prepare('INSERT INTO profil VALUES("'.$idef.'","'.$nom.'","'.$prenom.'","'.$sel.'","'.$mail.'","'.$date.'","'.$promo.'","'.$filiere.'","NULL","NULL","Images/profilpardefaut.png","Images/couverturepardefaut.jpg","NULL")'); // préparation de la requête d'insertion dans la base de données
                                         $insertion->execute();  // exécution de l'insertion
                                         
                                         
@@ -97,9 +125,8 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                                         $bouton="Voir mon profil";
                                         $valideinscription="profil.php";
                                     }
-                               /* }
-
-                            }*/
+                                }
+                            }
                         }   //REMETTRE SEL ET ID DANS LA DERNIERE REQUETE SQL
                     }
                 }
