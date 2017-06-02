@@ -1,12 +1,12 @@
 <?php
     echo "hello :";
     echo "<br>";
-    $password = "JFK\@";
+    $password = "Test";
     echo $password;
     echo "<br>";
     
-    $name = 'food';
-    $prenom = 'eat';
+    $name = 'Test';
+    $prenom = 'Test';
     $id = 4;
     $options = [
         $name => $id,

@@ -21,7 +21,7 @@
 
 
 
-        <h4>Oups...il y a une Erreur dans votre email ou dans votre mot de passe...</h4>
+        <h4>Merci de bien remplir tous les champs requis</h4>
 
 
             <form class="form-horizontal" method="post" action="connexion.php" >
