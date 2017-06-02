@@ -84,7 +84,8 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                                     $reponse->execute(array('.$mail.'=>$_POST['mail']));
                                     $reponse2=$reponse->fetch();
                                     if(!$reponse2){
-                                        $insertion = $bdd->prepare('INSERT INTO profil VALUES(20,"'.$nom.'","'.$prenom.'","NULL","'.$mail.'","'.$date.'","'.$promo.'","'.$filiere.'","NULL","NULL","Images/profilpardefaut.png","Images/couverturepardefaut.jpg","NULL")'); // préparation de la requête d'insertion dans la base de données
+                                        
+                                        $insertion = $bdd->prepare('INSERT INTO profil VALUES(22,"'.$nom.'","'.$prenom.'","NULL","'.$mail.'","'.$date.'","'.$promo.'","'.$filiere.'","NULL","NULL","Images/profilpardefaut.png","Images/couverturepardefaut.jpg","NULL")'); // préparation de la requête d'insertion dans la base de données
                                         $insertion->execute();  // exécution de l'insertion
                                         
                                         
