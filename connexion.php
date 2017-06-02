@@ -13,7 +13,7 @@ $droitconnexion="erreurconnexion.php"; //SI UN DES IF N'EST PAS VERIFIER RENVOIE
 //verification de l'adress mail :
 if(!empty($_POST['mail'])){
     $mail=$_POST['mail'];
-    $requete='Select email From profil Where email="'.$mail.'"';
+    //$requete='Select email From profil Where email="'.$mail.'"';
     $reponse=$bdd->prepare('Select email From profil Where email="'.$mail.'"');
     $mail=htmlentities($_POST['mail']);
     $reponse->execute(array('.$mail.'=>$_POST['mail']));

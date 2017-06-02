@@ -40,6 +40,9 @@
 
 
 <?php
+$valideinscription="erreurinscription.php";
+$message="Oups....une erreur c'est glisser dans votre formulaire d'inscription";
+$bouton="recommencer";
 
 if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
 
@@ -71,9 +74,28 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                                         $prenom -> $id + 5,
                                     ];
                                     $sel = password_hash($motDePass,PASSWORD_DEFAULT, $option);*/
-                                    
-                                    $insertion = $bdd->prepare('INSERT INTO profil VALUES(20,"'.$nom.'","'.$prenom.'","NULL","'.$mail.'","'.$date.'","'.$promo.'","'.$filiere.'","NULL","NULL","Images/profilpardefaut.png","Images/couverturepardefaut.jpg","NULL")'); // préparation de la requête d'insertion dans la base de données
-                                    $insertion->execute();  // exécution de l'insertion
+                                     
+                            
+                                     //VERIFIER L'ADRESSE MAIL
+                                    //SI C'EST BIEN QQN DE L'ENSISA:                                   
+
+                                    $reponse=$bdd->prepare('Select email From profil Where email="'.$mail.'"');
+                                    $mail=htmlentities($_POST['mail']);
+                                    $reponse->execute(array('.$mail.'=>$_POST['mail']));
+                                    $reponse2=$reponse->fetch();
+                                    if(!$reponse2){
+                                        $insertion = $bdd->prepare('INSERT INTO profil VALUES(20,"'.$nom.'","'.$prenom.'","NULL","'.$mail.'","'.$date.'","'.$promo.'","'.$filiere.'","NULL","NULL","Images/profilpardefaut.png","Images/couverturepardefaut.jpg","NULL")'); // préparation de la requête d'insertion dans la base de données
+                                        $insertion->execute();  // exécution de l'insertion
+                                        
+                                        
+                                        session_start();
+                                        $_SESSION['mail']= $mail;
+                                        
+                                       
+                                        $message="Votre profil a bien été créé.";
+                                        $bouton="Voir mon profil";
+                                        $valideinscription="profil.php";
+                                    }
                                /* }
 
                             }*/
@@ -85,27 +107,25 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
     }
 }
      
-//VERIFIER L'ADRESSE MAIL
-      //SI C'EST BIEN QQN DE L'ENSISA:
-            session_start();
-            $_SESSION['mail']= $mail;
+            //session_start();
+            //$_SESSION['mail']= $mail;
             
             
             
-
+            /*
            $response =$bdd->query('SELECT nom FROM profil WHERE email="'.$mail.'"'); 
-         $row = $response->fetch();
+            $row = $response->fetch();
             echo($row['nom']); 
- ?>        
-            <p> 
-            <br>
-                Votre profil a bien été créé.
+            */
             
-            </p>
- <a href='profil.php'><button type="submit" class="btn">Voir mon profil</button></a>
+            echo($message);
+            
+          
+ ?>        
+           <p><br></p> 
+ <a href='<?php echo $valideinscription;  ?>'><button type="submit" class="btn"><?php echo $bouton; ?></button></a>
          <p><br></p> 
 <?php
-             echo '<p>'.$prenom.' '.$nom.', merci de nous rejoindre .</p>';          
-                    
-             echo '<p>'.$filiere.' '.$promo.', merci de nous rejoindre .</p>';  
+             echo '<p>'.$prenom.' '.$nom.', merci de nous rejoindre .</p>';      //peutetre changer ça    
+                     
 ?>

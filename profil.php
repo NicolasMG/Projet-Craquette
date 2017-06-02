@@ -1,6 +1,6 @@
 <p><br><br><br></p>
 <?php
-
+   
     include('header.php');
     try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
