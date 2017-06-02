@@ -1,12 +1,26 @@
+<br><br><br><br>
 <?php
+session_start();
 include('entete.php');
 
 
-if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
-
-	if(!empty($_POST['nom'])){ // si le champ nom a été rempli
-		$nom = $_POST['nom'];
+if(isset($_POST['creegroupe'])){ 
+	if(!empty($_POST['nomgroupe'])){ 
+		$nom = $_POST['nomgroupe'];
+        $id=$_SESSION['ID'];
+        $insertion = $bdd->prepare('insert into groupe values("'.$id.'","'.$nom.'","administrateur","NULL","NULL")'); 
+        $insertion->execute();    
+        //peut etre photo par defaut
     }
 }
-        
+
+
+
 ?>
+<section>
+<p>Votre groupe a bien été crée.</p>
+    <br>
+
+<a href='groupe.php'><button type="submit" class="btn">Voir mon groupe.</button></a>
+
+</section>

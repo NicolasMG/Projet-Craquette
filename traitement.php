@@ -112,6 +112,7 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                                         
                                         session_start();
                                         $_SESSION['mail']= $mail;
+                                        $_SESSION['ID']=$idef;
                                         
                                        
                                         $message="Votre profil a bien été créé.";

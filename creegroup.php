@@ -7,13 +7,14 @@
 ?>
 <section>
     <p><br><br><br><br></p>
-    <h4>Crée un group d'ami(e)s</h4>
-    <form method="post"action="traitementgroup.php">
+    <h4>Crée un groupe d'ami(e)s</h4>
+    <form method="post" action="traitementgroup.php">
         
-        
-    <label for="nomgroup">Choisisez le nom du groupe:</label>
+     <p> 
+    <label for="nomgroupe">Choisisez le nom du groupe:</label>
         <br>
-    <input type="text" class="input-medium search-query" name="nomgroup" placeholder= "nom" /> 
+    <input type="text" class="input-medium search-query" name="nomgroupe" placeholder= "nom du groupe" /> 
+    </p>
         <br><br>
         
         
@@ -27,8 +28,9 @@
     <input type="text" class="input-medium search-query" name="profilgroup" placeholder= "photo de profil" /> 
         
         <br><br>
-        
-        <a href="traitementgroup.php"><button type="submit" class="btn" name="creegroup">Crée le groupe</button></a>
+        <p>
+        <input type="submit" name="creegroupe" value="Crée le groupe"/>
+        </p>
     </form> 
 
         <br>
