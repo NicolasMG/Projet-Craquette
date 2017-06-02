@@ -6175,8 +6175,10 @@ a.badge:focus {
  }
  /* ---------------------------------------------------PAGE ACCUEIL ------------------------------------------------------*/
  body {
-	background-color:white;
+     background-image:url(images/gradientby3.jpg);
+     background-attachment:fixed;
  }
+
 
 header{
 	width:100%; 
@@ -6203,15 +6205,15 @@ p .inscription{
     width: 100%;
     height: 100%;
 }
-.inlineblock #contenu_gauche,#contenu_centre,#contenu_droite,#calendrier{
+.inlineblock #contenu_gauche,#contenu_centre,#contenu_droite,#calendrier,.vide_gauche,.vide1,.vide2{
     display:inline-block;
     vertical-align:top;
 }
-
-#contenu_gauche,#contenu_droite,#filactualite,#post, #amis,.cal_calendrier,.cal_calendrier th,.cal_calendrier td{
+/*
+#contenu_gauche,#contenu_droite,#filactualite,#post,.cal_calendrier,.cal_calendrier th,.cal_calendrier td{
     border:1px solid black;
 }
-
+*/
 #contenu_gauche, #post, #filactualite,#contenu_droite,#calendrier{
     margin-top:50px;
 }
@@ -6221,8 +6223,32 @@ p .inscription{
 }
 
 
+.vide1{
+    width:1%;
+    height: 10000px;
+    background-color: white;
+    margin-left:16%;
+    margin-right:-17%;
+}
+
+.vide2{
+    margin-left: -0.25%;
+    width:0.7%;
+    height: 10000px;
+    background-color: white;
+    margin-right: -2%;
+
+}
+
+.vide_gauche{
+    width:11%;
+    height:10000px;
+    background-color: white;
+    margin:0;
+}
+
 #contenu_gauche{
-    margin-left:11%;
+    /*margin-left:11%;*/
     height: 875px;
     width: 16%;
     position: fixed;
@@ -6254,7 +6280,11 @@ p .inscription{
 
 
 #contenu_centre {
+    margin-left: 16.5%; 
     width: 35%;
+    background-color: white;
+    height:10000px;
+
 }
 
 #post{
@@ -6273,10 +6303,11 @@ p .inscription{
     height: 10000px;
 }
 
+
 #contenu_droite{
-    margin-left:0.3%;
-    width:12%;
-    height: 875px;
+    margin-left:2%;
+    width:16%;
+    height:100%;
     position: fixed;
     padding:0.3%;
     display:inline-block;
@@ -6285,11 +6316,11 @@ p .inscription{
 }
 
 #amis{
-    width: 81%;
+    width: 110%;
     padding-left:18%;
     padding-top:10%;
-    overflow:scroll;
-    height: 850px;
+  /*  overflow:scroll;*/
+    height: 100%;
 }
 
 #couverture{
@@ -6298,8 +6329,11 @@ p .inscription{
 }
 /* ------------------------------CALENDRIER------------------------------------------ */
 #calendrier{
-    margin-left:13.5%;
+    background-color: white;
+    height:1000px;
+    margin-left:18.2%;
     position: fixed;
+    padding-left:0.5%;
     width:50%;
 
 }
@@ -6353,6 +6387,7 @@ ul #menu_horizontal {
     background-repeat: no-repeat;*/
 
 }
+
 
 
 .topnav .contenu_entete a {
@@ -6499,6 +6534,8 @@ margin-left: 20%;
 #conteneur_du_post_2 img{
     height:50%;
     width:10%;
+    margin:10px;
+    margin-left:20px;
 }	
 
 #conteneur_du_post_2 form{
@@ -6506,7 +6543,9 @@ margin-left: 20%;
 	flex-direction:column;
 	justify-content:center;
 	align-items:flex-end;
-    margin-left:24%;
+    margin-left:20%;
+    margin-right: 10%;
+    margin-bottom: -2%;
 }
 
 #conteneur_du_post_2 form input{
