@@ -127,5 +127,6 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
          <p><br></p> 
 <?php
              echo '<p>'.$prenom.' '.$nom.', merci de nous rejoindre .</p>';      //peutetre changer ça    
-                     
+				
+			
 ?>
