@@ -6719,6 +6719,119 @@ img{
 	margin-top:0;
 	height:auto;
 }
+/**************************************************   fil d'actualité ************************************************************************/
+
+
+#filactualite{
+    
+    border:5px solid yellow;
+    margin-right:10px;
+    padding:0px;
+    
+    width:600px;
+    background-color:rgba(0,0,0,0.5);
+	height:3000px;
+	
+}
+#conteneur_du_post{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+}
+#acceuil_droit{
+	/*position:absolute;*/
+	border:5px solid yellow;
+	height:150px;
+	background-color:rgba(0,0,0,0.5);
+	width:150px;
+	
+
+}
+#conteneur_du_post_2{
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+	border:1px solid yellow;
+	height:100px;
+	
+	
+}
+#conteneur_du_post_2 img{
+		height:50px;
+		width:50px;
+	
+}	
+form{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:flex-end;
+}
+form input{
+	width:100px;
+	
+}
+textarea{
+	width:530px;
+	height:300px;
+	
+}
+
+
+#conteneur_newsfeed{
+    display:flex;
+	flex-direction:row;
+	justify-content:flex-start;
+	border:1px solid yellow;
+	margin-top:3px;
+	
+}
+#conteneur_newsfeed img{
+	margin-right:10px;
+	margin-left:6px;
+}
+
+#contenu_droit{
+	display:flex;
+	flex-direction:column;
+	justify-content:flex-end;
+	align-items:flex-start;
+	/*position:relative;*/
+	width:100%;
+	
+	
+}
+
+#contenu_int{
+	/*position:absolute;*/
+	top:10px;
+	background-color:rgba(255,255,255,0.5);
+    font-family:monospace;
+	border:0.5px solid yellow;
+	margin-top:-15px;
+    height:50px;
+	width:99%;
+	padding-top:0;
+}
+img{
+	width:50px;
+	height:50px;
+}
+#nom_profil{
+	color:white;
+	padding:0;
+	margin-top:0;
+	height:auto;
+}
+
+
+/*.id{
+   font-size:40px;
+   color:blue;
+   float:left;
+}*/
+
+	
 
 
 
