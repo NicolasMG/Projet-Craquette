@@ -5,33 +5,35 @@
 include('header.php');
 session_start();
 if(isset($_POST['creegroupe'])){ 
-	if(!empty($_POST['nomgroupe'])){ 
+	if(!empty($_POST['nomgroupe'])){
+        echo("coucou");
 		$nom = $_POST['nomgroupe'];
         $id=$_SESSION['ID'];
-        $insertion = $bdd->prepare('insert into groupe values("'.$id.'","'.$nom.'","administrateur","NULL","NULL")'); 
+        $insertion = $bdd->query('insert into groupe values("'.$id.'","'.$nom.'","administrateur","NULL","NULL")'); 
         $insertion->execute();    
         //peut etre photo par defaut
+        
     }
 }
 
 ?>
 
 <section>
-<br><br><br>
-    <form method="post" action="traitementajout.php">
+<br><br><br><!--action="traitementajout.php"-->
+    <form method="post">
 
     <p> 
     <label for="nomgroupe">Choisissez le(s) membre(s) à rajouter :</label>
         </p>   <br>
 <p>
         <br>
-    <input type="text" class="input-medium search-query" name="membre1" placeholder= "membre" /> 
+    <input type="text" class="input-medium search-query" name="membre" value="<?php if (isset($_POST['membre'])) echo htmlentities($_POST['membre']);?>"placeholder= "membre" /> 
         </p>    
         <br>   
         
         
      <p>   
-    <input type="text" name="ajoutmembre" value="<?php if (isset($_POST['ajoutmembre'])) echo htmlentities($_POST['membre']);?>"/>
+   <input type="submit" name="ajoutmembre" value="ajouter"/>
          
         
     </p> 
@@ -43,10 +45,11 @@ if(isset($_POST['creegroupe'])){
 	if(!empty($_POST['membre'])){ 
         $membre1=$_POST['membre'];
         $mail=$membre1;//peut etre a changer
-        
+        $nom = $_POST['nomgroupe'];
             $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
             $row = $response->fetch();
-            $id=($row['filiere']);
+            $id=($row['id']);
+           
         $insertion2 = $bdd->prepare('insert into groupe values("'.$id.'","'.$nom.'","membre","NULL","NULL")'); 
         $insertion2->execute();
     }

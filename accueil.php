@@ -82,7 +82,7 @@
             <p>Groupe Ensisa</p>
             <p>Groupe Enscmu</p>
             <p>Groupe Potes</p>
-            <button type="submit" class="btn" style="display:block; position:absolute; left:17%; top:15%;">Créer un groupe</button>
+            <button type="submit" class="btn" style="display:block; position:absolute; left:17%; top:15%;" name="newgroupe">Créer un groupe</button>
         </div>
     </div>
     <div id="calendrier">
