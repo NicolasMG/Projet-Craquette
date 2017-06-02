@@ -1,7 +1,9 @@
+
+<br>
+    <br>
 <?php
-
 include('header.php');
-
+session_start();
 if(isset($_POST['creegroupe'])){ 
 	if(!empty($_POST['nomgroupe'])){ 
 		$nom = $_POST['nomgroupe'];
@@ -29,7 +31,8 @@ if(isset($_POST['creegroupe'])){
         
         
      <p>   
-    <input type="submit" name="ajoutmembre" value="Ajoutez le(s) membre(s)"/>
+    <input type="text" name="ajoutmembre" value="<?php if (isset($_POST['email'])) echo htmlentities($_POST['memmbre'])?>"/>
+         
         
     </p> 
 
