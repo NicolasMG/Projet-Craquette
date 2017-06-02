@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <section>
+    <br><br>
 <?php
      session_start();
     
@@ -23,6 +24,7 @@ if(isset($_POST['modif'])){
           $response =$bdd->query('Update profil set imagecouverture="'.$imagecouverture.'" WHERE email="'.$mail.'"'); 
           $row = $response->fetch();
           echo($row['imagecouverture']);
+        
       }
     
       if(!empty($_POST['imageprofil'])){ 
@@ -30,6 +32,7 @@ if(isset($_POST['modif'])){
           $response =$bdd->query('Update profil set imageprofil="'.$imageprofil.'" WHERE email="'.$mail.'"'); 
           $row = $response->fetch();
           echo($row['imageprofil']);
+          copy("'.$imageprofil.'","Images/licorne.png");
       }
     
     
