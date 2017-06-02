@@ -8,7 +8,7 @@
 <section>
     <p><br><br><br><br></p>
     <h4>Crée un groupe d'ami(e)s</h4>
-    <form method="post" action="traitementgroup.php">
+    <form method="post" action="groupe.php">
         
      <p> 
     <label for="nomgroupe">Choisisez le nom du groupe:</label>
