@@ -64,10 +64,10 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
 						if(!empty($_POST['filiere'])){ 
 							$filiere = $_POST['filiere']; 
                                 
-						 	/*if(!empty($_POST['MDP'])) {
-                                echo("mot de passe detecter");
-                                if($_POST['MDP'] == $_POST['MDPconfirmation']){ 
-                                    $motDePass=$_POST['MDP'];
+                                $MDP=$_POST['MDP'];
+                                $MDPC=$_POST['MDPconfirmation'];
+						 	if(!empty($MDP)) {
+                                if($MDP == $MDPC){ 
                                     $id = $id + 1 ; //id est auto incrementé se serai mieux
                                     $option = [
                                         $nom -> $id,
@@ -85,7 +85,7 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                                     $reponse2=$reponse->fetch();
                                     if(!$reponse2){
                                         
-                                        $insertion = $bdd->prepare('INSERT INTO profil VALUES(22,"'.$nom.'","'.$prenom.'","NULL","'.$mail.'","'.$date.'","'.$promo.'","'.$filiere.'","NULL","NULL","Images/profilpardefaut.png","Images/couverturepardefaut.jpg","NULL")'); // préparation de la requête d'insertion dans la base de données
+                                        $insertion = $bdd->prepare('INSERT INTO profil VALUES(22,"'.$nom.'","'.$prenom.'","$MDP","'.$mail.'","'.$date.'","'.$promo.'","'.$filiere.'","NULL","NULL","Images/profilpardefaut.png","Images/couverturepardefaut.jpg","NULL")'); // préparation de la requête d'insertion dans la base de données
                                         $insertion->execute();  // exécution de l'insertion
                                         
                                         
