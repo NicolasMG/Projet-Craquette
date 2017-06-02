@@ -1,7 +1,7 @@
-<?php include('entete.php'); ?>
+
 <?php
-   
-    try{ 
+    include('entete.php');
+       try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
     }
     catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
@@ -15,8 +15,18 @@
 <div class="inlineblock">
     <div id="contenu_gauche">  
         <div id="profil">
-            <a href='profil.php'><img style="display:block; position:absolute; left:-1.5%; top:-1%; width:91%" src="Images/couverture.jpg" alt="couverture" title="couverture" /></a>
-        <a href='profil.php'><img class="img-circle" style="display:block; position:absolute; left:5%; top:4%; width:33%; height:12%;" src="Images/photo_profil.jpg" alt="photo_profil" title="photo_profil"/></a>
+            <a href='profil.php'><img style="display:block; position:absolute; left:-1.5%; top:-1%; width:91%"  alt="couverture" title="couverture" src="<?php 
+                    $response =$bdd->query('SELECT imagecouverture FROM profil WHERE email="'.$mail.'"'); 
+                    $row = $response->fetch();
+                    echo($row['imagecouverture']);                                              
+                                             ?>"></a>
+          <!--  <a href='profil.php'><img style="display:block; position:absolute; left:-1.5%; top:-1%; width:91%" src="Images/couverture.jpg" alt="couverture" title="couverture" /></a>-->
+            <a href='profil.php'><img class="img-circle" style="display:block; position:absolute; left:5%; top:4%; width:37%; height:12%;"  alt="photo_profil" title="photo_profil" src="<?php 
+                    $response =$bdd->query('SELECT imageprofil FROM profil WHERE email="'.$mail.'"'); 
+                    $row = $response->fetch();
+                    echo($row['imageprofil']);               
+                                         ?>" >  </a>
+       <!-- <a href='profil.php'><img class="img-circle" style="display:block; position:absolute; left:5%; top:4%; width:33%; height:12%;" src="Images/photo_profil.jpg" alt="photo_profil" title="photo_profil"/></a>-->
             <p style="display:block; position:absolute; left:12.5%; top:2.5%;font-weight: bold; color:white;">Jean-Michel LeSaumon</p>
             <a href="deconnexion.php" ><button type="submit" class="btn" style="display:block; position:absolute; left:50%; top:15%;">Se déconnecter</button></a>
         </div>
@@ -54,36 +64,10 @@
 
     <div id="contenu_droite">
         <div id="amis">
-            <p>Ami 1</p>
-            <p>Ami 2</p>
-            <p>Ami 3</p>
-            <p>Ami 4</p>
-            <p>Ami 5</p>
-            <p>Ami 6</p>
-            <p>Ami 7</p>
-            <p>Ami 8</p>
-            <p>Ami 9</p>
-            <p>Ami 9</p>
-            <p>Ami 9</p>
-            <p>Ami 9</p>
-            <p>Ami 9</p>
-            <p>Ami 9</p>
-            <p>Ami 9</p>
-            <p>Ami 9</p>
-            <p>Ami 9</p>
-            <p>Ami 9</p>
-            <p>Ami 9</p>
-            <p>Ami 9</p>
-            <p>Ami 9</p>
-            <p>Ami 9</p>
-            <p>Ami 9</p>
-            <p>Ami 9</p>
-            <p>Ami 9</p>
-            <p>Ami 9</p>
-            <p>Ami 9</p>
-            <p>Ami 9</p>
-            <p>Ami 9</p>
-            <p>...</p>
+            <p>Groupe Ensisa</p>
+            <p>Groupe Enscmu</p>
+            <p>Groupe Potes</p>
+            <button type="submit" class="btn" style="display:block; position:absolute; left:17%; top:15%;">Créer un groupe</button>
         </div>
     </div>
     <div id="calendrier">

@@ -24,11 +24,10 @@
 	<body>
 		<header> <!-- header = en tête page -->
 
-          <div style="height:50px;" class="topnav" id="myTopnav">
-              <img style="padding-left:320px;" class="headerimg" src='Images/logo.png' />
-              
-		      
-</div>
+        <div style="height:50px;" class="topnav" id="myTopnav">
+            <img style="padding-left:45%;" class="headerimg" src='Images/logo.png' />
+            <a href='emploidutemps.php'><button style="left:10%;" type="submit" class="btn">Emploi du temps</button></a>  
+        </div>
 
 
 
