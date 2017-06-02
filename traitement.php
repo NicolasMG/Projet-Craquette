@@ -10,13 +10,6 @@
 <p><br><br><br><br><br><br><br><br><br><br><br></p>
 
 <?php
-    /*
-	$id1 = $bdd ->query('SELECT max(Id) FROM profil ') ;// recupérer id suivant de base d
-    $id1->fetch();
-    $id=$id1['id'];
-    $id=$id+1;*/
-//$id = $reponse->fetch();
-     //$reponse2 = $bdd->query('SELECT * FROM profil ORDER BY id DESC'); 
         $sql=$bdd->prepare('SELECT max(Id) FROM profil ');
         $sql->execute();
         $id = $sql->fetch();
