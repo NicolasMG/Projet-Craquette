@@ -58,9 +58,7 @@ if(!empty($_POST['mail'])) {
 //}   // pas sur si on doit d'arreter ici ou plus loin (doute de mon niveau de php)
     }
 }
+echo "<script>window.location = "."'".$droitconnexion."'"."</script>";
 ?>
-        <!DOCTYPE html>
-       <a href="<?php echo $droitconnexion ?>">mon compte</a>
-    <!--peut etre inserer ailleur/autrement pour pas avoir de page en plus-->
-
+        
 
