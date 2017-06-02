@@ -31,13 +31,25 @@ if(isset($_POST['creegroupe'])){
         
         
      <p>   
-    <input type="text" name="ajoutmembre" value="<?php if (isset($_POST['email'])) echo htmlentities($_POST['memmbre'])?>"/>
+    <input type="text" name="ajoutmembre" value="<?php if (isset($_POST['ajoutmembre'])) echo htmlentities($_POST['membre']);?>"/>
          
         
     </p> 
+        
+        
+<?php
+    
+ if(isset($_POST['ajoutmembre'])){ 
+	if(!empty($_POST['membre'])){ 
+        $membre1=$_POST['membre'];
+        $mail=$membre1;//peut etre a changer
+        
+            $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
+            $row = $response->fetch();
+            $id=($row['filiere']);
+        $insertion2 = $bdd->prepare('insert into groupe values("'.$id.'","'.$nom.'","membre","NULL","NULL")'); 
+        $insertion2->execute();
+    }
+ }
 
-
-
-
-
-
+?>

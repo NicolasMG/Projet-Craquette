@@ -27,7 +27,15 @@
                     echo($row['imageprofil']);               
                                          ?>" >  </a>
        <!-- <a href='profil.php'><img class="img-circle" style="display:block; position:absolute; left:5%; top:4%; width:33%; height:12%;" src="Images/photo_profil.jpg" alt="photo_profil" title="photo_profil"/></a>-->
-            <p style="display:block; position:absolute; left:9%; top:20%;font-weight: bold; color:black;">Jean-Michel LeSaumon</p>
+            <p style="display:block; position:absolute; left:9%; top:20%;font-weight: bold; color:black;"><?php $response = $bdd->query('SELECT prenom FROM profil WHERE email="'.$mail.'"'); 
+                                        $row = $response->fetch();
+                                        echo($row['prenom']); 
+                        ?>  <?php  $response =$bdd->query('SELECT nom FROM profil WHERE email="'.$mail.'"'); 
+                                        $row = $response->fetch();
+                                        echo($row['nom']);
+                    
+                    
+                    ?> </p>
             <a href="deconnexion.php" ><button type="submit" class="btn" style="display:block; position:absolute; left:50%; top:15%;">Se déconnecter</button></a>
         </div>
         <div id="groupes">
