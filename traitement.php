@@ -7,6 +7,7 @@
     }
     include('header.php');
 ?>
+
 <p><br><br><br><br><br><br><br><br><br><br><br></p>
 
 <?php
@@ -62,13 +63,14 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
 						if(!empty($_POST['filiere'])){
 							$filiere = $_POST['filiere'];
                             
-                                echo 'hello';
-                                $MDP=$_POST['MDP'];
-                                $MDPC=$_POST['MDPconfirmation'];
+                                //echo 'hello';
                             
-						 	if(!empty($MDP) && !empty($MDPC)) {
+                            $MDP=$_POST['MDP'];
+                            $MDPC=$_POST['MDPconfirmation'];
+                            
+				            if(!empty($MDP) && !empty($MDPC)) {
                                 
-                                echo ' ici ';
+                                //echo ' ici ';
                                 
                                 if($MDP == $MDPC){ 
                                     $ide = $id[0] ; //id est auto incrementé se serai mieux
@@ -87,6 +89,7 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                                     $reponse2=$reponse->fetch();
                                     
                                     if(!$reponse2){
+                                        
                                       /*  echo "ca marche";
                                         echo "<br>";
                                         echo $ide +1;
@@ -105,6 +108,7 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                                         echo "<br>";
                                         echo $filiere;
                                         echo "<br>";*/
+                                        
                                         $idef = $ide +1 ;
                                         $insertion = $bdd->prepare('INSERT INTO profil VALUES("'.$idef.'","'.$nom.'","'.$prenom.'","'.$sel.'","'.$mail.'","'.$date.'","'.$promo.'","'.$filiere.'","NULL","NULL","Images/profilpardefaut.png","Images/couverturepardefaut.jpg","NULL")'); // préparation de la requête d'insertion dans la base de données
                                         $insertion->execute();  // exécution de l'insertion
@@ -121,7 +125,7 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                                     }
                                 }
                             }
-                        }   //REMETTRE SEL ET ID DANS LA DERNIERE REQUETE SQL
+                        }
                     }
                 }
             }
@@ -143,12 +147,10 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
             echo($message);
             
           
- ?>        
-           <p><br></p> 
- <a href='<?php echo $valideinscription;  ?>'><button type="submit" class="btn"><?php echo $bouton; ?></button></a>
-         <p><br></p> 
+?>        
+    <p><br></p> 
+    <a href='<?php echo $valideinscription;  ?>'><button type="submit" class="btn"><?php echo $bouton; ?></button></a>
+    <p><br></p> 
 <?php
-             echo '<p>'.$prenom.' '.$nom.', merci de nous rejoindre .</p>';      //peutetre changer ça    
-				
-			
+             echo '<p>'.$prenom.' '.$nom.', merci de nous rejoindre .</p>';      //peut etre changer ça    
 ?>
