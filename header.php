@@ -18,19 +18,19 @@
 	<head> <!-- en tête du fichier -->
 		<meta charset="utf-8"/>
 		<title>Craquette - Connexion</title>
-		<link rel="stylesheet" href="CSS/bootstrap.css"/>
+		<link rel="stylesheet" href="CSS/bootstrap7.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <script type="text/javascript" src="calendrier.js"></script>
 	</head>
 	<body>
 		<header> <!-- header = en tête page -->
 
         <div style="height:50px;" class="topnav" id="myTopnav">
-            <img style="padding-left:45%;" class="headerimg" src='Images/logo.png' />
-            <a href='emploidutemps.php'><button style="left:10%;" type="submit" class="btn">Emploi du temps</button></a>  
+            <img style="padding-left:48%;" class="headerimg" src='Images/logo.png' />
         </div>
 
 
 
 		</header>
-		
+		<section>
 		

@@ -1,4 +1,18 @@
 <!doctype html>
+<?php
+    //pour savoir a qui appartient la session et recuperer des donné
+   // session_start();
+   // $mail = $_SESSION['ID'];
+    try{ 
+        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); 
+    }
+    catch(Exception $e){ 
+        die('Erreur : '.$e->getMessage()); 
+    }
+
+
+?>
+
 <html lang="fr">
 
 	<head> <!-- en tête du fichier -->
@@ -8,7 +22,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <script type="text/javascript" src="calendrier.js"></script>
 	</head>
-	<body id="body_accueil">
+	<body id="body_profil">
 		<header> <!-- header = en tête page -->
 
         <div style="height:50px;" class="topnav" id="myTopnav">
@@ -27,16 +41,8 @@
             </div>
         </div>
 
-    <script>
-    function myFunction() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-            x.className += " responsive";
-        } else {
-            x.className = "topnav";
-        }
-    }
-    </script>
+
 
 		</header>
+		<section id="section_profil">
 		

@@ -36,7 +36,6 @@
                     
                     
                     ?> </p>
-            <a href="deconnexion.php" ><button type="submit" class="btn" style="display:block; position:absolute; left:50%; top:15%;">Se déconnecter</button></a>
         </div>
         <div id="groupes">
             <ul>Club

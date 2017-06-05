@@ -10,7 +10,7 @@
     session_unset();
 
 
-    echo("Déconnexion bien effectuer");
+    echo("Déconnexion bien effectuée");
 
 
 ?>

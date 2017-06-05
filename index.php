@@ -16,7 +16,6 @@
 
 
 
-    <section> <!-- Contenu principal de la page -->
        <h2>Connexion</h2>
 
             <form class="form-horizontal" method="post" action="connexion.php" >
@@ -34,11 +33,12 @@
                     placeholder="Mot de passe" />
                     
                 </div>
+                <p><a href="inscription.php">Mot de passe oublié ?</a></p>                
                 <p><a href="inscription.php">Pas de compte ? Inscrivez vous !</a></p>
+
                 <a href='connexion.php'><button type="submit" class="btn">Se connecter</button></a>
                 
             </form>
-    </section>
 
 <?php
 

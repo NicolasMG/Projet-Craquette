@@ -19,24 +19,6 @@
 ?>
     
 
-<html lang="fr">
-
-	<head> <!-- en tête du fichier -->
-		<meta charset="utf-8"/>
-		<title>Craquette - Connexion</title>
-		<link rel="stylesheet" href="bootstrap.css"/>
-	</head>
-	<body>
-		<header> <!-- header = en tête page -->
-            <p>
-                <img src="Images/logo.jpg" alt="logo" title="Logo de Craquette" height=100px width=100px/>
-            </p>
-            <p>Craquette</p>
-		</header>
-		
-		<section id="contenu"> <!-- Contenu principal de la page -->
-
-
 
 <?php
 $valideinscription="erreurinscription.php";
