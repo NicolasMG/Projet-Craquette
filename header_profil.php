@@ -1,18 +1,4 @@
 <!doctype html>
-<?php
-    //pour savoir a qui appartient la session et recuperer des donné
-   // session_start();
-   // $mail = $_SESSION['ID'];
-    try{ 
-        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); 
-    }
-    catch(Exception $e){ 
-        die('Erreur : '.$e->getMessage()); 
-    }
-
-
-?>
-
 <html lang="fr">
 
 	<head> <!-- en tête du fichier -->
@@ -33,14 +19,26 @@
                     <input class="input-medium search-query" style="border-radius:8px; font-size:17px;" type="text" name="Search" placeholder="Recherche..">
                 </form>
                 </a>
-                <a class="active" href="deconnexion.php"><span class="glyphicon glyphicon-off"></span></a>
+                <a class="active" href="emploidutemps.php"><span class="glyphicon glyphicon-off"></span></a>
                 <a class="active" href="accueil.php"><span class="glyphicon glyphicon-bell"></span></a>
                 <a class="active" href="accueil.php"><span class="glyphicon glyphicon-home"></span></a>
                 <a class="active"  href="profil.php"><span class="glyphicon glyphicon-cog"></span></a>
+                <a class="active"  href="emploidutemps.php"><span class="glyphicon glyphicon-calendar"></span></a>
                 <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+                
             </div>
         </div>
 
+        <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+        </script>
 
 
 		</header>
