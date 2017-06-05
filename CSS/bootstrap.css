@@ -6174,9 +6174,11 @@ a.badge:focus {
  	font-family: Helvetica, Arial;
  }
  /* ---------------------------------------------------PAGE ACCUEIL ------------------------------------------------------*/
- body {
-     background-image:url(images/gradientby3.jpg);
+ #body_profil,#body_accueil {
+     background-image:url(images/gradientby2.jpg);
      background-attachment:fixed;
+     background-size: 100% 100%;
+
  }
 
 
@@ -6184,7 +6186,7 @@ header{
 	width:100%; 
     position: fixed;
     top:0;
-    background-image:url(images/gradientby3.jpg);
+    background-image:url(images/gradientby.jpg);
     background-size: 100% 150px;
 }
 
@@ -6205,7 +6207,7 @@ p .inscription{
     width: 100%;
     height: 100%;
 }
-.inlineblock #contenu_gauche,#contenu_centre,#contenu_droite,#calendrier,.vide_gauche,.vide1,.vide2{
+.inlineblock #contenu_gauche,#contenu_centre,#contenu_droite,#calendrier,.vide_gauche,.vide1,.vide2,.vide_gaucheprofil,.vide_droitprofil{
     display:inline-block;
     vertical-align:top;
 }
@@ -6222,6 +6224,9 @@ p .inscription{
     margin-left:27.4%;
 }
 
+#amis,#contenu_gauche{
+    border-style: groove;
+}
 
 .vide1{
     width:1%;
@@ -6236,7 +6241,7 @@ p .inscription{
     width:0.7%;
     height: 10000px;
     background-color: white;
-    margin-right: -2%;
+    margin-right: -2.3%;
 
 }
 
@@ -6244,14 +6249,15 @@ p .inscription{
     width:11%;
     height:10000px;
     background-color: white;
-    margin:0;
+    margin:-0.2%;
 }
 
 #contenu_gauche{
     /*margin-left:11%;*/
-    height: 875px;
+    height: 94.7%;
     width: 16%;
     position: fixed;
+    
 }
 
 #profil{
@@ -6306,10 +6312,11 @@ p .inscription{
 
 #contenu_droite{
     margin-left:2%;
-    width:16%;
-    height:100%;
+    width:15.1%;
+    height:95.3%;
     position: fixed;
     padding:0.3%;
+    padding-top: 0;
     display:inline-block;
     vertical-align: top;
     
@@ -6330,7 +6337,7 @@ p .inscription{
 /* ------------------------------CALENDRIER------------------------------------------ */
 #calendrier{
     background-color: white;
-    height:1000px;
+    height:10000px;
     margin-left:18.2%;
     position: fixed;
     padding-left:0.5%;
@@ -6382,10 +6389,10 @@ ul #menu_horizontal {
 
 .topnav {
     overflow: hidden;
-   /* background-image:url('images/gradientby3.jpg');
+ /*   background-image:url('images/gradientby.jpg');
     background-size:1680px 50px;
-    background-repeat: no-repeat;*/
-
+    background-repeat: no-repeat;
+*/
 }
 
 
@@ -6424,7 +6431,7 @@ ul #menu_horizontal {
 @media screen and (max-width: 600px) {
     .topnav a:not(:first-child) {
         display: none;
-        background-image:url('images/gradientby3.jpg');
+        background-image:url('images/gradientby.jpg');
         background-size:1680px 50px;
         background-repeat: no-repeat;
     }
@@ -6452,31 +6459,71 @@ ul #menu_horizontal {
 
 /*------------------------------------------------------ PAGE PROFIL -------------------------------------------------------------------*/
 #Page{
-margin-left: 20%;
+    width:70%;
+    margin-left: auto;
 }
 
-#photosduprofil{
-    position:relative;
+#section_profil{
+    background-color: white;
+    text-align: left;
 }
+
+.vide_gaucheprofil{
+    width:27.7%;
+    height:10000px;
+    background-color: white;
+    margin:-0.2%;
+    margin-top:-10%;
+}
+
+.vide_droitprofil{
+    margin-left: 63.8%;
+    width:39.75%;
+    height: 10000px;
+    background-color: white;
+    margin-top:-270%;
+}
+
+
+#photosduprofil{
+    position:fixed;
+    top:50px;
+}
+
 #PhotoDeCouverture{
     width:100%;
 }
+
 #PhotoDeProfil{
     position:absolute;
     bottom:4px;
     left:3%;
-    width:13%;
+    width:20%;
+    height: 50%;
 }
 
 #PanneauGauche{
-    margin-top:0.3%;
-    width: 20%;
-    padding-left: 1%;
-    border:1px solid black;
+    background-image: url(images/gradientby.jpg);
+    background-size: 100% 100%;
+    margin-top:15.7%;
+    width: 15%;
+    border-style: groove;
+    height: 60.5%;
+    position:fixed;
+    display: inline-block;
 }
 
+#PanneauDroit{
+   /* border-style: groove;*/
+    margin-top:22.45%;
+    margin-left: 22.2%;
+    width: 41.3%;
+
+}
+
+
 #Page button{
-    position:absolute;
+    position:fixed;
 }
 #Information{
     display: flex;
@@ -6490,15 +6537,6 @@ margin-left: 20%;
 }
 
 
-#EmploiDuTEmpsDeLaSemaine{
-    bottom:8px;
-    left:8px;
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin-left: 2%;
-    margin-right: 2%;
-}
 /*------------------------------------------------FIL D'ACTUALITE--------------------------------------------------------------------*/
 #filactualite{
     
@@ -6545,7 +6583,7 @@ margin-left: 20%;
 	align-items:flex-end;
     margin-left:20%;
     margin-right: 10%;
-    margin-bottom: -2%;
+    margin-bottom: -1%;
 }
 
 #conteneur_du_post_2 form input{
@@ -6563,10 +6601,12 @@ margin-left: 20%;
     display:flex;
 	flex-direction:row;
 	justify-content:flex-start;
-	border:1px solid black;
+/*	border:1px solid black;*/
+    border-style: groove;
 	margin-top:3px;
     margin-bottom:5px;
-	background-color:darkgray;
+	background-image:url(images/gradientby.jpg);
+    background-size: 100% 100%;
     height: 100px;
 
 
@@ -6591,8 +6631,10 @@ margin-left: 20%;
 
 #contenu_int{
 	top:10px;
-	background-color:rgba(255,255,255,0.5);
-	border:0.5px solid black;
+	background-color:rgba(255,255,255,0.7);
+/*	border:0.5px solid black;*/
+    border-style: groove;
+    border-radius: 15px;
 	margin-top:-15px;
     height:80%;
 	width:95%;
@@ -6605,4 +6647,11 @@ margin-left: 20%;
 	padding:0;
 	margin-bottom:2.5%;
 	height:auto;
+}
+
+
+/*----------------------------------------------------------PAGE INDEX --------------------------------------------------------------------------*/
+
+section{
+    background-color: white;
 }
