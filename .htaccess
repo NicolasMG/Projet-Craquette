@@ -1,0 +1,7 @@
+
+
+
+
+# For security reasons, Option followsymlinks cannot be overridden.
+        #Options +FollowSymLinks
+        Options +SymLinksIfOwnerMatch
