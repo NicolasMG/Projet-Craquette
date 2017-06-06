@@ -113,7 +113,7 @@
         //SORTIR DE LA PAGE : genre peut etre vider $_SESSION et renvoyer sur la page de connexion
         session_unset();
         session_destroy();
-        $droitconnexion="./connexion.php";
+        $droitconnexion="./index.php";
         echo "<script>window.location = "."'".$droitconnexion."'"."</script>";
     }
 
