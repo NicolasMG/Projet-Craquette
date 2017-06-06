@@ -4,7 +4,7 @@
     <br>
 <?php
 session_start();
-include('header_profil.php');
+include('header_groupe.php');
 //session_start();
 if(isset($_POST['creegroupe'])){ 
 	if(!empty($_POST['nomgroupe'])){
