@@ -15,6 +15,6 @@
 
 ?>
 <br>
-    <a href='index.php'><button type="submit" class="btn">Se connecter sur une autre session</button></a>
+    <a href='../index.php'><button type="submit" class="btn">Se connecter sur une autre session</button></a>
 </section>  
 

@@ -6,33 +6,46 @@
         die('Erreur : '.$e->getMessage());
     }
     session_start();
-    $mail=$_SESSION['mail'];
-    $idef=$_SESSION['ID'];
-    $sel=S_SESSION['MDPS'];
-    
-    $sql=$bdd->prepare('SELECT email, motDePasse, Id FROM profil WHERE email="'.$mail.'"');
+    if(isset($_SESSION['mail']) && isset($_SESSION['ID'])){
+        $mail=$_SESSION['mail'];
+        $idef=$_SESSION['ID'];
+    }
+    else {
+        session_unset();
+        session_destroy();
+        $droitconnexion="../index.php";
+        echo "<script>window.location = "."'".$droitconnexion."'"."</script>";
+    }   
+        
+        
+    $sql=$bdd->prepare('SELECT email,Id FROM profil WHERE email="'.$mail.'"');
     $sql->execute();
     $basePerso = $sql->fetch();
 
-    if($basePerso["email"] == $mail && $basePerso["motDePasse"] == $sel && $basePerso["Id"] == $idef) {
-        //AUTORISATION D'ETRE SUR LA PAGE
-        
-        //
+    if($basePerso["email"] == $mail && $basePerso["Id"] == $idef) {
         ?>
-        <p><br><br><br></p>
+            //
+            
+            <p><br><br><br></p>
 <?php
    
     include('header_profil.php');
     try{ 
-        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root','');
+        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
     }
-    catch(Exception $e){
-        die('Erreur : '.$e->getMessage());
+    catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
+        die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
     }
         
     session_start();
     $mail=$_SESSION['mail'];
+    //$imageprofil=$bdd->query('SELECT imageprofil FROM profil WHERE email="'.$mail.'"');
+    //$photoprofil="Images/Cigogne%20proposition%20logo%201.png";
+
+    //$photocouverture="Images/Portrait_Unfallen_a.png";
 ?>
+
+
     <div class="vide_gaucheprofil" style="display:inline-block;"></div>
     <div style="display:inline-block;" id="Page">
         <div id="photosduprofil">
@@ -41,6 +54,11 @@
                         $row = $response->fetch();
                         echo($row['imagecouverture']);                                              
                                                  ?>">
+
+
+
+
+
                 <img id="PhotoDeProfil" src="<?php 
                         $response =$bdd->query('SELECT imageprofil FROM profil WHERE email="'.$mail.'"'); 
                         $row = $response->fetch();
@@ -64,15 +82,19 @@
                                             $row = $response->fetch();
                                             echo($row['nom']);
 
+
                         ?> 
+
                        <p>Prénom : <?php $response = $bdd->query('SELECT prenom FROM profil WHERE email="'.$mail.'"'); 
                                             $row = $response->fetch();
                                             echo($row['prenom']); 
                             ?> </p>
+
                         <p>Filière : <?php  $response =$bdd->query('SELECT filiere FROM profil WHERE email="'.$mail.'"'); 
                                             $row = $response->fetch();
                                             echo($row['filiere']);
                         ?></p>
+
                         <p>Promo : <?php  $response =$bdd->query('SELECT promo FROM profil WHERE email="'.$mail.'"'); 
                                             $row = $response->fetch();
                                             echo($row['promo']);
@@ -85,6 +107,7 @@
                                             $row = $response->fetch();
                                             echo($row['datenaissance']);
                         ?></p>
+
                         <p>Compétences :</p>
                         <p>CV : <a href="Documents/Mon%20CV.txt">Mon CV</a></p>    
                     </div>
@@ -92,8 +115,12 @@
         </div>
         <div id="PanneauDroit">
             <div id="conteneur_du_post">
+
                 <div id="conteneur_du_post_2">
+
                     <img class="img-circle" src="Images/profil.png" />
+
+
                     <form method="post" action="traitement_news.php">
                         <textarea cols="46" row='10' name="message" placeholder="Quoi de neuf ?"></textarea>
                         <input class="form-control" value="Craquetter" type="submit" name="craquetter"/>
@@ -102,25 +129,23 @@
             <?php include ('news_accueil.php') ; ?>
             </div>           
         </div>
-    <div class="vide_droitprofil" style="display:inline-block;"></div>
-<?php include('footer.php'); ?>
-        
-        //
 
-<?php
+    <div class="vide_droitprofil" style="display:inline-block;"></div>
+
+
+<?php include('footer.php'); ?>
+            
+            //
+        <?php
     }
     else {
-        //SORTIR DE LA PAGE : genre peut etre vider $_SESSION et renvoyer sur la page de connexion
+        
+        echo "coucou";
         session_unset();
         session_destroy();
-        $droitconnexion="./index.php";
-        echo "<script>window.location = "."'".$droitconnexion."'"."</script>";
+        
+        $droitconnexion="../index.php";
+        //echo "<script>window.location = "."'".$droitconnexion."'"."</script>";
     }
-
-
-    //REMARQUE: Header non inclu
 ?>
-
-
-
 

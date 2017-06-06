@@ -7,15 +7,7 @@
     catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
         die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
     }
-
-
-
 ?>
-
-
-
-
-
        <h2>Connexion</h2>
 
             <form class="form-horizontal" method="post" action="PHP/connexion.php" >
