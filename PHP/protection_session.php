@@ -17,7 +17,6 @@
         echo "<script>window.location = "."'".$droitconnexion."'"."</script>";
     }   
         
-        
     $sql=$bdd->prepare('SELECT email,Id FROM profil WHERE email="'.$mail.'"');
     $sql->execute();
     $basePerso = $sql->fetch();
@@ -25,7 +24,7 @@
     if(!$basePerso["email"] == $mail || !$basePerso["Id"] == $idef) {
         session_unset();
         session_destroy();
-        $droitconnexion="../index.php;
+        $droitconnexion="../index.php";
         echo "<script>window.location = "."'".$droitconnexion."'"."</script>";
     }
 ?>
