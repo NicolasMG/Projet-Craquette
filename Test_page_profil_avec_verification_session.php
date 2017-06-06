@@ -18,7 +18,7 @@
         //AUTORISATION D'ETRE SUR LA PAGE
         
         //
-        
+        ?>
         <p><br><br><br></p>
 <?php
    
@@ -106,6 +106,8 @@
 <?php include('footer.php'); ?>
         
         //
+
+<?php
     }
     else {
         //SORTIR DE LA PAGE : genre peut etre vider $_SESSION et renvoyer sur la page de connexion
