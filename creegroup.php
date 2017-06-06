@@ -21,7 +21,7 @@
             <label for="couverturegroup">Choisisez la photo de couverture:</label>
         <br>
     <input type="text" class="input-medium search-query" name="couverturegroup" placeholder= "photo de couverture" /> 
-        
+        <br>
         
             <label for="profilgroup">Choisisez la photo de profil:</label>
         <br>

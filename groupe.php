@@ -1,13 +1,17 @@
 
 <br>
+<br>
     <br>
 <?php
-include('header.php');
 session_start();
+include('header.php');
+//session_start();
 if(isset($_POST['creegroupe'])){ 
 	if(!empty($_POST['nomgroupe'])){
-        echo("coucou");
+        
 		$nom = $_POST['nomgroupe'];
+        $_SESSION['nomgroupe']=$_POST['nomgroupe'];
+        echo $nom;
         $id=$_SESSION['ID'];
         $insertion = $bdd->query('insert into groupe values("'.$id.'","'.$nom.'","administrateur","NULL","NULL")'); 
         $insertion->execute();    
@@ -40,12 +44,12 @@ if(isset($_POST['creegroupe'])){
         
         
 <?php
-    
+        echo $nom;
  if(isset($_POST['ajoutmembre'])){ 
 	if(!empty($_POST['membre'])){ 
         $membre1=$_POST['membre'];
         $mail=$membre1;//peut etre a changer
-        $nom = $_POST['nomgroupe'];
+        $nom = $_SESSION['nomgroupe'];
             $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
             $row = $response->fetch();
             $id=($row['id']);
