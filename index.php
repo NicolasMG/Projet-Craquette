@@ -1,4 +1,4 @@
-<?php include('header.php'); 
+<?php include('PHP/header.php'); 
 //PAS CE HEADER
 
  try{ 
@@ -18,7 +18,7 @@
 
        <h2>Connexion</h2>
 
-            <form class="form-horizontal" method="post" action="connexion.php" >
+            <form class="form-horizontal" method="post" action="PHP/connexion.php" >
                 
                 <div>
                     
@@ -33,10 +33,10 @@
                     placeholder="Mot de passe" />
                     
                 </div>
-                <p><a href="chgtmdp.php">Mot de passe oublié ?</a></p>                
-                <p><a href="inscription.php">Pas de compte ? Inscrivez vous !</a></p>
+                <p><a href="PHP/chgtmdp.php">Mot de passe oublié ?</a></p>                
+                <p><a href="PHP/inscription.php">Pas de compte ? Inscrivez vous !</a></p>
 
-                <a href='connexion.php'><button type="submit" class="btn">Se connecter</button></a>
+                <a href='PHP/connexion.php'><button type="submit" class="btn">Se connecter</button></a>
                 
             </form>
 
@@ -44,4 +44,4 @@
 
 ?>
 
-<?php include("footer.php"); ?>
+<?php include("PHP/footer.php"); ?>
