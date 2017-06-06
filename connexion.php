@@ -32,7 +32,9 @@ if(!empty($_POST['mail'])) {
         echo $sel['motDePasse'];
 
         $self=$sel['motDePasse'];
+        
         echo $sel['id'];
+        
             $option = [
                 $sel['Nom']=> $sel['id'],
                 $sel['Prenom'] => $sel['id'] + 5,
@@ -63,8 +65,8 @@ if(!empty($_POST['mail'])) {
         $_SESSION['mail']=$_POST['mail'];//s="rachel.noireau@uha.fr";
         echo $_SESSION['mail'];
         echo "<br>";
-       $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
-       $row = $response->fetch();
+        $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
+        $row = $response->fetch();
         echo($row['id']);
          $_SESSION['ID']= $row['id'];
         
