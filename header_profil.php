@@ -19,7 +19,7 @@
                     <input class="input-medium search-query" style="border-radius:8px; font-size:17px;" type="text" name="Search" placeholder="Recherche..">
                 </form>
                 </a>
-                <a class="active" href="emploidutemps.php"><span class="glyphicon glyphicon-off"></span></a>
+                <a class="active" href="deconnexion.php"><span class="glyphicon glyphicon-off"></span></a>
                 <a class="active" href="accueil.php"><span class="glyphicon glyphicon-bell"></span></a>
                 <a class="active" href="accueil.php"><span class="glyphicon glyphicon-home"></span></a>
                 <a class="active"  href="profil.php"><span class="glyphicon glyphicon-cog"></span></a>
@@ -43,4 +43,3 @@
 
 		</header>
 		<section id="section_profil">
-		
