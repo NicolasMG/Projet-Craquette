@@ -83,8 +83,7 @@
 
                         <p>membre 7 <a class="active" href="traitementremovegroupe.php"><span class="glyphicon glyphicon-remove"></span></a></p>
                         <p>membre 8 <a class="active" href="traitementremovegroupe.php"><span class="glyphicon glyphicon-remove"></span></a></p>    
-                        <a href='groupe.php'><button style="left:30.2%; top:90%;" type="submit" class="btn">Ajouter des membres</button></a>
-                        <a href='suppressionmembres.php'><button style="left:29.5%; top:95%;" type="submit" class="btn">Supprimer des membres</button></a>
+                        <a href='gestionmembres.php'><button style="left:30.2%; top:95%;" type="submit" class="btn">Gérer des membres</button></a>
 
 
                     </div>

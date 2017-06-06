@@ -75,14 +75,16 @@ if(isset($_POST['creegroupe'])){
         
         
      <p>   
-    <input type="submit" name="ajoutmembre" value="Supprimer"/>
+    <input type="submit" name="ajoutmembre" value="Ajouter"/>
+    <input type="submit" name="supprmembre" value="Supprimer"/>
+
          
         
     </p> 
         
         
 <?php
-       // echo $nom;
+       // POUR SUPPRIMER DES MEMBRES
  if(isset($_POST['ajoutmembre'])){ 
 	if(!empty($_POST['membre'])){ 
         $membre1=htmlspecialchars($_POST['membre']);
@@ -93,6 +95,21 @@ if(isset($_POST['creegroupe'])){
             $id=($row['id']);
            
         $insertion2 = $bdd->prepare('DELETE FROM groupe WHERE mail="'.$mail.'"'); 
+        $insertion2->execute();
+    }
+ }
+
+       //POUR AJOUTER DES MEMBRES
+ if(isset($_POST['supprmembre'])){ 
+	if(!empty($_POST['membre'])){ 
+        $membre1=htmlspecialchars($_POST['membre']);
+        $mail=$membre1;//peut etre a changer
+        $nom = $_SESSION['nomgroupe'];
+            $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
+            $row = $response->fetch();
+            $id=($row['id']);
+           
+        $insertion2 = $bdd->prepare('insert into groupe values("'.$id.'","'.$nom.'","membre","NULL","NULL")'); 
         $insertion2->execute();
     }
  }
