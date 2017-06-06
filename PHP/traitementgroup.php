@@ -6,7 +6,7 @@ include('entete.php');
 
 if(isset($_POST['creegroupe'])){ 
 	if(!empty($_POST['nomgroupe'])){ 
-		$nom = $_POST['nomgroupe'];
+		$nom = htmlspecialchars($_POST['nomgroupe']);
         $id=$_SESSION['ID'];
         $insertion = $bdd->prepare('insert into groupe values("'.$id.'","'.$nom.'","administrateur","NULL","NULL")'); 
         $insertion->execute();    

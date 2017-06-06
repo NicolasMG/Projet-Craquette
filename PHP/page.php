@@ -10,8 +10,14 @@ if(isset($_POST['creepage'])){
 	if(!empty($_POST['nompagee'])){
            
         
+<<<<<<< HEAD
         $nom = $_POST['nompage'];
         $_SESSION['nompage']=$_POST['nompage'];
+=======
+		$nom = htmlspecialchars($_POST['nompage']);
+        $_SESSION['nompage']=htmlspecialchars($_POST['nompage']);
+        //echo $nom;
+>>>>>>> 4d35d71efe0dd4ffc13ac68f64111bfcd66dde2c
         $id=$_SESSION['ID'];
 ////////
         

@@ -6,26 +6,21 @@
         die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
     }
 
-
-
-
-$droitconnexion="erreurconnexion.php"; //SI UN DES IF N'EST PAS VERIFIER RENVOIE SUR L'EURREUR
-//verification de l'adress mail :
+$droitconnexion="erreurconnexion.php";
 if(!empty($_POST['mail'])) {
-    $mail=$_POST['mail'];
-    //$requete='Select email From profil Where email="'.$mail.'"';
+    $mail=htmlspecialchars($_POST['mail']);
     $reponse=$bdd->prepare('Select email From profil Where email="'.$mail.'"');
     $mail=htmlentities($_POST['mail']);
     $reponse->execute(array('.$email.'=>$_POST['mail']));
     $reponse2=$reponse->fetch();
     
-        echo $_POST['MDP'];
-        $MDP=$_POST['MDP'];
-        echo $MDP;
+    $MDP=htmlspecialchars($_POST['MDP']);
+    echo $MDP;
+    
     if(!empty($MDP)){
         echo 'test2';
         $sql=$bdd->prepare('Select motDePasse,Nom,Prenom,id From profil Where email="'.$mail.'"');
-        $sql->execute(array('.$email.'=>$_POST['mail']));
+        $sql->execute(array('.$email.'=>htmlspecialchars($_POST['mail'])));
         $sel = $sql->fetch();
         
         echo "<br>";
@@ -34,16 +29,8 @@ if(!empty($_POST['mail'])) {
         $self=$sel['motDePasse'];
         
         echo $sel['id'];
-        
-            $option = [
-                $sel['Nom']=> $sel['id'],
-                $sel['Prenom'] => $sel['id'] + 5,
-            ];
-            $MDPS = password_hash($MDP,PASSWORD_DEFAULT, $option);
-
-
-        
-        if(password_verify($MDPS, $self)) {
+                
+        if(password_verify($MDP, $self)) {
                 
             if($reponse2){
 
@@ -62,10 +49,8 @@ if(!empty($_POST['mail'])) {
             //test
         
         session_start();
-        $_SESSION['mail']=$_POST['mail'];//s="rachel.noireau@uha.fr";
+        $_SESSION['mail']=htmlspecialchars($_POST['mail']);//s="rachel.noireau@uha.fr";
         echo $_SESSION['mail'];
-        echo "<br>";
-         $_SESSION['MDPS']= $MDPS;
         $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
         $row = $response->fetch();
         echo($row['id']);

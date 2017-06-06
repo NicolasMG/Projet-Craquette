@@ -61,7 +61,7 @@ if(isset($_POST['modif'])){
     
     
       if(!empty($_POST['nom'])){ 
-          $nom = $_POST['nom']; 
+          $nom = htmlspecialchars($_POST['nom']); 
           $response =$bdd->query('Update profil set nom="'.$nom.'" WHERE email="'.$mail.'"'); 
           $row = $response->fetch();
           echo($row['nom']);
@@ -69,7 +69,7 @@ if(isset($_POST['modif'])){
 
 
       if(!empty($_POST['prenom'])){ 
-          $prenom = $_POST['prenom']; 
+          $prenom = htmlspecialchars($_POST['prenom']); 
           $response =$bdd->query('Update profil set prenom="'.$prenom.'" WHERE email="'.$mail.'"'); 
           $row = $response->fetch();
           echo($row['prenom']);
@@ -77,7 +77,7 @@ if(isset($_POST['modif'])){
     
     
      if(!empty($_POST['mail'])){ 
-          $mail2 = $_POST['mail']; 
+          $mail2 = htmlspecialchars($_POST['mail']); 
           $response =$bdd->query('Update profil set prenom="'.$mail2.'" WHERE email="'.$mail.'"'); 
           $row = $response->fetch();
           echo($row['prenom']);
@@ -86,7 +86,7 @@ if(isset($_POST['modif'])){
     
       if(!empty($_POST['filiere'])){ 
           if($_POST['filiere'] != "ne pas modifier"){
-              $filiere = $_POST['filiere']; 
+              $filiere = htmlspecialchars($_POST['filiere']); 
               $response =$bdd->query('Update profil set filiere="'.$filiere.'" WHERE           email="'.$mail.'"'); 
               $row = $response->fetch();
                 echo($row['filiere']);
@@ -95,7 +95,7 @@ if(isset($_POST['modif'])){
     
       if(!empty($_POST['promo'])){ 
           if($_POST['filiere'] != "ne pas modifier"){
-              $promo = $_POST['promo']; 
+              $promo = htmlspecialchars($_POST['promo']); 
               $response =$bdd->query('Update profil set promo="'.$promo.'" WHERE email="'.$mail.'"'); 
               $row = $response->fetch();
               echo($row['promo']);
@@ -103,7 +103,7 @@ if(isset($_POST['modif'])){
       }
     
       if(!empty($_POST['datenaissance'])){ 
-          $datenaissance = $_POST['datenaissance']; 
+          $datenaissance = htmlspecialchars($_POST['datenaissance']); 
           $response =$bdd->query('Update profil set datenaissance="'.$datenaissance.'" WHERE email="'.$mail.'"'); 
           $row = $response->fetch();
           echo($row['prenom']);

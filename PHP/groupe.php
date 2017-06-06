@@ -10,14 +10,14 @@ if(isset($_POST['creegroupe'])){
 	if(!empty($_POST['nomgroupe'])){
            
         
-        $nom = $_POST['nomgroupe'];
-        $_SESSION['nomgroupe']=$_POST['nomgroupe'];
+        $nom = htmlspecialchars($_POST['nomgroupe']);
+        $_SESSION['nomgroupe']=htmlspecialchars($_POST['nomgroupe']);
         $id=$_SESSION['ID'];
 ////////
         
         $reponse=$bdd->prepare('Select nomgroupe From groupe Where nomgroupe="'.$nom.'"');
         $nom=htmlentities($_POST['nomgroupe']);
-        $reponse->execute(array('.$nom.'=>$_POST['nomgroupe']));
+        $reponse->execute(array('.$nom.'=>htmlspecialchars($_POST['nomgroupe'])));
         $reponse2=$reponse->fetch();
                                     
         if($reponse2){
@@ -74,7 +74,7 @@ if(isset($_POST['creegroupe'])){
         
         
      <p>   
-   <input type="submit" name="ajoutmembre" value="ajouter"/>
+   <input type="submit" name="ajoutmembre" value="Ajouter"/>
          
         
     </p> 
@@ -84,7 +84,7 @@ if(isset($_POST['creegroupe'])){
        //POUR AJOUTER DES MEMBRES
  if(isset($_POST['ajoutmembre'])){ 
 	if(!empty($_POST['membre'])){ 
-        $membre1=$_POST['membre'];
+        $membre1=htmlspecialchars($_POST['membre']);
         $mail=$membre1;//peut etre a changer
         $nom = $_SESSION['nomgroupe'];
             $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
