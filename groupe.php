@@ -8,15 +8,27 @@ include('header.php');
 //session_start();
 if(isset($_POST['creegroupe'])){ 
 	if(!empty($_POST['nomgroupe'])){
+           
         
-		$nom = $_POST['nomgroupe'];
+        $nom = $_POST['nomgroupe'];
         $_SESSION['nomgroupe']=$_POST['nomgroupe'];
-        echo $nom;
         $id=$_SESSION['ID'];
-        $insertion = $bdd->query('insert into groupe values("'.$id.'","'.$nom.'","administrateur","NULL","NULL")'); 
-        $insertion->execute();    
-        //peut etre photo par defaut
+////////
         
+        $reponse=$bdd->prepare('Select nomgroupe From groupe Where nomgroupe="'.$nom.'"');
+        $nom=htmlentities($_POST['nomgroupe']);
+        $reponse->execute(array('.$nom.'=>$_POST['nomgroupe']));
+        $reponse2=$reponse->fetch();
+                                    
+        if(!$reponse2){
+            echo "Se nom est deja prit il faut en choisir un autre";
+                                    
+////////
+            $insertion = $bdd->query('insert into groupe values("'.$id.'","'.$nom.'","administrateur","NULL","NULL")'); 
+            $insertion->execute();    
+        //peut etre photo par defaut
+        }
+    
     }
 }
 
@@ -44,7 +56,7 @@ if(isset($_POST['creegroupe'])){
         
         
 <?php
-        echo $nom;
+       // echo $nom;
  if(isset($_POST['ajoutmembre'])){ 
 	if(!empty($_POST['membre'])){ 
         $membre1=$_POST['membre'];
