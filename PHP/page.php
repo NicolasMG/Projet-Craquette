@@ -9,8 +9,8 @@ include('header.php');
 if(isset($_POST['creepage'])){ 
 	if(!empty($_POST['nompage'])){
         
-		$nom = $_POST['nompage'];
-        $_SESSION['nompage']=$_POST['nompage'];
+		$nom = htmlspecialchars($_POST['nompage']);
+        $_SESSION['nompage']=htmlspecialchars($_POST['nompage']);
         //echo $nom;
         $id=$_SESSION['ID'];
         $insertion = $bdd->query('insert into groupe values("'.$id.'","'.$nom.'","administrateur","NULL","NULL")'); 

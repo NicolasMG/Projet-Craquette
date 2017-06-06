@@ -13,19 +13,19 @@
 if(isset($_POST['Confirmer'])){ 
 
     if(!empty($_POST['mail'])){ 
-        $mail = $_POST['mail'];
+        $mail = htmlspecialchars($_POST['mail']);
 
         if(!empty($_POST['nouveaumdp'])){ 
-            $nouveaumdp = $_POST['nouveaumdp'];
+            $nouveaumdp = htmlspecialchars($_POST['nouveaumdp']);
 
             if(!empty($_POST['confirmermdp'])){
-                $confirmermdp = $_POST['confirmermdp'];
+                $confirmermdp = htmlspecialchars($_POST['confirmermdp']);
 
                 if (password_verify($nouveaumdp,$confirmermdp)){
                     //A Completer
                     
                     $sql=$bdd->prepare('Select Nom,Prenom,id From profil Where email="'.$mail.'"');
-                    $sql->execute(array('.$email.'  =>$_POST['mail']));
+                    $sql->execute(array('.$email.'  =>htmlspecialchars($_POST['mail'])));
                     $sel = $sql->fetch();
                     $option = [
                     $sel['Nom']=> $sel['id'],

@@ -28,27 +28,27 @@ $bouton="recommencer";
 if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
 
 	if(!empty($_POST['nom'])){ // si le champ nom a été rempli
-		$nom = $_POST['nom']; // stocker la valeur qu'il contient dans une variable
+		$nom = htmlspecialchars($_POST['nom']); // stocker la valeur qu'il contient dans une variable
 		
 		if(!empty($_POST['prenom'])){
-			$prenom = $_POST['prenom'];     
+			$prenom = htmlspecialchars($_POST['prenom']);     
 				
 			if(!empty($_POST['mail'])){
-				$mail = $_POST['mail'];
+				$mail = htmlspecialchars($_POST['mail']);
 				
 				if(!empty($_POST['datenaissance'])){
-					$date = $_POST['datenaissance'];
+					$date = htmlspecialchars($_POST['datenaissance']);
 					
 					if(!empty($_POST['promo'])){ 
-						$promo = $_POST['promo']; 
+						$promo = htmlspecialchars($_POST['promo']); 
 						
 						if(!empty($_POST['filiere'])){
-							$filiere = $_POST['filiere'];
+							$filiere = htmlspecialchars($_POST['filiere']);
                             
                                 //echo 'hello';
                             
-                            $MDP=$_POST['MDP'];
-                            $MDPC=$_POST['MDPconfirmation'];
+                            $MDP=htmlspecialchars($_POST['MDP']);
+                            $MDPC=htmlspecialchars($_POST['MDPconfirmation']);
                             
 				            if(!empty($MDP) && !empty($MDPC)) {
                                 
@@ -67,7 +67,7 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
 
                                     $reponse=$bdd->prepare('Select email From profil Where email="'.$mail.'"');
                                     $mail=htmlentities($_POST['mail']);
-                                    $reponse->execute(array('.$mail.'=>$_POST['mail']));
+                                    $reponse->execute(array('.$mail.'=>htmlspecialchars($_POST['mail'])));
                                     $reponse2=$reponse->fetch();
                                     
                                     if(!$reponse2){
