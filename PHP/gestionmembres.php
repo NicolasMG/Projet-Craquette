@@ -73,6 +73,9 @@ if(isset($_POST['creegroupe'])){
         </p>    
         <br>   
         
+                
+
+        
         
      <p>   
     <input type="submit" name="ajoutmembre" value="Ajouter"/>
@@ -85,8 +88,9 @@ if(isset($_POST['creegroupe'])){
         
 <?php
        // POUR SUPPRIMER DES MEMBRES
- if(isset($_POST['ajoutmembre'])){ 
+ if(isset($_POST['supprmembre'])){ 
 	if(!empty($_POST['membre'])){ 
+        
         $membre1=htmlspecialchars($_POST['membre']);
         $mail=$membre1;//peut etre a changer
         $nom = $_SESSION['nomgroupe'];
@@ -100,7 +104,7 @@ if(isset($_POST['creegroupe'])){
  }
 
        //POUR AJOUTER DES MEMBRES
- if(isset($_POST['supprmembre'])){ 
+ if(isset($_POST['ajoutmembre'])){ 
 	if(!empty($_POST['membre'])){ 
         $membre1=htmlspecialchars($_POST['membre']);
         $mail=$membre1;//peut etre a changer
@@ -115,3 +119,54 @@ if(isset($_POST['creegroupe'])){
  }
 
 ?>
+        
+        
+        
+        
+        
+        
+        
+    <?php    
+        
+            $sql='SELECT distinct idutil FROM groupe';
+     $req = $bdd->query($sql)  ; 
+    ?>
+        
+   <table class="table table-bordered">
+    <tr>
+        <th><p class="text-error"> Membre du groupe</p></th>
+        
+        <?php while($row=$req->fetch()){ ?>
+        <td>
+        <?php 
+            $idutil=$row['idutil'];
+            $response = $bdd->query('SELECT prenom FROM profil WHERE id="'.$idutil.'"'); 
+            $row = $response->fetch();
+             echo($row['prenom']); 
+            echo(" ");
+            $response =$bdd->query('SELECT nom FROM profil WHERE id="'.$idutil.'"'); 
+            $row = $response->fetch();
+            echo($row['nom']);
+            echo($idutil);
+        
+        
+            ?>
+        
+        </td>
+         
+         
+         
+    </tr>
+    <?php }
+    $req->closeCursor();
+    ?>
+</table>     
+        
+        
+        
+        
+        
+        
+        
+        
+        

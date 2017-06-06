@@ -116,7 +116,9 @@ if(isset($_POST['creegroupe'])){
 <table class="table table-bordered">
     <tr>
         <th><p class="text-error"> Membre du groupe</p></th>
+        
         <?php while($row=$req->fetch()){ ?>
+        
         <td><?php 
             $idutil=$row['idutil'];
             $response = $bdd->query('SELECT prenom FROM profil WHERE id="'.$idutil.'"'); 
@@ -126,6 +128,7 @@ if(isset($_POST['creegroupe'])){
             $response =$bdd->query('SELECT nom FROM profil WHERE id="'.$idutil.'"'); 
             $row = $response->fetch();
             echo($row['nom']);
+            echo($idutil);
         
         
             ?>

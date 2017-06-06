@@ -9,7 +9,7 @@
     <p><br><br><br><br></p>
     <h4>Crée un groupe d'ami(e)s</h4>
 
-    <form method="post" action="groupe.php" enctype="multipart/form-data">
+    <form method="post" action="profilgroupe.php" enctype="multipart/form-data">
         
      <p> 
     <label for="nomgroupe">Choisisez le nom du groupe:</label>
