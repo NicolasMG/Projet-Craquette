@@ -11,10 +11,7 @@
         
     session_start();
     $mail=$_SESSION['mail'];
-    //$imageprofil=$bdd->query('SELECT imageprofil FROM profil WHERE email="'.$mail.'"');
-    //$photoprofil="Images/Cigogne%20proposition%20logo%201.png";
-
-    //$photocouverture="Images/Portrait_Unfallen_a.png";
+    
 ?>
 
 
@@ -36,56 +33,176 @@
                         $row = $response->fetch();
                         echo($row['imageprofil']);               
                                              ?>" >  
-            <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php $response = $bdd->query('SELECT nom FROM profil WHERE email="'.$mail.'"'); 
-                                        $row = $response->fetch();
-                                        echo($row['nom']); 
-                        ?>  <?php  $response =$bdd->query('SELECT prenom FROM profil WHERE email="'.$mail.'"'); 
-                                        $row = $response->fetch();
-                                        echo($row['prenom']);
-                ?>
+            <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php echo"nom groupe";
+                        ?>  
         </div>
         <div style="display:inline-block;" id="PanneauGauche">
                 <div id="Information">
                     <div id="Infogenerale">
                         <p><h2 style="font-size:20px;" >Membres du groupe :</h2></p>
-
-                        <p>membre 1 <?php  $response =$bdd->query('SELECT nom FROM profil WHERE email="'.$mail.'"'); 
-                                            $row = $response->fetch();
-                                            echo($row['nom']);
-
-
-                            ?> <a class="active" href="traitementremovegroupe.php"><span class="glyphicon glyphicon-remove"></span></a>
-</p>
-
-                       <p>membre 2 <?php $response = $bdd->query('SELECT prenom FROM profil WHERE email="'.$mail.'"'); 
-                                            $row = $response->fetch();
-                                            echo($row['prenom']); 
-                            ?> <a class="active" href="traitementremovegroupe.php"><span class="glyphicon glyphicon-remove"></span></a></p>
-
-                        <p>membre 3 <?php  $response =$bdd->query('SELECT filiere FROM profil WHERE email="'.$mail.'"'); 
-                                            $row = $response->fetch();
-                                            echo($row['filiere']);
-                        ?><a class="active" href="traitementremovegroupe.php"><span class="glyphicon glyphicon-remove"></span></a></p>
-
-                        <p>membre 4 <?php  $response =$bdd->query('SELECT promo FROM profil WHERE email="'.$mail.'"'); 
-                                            $row = $response->fetch();
-                                            echo($row['promo']);
-                        ?><a class="active" href="traitementremovegroupe.php"><span class="glyphicon glyphicon-remove"></span></a></p>
-
-                        <p>membre 5 <?php  
-                                            echo($mail);
-                        ?><a class="active" href="traitementremovegroupe.php"><span class="glyphicon glyphicon-remove"></span></a></p>
-                    
-                        <p>membre 6 <?php  $response =$bdd->query('SELECT datenaissance FROM profil WHERE email="'.$mail.'"'); 
-                                            $row = $response->fetch();
-                                            echo($row['datenaissance']);
-                        ?><a class="active" href="traitementremovegroupe.php"><span class="glyphicon glyphicon-remove"></span></a></p>
-
-                        <p>membre 7 <a class="active" href="traitementremovegroupe.php"><span class="glyphicon glyphicon-remove"></span></a></p>
-                        <p>membre 8 <a class="active" href="traitementremovegroupe.php"><span class="glyphicon glyphicon-remove"></span></a></p>    
+   
                         <a href='gestionmembres.php'><button style="left:30.2%; top:95%;" type="submit" class="btn">Gérer des membres</button></a>
 
 
+<?php
+
+
+
+if(isset($_POST['creegroupe'])){ 
+	if(!empty($_POST['nomgroupe'])){
+           
+        
+        $nom = htmlspecialchars($_POST['nomgroupe']);
+        $_SESSION['nomgroupe']=htmlspecialchars($_POST['nomgroupe']);
+        $id=$_SESSION['ID'];
+
+        
+        $reponse=$bdd->prepare('Select nomgroupe From groupe Where nomgroupe="'.$nom.'"');
+        $nom=htmlentities($_POST['nomgroupe']);
+        $reponse->execute(array('.$nom.'=>htmlspecialchars($_POST['nomgroupe'])));
+        $reponse2=$reponse->fetch();
+                                    
+        if($reponse2){
+            echo "Se nom est deja prit il faut en choisir un autre";
+            $pbnom="creegroup.php";
+            echo "<script>window.location = "."'".$pbnom."'"."</script>";
+        }else{
+            
+        
+            $couverture="NULL";
+            if(!$_FILES['couverturegroupe']['error']>0){
+            if(!empty($_FILES['couverturegroupe'])){ 
+                $imagecouverture = $_FILES['couverturegroupe']; 
+                   
+                $nom1=md5(uniqid(rand(),true)); 
+                $couverture="Images/$nom1";
+                $resultat=move_uploaded_file($_FILES['couverturegroupe']['tmp_name'], $couverture);
+            }}
+        
+            $profil="NULL";
+             if(!$_FILES['profilgroupe']['error']>0){
+                 if(!empty($_FILES['profilgroupe'])){ 
+                    $imagecouverture = $_FILES['profilgroupe']; 
+                   
+                     $nom1=md5(uniqid(rand(),true)); 
+                    $profil="Images/$nom1";
+                    $resultat=move_uploaded_file($_FILES['profilgroupe']['tmp_name'], $profil);
+            }}
+            
+
+            
+            $insertion = $bdd->query('insert into groupe values("'.$id.'","'.$nom.'","administrateur","'.$profil.'","'.$couverture.'")'); 
+            $insertion->execute();    
+        }
+                  
+    
+    }
+}
+
+?>
+       
+        
+<?php
+       //POUR AJOUTER DES MEMBRES
+    if(isset($_POST['ajoutmembre'])){ 
+	   if(!empty($_POST['membre'])){ 
+           $membre1=htmlspecialchars($_POST['membre']);
+            $mail=$membre1;//peut etre a changer
+            $nom = $_SESSION['nomgroupe'];
+            $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
+            $row = $response->fetch();
+            $id=($row['id']);
+           
+            $insertion2 = $bdd->prepare('insert into groupe values("'.$id.'","'.$nom.'","membre","NULL","NULL")'); 
+            $insertion2->execute();
+        }
+    }
+
+?>
+        
+        
+ <?php       
+   //LISTE DES MEMBRES     
+    $sql='SELECT distinct idutil FROM groupe';
+     $req = $bdd->query($sql)  ; 
+        
+?>    
+ <section>
+
+    <form method="post">
+
+    <p> 
+    <label for="nomgroupe">Choisissez le(s) membre(s) à rajouter :</label>
+        
+        <br>
+            <input type="text" class="input-medium search-query" name="membre" value="<?php if (isset($_POST['membre'])) echo htmlentities($_POST['membre']);?>"placeholder= "membre" /> 
+        </p>    
+        
+        
+        
+     <p>   
+   <input type="submit" name="ajoutmembre" value="Ajouter"/>
+         
+        
+    </p> 
+        
+        
+<?php
+       //POUR AJOUTER DES MEMBRES
+ if(isset($_POST['ajoutmembre'])){ 
+	if(!empty($_POST['membre'])){ 
+        $membre1=htmlspecialchars($_POST['membre']);
+        $mail=$membre1;//peut etre a changer
+        $nom = $_SESSION['nomgroupe'];
+            $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
+            $row = $response->fetch();
+            $id=($row['id']);
+           
+        $insertion2 = $bdd->prepare('insert into groupe values("'.$id.'","'.$nom.'","membre","NULL","NULL")'); 
+        $insertion2->execute();
+    }
+ }
+
+?>   
+        
+<!--TABLEAUX DES AMIS-->        
+<!--<table class="table table-bordered">
+    <th><p class="text-error"> Membre du groupe</p></th>-->
+    <ul> Membre(s)
+             
+            <?php while($row=$req->fetch()){
+                $idutil=$row['idutil']; ?>
+                <li>
+                    <a href="profilami.php?id=<?php echo $idutil;?>">
+                        <?php 
+                            
+                            $idutil=$row['idutil'];
+                            $response = $bdd->query('SELECT prenom FROM profil WHERE id="'.$idutil.'"'); 
+                            $row = $response->fetch();
+                            echo($row['prenom']); 
+                            echo(" ");
+                            $response =$bdd->query('SELECT nom FROM profil WHERE id="'.$idutil.'"'); 
+                            $row = $response->fetch();
+                            echo($row['nom']);
+                            //echo($idutil);
+
+                        ?>
+                
+                    </a>
+                    <a href="supprmembre.php?id=<?php echo $idutil;?>"> <span class="glyphicon glyphicon-remove"></span></a>
+                </li>
+               
+
+
+        
+    </ul>
+    <?php }
+    $req->closeCursor();
+    ?>
+</table>
+                    
+           
+                    
                     </div>
 
                 </div>

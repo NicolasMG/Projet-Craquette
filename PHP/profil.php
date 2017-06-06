@@ -72,15 +72,35 @@
                                             echo($row['promo']);
                         ?></p>
 
-                        <p>Adresse mail : <?php  
-                                            echo($mail);
-                        ?></p>
-                         <p>Date de naissance : <?php  $response =$bdd->query('SELECT datenaissance FROM profil WHERE email="'.$mail.'"'); 
+                    
+                        <p>Date de naissance : <?php  $response =$bdd->query('SELECT datenaissance FROM profil WHERE email="'.$mail.'"'); 
                                             $row = $response->fetch();
                                             echo($row['datenaissance']);
                         ?></p>
-
-                        <p>Compétences :</p>
+                    
+                
+                    
+                    
+                        <p>Adresse mail : <?php  
+                                            echo($mail);
+                        ?></p>
+                        
+                    
+                        
+                    
+                        <p>Téléphone : <?php  $response =$bdd->query('SELECT telephone FROM profil WHERE email="'.$mail.'"'); 
+                                            $row = $response->fetch();
+                                            echo($row['telephone']);
+                        ?></p>
+                    
+                    
+                        
+                        <p>Compétences :<?php  $response =$bdd->query('SELECT commentaire FROM profil WHERE email="'.$mail.'"'); 
+                                            $row = $response->fetch();
+                                            echo($row['commentaire']);
+                    
+                        ?>
+                        </p>
                         <p>CV : <a href="Documents/Mon%20CV.txt">Mon CV</a></p>    
                     </div>
                 </div>

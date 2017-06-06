@@ -10,6 +10,7 @@
     ?>  
 
 	<head> <!-- en tête du fichier -->
+        <link rel="shortcut icon" type="image/x-icon" href="Image/logo.png" /><!--icone-->
 		<meta charset="utf-8"/>
 		<title>Craquette - Connexion</title>
 		<link rel="stylesheet" href="CSS/bootstrap.css"/>

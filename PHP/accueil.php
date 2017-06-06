@@ -78,16 +78,57 @@
 
     <div id="contenu_droite">
         <div id="amis">
-            <p>Groupe Ensisa</p>
-            <p>Groupe Enscmu</p>
-            <p>Groupe Potes</p>
+   
+            
+            
+            <?php
+                try{ 
+                    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
+                }
+                    catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
+                    die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
+                }
+            ?>
+            <ul>
+                Groupes
+                    
+                <?php       
+                    $id=$_SESSION['ID'];
+                    $sql='SELECT distinct nomgroupe FROM groupe Where idutil="'.$id.'"';
+                    $req = $bdd->query($sql)  ; 
+        
+                ?>    
+    
+        
+                 <?php while($row=$req->fetch()){ ?>
+                    <li>
+                        <a href="profilgroupe.php?id=
+                            <?php 
+                            
+                                echo($row['nomgroupe']); 
+                             ?>"> <?php echo($row['nomgroupe']); ?>
+                        </a>
+                    </li>
+                    
+                    <?php 
+                        }
+                        $req->closeCursor();
+                    ?>
+            
+            </ul>
+            
+           
             <a href="creegroup.php"><button type="submit" class="btn" style="display:block; position:absolute; left:17%; top:15%;" name="newgroupe">Créer un groupe</button></a>
         </div>
     </div>
     <div id="calendrier">
         <div class="calendrier">
             <script type="text/javascript">
-                    calendrier();
+                calendrier();
+                    
+                
+                                    
+
             </script>
         </div>
         <div>

@@ -112,7 +112,7 @@ if(isset($_POST['creegroupe'])){
 ?>    
     
         
-        
+<!--TABLEAUX DES AMIS-->        
 <table class="table table-bordered">
     <th><p class="text-error"> Membre du groupe</p></th>
     <tbody>
@@ -120,21 +120,23 @@ if(isset($_POST['creegroupe'])){
             <?php while($row=$req->fetch()){
                 $idutil=$row['idutil']; ?>
                 <td>
-                <a href="profilami.php?id=<?php echo $idutil;?>">
-                <?php 
-                // $_GET['id'] récupérer l'id
-                //$idutil=$row['idutil'];
-                $response = $bdd->query('SELECT prenom FROM profil WHERE id="'.$idutil.'"'); 
-                $row = $response->fetch();
-                 echo($row['prenom']); 
-                echo(" ");
-                $response =$bdd->query('SELECT nom FROM profil WHERE id="'.$idutil.'"'); 
-                $row = $response->fetch();
-                echo($row['nom']);
-                //echo($idutil);
+                    <a href="profilami.php?id=<?php echo $idutil;?>">
+                        <?php 
+                            
+                            $idutil=$row['idutil'];
+                            $response = $bdd->query('SELECT prenom FROM profil WHERE id="'.$idutil.'"'); 
+                            $row = $response->fetch();
+                            echo($row['prenom']); 
+                            echo(" ");
+                            $response =$bdd->query('SELECT nom FROM profil WHERE id="'.$idutil.'"'); 
+                            $row = $response->fetch();
+                            echo($row['nom']);
+                            //echo($idutil);
 
-                ?>
-                </a>
+                        ?>
+                
+                    </a>
+                    <a href="supprmembre.php?id=<?php echo $idutil;?>"> <span class="glyphicon glyphicon-remove"></span></a>
                 </td>
                
 

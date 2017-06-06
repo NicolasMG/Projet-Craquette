@@ -64,14 +64,14 @@
 					<label for="nom">
 						Nom:
 					</label>
-					<input type="text" class="input-medium search-query" name="nom" placeholder= "Votre nom" />  
+					   <input type="text" class="input-medium search-query" name="nom" placeholder= "Votre nom" />  
 				</div>
                 
                 <div>
 					<label for="prenom">
 						Prénom:
 					</label>
-					<input type="text" class="input-medium search-query" name="prenom" placeholder= "Votre prénom" />
+					   <input type="text" class="input-medium search-query" name="prenom" placeholder= "Votre prénom" />
                 </div>
                 
                 <div>
@@ -117,17 +117,25 @@
 					<label for="datenaissance">
 						Date de naissance:
 					</label>
-					<input type="date" class="input-medium search-query" name="datenaissance" placeholder= "année-mois-jour" />
+					   <input type="date" class="input-medium search-query" name="datenaissance" placeholder= "année-mois-jour" />
+				</div>
+              
+              
+              <div>
+					<label for="tel">
+						numero de telephone :
+					</label>
+					   <input type="text" class="input-medium search-query" name="tel" placeholder= "Votre numero" />
 				</div>
 				
-                <div>
-					<label for="MDP">
-						Mot de passe:
+                 <div>
+					<label for="commentaire">
+						Commentaire: 
 					</label>
-					<input type="password" class="input-medium search-query" name="MPD" placeholder= "Votre mot de passe" />
-				</div>
-                
-    
+					<textarea  name="commentaire" rows="5" cols="180" placeholder= "Decrivez vous..." >
+                     </textarea>
+                </div>
+                    
     <p><br></p>
      <input type="submit" value="Appliquer" name="modif"/>
     

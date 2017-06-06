@@ -106,7 +106,24 @@ if(isset($_POST['modif'])){
           $datenaissance = htmlspecialchars($_POST['datenaissance']); 
           $response =$bdd->query('Update profil set datenaissance="'.$datenaissance.'" WHERE email="'.$mail.'"'); 
           $row = $response->fetch();
-          echo($row['prenom']);
+          echo($row['datenaissance']);
+      }
+    
+        if(!empty($_POST['tel'])){ 
+          $tel = htmlspecialchars($_POST['tel']); 
+          $response =$bdd->query('Update profil set telephone="'.$tel.'" WHERE email="'.$mail.'"'); 
+          $row = $response->fetch();
+          echo($row['telephone']);
+      }
+    
+    
+    
+    
+      if(!empty($_POST['commentaire'])){ 
+          $commentaire = htmlspecialchars($_POST['commentaire']); 
+          $response =$bdd->query('Update profil set commentaire="'.$commentaire.'" WHERE email="'.$mail.'"'); 
+          $row = $response->fetch();
+          echo($row['commentaire']);
       }
 }
 ?>
