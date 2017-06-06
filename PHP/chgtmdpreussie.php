@@ -35,8 +35,6 @@ if(isset($_POST['Confirmer'])){
 
                     $response =$bdd->query('Update profil set motDePasse="'.$MDPS.'" WHERE email="'.$mail.'"'); 
                     $row = $response->fetch();
-                    
-                    
                 }
             }
         }
@@ -100,6 +98,7 @@ $message.= $passage_ligne."--".$boundary."--".$passage_ligne;
 //==========
  
 //=====Envoi de l'e-mail.
+
 mail($mail,$sujet,$message,$header);
 
 
