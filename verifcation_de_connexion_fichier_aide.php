@@ -19,6 +19,9 @@
     }
     else {
         //SORTIR DE LA PAGE : genre peut etre vider $_SESSION et renvoyer sur la page de connexion
+        session_unset();
+        $droitconnexion="./connexion.php";
+        echo "<script>window.location = "."'".$droitconnexion."'"."</script>";
     }
 
 
