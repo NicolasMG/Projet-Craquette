@@ -11,7 +11,7 @@
 
 ?>
 
-<form class="form-horizontal" method="post" action="traitementmodif.php" enctype="multipart/form-data">
+<form class="form-horizontal" method="post" action="chgtmdpreussie.php" enctype="multipart/form-data">
           <form class="form-horizontal" method="post" action="traitement.php" >
                 
                  <div>
