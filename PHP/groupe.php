@@ -75,7 +75,7 @@ if(isset($_POST['creegroupe'])){
         
         
      <p>   
-   <input type="submit" name="ajoutmembre" value="ajouter"/>
+   <input type="submit" name="ajoutmembre" value="Ajouter"/>
          
         
     </p> 
