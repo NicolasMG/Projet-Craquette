@@ -1,7 +1,0 @@
-$hash_pwd = $row['pwd'];
-$hash =password_verify($pwd,$hash_pwd);
-f($hash == 0){
-    echo "wrong password";
-} else {
-    echo "good password";
-}
