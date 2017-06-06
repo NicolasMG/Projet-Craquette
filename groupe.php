@@ -4,7 +4,7 @@
     <br>
 <?php
 session_start();
-include('header.php');
+include('header_profil.php');
 //session_start();
 if(isset($_POST['creegroupe'])){ 
 	if(!empty($_POST['nomgroupe'])){
@@ -20,7 +20,7 @@ if(isset($_POST['creegroupe'])){
         $reponse->execute(array('.$nom.'=>$_POST['nomgroupe']));
         $reponse2=$reponse->fetch();
                                     
-        if(!$reponse2){
+        if($reponse2){
             echo "Se nom est deja prit il faut en choisir un autre";
                                     
 ////////

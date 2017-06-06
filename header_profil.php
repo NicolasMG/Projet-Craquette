@@ -1,5 +1,13 @@
 <!doctype html>
 <html lang="fr">
+    <?php
+        try{ 
+        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
+    }
+    catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
+        die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
+    }
+    ?>  
 
 	<head> <!-- en tête du fichier -->
 		<meta charset="utf-8"/>
