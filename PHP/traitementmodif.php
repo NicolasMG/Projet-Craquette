@@ -35,7 +35,7 @@ if(isset($_POST['modif'])){
           $row = $response->fetch();
           echo($row['imagecouverture']);
       }}
-      if(!$_FILES['imagecouverture']['error']>0){
+      if(!$_FILES['imageprofil']['error']>0){
       if(!empty($_FILES['imageprofil'])){ 
           $imageprofil = $_FILES['imageprofil']['name']; 
         /*  $response =$bdd->query('Update profil set imageprofil="Images/'.$imageprofil.'" WHERE email="'.$mail.'"'); 

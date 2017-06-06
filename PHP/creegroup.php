@@ -9,7 +9,7 @@
     <p><br><br><br><br></p>
     <h4>Crée un groupe d'ami(e)s</h4>
 
-    <form method="post" action="<?php echo $action; ?> " enctype="multipart/form-data">
+    <form method="post" action="groupe.php" enctype="multipart/form-data">
         
      <p> 
     <label for="nomgroupe">Choisisez le nom du groupe:</label>
@@ -17,7 +17,7 @@
     
         <br>
     <input type="text" class="input-medium search-query" name="nomgroupe" placeholder="nom du groupe" /> 
-           <?--value="<?php if (isset($_POST['nomgroupe'])) echo htmlentities($_POST['nomgroupe']);?>"-->
+         
          <?php 
          ///////////
          /*
@@ -62,6 +62,7 @@
                     <input type="hidden" name="MAX_FILE_SIZE" value="12345">
     </div>
         
+        <input type="submit" value="Cree groupe" name="creegroupe"/>
            
     </form> 
 

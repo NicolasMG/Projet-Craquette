@@ -24,44 +24,36 @@ if(isset($_POST['creegroupe'])){
             echo "Se nom est deja prit il faut en choisir un autre";
             $pbnom="creegroup.php";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
-        }
+        }else{
             
-            
-            
+   /////         
+            $couverture="NULL";
             if(!$_FILES['couverturegroupe']['error']>0){
             if(!empty($_FILES['couverturegroupe'])){ 
                 $imagecouverture = $_FILES['couverturegroupe']; 
                    
                 $nom1=md5(uniqid(rand(),true)); 
                 $couverture="Images/$nom1";
-                $resultat=move_uploaded_file($_FILES['couverturegroupe']['tmp_name'], $nom);
+                $resultat=move_uploaded_file($_FILES['couverturegroupe']['tmp_name'], $couverture);
             }}
         
-        
-             if(!$_FILES['couverturegroupe']['error']>0){
-            if(!empty($_FILES['couverturegroupe'])){ 
-                $imagecouverture = $_FILES['couverturegroupe']; 
+            $profil="NULL";
+             if(!$_FILES['profilgroupe']['error']>0){
+            if(!empty($_FILES['profilgroupe'])){ 
+                $imagecouverture = $_FILES['profilgroupe']; 
                    
                 $nom1=md5(uniqid(rand(),true)); 
-                $couverture="Images/$nom1";
-                $resultat=move_uploaded_file($_FILES['couverturegroupe']['tmp_name'], $nom);
+                $profil="Images/$nom1";
+                $resultat=move_uploaded_file($_FILES['profilgroupe']['tmp_name'], $profil);
             }}
             
-////////
-            $insertion = $bdd->query('insert into groupe values("'.$id.'","'.$nom.'","administrateur","NULL","'.$couverture.'")'); 
-            $insertion->execute();    
-        //peut etre photo par defaut
+
             
-            
-        
-        
-        
-        
-        
-        
-        
-        
-        
+            $insertion = $bdd->query('insert into groupe values("'.$id.'","'.$nom.'","administrateur","'.$profil.'","'.$couverture.'")'); 
+            //$insertion->execute();    
+        //cette ligne se fait 2 fois pourquoi?
+        }
+                  
     
     }
 }
@@ -69,7 +61,7 @@ if(isset($_POST['creegroupe'])){
 ?>
 
 <section>
-<br><br><br><!--action="traitementajout.php"-->
+<br><br><br>
     <form method="post">
 
     <p> 
