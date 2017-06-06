@@ -117,7 +117,7 @@
 					<label for="datenaissance">
 						Date de naissance:
 					</label>
-					<input type="date" class="input-medium search-query" name="datenaissance" placeholder= "jour/mois/année" />
+					<input type="date" class="input-medium search-query" name="datenaissance" placeholder= "année-mois-jour" />
 				</div>
 				
                 <div>

@@ -1,23 +1,46 @@
-<?php include ('header.php'); 
-/*
-Si mot de pas pas égal ou non rempli alors renvoyer sur la meme page avec un message d'erreur.
+<?php
+    include ('header.php'); 
+    try{ 
+        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root','');
+    }
+    catch(Exception $e){
+        die('Erreur : '.$e->getMessage());
+    }
+
+//Si mot de pas pas égal ou non rempli alors renvoyer sur la meme page avec un message d'erreur.
 
 
-if(isset($_POST['Confirmer'])){ // 
+if(isset($_POST['Confirmer'])){ 
 
-	if(!empty($_POST['nouveaumdp'])){ 
-        $nouveaumdp = $_POST['confirmermdp'];
+    if(!empty($_POST['mail'])){ 
+        $mail = $_POST['mail'];
 
-		 
-		if(!empty($_POST['confirmermdp'])){
-            $confirmermdp = $_POST['confirmermdp'];
-            
-            if (password_verify($nouveaumdp,$confirmermdp)){
-                //A Completer
+        if(!empty($_POST['nouveaumdp'])){ 
+            $nouveaumdp = $_POST['nouveaumdp'];
+
+            if(!empty($_POST['confirmermdp'])){
+                $confirmermdp = $_POST['confirmermdp'];
+
+                if (password_verify($nouveaumdp,$confirmermdp)){
+                    //A Completer
+                    
+                    $sql=$bdd->prepare('Select Nom,Prenom,id From profil Where email="'.$mail.'"');
+                    $sql->execute(array('.$email.'  =>$_POST['mail']));
+                    $sel = $sql->fetch();
+                    $option = [
+                    $sel['Nom']=> $sel['id'],
+                    $sel['Prenom'] => $sel['id'] + 5,
+                    ];
+                    $MDPS = password_hash($nouveaumdp ,PASSWORD_DEFAULT, $option);
+
+                    $response =$bdd->query('Update profil set motDePasse="'.$MDPS.'" WHERE email="'.$mail.'"'); 
+                    $row = $response->fetch();
+                    
+                    
+                }
             }
-	}
-    
-*/
+        }
+    }
 }
 
     try{ 
