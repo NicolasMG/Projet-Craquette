@@ -112,6 +112,7 @@
     else {
         //SORTIR DE LA PAGE : genre peut etre vider $_SESSION et renvoyer sur la page de connexion
         session_unset();
+        session_destroy();
         $droitconnexion="./connexion.php";
         echo "<script>window.location = "."'".$droitconnexion."'"."</script>";
     }
@@ -121,14 +122,5 @@
 ?>
 
 
-
-
-Notice: Undefined index: mail in C:\Program Files (x86)\EasyPHP-Devserver-16.1\eds-www\Projet-Craquette\Test_page_profil_avec_verification_session.php on line 9
-
-Notice: Undefined index: ID in C:\Program Files (x86)\EasyPHP-Devserver-16.1\eds-www\Projet-Craquette\Test_page_profil_avec_verification_session.php on line 10
-
-Notice: Use of undefined constant S_SESSION - assumed 'S_SESSION' in C:\Program Files (x86)\EasyPHP-Devserver-16.1\eds-www\Projet-Craquette\Test_page_profil_avec_verification_session.php on line 11
-
-Warning: Illegal string offset 'MDPS' in C:\Program Files (x86)\EasyPHP-Devserver-16.1\eds-www\Projet-Craquette\Test_page_profil_avec_verification_session.php on line 11
 
 

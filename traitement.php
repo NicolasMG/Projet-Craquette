@@ -99,7 +99,7 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                                         session_start();
                                         $_SESSION['mail']= $mail;
                                         $_SESSION['ID']=$idef;
-                                        
+                                        $_SESSION['MDPS']= $sel;
                                        
                                         $message="Votre profil a bien été créé.";
                                         $bouton="Voir mon profil";

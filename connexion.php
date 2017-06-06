@@ -65,6 +65,7 @@ if(!empty($_POST['mail'])) {
         $_SESSION['mail']=$_POST['mail'];//s="rachel.noireau@uha.fr";
         echo $_SESSION['mail'];
         echo "<br>";
+         $_SESSION['MDPS']= $MDPS;
         $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
         $row = $response->fetch();
         echo($row['id']);
