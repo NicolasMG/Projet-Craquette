@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 02 Juin 2017 à 11:25
+-- Généré le :  Mar 06 Juin 2017 à 09:20
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.19
 
@@ -17,68 +17,96 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `groupe`
+-- Base de données :  `siteweb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `groupe ensisa`
+-- Structure de la table `groupe`
 --
 
-CREATE TABLE `groupe ensisa` (
-  `Membre1` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ID` int(11) NOT NULL,
-  `Membre2` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `Nom` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `Administrateur` varchar(250) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `groupe poto`
---
-
-CREATE TABLE `groupe poto` (
-  `ID` int(11) NOT NULL,
-  `Membre1` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `Membre2` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `Membre3` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Nom` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `Administrateur` varchar(250) COLLATE utf8_unicode_ci NOT NULL
+CREATE TABLE `groupe` (
+  `idutil` int(11) NOT NULL,
+  `nomgroupe` varchar(225) COLLATE utf8_unicode_ci NOT NULL,
+  `role` varchar(225) COLLATE utf8_unicode_ci NOT NULL,
+  `imageprofil` varchar(225) COLLATE utf8_unicode_ci NOT NULL,
+  `imagecouverture` varchar(225) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Index pour les tables exportées
+-- Contenu de la table `groupe`
 --
 
---
--- Index pour la table `groupe ensisa`
---
-ALTER TABLE `groupe ensisa`
-  ADD PRIMARY KEY (`ID`);
+INSERT INTO `groupe` (`idutil`, `nomgroupe`, `role`, `imageprofil`, `imagecouverture`) VALUES
+(24, 'copain', 'administrateur', '', ''),
+(24, 'copain', 'administrateur', '', ''),
+(24, 'copain', 'administrateur', '', ''),
+(24, 'copain', 'administrateur', '', ''),
+(24, 'LesCoupains', 'administrateur', '', ''),
+(24, 'chercher amisssss', 'administrateur', 'NULL', 'NULL'),
+(24, 'chercher amisssss', 'administrateur', 'NULL', 'NULL'),
+(24, 'chercher amisssss', 'administrateur', 'NULL', 'NULL'),
+(24, 'lesbolosses', 'administrateur', 'NULL', 'NULL'),
+(24, 'lesbolosses', 'administrateur', 'NULL', 'NULL'),
+(24, 'coucou', 'administrateur', 'NULL', 'NULL'),
+(24, 'coucou', 'administrateur', 'NULL', 'NULL'),
+(24, 'coucou', 'administrateur', 'NULL', 'NULL'),
+(24, 'coucou', 'administrateur', 'NULL', 'NULL'),
+(24, 'coucou', 'administrateur', 'NULL', 'NULL'),
+(24, 'coucou', 'administrateur', 'NULL', 'NULL'),
+(24, 'coucou', 'administrateur', 'NULL', 'NULL'),
+(24, 'co2', 'administrateur', 'NULL', 'NULL'),
+(24, 'co2', 'administrateur', 'NULL', 'NULL'),
+(24, 'co2', 'administrateur', 'NULL', 'NULL'),
+(24, 'co2', 'administrateur', 'NULL', 'NULL'),
+(24, 'co2', 'administrateur', 'NULL', 'NULL'),
+(17, '', 'membre', 'NULL', 'NULL'),
+(17, '', 'membre', 'NULL', 'NULL'),
+(17, '', 'membre', 'NULL', 'NULL'),
+(17, '', 'membre', 'NULL', 'NULL'),
+(17, '', 'membre', 'NULL', 'NULL'),
+(17, '', 'membre', 'NULL', 'NULL'),
+(17, '', 'membre', 'NULL', 'NULL'),
+(24, 'bla', 'administrateur', 'NULL', 'NULL'),
+(24, 'bla', 'administrateur', 'NULL', 'NULL'),
+(24, 'bla', 'administrateur', 'NULL', 'NULL'),
+(24, 'bla', 'administrateur', 'NULL', 'NULL'),
+(24, 'salut', 'administrateur', 'NULL', 'NULL'),
+(24, 'salut', 'administrateur', 'NULL', 'NULL'),
+(24, 'copain', 'administrateur', 'NULL', 'NULL'),
+(24, 'copain', 'administrateur', 'NULL', 'NULL'),
+(24, 'salut', 'administrateur', 'NULL', 'NULL'),
+(24, 'salut', 'administrateur', 'NULL', 'NULL'),
+(24, 'salut', 'administrateur', 'NULL', 'NULL'),
+(24, 'salut', 'administrateur', 'NULL', 'NULL'),
+(16, '', 'membre', 'NULL', 'NULL'),
+(16, '', 'membre', 'NULL', 'NULL'),
+(16, '', 'membre', 'NULL', 'NULL'),
+(24, 'salut', 'administrateur', 'NULL', 'NULL'),
+(24, 'salut', 'administrateur', 'NULL', 'NULL'),
+(24, 'salut', 'administrateur', 'NULL', 'NULL'),
+(24, 'salut', 'administrateur', 'NULL', 'NULL'),
+(24, 'salut', 'administrateur', 'NULL', 'NULL'),
+(24, 'salut', 'administrateur', 'NULL', 'NULL'),
+(17, '', 'membre', 'NULL', 'NULL'),
+(17, '', 'membre', 'NULL', 'NULL'),
+(17, '', 'membre', 'NULL', 'NULL'),
+(17, '', 'membre', 'NULL', 'NULL'),
+(17, '', 'membre', 'NULL', 'NULL'),
+(24, 'bouh', 'administrateur', 'NULL', 'NULL'),
+(24, 'bouh', 'administrateur', 'NULL', 'NULL'),
+(17, 'bouh', 'membre', 'NULL', 'NULL'),
+(16, 'bouh', 'membre', 'NULL', 'NULL'),
+(16, 'bouh', 'membre', 'NULL', 'NULL'),
+(16, 'bouh', 'membre', 'NULL', 'NULL'),
+(24, 'copain', 'administrateur', 'NULL', 'NULL'),
+(24, 'copain', 'administrateur', 'NULL', 'NULL'),
+(24, 'copain', 'administrateur', 'NULL', 'NULL'),
+(24, 'copain', 'administrateur', 'NULL', 'NULL'),
+(24, 'copain', 'administrateur', 'NULL', 'NULL'),
+(24, 'copain', 'administrateur', 'NULL', 'NULL');
 
---
--- Index pour la table `groupe poto`
---
-ALTER TABLE `groupe poto`
-  ADD PRIMARY KEY (`ID`);
-
---
--- AUTO_INCREMENT pour les tables exportées
---
-
---
--- AUTO_INCREMENT pour la table `groupe ensisa`
---
-ALTER TABLE `groupe ensisa`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `groupe poto`
---
-ALTER TABLE `groupe poto`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
