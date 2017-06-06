@@ -10,7 +10,7 @@
     }
         
     session_start();
-    $mail=$_SESSION['mail'];
+    $mail=$_GET['id'];
     
     
     //$imageprofil=$bdd->query('SELECT imageprofil FROM profil WHERE email="'.$mail.'"');
@@ -24,7 +24,7 @@
 <div id="Page">
     <div id="photosduprofil">
             <img style="height:315px; width:851px;"id="PhotoDeCouverture" src="<?php 
-                    $response =$bdd->query('SELECT imagecouverture FROM profil WHERE email="'.$mail.'"'); 
+                    $response =$bdd->query('SELECT imagecouverture FROM profil WHERE id="'.$mail.'"'); 
                     $row = $response->fetch();
                     echo($row['imagecouverture']);                                              
                                              ?>">
@@ -34,7 +34,7 @@
             
             
             <img id="PhotoDeProfil" src="<?php 
-                    $response =$bdd->query('SELECT imageprofil FROM profil WHERE email="'.$mail.'"'); 
+                    $response =$bdd->query('SELECT imageprofil FROM profil WHERE id="'.$mail.'"'); 
                     $row = $response->fetch();
                     echo($row['imageprofil']);               
                                          ?>" >  
@@ -46,24 +46,24 @@
         <p>A propos :</p>
             <div id="Information">
                 <div id="Infogenerale">
-                    <p>Nom : <?php  $response =$bdd->query('SELECT nom FROM profil WHERE email="'.$mail.'"'); 
+                    <p>Nom : <?php  $response =$bdd->query('SELECT nom FROM profil WHERE id="'.$mail.'"'); 
                                         $row = $response->fetch();
                                         echo($row['nom']);
                     
                     
                     ?> 
                     
-                   <p>Prénom : <?php $response = $bdd->query('SELECT prenom FROM profil WHERE email="'.$mail.'"'); 
+                   <p>Prénom : <?php $response = $bdd->query('SELECT prenom FROM profil WHERE id="'.$mail.'"'); 
                                         $row = $response->fetch();
                                         echo($row['prenom']); 
                         ?> </p>
                     
-                    <p>Filière : <?php  $response =$bdd->query('SELECT filiere FROM profil WHERE email="'.$mail.'"'); 
+                    <p>Filière : <?php  $response =$bdd->query('SELECT filiere FROM profil WHERE id="'.$mail.'"'); 
                                         $row = $response->fetch();
                                         echo($row['filiere']);
                     ?></p>
                     
-                    <p>Promo : <?php  $response =$bdd->query('SELECT promo FROM profil WHERE email="'.$mail.'"'); 
+                    <p>Promo : <?php  $response =$bdd->query('SELECT promo FROM profil WHERE id="'.$mail.'"'); 
                                         $row = $response->fetch();
                                         echo($row['promo']);
                     ?></p>
@@ -71,7 +71,7 @@
                     <p>Adresse mail : <?php  
                                         echo($mail);
                     ?></p>
-                     <p>Date de naissance : <?php  $response =$bdd->query('SELECT datenaissance FROM profil WHERE email="'.$mail.'"'); 
+                     <p>Date de naissance : <?php  $response =$bdd->query('SELECT datenaissance FROM profil WHERE id="'.$mail.'"'); 
                                         $row = $response->fetch();
                                         echo($row['datenaissance']);
                     ?></p>

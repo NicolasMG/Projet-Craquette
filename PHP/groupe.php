@@ -117,11 +117,13 @@ if(isset($_POST['creegroupe'])){
     <th><p class="text-error"> Membre du groupe</p></th>
     <tbody>
         <tr>       
-            <?php while($row=$req->fetch()){ ?>
-
+            <?php while($row=$req->fetch()){
+                $idutil=$row['idutil']; ?>
                 <td>
+                <a href="profilami.php?id=<?php echo $idutil;?>">
                 <?php 
-                $idutil=$row['idutil'];
+                // $_GET['id'] récupérer l'id
+                //$idutil=$row['idutil'];
                 $response = $bdd->query('SELECT prenom FROM profil WHERE id="'.$idutil.'"'); 
                 $row = $response->fetch();
                  echo($row['prenom']); 
@@ -129,12 +131,12 @@ if(isset($_POST['creegroupe'])){
                 $response =$bdd->query('SELECT nom FROM profil WHERE id="'.$idutil.'"'); 
                 $row = $response->fetch();
                 echo($row['nom']);
-                echo($idutil);
+                //echo($idutil);
 
                 ?>
-
+                </a>
                 </td>
-
+               
 
 
         </tr>
