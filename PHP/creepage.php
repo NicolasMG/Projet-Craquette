@@ -1,36 +1,43 @@
 <?php 
-    include('entete.php');
-    
-    
-   // echo("Crée une page");
+    include('header.php');
 
+    
 ?>
 <section>
     <p><br><br><br><br></p>
     <h4>Crée une page</h4>
-    <form method="post" action="page.php">
+
+    <form method="post" action="page.php" enctype="multipart/form-data">
         
      <p> 
-    <label for="nomgroupe">Choisisez le nom de la page:</label>
+    <label for="nompage">Choisisez le nom dela page:</label>
+        
+    
         <br>
-    <input type="text" class="input-medium search-query" name="nompage" placeholder= "nom de la page" /> 
+    <input type="text" class="input-medium search-query" name="nompage" placeholder="nom de la page" /> 
+         
     </p>
         <br><br>
+                
+     <div>
+            <label for="couverturepage">
+						Photo de couverture:
+            </label>
+                  <input type="file" name="couverturepage" id="couverturepage"/>
+                    <input type="hidden" name="MAX_FILE_SIZE" value="12345">
+    </div>
         
         
-            <label for="couverturepage">Choisisez la photo de couverture:</label>
-        <br>
-    <input type="text" class="input-medium search-query" name="couverturepage" placeholder= "photo de couverture" /> 
-        <br>
+         <div>
+            <label for="profilpage">
+						Photo de profil:
+            </label>
+                  <input type="file" name="profilpage" id="profilpage"/>
+                    <input type="hidden" name="MAX_FILE_SIZE" value="12345">
+    </div>
         
-            <label for="profilpage">Choisisez la photo de profil:</label>
-        <br>
-    <input type="text" class="input-medium search-query" name="profilpage" placeholder= "photo de profil" /> 
-        
-        <br><br>
-        <p>
-        <input type="submit" name="creepage" value="Crée la page"/>
-        </p>
+        <input type="submit" value="Cree page" name="creepage"/>
+           
     </form> 
 
         <br>

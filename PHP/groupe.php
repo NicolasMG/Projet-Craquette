@@ -50,8 +50,7 @@ if(isset($_POST['creegroupe'])){
 
             
             $insertion = $bdd->query('insert into groupe values("'.$id.'","'.$nom.'","administrateur","'.$profil.'","'.$couverture.'")'); 
-            //$insertion->execute();    
-        //cette ligne se fait 2 fois pourquoi?
+            $insertion->execute();    
         }
                   
     
@@ -82,7 +81,7 @@ if(isset($_POST['creegroupe'])){
         
         
 <?php
-       // echo $nom;
+       //POUR AJOUTER DES MEMBRES
  if(isset($_POST['ajoutmembre'])){ 
 	if(!empty($_POST['membre'])){ 
         $membre1=$_POST['membre'];
@@ -98,3 +97,45 @@ if(isset($_POST['creegroupe'])){
  }
 
 ?>
+        
+        
+ <?php       
+   //LISTE DES MEMBRES     
+     /*   
+     $response =$bdd->query('SELECT idutil FROM groupe'); 
+     $row = $response->fetch();
+     $id=($row['idutil']);   //prend que premiere ligne
+    */ 
+    $sql='SELECT distinct idutil FROM groupe';
+     $req = $bdd->query($sql)  ; 
+        
+?>    
+    
+        
+        
+<table class="table table-bordered">
+    <tr>
+        <th><p class="text-error"> Membre du groupe</p></th>
+        <?php while($row=$req->fetch()){ ?>
+        <td><?php 
+            $idutil=$row['idutil'];
+            $response = $bdd->query('SELECT prenom FROM profil WHERE id="'.$idutil.'"'); 
+            $row = $response->fetch();
+             echo($row['prenom']); 
+            echo(" ");
+            $response =$bdd->query('SELECT nom FROM profil WHERE id="'.$idutil.'"'); 
+            $row = $response->fetch();
+            echo($row['nom']);
+        
+        
+            ?>
+        
+        </td>
+         
+         
+         
+    </tr>
+    <?php }
+    $req->closeCursor();
+    ?>
+</table>
