@@ -19,14 +19,14 @@
 					<label for="nouveaumdp">
 						Nouveau mot de passe:
 					</label>
-					<input type="text" class="input-medium search-query" name="nouveaumdp" placeholder= "Mot de passe" />  
+					<input type="password" class="input-medium search-query" name="nouveaumdp" placeholder= "Mot de passe" />  
 				</div>
                 
                 <div>
 					<label for="confirmermdp">
 						Confirmer nouveau mot de passe:
 					</label>
-					<input type="text" class="input-medium search-query" name="confirmermdp" placeholder= "Mot de passe" />
+					<input type="password" class="input-medium search-query" name="confirmermdp" placeholder= "Mot de passe" />
                 </div>
             <a href='chgtmdpreussie'><button type="submit" class="btn" name="chgtmdpreussie">Confirmer</button></a>
               <br>
