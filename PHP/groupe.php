@@ -22,12 +22,46 @@ if(isset($_POST['creegroupe'])){
                                     
         if($reponse2){
             echo "Se nom est deja prit il faut en choisir un autre";
-                                    
+            $pbnom="creegroup.php";
+            echo "<script>window.location = "."'".$pbnom."'"."</script>";
+        }
+            
+            
+            
+            if(!$_FILES['couverturegroupe']['error']>0){
+            if(!empty($_FILES['couverturegroupe'])){ 
+                $imagecouverture = $_FILES['couverturegroupe']; 
+                   
+                $nom1=md5(uniqid(rand(),true)); 
+                $couverture="Images/$nom1";
+                $resultat=move_uploaded_file($_FILES['couverturegroupe']['tmp_name'], $nom);
+            }}
+        
+        
+             if(!$_FILES['couverturegroupe']['error']>0){
+            if(!empty($_FILES['couverturegroupe'])){ 
+                $imagecouverture = $_FILES['couverturegroupe']; 
+                   
+                $nom1=md5(uniqid(rand(),true)); 
+                $couverture="Images/$nom1";
+                $resultat=move_uploaded_file($_FILES['couverturegroupe']['tmp_name'], $nom);
+            }}
+            
 ////////
-            $insertion = $bdd->query('insert into groupe values("'.$id.'","'.$nom.'","administrateur","NULL","NULL")'); 
+            $insertion = $bdd->query('insert into groupe values("'.$id.'","'.$nom.'","administrateur","NULL","'.$couverture.'")'); 
             $insertion->execute();    
         //peut etre photo par defaut
-        }
+            
+            
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
     }
 }
