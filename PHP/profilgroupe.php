@@ -13,44 +13,11 @@
     $mail=$_SESSION['mail'];
     
 ?>
-
-
-    <div class="vide_gaucheprofil" style="display:inline-block;"></div>
-    <div style="display:inline-block;" id="Page">
-        <div id="photosduprofil">
-                <img style="height:315px; width:851px;"id="PhotoDeCouverture" src="<?php 
-                        $response =$bdd->query('SELECT imagecouverture FROM profil WHERE email="'.$mail.'"'); 
-                        $row = $response->fetch();
-                        echo($row['imagecouverture']);                                              
-                                                 ?>">
-
-
-
-
-
-                <img id="PhotoDeProfil" src="<?php 
-                        $response =$bdd->query('SELECT imageprofil FROM profil WHERE email="'.$mail.'"'); 
-                        $row = $response->fetch();
-                        echo($row['imageprofil']);               
-                                             ?>" >  
-            <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php echo"nom groupe";
-                        ?>  
-        </div>
-        <div style="display:inline-block;" id="PanneauGauche">
-                <div id="Information">
-                    <div id="Infogenerale">
-                        <p><h2 style="font-size:20px;" >Membres du groupe :</h2></p>
-   
-                        <a href='gestionmembres.php'><button style="left:30.2%; top:95%;" type="submit" class="btn">Gérer des membres</button></a>
-
-
 <?php
 
-
-
+//CREATION DU GROUPE
 if(isset($_POST['creegroupe'])){ 
 	if(!empty($_POST['nomgroupe'])){
-           
         
         $nom = htmlspecialchars($_POST['nomgroupe']);
         $_SESSION['nomgroupe']=htmlspecialchars($_POST['nomgroupe']);
@@ -61,7 +28,7 @@ if(isset($_POST['creegroupe'])){
         $nom=htmlentities($_POST['nomgroupe']);
         $reponse->execute(array('.$nom.'=>htmlspecialchars($_POST['nomgroupe'])));
         $reponse2=$reponse->fetch();
-                                    
+        $_GET['nom'] =$_POST['nomgroupe'];                           
         if($reponse2){
             echo "Se nom est deja prit il faut en choisir un autre";
             $pbnom="creegroup.php";
@@ -96,10 +63,46 @@ if(isset($_POST['creegroupe'])){
         }
                   
     
+    }else{
+        echo "il faut choisir un nom";
+        $pbnom="creegroup.php";
+        echo "<script>window.location = "."'".$pbnom."'"."</script>";
+        
     }
 }
 
 ?>
+
+    <div class="vide_gaucheprofil" style="display:inline-block;"></div>
+    <div style="display:inline-block;" id="Page">
+        <div id="photosduprofil">
+                <img style="height:315px; width:851px;"id="PhotoDeCouverture" src="<?php 
+                        $response =$bdd->query('SELECT imagecouverture FROM profil WHERE email="'.$mail.'"'); 
+                        $row = $response->fetch();
+                        echo($row['imagecouverture']);                                              
+                                                 ?>">
+
+
+
+
+
+                <img id="PhotoDeProfil" src="<?php 
+                        $response =$bdd->query('SELECT imageprofil FROM profil WHERE email="'.$mail.'"'); 
+                        $row = $response->fetch();
+                        echo($row['imageprofil']);               
+                                             ?>" >  
+            <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php echo $_GET['nom'];
+                        ?>  
+        </div>
+        <div style="display:inline-block;" id="PanneauGauche">
+                <div id="Information">
+                    <div id="Infogenerale">
+                        <p><h2 style="font-size:20px;" >Membres du groupe :</h2></p>
+   
+                        <!--<a href='gestionmembres.php'><button style="left:30.2%; top:95%;" type="submit" class="btn">Gérer des membres</button></a>-->
+
+
+
        
         
 <?php
@@ -108,7 +111,7 @@ if(isset($_POST['creegroupe'])){
 	   if(!empty($_POST['membre'])){ 
            $membre1=htmlspecialchars($_POST['membre']);
             $mail=$membre1;//peut etre a changer
-            $nom = $_SESSION['nomgroupe'];
+            $nom = $_GET['nom'];
             $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
             $row = $response->fetch();
             $id=($row['id']);
@@ -119,15 +122,53 @@ if(isset($_POST['creegroupe'])){
     }
 
 ?>
-        
-        
- <?php       
+                    
+     <?php       
    //LISTE DES MEMBRES     
-    $sql='SELECT distinct idutil FROM groupe';
-     $req = $bdd->query($sql)  ; 
+    $sql='SELECT distinct idutil FROM groupe Where nomgroupe="'.$_GET['nom'].'"';
+     $req = $bdd->query($sql)  ;                
+                    
+     ?>               
+                    
+                    
+   <!--TABLEAUX DES AMIS-->        
+<!--<table class="table table-bordered">
+    <th><p class="text-error"> Membre du groupe</p></th>-->
+    <ul> Membre(s)
+             
+            <?php while($row=$req->fetch()){
+                $idutil=$row['idutil']; ?>
+                <li>
+                    <a href="profilami.php?id=<?php echo $idutil;?>">
+                        <?php 
+                            
+                            $idutil=$row['idutil'];
+                            $response = $bdd->query('SELECT prenom FROM profil WHERE id="'.$idutil.'"'); 
+                            $row = $response->fetch();
+                            echo($row['prenom']); 
+                            echo(" ");
+                            $response =$bdd->query('SELECT nom FROM profil WHERE id="'.$idutil.'"'); 
+                            $row = $response->fetch();
+                            echo($row['nom']);
+                            //echo($idutil);
+
+                        ?>
+                
+                    </a>
+                    <a href="supprmembre.php?id=<?php echo $idutil;?>&amp;nom=<?php echo $_GET['nom']; ?>"> <span class="glyphicon glyphicon-remove"></span></a>
+                </li>
+               
+
+
         
-?>    
- <section>
+    </ul>
+    <?php }
+    $req->closeCursor();
+    ?>
+     
+        
+   
+ <!--<section>-->
 
     <form method="post">
 
@@ -168,38 +209,9 @@ if(isset($_POST['creegroupe'])){
 <!--TABLEAUX DES AMIS-->        
 <!--<table class="table table-bordered">
     <th><p class="text-error"> Membre du groupe</p></th>-->
-    <ul> Membre(s)
-             
-            <?php while($row=$req->fetch()){
-                $idutil=$row['idutil']; ?>
-                <li>
-                    <a href="profilami.php?id=<?php echo $idutil;?>">
-                        <?php 
-                            
-                            $idutil=$row['idutil'];
-                            $response = $bdd->query('SELECT prenom FROM profil WHERE id="'.$idutil.'"'); 
-                            $row = $response->fetch();
-                            echo($row['prenom']); 
-                            echo(" ");
-                            $response =$bdd->query('SELECT nom FROM profil WHERE id="'.$idutil.'"'); 
-                            $row = $response->fetch();
-                            echo($row['nom']);
-                            //echo($idutil);
+    
+   
 
-                        ?>
-                
-                    </a>
-                    <a href="supprmembre.php?id=<?php echo $idutil;?>"> <span class="glyphicon glyphicon-remove"></span></a>
-                </li>
-               
-
-
-        
-    </ul>
-    <?php }
-    $req->closeCursor();
-    ?>
-</table>
                     
            
                     

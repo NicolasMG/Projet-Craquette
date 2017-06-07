@@ -18,32 +18,11 @@
         <br>
     <input type="text" class="input-medium search-query" name="nomgroupe" placeholder="nom du groupe" /> 
          
-         <?php 
-         ///////////
-         /*
-         $nomgroupe=$_POST['nomgroupe'];
-         $reponse=$bdd->prepare('Select nomgroupe From groupe Where nomgroupe="'.$nomgroupe.'"');
-         $nomgroupe=htmlentities($_POST['nomgroupe']);
-         $reponse->execute(array('.$nomgroupe.'=>$_POST['nomgroupe']));
-         $reponse2=$reponse->fetch();
-                                    
-         if(!$reponse2){
-             echo "Se nom est deja prit il faut en choisir un autre";
-             $action="creegroup.php";
-        }
-        */
-          //////////                         
-         ?>
+        
          
     </p>
         <br><br>
         
-        <!--
-            <label for="couverturegroupe">Choisisez la photo de couverture:</label>
-        <br>
-    <input type="text" class="input-medium search-query" name="couverturegroupe" placeholder= "photo de couverture" /> 
-        <br>
-        -->
                 
      <div>
             <label for="couverturegroupe">

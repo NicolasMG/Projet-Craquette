@@ -102,7 +102,7 @@
         
                  <?php while($row=$req->fetch()){ ?>
                     <li>
-                        <a href="profilgroupe.php?id=
+                        <a href="profilgroupe.php?nom=
                             <?php 
                             
                                 echo($row['nomgroupe']); 
