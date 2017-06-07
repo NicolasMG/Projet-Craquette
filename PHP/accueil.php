@@ -10,7 +10,7 @@
     session_start();
     $mail=$_SESSION['mail'];
 ?>
-
+<br><br>
 <div class="inlineblock">
     <div class="vide_gauche"></div>
     <div id="contenu_gauche">  
@@ -61,12 +61,16 @@
                     $req = $bdd->query($sql)  ; 
                 
                 
-                    while($row=$req->fetch()){ ?>
-                    <li>
+                    while($row=$req->fetch()){
+                        $row['nompage']=str_replace("%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20","",$row['nompage']);
+                        
+                        ?>
+                    <li> 
                         <a href="page.php?nom=
+                            
                             <?php 
                             
-                                echo($row['nompage']); 
+                                echo $row['nompage'];
                              ?>"> <?php echo($row['nompage']); ?>
                         </a>
                     </li>
@@ -77,10 +81,9 @@
             
                 
             </ul>
-<<<<<<< HEAD
+
             <a href="creepage.php"><button type="submit" class="btn" style="display:block; position:absolute; left:17%; top:15%;" name="newpage">Créer une page</button></a>
-=======
->>>>>>> 69b402eb2a21e7b2f6e74a76d32084e5c13dc373
+
              <ul>Evenements    
                 <li>Evenement 1</li>
                 <li>Evenement 2</li>
