@@ -6216,15 +6216,16 @@ p .inscription{
     border:1px solid black;
 }
 */
+
 #contenu_gauche, #post, #filactualite,#contenu_droite,#calendrier{
-    margin-top:50px;
+    margin-top:10px;
 }
 
 #contenu_centre,#contenu_droit,#calendrier{
     margin-left:27.4%;
 }
 
-#amis,#contenu_gauche{
+#contenu_droite,#contenu_gauche{
     border-style: groove;
 }
 
@@ -6253,9 +6254,12 @@ p .inscription{
 }
 
 #contenu_gauche{
-    overflow: scroll;
+    overflow-y: scroll;
     /*margin-left:11%;*/
     width: 16%;
+    position: fixed;
+    height:94.8%;
+
     
 }
 
@@ -6310,23 +6314,24 @@ p .inscription{
 
 
 #contenu_droite{
-    margin-left:2%;
+    margin-left:2.3%;
     width:15.1%;
-    height:95.3%;
+    height:94.8%;
     position: fixed;
     padding:0.3%;
     padding-top: 0;
     display:inline-block;
     vertical-align: top;
-    
+
 }
 
 #amis{
-    width: 110%;
-    padding-left:18%;
+    width: 100%;
+    padding-left:0%;
     padding-top:10%;
-  /*  overflow:scroll;*/
     height: 100%;
+    overflow-y: scroll;
+
 }
 
 #couverture{
@@ -6526,8 +6531,6 @@ ul #menu_horizontal {
 }
 #Information{
     display: flex;
-    justify-content: space-around;
-    align-items: center;
     margin-top: 8px;
     margin-bottom: 8px;
 }

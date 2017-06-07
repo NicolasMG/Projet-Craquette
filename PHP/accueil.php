@@ -49,29 +49,10 @@
                 <li>Pages 3</li>
                 
             </ul>
-            <a href="creegroup.php"><button type="submit" class="btn" style="display:block; position:absolute; left:17%; top:15%;" name="newgroupe">Créer un groupe</button></a>
              <ul>Evenements    
                 <li>Evenement 1</li>
                 <li>Evenement 2</li>
-                <li>Evenement 3</li>
-                 <li>Evenement 1</li>
-                <li>Evenement 2</li>
-                <li>Evenement 3</li>
-                 <li>Evenement 1</li>
-                <li>Evenement 2</li>
-                <li>Evenement 3</li>
-                 <li>Evenement 1</li>
-                <li>Evenement 2</li>
-                <li>Evenement 3</li>
-                 <li>Evenement 1</li>
-                <li>Evenement 2</li>
-                <li>Evenement 3</li>
-                 <li>Evenement 1</li>
-                <li>Evenement 2</li>
-                <li>Evenement 3</li>
-                 <li>Evenement 1</li>
-                <li>Evenement 2</li>
-                <li>Evenement 3</li>
+                 <li>Evenement 3</li>
             </ul>
         </div>
     </div>
@@ -138,7 +119,7 @@
             </ul>
             
            
-            <a href="creegroup.php"><button type="submit" class="btn" style="display:block; position:absolute; left:17%; top:15%;" name="newgroupe">Créer un groupe</button></a>
+            <a href="creegroup.php"><button type="submit" class="btn" style="display:block; position:absolute; left:87%; top:85%;" name="newgroupe">Créer un groupe</button></a>
         </div>
     </div>
     <div id="calendrier">
