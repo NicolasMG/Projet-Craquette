@@ -38,13 +38,14 @@ if(isset($_POST['creegroupe'])){
         
             $couverture="Images/imagesgroupecouverture.jpg";
             if(!$_FILES['couverturegroupe']['error']>0){
-            if(!empty($_FILES['couverturegroupe'])){ 
-                $imagecouverture = $_FILES['couverturegroupe']; 
+                if(!empty($_FILES['couverturegroupe'])){ 
+                     $imagecouverture = $_FILES['couverturegroupe']; 
                    
-                $nom1=md5(uniqid(rand(),true)); 
-                $couverture="Images/$nom1";
-                $resultat=move_uploaded_file($_FILES['couverturegroupe']['tmp_name'], $couverture);
-            }}
+                    $nom1=md5(uniqid(rand(),true)); 
+                    $couverture="Images/$nom1";
+                    $resultat=move_uploaded_file($_FILES['couverturegroupe']['tmp_name'], $couverture);
+                }
+            }
         
             $profil="Images/imagegroupeprofil.jpg";
              if(!$_FILES['profilgroupe']['error']>0){
@@ -59,7 +60,10 @@ if(isset($_POST['creegroupe'])){
 
             
             $insertion = $bdd->query('insert into groupe values("'.$id.'","'.$nom.'","administrateur","'.$profil.'","'.$couverture.'")'); 
-            $insertion->execute();    
+            $insertion->execute(); 
+            
+            $bonsite="profilgroupe.php?nom=$nom";
+            echo "<script>window.location = "."'".$bonsite."'"."</script>";
         }
                   
     
@@ -72,7 +76,7 @@ if(isset($_POST['creegroupe'])){
 }
 
 ?>
-    <?php $_GET['nom'];  ?>
+    <?php $nom= $_GET['nom'];  ?>
     <div class="vide_gaucheprofil" style="display:inline-block;"></div>
     <div style="display:inline-block;" id="Page">
         <div id="photosduprofil">
@@ -81,10 +85,6 @@ if(isset($_POST['creegroupe'])){
                         $row = $response->fetch();
                         echo($row['imagecouverture']);                                              
                                                  ?>">
-
-
-
-
 
                 <img id="PhotoDeProfil" src="<?php 
                         $response =$bdd->query('SELECT imageprofil FROM groupe WHERE nomgroupe="'.$nom.'"'); 
@@ -194,7 +194,7 @@ if(isset($_POST['creegroupe'])){
 	if(!empty($_POST['membre'])){ 
         $membre1=htmlspecialchars($_POST['membre']);
         $mail=$membre1;//peut etre a changer
-        $nom = $_SESSION['nomgroupe'];
+        $nom = $_GET['nom'];
             $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
             $row = $response->fetch();
             $id=($row['id']);
