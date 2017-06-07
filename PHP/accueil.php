@@ -77,11 +77,14 @@
             
                 
             </ul>
+<<<<<<< HEAD
             <a href="creepage.php"><button type="submit" class="btn" style="display:block; position:absolute; left:17%; top:15%;" name="newpage">Créer une page</button></a>
+=======
+>>>>>>> 69b402eb2a21e7b2f6e74a76d32084e5c13dc373
              <ul>Evenements    
                 <li>Evenement 1</li>
                 <li>Evenement 2</li>
-                <li>Evenement 3</li>
+                 <li>Evenement 3</li>
             </ul>
         </div>
     </div>
@@ -153,7 +156,7 @@
             </ul>
             
            
-            <a href="creegroup.php"><button type="submit" class="btn" style="display:block; position:absolute; left:17%; top:15%;" name="newgroupe">Créer un groupe</button></a>
+            <a href="creegroup.php"><button type="submit" class="btn" style="display:block; position:absolute; left:87%; top:85%;" name="newgroupe">Créer un groupe</button></a>
         </div>
     </div>
     <div id="calendrier">
