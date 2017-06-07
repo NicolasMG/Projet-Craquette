@@ -27,29 +27,31 @@ if(isset($_POST['creegroupe'])){
         }else{
             
    /////         
-            $couverture="NULL";
+            $couverture="Images/imagesgroupecouverture.jpg";
             if(!$_FILES['couverturegroupe']['error']>0){
-            if(!empty($_FILES['couverturegroupe'])){ 
-                $imagecouverture = $_FILES['couverturegroupe']; 
+                if(!empty($_FILES['couverturegroupe'])){ 
+                    $imagecouverture = $_FILES['couverturegroupe']; 
                    
-                $nom1=md5(uniqid(rand(),true)); 
-                $couverture="Images/$nom1";
-                $resultat=move_uploaded_file($_FILES['couverturegroupe']['tmp_name'], $couverture);
-            }}
+                    $nom1=md5(uniqid(rand(),true)); 
+                    $couverture="Images/$nom1";
+                    $resultat=move_uploaded_file($_FILES['couverturegroupe']['tmp_name'], $couverture);
+                }
+            }   
         
-            $profil="NULL";
-             if(!$_FILES['profilgroupe']['error']>0){
-            if(!empty($_FILES['profilgroupe'])){ 
-                $imagecouverture = $_FILES['profilgroupe']; 
+            $profil="Images/imagegroupeprofil.jpg";
+            if(!$_FILES['profilgroupe']['error']>0){
+                if(!empty($_FILES['profilgroupe'])){ 
+                    $imagecouverture = $_FILES['profilgroupe']; 
                    
-                $nom1=md5(uniqid(rand(),true)); 
-                $profil="Images/$nom1";
-                $resultat=move_uploaded_file($_FILES['profilgroupe']['tmp_name'], $profil);
-            }}
+                    $nom1=md5(uniqid(rand(),true)); 
+                    $profil="Images/$nom1";
+                    $resultat=move_uploaded_file($_FILES['profilgroupe']['tmp_name'], $profil);
+                }
+            }
             
 
             
-            $insertion = $bdd->query('insert into groupe values("'.$id.'","'.$nom.'","administrateur","'.$profil.'","'.$couverture.'")'); 
+            $insertion = $bdd->query('insert into groupe values("'.$id.'","'.$nom.'","admin","Images/imagegroupeprofil.jpg","'.$couverture.'")'); 
             $insertion->execute();    
         }
                   
@@ -114,7 +116,7 @@ if(isset($_POST['creegroupe'])){
         
 <!--TABLEAUX DES AMIS-->        
 <table class="table table-bordered">
-    <th><p class="text-error"> Membre du groupe</p></th>
+    <th><p class="text-error"> Membre du groupe pppp</p></th>
     <tbody>
         <tr>       
             <?php while($row=$req->fetch()){

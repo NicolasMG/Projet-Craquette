@@ -1,9 +1,9 @@
 <?php 
-    include('header.php');
+    include('header_profil.php');
     
     
    // echo("Crée un group d'ami(e)s");
-    $action="groupe.php"
+    //$action="groupe.php"
 ?>
 <section>
     <p><br><br><br><br></p>

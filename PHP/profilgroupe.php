@@ -36,7 +36,7 @@ if(isset($_POST['creegroupe'])){
         }else{
             
         
-            $couverture="NULL";
+            $couverture="Images/imagesgroupecouverture.jpg";
             if(!$_FILES['couverturegroupe']['error']>0){
             if(!empty($_FILES['couverturegroupe'])){ 
                 $imagecouverture = $_FILES['couverturegroupe']; 
@@ -46,7 +46,7 @@ if(isset($_POST['creegroupe'])){
                 $resultat=move_uploaded_file($_FILES['couverturegroupe']['tmp_name'], $couverture);
             }}
         
-            $profil="NULL";
+            $profil="Images/imagegroupeprofil.jpg";
              if(!$_FILES['profilgroupe']['error']>0){
                  if(!empty($_FILES['profilgroupe'])){ 
                     $imagecouverture = $_FILES['profilgroupe']; 
@@ -72,12 +72,12 @@ if(isset($_POST['creegroupe'])){
 }
 
 ?>
-
+    <?php $_GET['nom'];  ?>
     <div class="vide_gaucheprofil" style="display:inline-block;"></div>
     <div style="display:inline-block;" id="Page">
         <div id="photosduprofil">
                 <img style="height:315px; width:851px;"id="PhotoDeCouverture" src="<?php 
-                        $response =$bdd->query('SELECT imagecouverture FROM profil WHERE email="'.$mail.'"'); 
+                        $response =$bdd->query('SELECT imagecouverture FROM groupe WHERE nomgroupe="'.$nom.'"'); 
                         $row = $response->fetch();
                         echo($row['imagecouverture']);                                              
                                                  ?>">
@@ -87,7 +87,7 @@ if(isset($_POST['creegroupe'])){
 
 
                 <img id="PhotoDeProfil" src="<?php 
-                        $response =$bdd->query('SELECT imageprofil FROM profil WHERE email="'.$mail.'"'); 
+                        $response =$bdd->query('SELECT imageprofil FROM groupe WHERE nomgroupe="'.$nom.'"'); 
                         $row = $response->fetch();
                         echo($row['imageprofil']);               
                                              ?>" >  

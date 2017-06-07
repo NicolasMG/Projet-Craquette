@@ -47,7 +47,9 @@
                 <li>Pages 1</li>
                 <li>Pages 2 avec un nom long</li>
                 <li>Pages 3</li>
+                
             </ul>
+            <a href="creegroup.php"><button type="submit" class="btn" style="display:block; position:absolute; left:17%; top:15%;" name="newgroupe">Créer un groupe</button></a>
              <ul>Evenements    
                 <li>Evenement 1</li>
                 <li>Evenement 2</li>
