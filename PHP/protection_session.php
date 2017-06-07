@@ -1,5 +1,4 @@
 <?php
-    include('protection_session.php');
     try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root','');
     }
@@ -28,5 +27,6 @@
         $droitconnexion="../index.php";
         echo "<script>window.location = "."'".$droitconnexion."'"."</script>";
     }
+
 ?>
 

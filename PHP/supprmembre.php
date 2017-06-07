@@ -1,6 +1,5 @@
 
 <?php
-    include('protection_session.php');
 include('header.php');
  //if(isset($_POST['supprmembre'])){ 
 	//if(!empty($_POST['membre'])){ 

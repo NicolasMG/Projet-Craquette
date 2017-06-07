@@ -1,7 +1,6 @@
 <?php 
     include('header_profil.php');
     
-    include('protection_session.php');
     
    // echo("Crée un group d'ami(e)s");
     //$action="groupe.php"

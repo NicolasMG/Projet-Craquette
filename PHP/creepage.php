@@ -1,7 +1,6 @@
 <?php 
     include('header_profil.php');
 
-    include('protection_session.php');
     
 ?>
 <section>

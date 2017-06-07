@@ -1,7 +1,6 @@
 <br><br><br><br>
 <?php
 session_start();
-    include('protection_session.php');
 include('entete.php');
 
 

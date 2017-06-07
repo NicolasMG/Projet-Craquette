@@ -1,7 +1,5 @@
 <p><br><br><br></p>
 <?php
-    include('protection_session.php');
-   
     include('header_groupe.php');
     try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
