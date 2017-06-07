@@ -1,4 +1,5 @@
 <?php
+    include('protection_session.php');
 if (isset($_POST['craquetter'])){
 	if(!empty($_POST['message'])){
 		$message=htmlspecialchars($_POST['message']);

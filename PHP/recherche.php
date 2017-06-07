@@ -1,6 +1,7 @@
 
 
 <?php
+    include('protection_session.php');
     include(entete.php);
     
     if(!empty($_POST['recherche'])){ 

@@ -1,5 +1,6 @@
 <p><br><br><br></p>
 <?php
+    include('protection_session.php');
    
     include('header_groupe.php');
     try{ 

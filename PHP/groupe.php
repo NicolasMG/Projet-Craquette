@@ -3,6 +3,7 @@
 <br>
     <br>
 <?php
+    include('protection_session.php');
 session_start();
 include('header_groupe.php');
 //session_start();
