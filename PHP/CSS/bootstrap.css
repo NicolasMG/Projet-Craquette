@@ -6253,10 +6253,9 @@ p .inscription{
 }
 
 #contenu_gauche{
+    overflow: scroll;
     /*margin-left:11%;*/
-    height: 94.7%;
     width: 16%;
-    position: fixed;
     
 }
 
