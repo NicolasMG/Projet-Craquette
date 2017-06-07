@@ -23,7 +23,6 @@
                 <a class="active" href="accueil.php"><span class="glyphicon glyphicon-bell"></span></a>
                 <a class="active" href="accueil.php"><span class="glyphicon glyphicon-home"></span></a>
                 <a class="active"  href="profil.php"><span class="glyphicon glyphicon-cog"></span></a>
-                <a class="active" href="emploidutemps.php"><span class="glyphicon glyphicon-calendar"></span></a>
                 <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
             </div>
         </div>
