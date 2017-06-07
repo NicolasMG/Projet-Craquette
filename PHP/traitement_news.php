@@ -12,5 +12,5 @@ catch (Exception $e){
 }
 $req=$bdd->prepare('insert into actualite (poste) values ("'.$message.'")');
 $req->execute();
-header('Location: http://localhost/Projet-Craquette/PHP/accueil.php');
+header('Location: ./accueil.php');
 ?>
