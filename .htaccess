@@ -1,7 +1,4 @@
-
-
-
-
-# For security reasons, Option followsymlinks cannot be overridden.
-        #Options +FollowSymLinks
-        Options +SymLinksIfOwnerMatch
+AuthName "Page d'administration protégée"
+AuthType Basic
+AuthUserFile C:\wamp64\www\Projet-Craquette\Projet-Craquette\.htpasswd
+Require valid-user
