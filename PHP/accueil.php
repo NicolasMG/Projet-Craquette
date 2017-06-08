@@ -62,7 +62,7 @@
                 
                 
                     while($row=$req->fetch()){
-                        $row['nompage']=str_replace("%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20","",$row['nompage']);
+                        $nom=str_replace("%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20","",$row['nompage']);
                         
                         ?>
                     <li> 
@@ -70,7 +70,7 @@
                             
                             <?php 
                             
-                                echo $row['nompage'];
+                                echo $nom;
                              ?>"> <?php echo($row['nompage']); ?>
                         </a>
                     </li>
@@ -139,15 +139,14 @@
                     $req = $bdd->query($sql)  ; 
         
                 ?>    
-    
         
-                 <?php while($row=$req->fetch()){ ?>
+        
+                 <?php while($row=$req->fetch()){ 
+                         
+                    ?>
                     <li>
-                        <a href="profilgroupe.php?nom=
-                            <?php 
-                            
-                                echo($row['nomgroupe']); 
-                             ?>"> <?php echo($row['nomgroupe']); ?>
+                        <a href="profilgroupe.php?nom=<?php echo $row['nomgroupe']; ?>">
+                            <?php echo($row['nomgroupe']); ?>
                         </a>
                     </li>
                     
