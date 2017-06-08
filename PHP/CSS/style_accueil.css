@@ -1,4 +1,4 @@
-#body_profil,#body_accueil {
+#body_accueil {
      background-image:url(images/gradientby2.jpg);
      background-attachment:fixed;
      background-size: 100% 100%;
@@ -7,31 +7,11 @@
 
 
 header{
-	width:100%; 
-    position: fixed;
-    top:0;
-    background-image:url(images/gradientby.jpg);
-    background-size: 100% 150px;
-}
-
-
-section {
-    text-align: center;
-}
-
-form label{
-    margin-top:20px;
-}
-
-p .inscription{
-    text-align:center;
-}
-
-.inlineblock{
     width: 100%;
-    height: 100%;
+    height: 50px;
 }
-.inlineblock #contenu_gauche,#contenu_centre,#contenu_droite,#calendrier,.vide_gauche,.vide1,.vide2,.vide_gaucheprofil,.vide_droitprofil{
+
+#contenu_gauche,#contenu_centre,#contenu_droite,#calendrier,.vide_gauche,.vide1,.vide2,.vide_gaucheprofil,.vide_droitprofil{
     display:inline-block;
     vertical-align:top;
 }
@@ -40,10 +20,6 @@ p .inscription{
     border:1px solid black;
 }
 */
-
-#contenu_gauche, #post, #filactualite,#contenu_droite,#calendrier{
-    margin-top:10px;
-}
 
 #contenu_centre,#contenu_droit,#calendrier{
     margin-left:27.4%;

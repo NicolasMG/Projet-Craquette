@@ -1,3 +1,12 @@
+#body_profil {
+     background-image:url(images/gradientby2.jpg);
+     background-attachment:fixed;
+     background-size: 100% 100%;
+}
+section {
+    text-align: center;
+}
+
 #Page{
     width:70%;
     margin-left: auto;
@@ -45,7 +54,7 @@
 #PanneauGauche{
     background-image: url(images/gradientby.jpg);
     background-size: 100% 100%;
-    margin-top:15.7%;
+    
     width: 15%;
     border-style: groove;
     height: 60.5%;

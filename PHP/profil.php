@@ -1,4 +1,3 @@
-<p><br><br><br></p>
 <?php
 
     include('header_profil.php');

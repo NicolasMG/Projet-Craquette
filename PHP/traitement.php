@@ -136,5 +136,6 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
     <a href='<?php echo $valideinscription;  ?>'><button type="submit" class="btn"><?php echo $bouton; ?></button></a>
     <p><br></p> 
 <?php
-             echo '<p>'.$prenom.' '.$nom.', merci de nous rejoindre .</p>';      //peut etre changer ça    
+             echo '<p>'.$prenom.' '.$nom.', merci de nous rejoindre .</p>';      //peut etre changer ça 
+include ('footer.php');
 ?>
