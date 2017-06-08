@@ -21,9 +21,7 @@ if(isset($_POST['creegroupe'])){
 	if(!empty($_POST['nomgroupe'])){
         
         $nom = htmlspecialchars($_POST['nomgroupe']);
-        //$_SESSION['nomgroupe']=htmlspecialchars($_POST['nomgroupe']);
         $id=$_SESSION['ID'];
-
         
         $reponse=$bdd->prepare('Select nomgroupe From groupe Where nomgroupe="'.$nom.'"');
         $nom=htmlentities($_POST['nomgroupe']);
@@ -56,15 +54,16 @@ if(isset($_POST['creegroupe'])){
                      $nom1=md5(uniqid(rand(),true)); 
                     $profil="Images/$nom1";
                     $resultat=move_uploaded_file($_FILES['profilgroupe']['tmp_name'], $profil);
-            }}
+                }
+             }
             
 
-            
+            echo "salut";
             $insertion = $bdd->query('insert into groupe values("'.$id.'","'.$nom.'","administrateur","'.$profil.'","'.$couverture.'")'); 
             $insertion->execute(); 
             
             $bonsite="profilgroupe.php?nom=$nom";
-            echo "<script>window.location = "."'".$bonsite."'"."</script>";
+           // echo "<script>window.location = "."'".$bonsite."'"."</script>";
         }
                   
     
@@ -104,16 +103,10 @@ if(isset($_POST['creegroupe'])){
                 
                     
                    <?php $nom=$_GET['nom']; ?>
-                    <a href='modifgroupe.php?nom=<?php echo $nom;?>'><button style="left:62%; top:34%;" type="submit" class="btn">Mettre à jour ma page</button></a>
+                    <a href='modifgroupe.php?nom=<?php echo $nom;?>'><button style="left:62%; top:34%;" type="submit" class="btn">Mettre à jour le groupe</button></a>
                     
                   
-      
-                    
-       
- <!--<section>-->
 
-            
-                    
                     
                     
                     
@@ -235,25 +228,7 @@ if(isset($_POST['creegroupe'])){
         
     </p>    
 
-      <?php //}  ?>  
-<?php
-  /*     //POUR AJOUTER DES MEMBRES
- if(isset($_POST['ajoutmembre'])){ 
-	if(!empty($_POST['membre'])){ 
-        $membre1=htmlspecialchars($_POST['membre']);
-        $mail=$membre1;//peut etre a changer
-        $nom = $_GET['nom'];
-            $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
-            $row = $response->fetch();
-            $id=($row['id']);
-           
-        $insertion2 = $bdd->prepare('insert into groupe values("'.$id.'","'.$nom.'","membre","NULL","NULL")'); 
-        $insertion2->execute();
-        
-    }
- }
-*/
-?>   
+      <?php //}  ?>    
         
 <!--TABLEAUX DES AMIS-->        
 <!--<table class="table table-bordered">
