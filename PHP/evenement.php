@@ -128,6 +128,56 @@ if(isset($_POST['creeevenement'])){
                     
                     
                     
+                    
+                    
+                     <div style="display:inline-block;" id="PanneauGauche">
+                <div id="Information">
+                    <div id="Infogenerale">
+                        <p><h2 style="font-size:20px;" >Information sur l'événement :</h2></p>
+  
+
+                    
+                        <p>Date : <?php  $response =$bdd->query('SELECT date FROM evenement WHERE nomevenement="'.$nom.'"'); 
+                                            $row = $response->fetch();
+                                            echo($row['date']);
+                        ?></p>
+                    
+                    
+                        
+                    
+                        <p>Heure : <?php  $response =$bdd->query('SELECT heure FROM evenement WHERE nomevenement="'.$nom.'"'); 
+                                            $row = $response->fetch();
+                                            echo($row['heure']);
+                        ?></p>
+                        
+                    
+                        <p>Lieu : <?php  $response =$bdd->query('SELECT lieu FROM evenement WHERE nomevenement="'.$nom.'"'); 
+                                            $row = $response->fetch();
+                                            echo($row['lieu']);
+                        ?></p>
+                    
+                        
+                        <p>Déscription :<?php  $response =$bdd->query('SELECT commentaire FROM evenement WHERE nomevenement="'.$nom.'"'); 
+                                            $row = $response->fetch();
+                                            echo($row['commentaire']);
+                    
+                        ?>
+                        </p>
+                        <p>CV : <a href="Documents/Mon%20CV.txt">Mon CV</a></p>    
+                    </div>
+                </div>
+        </div>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
    <?php  /*
        //POUR AJOUTER DES MEMBRES
     if(isset($_POST['ajoutmembre'])){ 
