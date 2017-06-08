@@ -32,8 +32,6 @@ if(isset($_POST['creeevenement'])){
             $pbnom="creeevenement.php";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
         }else{
-            
-        
             $couverture="Images/imagesgroupecouverture.jpg";
             if(!$_FILES['couvertureevenement']['error']>0){
                 if(!empty($_FILES['couvertureevenement'])){ 
@@ -56,14 +54,15 @@ if(isset($_POST['creeevenement'])){
                 }
              }
             
-            $date="NULL"; //VOIR SI OBLIGATOIRE OU PAS
+            $date="2017-08-06"; //VOIR SI OBLIGATOIRE OU PAS
             if(!empty($_POST['date'])){
                 $date=$_POST['date'];   
             }
             
-            $heure="NULL";
+            $heure="00:00:00";
             if(!empty($_POST['heure'])){
-                $date=$_POST['heure'];   
+                $heure=$_POST['heure'];  
+                echo $heure;
             }
             
             $lieu="NULL";
@@ -76,7 +75,7 @@ if(isset($_POST['creeevenement'])){
                 $date=$_POST['commentaire'];   
             }
   
-            $insertion = $bdd->prepare('insert into evenement values("'.$nom.'","'.$id.'","'$date.'","'.$heure.'","'.$lieu.'","'.$commentaire.'","'.$couverture.'","'.$profil.'")'); 
+            $insertion = $bdd->prepare('insert into evenement values("'.$nom.'","'.$id.'","'.$date.'","'.$heure.'","'.$lieu.'","'.$commentaire.'","'.$couverture.'","'.$profil.'")'); 
             $insertion->execute(); 
             
             $bonsite="evenement.php?nom=$nom";
@@ -120,7 +119,7 @@ if(isset($_POST['creeevenement'])){
                 
                     
                    <?php $nom=$_GET['nom']; ?>
-                    <a href='modifevemenent.php?nom=<?php echo $nom;?>'><button style="left:62%; top:34%;" type="submit" class="btn">Mettre à jour le groupe</button></a>
+                    <a href='modifevenement.php?nom=<?php echo $nom;?>'><button style="left:62%; top:34%;" type="submit" class="btn">Modifier l'évenement</button></a>
                     
                   
 

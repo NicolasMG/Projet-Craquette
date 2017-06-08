@@ -83,6 +83,7 @@
                 <li>Evenement 2</li>
                  <li>Evenement 3</li>
             </ul>
+             <a href="creeevenement.php"><button type="submit" class="btn" style="display:block; position:absolute; left:17%; top:15%;" name="newevenement">Créer un evenement</button></a>
         </div>
     </div>
     <div class="vide1"></div>
