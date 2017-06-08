@@ -52,8 +52,8 @@
                 <li>Club 2</li>
                 <li>Club 3</li>  
             </ul>
-           <ul>Pages    
-  
+           <ul>Pages
+               
                 <?php       
                     $id=$_SESSION['ID'];
                     $sql='SELECT distinct nompage FROM page Where createur="'.$id.'"';
