@@ -57,7 +57,7 @@ if(!empty($_POST['mail'])) {
          $_SESSION['ID']= $row['id'];
         
        // <a href="./profil.php">mon compte</a>
-        $droitconnexion="./profil.php";
+        $droitconnexion="./accueil.php";
 //}   // pas sur si on doit d'arreter ici ou plus loin (doute de mon niveau de php)
         
             }

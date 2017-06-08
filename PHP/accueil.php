@@ -10,7 +10,7 @@
     session_start();
     $mail=$_SESSION['mail'];
 ?>
-
+<br><br>
 <div class="inlineblock">
     <div class="vide_gauche"></div>
     <div id="contenu_gauche">  
@@ -37,6 +37,16 @@
                     
                     ?> </p>
         </div>
+        
+        <?php
+                try{ 
+                    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
+                }
+                    catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
+                    die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
+                }
+            ?>
+        
         <div id="groupes">
             <ul>Club
                 <li>Club 1</li>
@@ -44,16 +54,40 @@
                 <li>Club 3</li>  
             </ul>
             <ul>Pages    
-                <li>Pages 1</li>
-                <li>Pages 2 avec un nom long</li>
-                <li>Pages 3</li>
+  
+                <?php       
+                    $id=$_SESSION['ID'];
+                    $sql='SELECT distinct nompage FROM page Where createur="'.$id.'"';
+                    $req = $bdd->query($sql)  ; 
+                
+                
+                    while($row=$req->fetch()){
+                        $row['nompage']=str_replace("%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20","",$row['nompage']);
+                        
+                        ?>
+                    <li> 
+                        <a href="page.php?nom=
+                            
+                            <?php 
+                            
+                                echo $row['nompage'];
+                             ?>"> <?php echo($row['nompage']); ?>
+                        </a>
+                    </li>
+                    <?php 
+                        }
+                       $req->closeCursor();
+                    ?>
+            
                 
             </ul>
-            <a href="creegroup.php"><button type="submit" class="btn" style="display:block; position:absolute; left:17%; top:15%;" name="newgroupe">Créer un groupe</button></a>
+
+            <a href="creepage.php"><button type="submit" class="btn" style="display:block; position:absolute; left:17%; top:15%;" name="newpage">Créer une page</button></a>
+
              <ul>Evenements    
                 <li>Evenement 1</li>
                 <li>Evenement 2</li>
-                <li>Evenement 3</li>
+                 <li>Evenement 3</li>
             </ul>
         </div>
     </div>
@@ -78,12 +112,8 @@
     </div>
     <div class="vide2"></div>
 
-    <div id="contenu_droite">
-        <div id="amis">
-   
-            
-            
-            <?php
+     
+     <?php
                 try{ 
                     $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
                 }
@@ -91,6 +121,15 @@
                     die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
                 }
             ?>
+        
+    
+    
+    
+    
+    <div id="contenu_droite">
+        <div id="amis">
+   
+            
             <ul>
                 Groupes
                     
@@ -120,7 +159,7 @@
             </ul>
             
            
-            <a href="creegroup.php"><button type="submit" class="btn" style="display:block; position:absolute; left:17%; top:15%;" name="newgroupe">Créer un groupe</button></a>
+            <a href="creegroup.php"><button type="submit" class="btn" style="display:block; position:absolute; left:87%; top:85%;" name="newgroupe">Créer un groupe</button></a>
         </div>
     </div>
     <div id="calendrier">

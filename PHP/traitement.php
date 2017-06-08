@@ -24,6 +24,7 @@
 $valideinscription="erreurinscription.php";
 $message="Oups....une erreur c'est glisser dans votre formulaire d'inscription";
 $bouton="recommencer";
+$massage2="il faut recommencer";
 
 if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
 
@@ -61,7 +62,7 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                                         $prenom => $ide + 6,
                                     ];
                                     echo "<br>";
-                                    echo $MDP;
+                                    //echo $MDP;
                                     $sel = password_hash($MDP,PASSWORD_DEFAULT, $option);
                                                                  
 
@@ -104,6 +105,7 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                                         $message="Votre profil a bien été créé.";
                                         $bouton="Voir mon profil";
                                         $valideinscription="profil.php";
+                                        $message2= "merci de nous rejoindre";
                                     }
                                 }
                             }

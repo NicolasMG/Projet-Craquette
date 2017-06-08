@@ -1,4 +1,4 @@
-<p><br><br><br></p>
+
 <?php
    
     include('header_groupe.php');
@@ -8,11 +8,12 @@
     catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
         die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
     }
-        
+  
     session_start();
     $mail=$_SESSION['mail'];
-    
+    $id=$_SESSION['ID'];
 ?>
+<p><br><br><br></p>
 <?php
 
 //CREATION DU GROUPE
@@ -20,7 +21,7 @@ if(isset($_POST['creegroupe'])){
 	if(!empty($_POST['nomgroupe'])){
         
         $nom = htmlspecialchars($_POST['nomgroupe']);
-        $_SESSION['nomgroupe']=htmlspecialchars($_POST['nomgroupe']);
+        //$_SESSION['nomgroupe']=htmlspecialchars($_POST['nomgroupe']);
         $id=$_SESSION['ID'];
 
         
@@ -38,13 +39,14 @@ if(isset($_POST['creegroupe'])){
         
             $couverture="Images/imagesgroupecouverture.jpg";
             if(!$_FILES['couverturegroupe']['error']>0){
-            if(!empty($_FILES['couverturegroupe'])){ 
-                $imagecouverture = $_FILES['couverturegroupe']; 
+                if(!empty($_FILES['couverturegroupe'])){ 
+                     $imagecouverture = $_FILES['couverturegroupe']; 
                    
-                $nom1=md5(uniqid(rand(),true)); 
-                $couverture="Images/$nom1";
-                $resultat=move_uploaded_file($_FILES['couverturegroupe']['tmp_name'], $couverture);
-            }}
+                    $nom1=md5(uniqid(rand(),true)); 
+                    $couverture="Images/$nom1";
+                    $resultat=move_uploaded_file($_FILES['couverturegroupe']['tmp_name'], $couverture);
+                }
+            }
         
             $profil="Images/imagegroupeprofil.jpg";
              if(!$_FILES['profilgroupe']['error']>0){
@@ -59,7 +61,10 @@ if(isset($_POST['creegroupe'])){
 
             
             $insertion = $bdd->query('insert into groupe values("'.$id.'","'.$nom.'","administrateur","'.$profil.'","'.$couverture.'")'); 
-            $insertion->execute();    
+            $insertion->execute(); 
+            
+            $bonsite="profilgroupe.php?nom=$nom";
+            echo "<script>window.location = "."'".$bonsite."'"."</script>";
         }
                   
     
@@ -72,7 +77,7 @@ if(isset($_POST['creegroupe'])){
 }
 
 ?>
-    <?php $_GET['nom'];  ?>
+    <?php $nom= $_GET['nom'];  ?>
     <div class="vide_gaucheprofil" style="display:inline-block;"></div>
     <div style="display:inline-block;" id="Page">
         <div id="photosduprofil">
@@ -81,10 +86,6 @@ if(isset($_POST['creegroupe'])){
                         $row = $response->fetch();
                         echo($row['imagecouverture']);                                              
                                                  ?>">
-
-
-
-
 
                 <img id="PhotoDeProfil" src="<?php 
                         $response =$bdd->query('SELECT imageprofil FROM groupe WHERE nomgroupe="'.$nom.'"'); 
@@ -100,12 +101,23 @@ if(isset($_POST['creegroupe'])){
                         <p><h2 style="font-size:20px;" >Membres du groupe :</h2></p>
    
                         <!--<a href='gestionmembres.php'><button style="left:30.2%; top:95%;" type="submit" class="btn">Gérer des membres</button></a>-->
-
-
-
+                
+                    
+                   <?php $nom=$_GET['nom']; ?>
+                    <a href='modifgroupe.php?nom=<?php echo $nom;?>'><button style="left:62%; top:34%;" type="submit" class="btn">Mettre à jour ma page</button></a>
+                    
+                  
+      
+                    
        
-        
-<?php
+ <!--<section>-->
+
+            
+                    
+                    
+                    
+                    
+   <?php
        //POUR AJOUTER DES MEMBRES
     if(isset($_POST['ajoutmembre'])){ 
 	   if(!empty($_POST['membre'])){ 
@@ -121,27 +133,29 @@ if(isset($_POST['creegroupe'])){
         }
     }
 
-?>
-                    
-     <?php       
+?>     
+           <?php       
    //LISTE DES MEMBRES     
     $sql='SELECT distinct idutil FROM groupe Where nomgroupe="'.$_GET['nom'].'"';
      $req = $bdd->query($sql)  ;                
-                    
-     ?>               
-                    
-                    
+       //echo $_GET['nom'];   //ok          
+     ?> 
+                      
    <!--TABLEAUX DES AMIS-->        
 <!--<table class="table table-bordered">
     <th><p class="text-error"> Membre du groupe</p></th>-->
     <ul> Membre(s)
-             
+             <?php //echo $nom;//ok ?>
             <?php while($row=$req->fetch()){
-                $idutil=$row['idutil']; ?>
+                $idutil=$row['idutil']; 
+                //echo "coucou";
+                $nom=$_GET['nom'];
+            ?>
+                
                 <li>
                     <a href="profilami.php?id=<?php echo $idutil;?>">
                         <?php 
-                            
+                            //echo "coucou";
                             $idutil=$row['idutil'];
                             $response = $bdd->query('SELECT prenom FROM profil WHERE id="'.$idutil.'"'); 
                             $row = $response->fetch();
@@ -155,7 +169,37 @@ if(isset($_POST['creegroupe'])){
                         ?>
                 
                     </a>
-                    <a href="supprmembre.php?id=<?php echo $idutil;?>&amp;nom=<?php echo $_GET['nom']; ?>"> <span class="glyphicon glyphicon-remove"></span></a>
+                    
+                    
+                    
+                    
+                    <?php
+   
+    
+    try{ 
+        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
+    }
+    catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
+        die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
+    }
+  
+    
+?>
+                    
+                    
+                    
+                    <?php  
+                
+                    $request=$bdd->query('SELECT role From groupe Where idutil="'.$id.'" AND nomgroupe="'.$nom.'"' );
+                    $row=$request->fetch();
+                    $idtrouver=$row['role']; 
+                    $ad="membre";
+                    if(!$idtrouver==$ad){
+                        ?>
+                   
+                  
+                            <a href="supprmembre.php?id=<?php echo $idutil;?>&amp;nom=<?php echo $_GET['nom']; ?>"> <span class="glyphicon glyphicon-remove"></span></a>
+                    <?php }  ?>
                 </li>
                
 
@@ -166,11 +210,15 @@ if(isset($_POST['creegroupe'])){
     $req->closeCursor();
     ?>
      
-        
-   
- <!--<section>-->
-
-    <form method="post">
+      <?php  
+                
+                    $request=$bdd->query('SELECT role From groupe Where idutil="'.$id.'" AND nomgroupe="'.$nom.'"' );
+                    $row=$request->fetch();
+                    $idtrouver=$row['role']; 
+                    $ad="membre";
+                    if(!$idtrouver==$ad){
+                        ?>
+       <form method="post">
 
     <p> 
     <label for="nomgroupe">Choisissez le(s) membre(s) à rajouter :</label>
@@ -185,25 +233,26 @@ if(isset($_POST['creegroupe'])){
    <input type="submit" name="ajoutmembre" value="Ajouter"/>
          
         
-    </p> 
-        
-        
+    </p>    
+
+      <?php }  ?>  
 <?php
-       //POUR AJOUTER DES MEMBRES
+  /*     //POUR AJOUTER DES MEMBRES
  if(isset($_POST['ajoutmembre'])){ 
 	if(!empty($_POST['membre'])){ 
         $membre1=htmlspecialchars($_POST['membre']);
         $mail=$membre1;//peut etre a changer
-        $nom = $_SESSION['nomgroupe'];
+        $nom = $_GET['nom'];
             $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
             $row = $response->fetch();
             $id=($row['id']);
            
         $insertion2 = $bdd->prepare('insert into groupe values("'.$id.'","'.$nom.'","membre","NULL","NULL")'); 
         $insertion2->execute();
+        
     }
  }
-
+*/
 ?>   
         
 <!--TABLEAUX DES AMIS-->        

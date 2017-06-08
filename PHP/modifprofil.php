@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+    include('protection_session.php');
     session_start();
     $mail = $_SESSION['mail'];
    //$mail="rachel.noireau@uha.fr";

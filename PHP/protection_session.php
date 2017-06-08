@@ -35,5 +35,6 @@
         $droitconnexion="../index.php";
         echo "<script>window.location = "."'".$droitconnexion."'"."</script>";
     }
+
 ?>
 
