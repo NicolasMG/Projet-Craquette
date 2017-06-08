@@ -189,17 +189,17 @@ if(isset($_POST['creegroupe'])){
                     
                     
                     <?php  
-                
+                /*
                     $request=$bdd->query('SELECT role From groupe Where idutil="'.$id.'" AND nomgroupe="'.$nom.'"' );
                     $row=$request->fetch();
                     $idtrouver=$row['role']; 
                     $ad="membre";
-                    if(!$idtrouver==$ad){
+                    if(!$idtrouver==$ad){*/
                         ?>
                    
                   
                             <a href="supprmembre.php?id=<?php echo $idutil;?>&amp;nom=<?php echo $_GET['nom']; ?>"> <span class="glyphicon glyphicon-remove"></span></a>
-                    <?php }  ?>
+                    <?php //}  ?>
                 </li>
                
 
@@ -211,12 +211,12 @@ if(isset($_POST['creegroupe'])){
     ?>
      
       <?php  
-                
+                /*
                     $request=$bdd->query('SELECT role From groupe Where idutil="'.$id.'" AND nomgroupe="'.$nom.'"' );
                     $row=$request->fetch();
                     $idtrouver=$row['role']; 
                     $ad="membre";
-                    if(!$idtrouver==$ad){
+                    if(!$idtrouver==$ad){*/
                         ?>
        <form method="post">
 
@@ -235,7 +235,7 @@ if(isset($_POST['creegroupe'])){
         
     </p>    
 
-      <?php }  ?>  
+      <?php //}  ?>  
 <?php
   /*     //POUR AJOUTER DES MEMBRES
  if(isset($_POST['ajoutmembre'])){ 

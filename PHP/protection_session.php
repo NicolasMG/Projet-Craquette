@@ -10,12 +10,20 @@
         $mail=$_SESSION['mail'];
         $idef=$_SESSION['ID'];
     }
-    else {
-        session_unset();
-        session_destroy();
-        $droitconnexion="../index.php";
-        echo "<script>window.location = "."'".$droitconnexion."'"."</script>";
+    else
+    {
+            session_unset();
+            session_destroy();
+            $droitconnexion="../index.php";
+            echo "<script>window.location = "."'".$droitconnexion."'"."</script>";
     }   
+
+    if(empty($mail) || empty($idef)) {
+            session_unset();
+            session_destroy();
+            $droitconnexion="../index.php";
+            echo "<script>window.location = "."'".$droitconnexion."'"."</script>";
+        }
         
     $sql=$bdd->prepare('SELECT email,Id FROM profil WHERE email="'.$mail.'"');
     $sql->execute();

@@ -1,6 +1,8 @@
+<?php 
+  include('protection_session.php');
+?>
 <!doctype html>
 <html lang="fr">
-
 	<head> <!-- en tête du fichier -->
 		<meta charset="utf-8"/>
 		<title>Craquette - Connexion</title>
@@ -13,7 +15,6 @@
 	</head>
 	<body id="body_accueil">
 		<header> <!-- header = en tête page -->
-
         <div style="height:50px;" class="topnav" id="myTopnav">
             <a href="accueil.php"><img style="padding-left:17%;" class="headerimg" src='Images/logo.png' /></a>
             <div class="contenu_entete">
@@ -29,7 +30,6 @@
                 <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
             </div>
         </div>
-
         <script>
         function myFunction() {
             var x = document.getElementById("myTopnav");
@@ -40,6 +40,4 @@
             }
         }
         </script>
-
 		</header>
-		
