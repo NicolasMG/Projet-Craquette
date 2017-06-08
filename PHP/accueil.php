@@ -1,7 +1,7 @@
 <?php
     include('header_accueil.php');
        try{ 
-        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
+        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); 
     }
     catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
         die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
@@ -39,21 +39,16 @@
         
         <?php
                 try{ 
-                    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
+                    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); 
                 }
                     catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
-                    die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
+                    die('Erreur : '.$e->getMessage()); 
                 }
             ?>
         
         <div id="groupes">
-            <ul>Club
-                <li>Club 1</li>
-                <li>Club 2</li>
-                <li>Club 3</li>  
-            </ul>
-           <ul>Pages
-               
+           <ul>Pages    
+  
                 <?php       
                     $id=$_SESSION['ID'];
                     $sql='SELECT distinct nompage FROM page Where createur="'.$id.'"';
@@ -61,16 +56,11 @@
                 
                 
                     while($row=$req->fetch()){
-                        $nom=str_replace("%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20","",$row['nompage']);
+                    
                         
                         ?>
                     <li> 
-                        <a href="page.php?nom=
-                            
-                            <?php 
-                            
-                                echo $nom;
-                             ?>"> <?php echo($row['nompage']); ?>
+                        <a href="page.php?nom=<?php echo $row['nompage'];?>"> <?php echo($row['nompage']); ?>
                         </a>
                     </li>
                     <?php 
@@ -84,10 +74,26 @@
             <a href="creepage.php"><button type="submit" class="btn" style="display:block; position:absolute; left:17%; top:15%;" name="newpage">Créer une page</button></a>
 
              <ul>Evenements    
-                <li>Evenement 1</li>
-                <li>Evenement 2</li>
-                 <li>Evenement 3</li>
+               <?php       
+                    $id=$_SESSION['ID'];
+                    $sql='SELECT distinct nomevenement FROM evenement Where createur="'.$id.'"';
+                    $req = $bdd->query($sql)  ; 
+                
+                
+                    while($row=$req->fetch()){
+                    
+                        
+                        ?>
+                    <li> 
+                        <a href="evenement.php?nom=<?php echo $row['nomevenement'];?>"> <?php echo($row['nomevenement']); ?>
+                        </a>
+                    </li>
+                    <?php 
+                        }
+                       $req->closeCursor();
+                    ?>
             </ul>
+             <a href="creeevenement.php"><button type="submit" class="btn" style="display:block; position:absolute; left:17%; top:15%;" name="newevenement">Créer un evenement</button></a>
         </div>
     </div>
     <div class="vide1"></div>

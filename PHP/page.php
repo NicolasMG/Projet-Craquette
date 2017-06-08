@@ -1,64 +1,67 @@
-<p><br><br><br></p>
 <?php
+   
     include('header_groupe.php');
     try{ 
-        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
+        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); 
     }
-    catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
-        die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
+    catch(Exception $e){ 
+        die('Erreur : '.$e->getMessage()); 
     }
-        
+  
     //session_start();
     $mail=$_SESSION['mail'];
-    
+    $id=$_SESSION['ID'];
 ?>
+<p><br><br><br></p>
 <?php
 
-//CREATION DE LA PAGE
+//CREATION DU PAGE
 if(isset($_POST['creepage'])){ 
 	if(!empty($_POST['nompage'])){
         
         $nom = htmlspecialchars($_POST['nompage']);
-        $_SESSION['nompage']=htmlspecialchars($_POST['nompage']);
         $id=$_SESSION['ID'];
-
         
-        $reponse=$bdd->prepare('Select nompage From groupe Where nompage="'.$nom.'"');
+        $reponse=$bdd->prepare('Select nompage From page Where nompage="'.$nom.'"');
         $nom=htmlentities($_POST['nompage']);
         $reponse->execute(array('.$nom.'=>htmlspecialchars($_POST['nompage'])));
         $reponse2=$reponse->fetch();
         $_GET['nom'] =$_POST['nompage'];                           
         if($reponse2){
             echo "Se nom est deja prit il faut en choisir un autre";
-            $pbnom="creepage.php";
+            $pbnom="creegroup.php";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
         }else{
             
         
-            $couverture="NULL";
-            if(!$_FILES['couverturepage']['error']>0){
-            if(!empty($_FILES['couverturepage'])){ 
-                $imagecouverture = $_FILES['couverturepage']; 
+            $couverture="Images/imagesgroupecouverture.jpg";
+            if(!$_FILES['imagecouverture']['error']>0){
+                if(!empty($_FILES['imagecouverture'])){ 
+                     $imagecouverture = $_FILES['imagecouverture']; 
                    
-                $nom1=md5(uniqid(rand(),true)); 
-                $couverture="Images/$nom1";
-                $resultat=move_uploaded_file($_FILES['couverturepage']['tmp_name'], $couverture);
-            }}
+                    $nom1=md5(uniqid(rand(),true)); 
+                    $couverture="Images/$nom1";
+                    $resultat=move_uploaded_file($_FILES['imagecouverture']['tmp_name'], $couverture);
+                }
+            }
         
-            $profil="NULL";
-             if(!$_FILES['profilpage']['error']>0){
-                 if(!empty($_FILES['profilpage'])){ 
-                    $imagecouverture = $_FILES['profilpage']; 
+            $profil="Images/imagegroupeprofil.jpg";
+             if(!$_FILES['imageprofil']['error']>0){
+                 if(!empty($_FILES['imageprofil'])){ 
+                    $imagecouverture = $_FILES['imageprofil']; 
                    
                      $nom1=md5(uniqid(rand(),true)); 
                     $profil="Images/$nom1";
-                    $resultat=move_uploaded_file($_FILES['profilpage']['tmp_name'], $profil);
-            }}
+                    $resultat=move_uploaded_file($_FILES['imageprofil']['tmp_name'], $profil);
+                }
+             }
+        
+  
+            $insertion = $bdd->prepare('insert into page values("'.$nom.'","'.$id.'","'.$profil.'","'.$couverture.'")'); 
+            $insertion->execute(); 
             
-
-            
-            $insertion = $bdd->query('insert into page values("'.$nom.'","'.$id.'","'.$profil.'","'.$couverture.'")'); 
-            $insertion->execute();    
+            $bonsite="page.php?nom=$nom";
+            echo "<script>window.location = "."'".$bonsite."'"."</script>";
         }
                   
     
@@ -71,7 +74,7 @@ if(isset($_POST['creepage'])){
 }
 
 ?>
-    <?php $nom=$_GET['nom']; ?>
+    <?php $nom= $_GET['nom'];  ?>
     <div class="vide_gaucheprofil" style="display:inline-block;"></div>
     <div style="display:inline-block;" id="Page">
         <div id="photosduprofil">
@@ -80,10 +83,6 @@ if(isset($_POST['creepage'])){
                         $row = $response->fetch();
                         echo($row['imagecouverture']);                                              
                                                  ?>">
-
-
-
-
 
                 <img id="PhotoDeProfil" src="<?php 
                         $response =$bdd->query('SELECT imageprofil FROM page WHERE nompage="'.$nom.'"'); 
@@ -96,12 +95,37 @@ if(isset($_POST['creepage'])){
         <div style="display:inline-block;" id="PanneauGauche">
                 <div id="Information">
                     <div id="Infogenerale">
-                        <!--<p><h2 style="font-size:20px;" >Membres du groupe :</h2></p>-->
-   
-                        <!--<a href='gestionmembres.php'><button style="left:30.2%; top:95%;" type="submit" class="btn">Gérer des membres</button></a>-->
-
-
+                        <!--<p><h2 style="font-size:20px;" >Membres du page :</h2></p>-->
                     
+                        
+                        
+                        
+                        
+                        
+                        <!--DOIT ETRE VU UNUQUEMENT PAR CREATEUR-->
+                        <?php
+                        $nom = htmlspecialchars($_GET['nom']);
+                        $id=$_SESSION['ID'];
+        
+                        $reponse=$bdd->prepare('Select nompage From page Where createur="'.$id.'" AND nompage="'.$nom.'"');
+                        $nom=htmlentities($_GET['nom']);
+                        $reponse->execute(array('.$nom.'=>htmlspecialchars($_GET['nom'])));
+                        $reponse2=$reponse->fetch();
+                        //$_GET['nom'] =$_POST['nompage'];                           
+                        if($reponse2){    
+                        
+                        ?>   
+                        
+                        
+                        
+                        
+                        <?php $nom=$_GET['nom']; ?>
+                        <a href='modifpage.php?nom=<?php echo $nom;?>'><button style="left:62%; top:34%;" type="submit" class="btn">Mettre à jour ma page</button></a>
+                
+                        
+                        <?php }  ?>
+                        
+                        
                     </div>
 
                 </div>
