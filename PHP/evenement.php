@@ -121,6 +121,8 @@ if(isset($_POST['creeevenement'])){
                    <?php $nom=$_GET['nom']; ?>
                     <a href='modifevenement.php?nom=<?php echo $nom;?>'><button style="left:62%; top:34%;" type="submit" class="btn">Modifier l'évenement</button></a>
                     
+                    <a href='participe.php?nom=<?php echo $nom;?>'><button style="left:52%; top:34%;" type="submit" class="btn">Je vient</button></a>
+                    
                   
 
                     

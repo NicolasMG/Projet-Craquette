@@ -79,9 +79,24 @@
             <a href="creepage.php"><button type="submit" class="btn" style="display:block; position:absolute; left:17%; top:15%;" name="newpage">Créer une page</button></a>
 
              <ul>Evenements    
-                <li>Evenement 1</li>
-                <li>Evenement 2</li>
-                 <li>Evenement 3</li>
+               <?php       
+                    $id=$_SESSION['ID'];
+                    $sql='SELECT distinct nomevenement FROM evenement Where createur="'.$id.'"';
+                    $req = $bdd->query($sql)  ; 
+                
+                
+                    while($row=$req->fetch()){
+                    
+                        
+                        ?>
+                    <li> 
+                        <a href="evenement.php?nom=<?php echo $row['nomevenement'];?>"> <?php echo($row['nomevenement']); ?>
+                        </a>
+                    </li>
+                    <?php 
+                        }
+                       $req->closeCursor();
+                    ?>
             </ul>
              <a href="creeevenement.php"><button type="submit" class="btn" style="display:block; position:absolute; left:17%; top:15%;" name="newevenement">Créer un evenement</button></a>
         </div>
