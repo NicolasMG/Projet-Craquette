@@ -1,6 +1,6 @@
 <br><br><br><br>
 <?php
-session_start();
+//session_start();
 include('entete.php');
 
 
