@@ -15,7 +15,7 @@ if(isset($_POST['modif'])){
                 $nomimage="Images/$nom1";
                 $resultat=move_uploaded_file($_FILES['imagecouverture']['tmp_name'], $nomimage);
           
-          $response =$bdd->query('Update groupe set imagecouverture="Images/'.$nom1.'" WHERE nomgroupe="'.$nom.'"'); //ok
+          $response =$bdd->query('Update page set imagecouverture="Images/'.$nom1.'" WHERE nompage="'.$nom.'"'); 
           $row = $response->fetch();
           echo($row['imagecouverture']);
       }}
@@ -27,7 +27,7 @@ if(isset($_POST['modif'])){
                 $nomimage="Images/$nom1";
                 $resultat=move_uploaded_file($_FILES['imageprofil']['tmp_name'], $nomimage);
           
-          $response =$bdd->query('Update groupe set imageprofil="Images/'.$nom1.'" WHERE nomgroupe="'.$nom.'"'); //ok
+          $response =$bdd->query('Update page set imageprofil="Images/'.$nom1.'" WHERE nompage="'.$nom.'"'); //ok
           $row = $response->fetch();
           echo($row['imageprofil']);
           
@@ -39,9 +39,9 @@ if(isset($_POST['modif'])){
     
       if(!empty($_POST['nom'])){ 
           $nom2 = htmlspecialchars($_POST['nom']); 
-          $response =$bdd->query('Update groupe set nomgroupe="'.$nom2.'" WHERE nomgroupe="'.$nom.'"'); 
+          $response =$bdd->query('Update page set nompage="'.$nom2.'" WHERE nompage="'.$nom.'"'); 
           $row = $response->fetch();
-          echo($row['nomgroupe']);
+          echo($row['nompage']);
           $nom=$nom2;
       }
 }
@@ -53,6 +53,6 @@ if(isset($_POST['modif'])){
 
 ?>
 <p><br></p>
-<a href='profilgroupe.php?nom=<?php echo $nom ;?>'><button type="submit" class="btn">revenir à ma page</button></a>
+<a href='page.php?nom=<?php echo $nom ;?>'><button type="submit" class="btn">revenir à ma page</button></a>
 </section>
 <br>

@@ -39,19 +39,19 @@
         
         <?php
                 try{ 
-                    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
+                    $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); 
                 }
                     catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
-                    die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
+                    die('Erreur : '.$e->getMessage()); 
                 }
             ?>
         
         <div id="groupes">
-            <ul>Club
+            <!--<ul>Club
                 <li>Club 1</li>
                 <li>Club 2</li>
                 <li>Club 3</li>  
-            </ul>
+            </ul>-->
            <ul>Pages    
   
                 <?php       
@@ -61,16 +61,11 @@
                 
                 
                     while($row=$req->fetch()){
-                        $nom=str_replace("%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20","",$row['nompage']);
+                    
                         
                         ?>
                     <li> 
-                        <a href="page.php?nom=
-                            
-                            <?php 
-                            
-                                echo $nom;
-                             ?>"> <?php echo($row['nompage']); ?>
+                        <a href="page.php?nom=<?php echo $row['nompage'];?>"> <?php echo($row['nompage']); ?>
                         </a>
                     </li>
                     <?php 
