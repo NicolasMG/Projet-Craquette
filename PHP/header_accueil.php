@@ -5,6 +5,9 @@
 		<meta charset="utf-8"/>
 		<title>Craquette - Connexion</title>
 		<link rel="stylesheet" href="CSS/bootstrap.css"/>
+        <link rel="stylesheet" href="CSS/style_accueil.css"/>
+        <link rel="stylesheet" href="CSS/style_header_accueil.css"/>
+        <link rel="stylesheet" href="CSS/style_fil_actualite.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <script type="text/javascript" src="JS/calendrier.js"></script>
 	</head>

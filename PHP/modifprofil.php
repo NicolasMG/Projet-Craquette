@@ -6,7 +6,7 @@
    //$mail="rachel.noireau@uha.fr";
    // echo($mail);
     
-    include('header.php');
+    include('header_profil.php');
     try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); 
     }
