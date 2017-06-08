@@ -10,7 +10,7 @@
         die('Erreur : '.$e->getMessage()); 
     }
         
-    session_start();
+    //session_start();
     $mail=$_GET['id'];
     
     

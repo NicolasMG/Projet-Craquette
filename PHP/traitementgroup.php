@@ -1,6 +1,7 @@
 <br><br><br><br>
 <?php
-session_start();
+
+//session_start();
 include('header_accueil.php');
 
 
