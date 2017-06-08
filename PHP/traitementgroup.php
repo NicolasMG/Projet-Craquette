@@ -1,7 +1,8 @@
 <br><br><br><br>
 <?php
-session_start();
-include('entete.php');
+
+//session_start();
+include('header_accueil.php');
 
 
 if(isset($_POST['creegroupe'])){ 

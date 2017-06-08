@@ -1,5 +1,5 @@
 <?php
-    include ('header.php'); 
+    include ('header_non_co.php'); 
     try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root','');
     }
@@ -60,7 +60,7 @@ $mail = new PHPMailer;
 //$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
 $mail->isSMTP();                                      // Set mailer to use SMTP
-$mail->SMTPDebug = 2;
+// $mail->SMTPDebug = 2;
 $mail->Host = 'smtp.gmail.com';         // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
 $mail->Username = 'david.vergnault87@gmail.com';                 // SMTP username

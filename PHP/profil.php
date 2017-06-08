@@ -9,7 +9,7 @@
         die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
     }
         
-    session_start();
+    //session_start();
     $mail=$_SESSION['mail'];
    
 ?>

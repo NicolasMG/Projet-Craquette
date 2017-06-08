@@ -3,7 +3,6 @@
 <br>
     <br>
 <?php
-session_start();
 include('header_groupe.php');
 //session_start();
 if(isset($_POST['creegroupe'])){ 
