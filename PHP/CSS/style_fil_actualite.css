@@ -1,12 +1,3 @@
-#filactualite{
-    
-    margin-right:10px;
-    padding:0px;
-    width:100%;
-	height:3000px;
-	
-}
-
 #conteneur_du_post{
 	display:flex;
 	flex-direction:column;
@@ -14,25 +5,20 @@
 
 }
 
-#acceuil_droit{
-	/*position:absolute;*/
-	border:5px solid black;
-	height:25%;
-	width:20%;
-}
-
 #conteneur_du_post_2{
 	display:flex;
 	flex-direction:row;
 	justify-content:center;
-	height:150px;
-	margin-top:1%;	
+	height:160px;
+	padding-top:10px;
+    padding-top:10px;
+    padding-left:10px; 
 }
 
-#conteneur_du_post_2 img{
-    height:50%;
-    width:10%;
-    margin:10px;
+#conteneur_du_post_2 .img-circle{
+    height:60px;
+    width:60px;
+    margin-top:25px;
     margin-left:20px;
 }	
 
@@ -41,41 +27,36 @@
 	flex-direction:column;
 	justify-content:center;
 	align-items:flex-end;
-    margin-left:20%;
-    margin-right: 10%;
-    margin-bottom: -1%;
+    margin-left:120px;
+    padding-right: 20px;
 }
 
 #conteneur_du_post_2 form input{
-	width:30%;
-    height: 30px;
-    margin-top:2%;	
+	width:100px;
+    height: 35px;
 }
 #conteneur_du_post_2 form textarea{
 	width:130%;
     height: 50%;
+    margin-bottom: 5px;
 }
-
 
 #conteneur_newsfeed{
     display:flex;
 	flex-direction:row;
 	justify-content:flex-start;
-/*	border:1px solid black;*/
     border-style: groove;
 	margin-top:3px;
     margin-bottom:5px;
 	background-image:url(images/gradientby.jpg);
     background-size: 100% 100%;
-    height: 100px;
-
-
-	
+    height: 100px;	
 }
+
 #conteneur_newsfeed img{
 	margin-right:10px;
 	margin-left:6px;
-    margin-top:2%;
+    margin-top:20px;
     width:50px;
 	height:50px;
 }
@@ -83,8 +64,6 @@
 #contenu_droit{
 	display:flex;
 	flex-direction:column;
-	/*justify-content:flex-end;*/
-	/*align-items:flex-start;*/
 	width:100%;	
     margin-left:0px;
 }
@@ -92,16 +71,14 @@
 #contenu_int{
 	top:10px;
 	background-color:rgba(255,255,255,0.7);
-/*	border:0.5px solid black;*/
     border-style: groove;
     border-radius: 15px;
 	margin-top:-15px;
     height:80%;
 	width:95%;
     padding:5px;
-
-    
 }
+
 #nom_profil{
 	color:white;
 	padding:0;

@@ -1,7 +1,8 @@
 #body_accueil {
-     background-image:url(images/gradientby2.jpg);
+    /* background-image:url(images/gradientby2.jpg);
      background-attachment:fixed;
-     background-size: 100% 100%;
+     background-size: 100% 100%;*/
+    background-color:white;
 
  }
 
@@ -20,134 +21,146 @@ header{
     border:1px solid black;
 }
 */
-
+/*
 #contenu_centre,#contenu_droit,#calendrier{
     margin-left:27.4%;
 }
+*/
 
 #contenu_droite,#contenu_gauche{
     border-style: groove;
 }
 
-.vide1{
-    width:1%;
-    height: 10000px;
-    background-color: white;
-    margin-left:16%;
-    margin-right:-17%;
+.contenu{
+    width:100%;
 }
 
-.vide2{
-    margin-left: -0.25%;
-    width:0.7%;
-    height: 10000px;
-    background-color: white;
-    margin-right: -2.3%;
-
+h4{
+    font-weight: bold;
 }
 
-.vide_gauche{
-    width:11%;
-    height:10000px;
-    background-color: white;
-    margin:-0.2%;
-}
+/*-------------------------CONTENU GAUCHE--------------------*/
 
 #contenu_gauche{
     overflow-y: scroll;
-    /*margin-left:11%;*/
-    width: 16%;
+    width: 263px;
     position: fixed;
     height:94.8%;
+    background-image: url(images/gradientby2.jpg);
+    background-size:100% 100%;
+    background-attachment: fixed;
+    margin-left:200px;
 
-    
 }
 
 #profil{
     height:200px;
+    padding:5px;
 }
 
-#profil img {
-    margin:15px;
-    margin-left: 18px;
+#profil .img-circle, #profil .couverture, #profil p{
+     display:block; 
+    position:absolute; 
+}
+
+#profil .img-circle{
+    margin-left: 15px;
+    margin-top:55px;
+    width:80px; 
+    height:80px;
+}
+
+#profil .couverture{
+    width:230px; 
+    height:110px;
+}
+
+#profil p{
+    margin-left:15px; 
+    margin-top:150px;
+    font-weight: bold; 
+    color:black;
 }
 
 #contenu_gauche ul{
     margin-bottom: 30px;
 }
 
-#groupes {
+#pages_events {
     margin:20px;
+    margin-left: 0;
 }
 
-#groupes li:first-child{
+#pages li:first-child, #events li:first-child{
     margin-top:10px;
 }
-#groupes li {
-    margin-left:40px;
+
+#pages li, #events li{
+    margin-left:60px;
 }
 
+#pages .btn{
+    margin-left:55px;
+    margin-bottom: 20px;
+}
+
+#events .btn{
+    margin-left:45px;
+}
+
+
+/*-------------------------CONTENU CENTRE--------------------*/
 
 #contenu_centre {
-    margin-left: 16.5%; 
-    width: 35%;
-    background-color: white;
+    margin-left: 470px; 
     height:10000px;
-
+    margin-right:7px;
 }
 
-#post{
-    width:35%;
+#conteneur_du_post_2{    
+    width:550px;
     height:100px;
-    position:fixed;
-}
-
-.textemessage{
-    margin-left: 13.5%;
-    margin-top: 1.5%;
 }
 
 #filactualite{
-    width: 100%;
     height: 10000px;
 }
 
 
+/*-------------------------CONTENU DROITE--------------------*/
+
+
 #contenu_droite{
-    margin-left:2.3%;
-    width:15.1%;
+    background-image: url(images/gradientby2.jpg);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    width:263px;
     height:94.8%;
     position: fixed;
-    padding:0.3%;
-    padding-top: 0;
     display:inline-block;
-    vertical-align: top;
-
+    vertical-align:top;
+    margin-right: 15px;
 }
 
-#amis{
-    width: 100%;
-    padding-left:0%;
-    padding-top:10%;
+#groupes{
+    padding-top:30px;
     height: 100%;
     overflow-y: scroll;
-
 }
 
-#couverture{
-    margin-left:10px;
-    margin-right: 10px;
+#groupes .btn{
+    margin-left:55px;
 }
 
 /* ------------------------------CALENDRIER------------------------------------------ */
+
+
 #calendrier{
     background-color: white;
     height:10000px;
-    margin-left:18.2%;
+    margin-left:270px;
     position: fixed;
-    padding-left:0.5%;
-    width:50%;
-
+    width: 900px;
 }
 
 .calendrier{

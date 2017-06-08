@@ -3,30 +3,25 @@
        try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); 
     }
-    catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
-        die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
+    catch(Exception $e){ 
+        die('Erreur : '.$e->getMessage()); 
     }
-        
-    //session_start();
-    $mail=$_SESSION['mail'];
+            $mail=$_SESSION['mail'];
 ?>
-<div class="inlineblock">
-    <div class="vide_gauche"></div>
+<div class="contenu">
     <div id="contenu_gauche">  
         <div id="profil">
-            <a href='profil.php'><img style="display:block; position:absolute; left:-1.5%; top:-1%; width:91%"  alt="couverture" title="couverture" src="<?php 
+            <a href='profil.php'><img class="couverture" alt="couverture" title="couverture" src="<?php 
                     $response =$bdd->query('SELECT imagecouverture FROM profil WHERE email="'.$mail.'"'); 
                     $row = $response->fetch();
                     echo($row['imagecouverture']);                                              
                                              ?>"></a>
-          <!--  <a href='profil.php'><img style="display:block; position:absolute; left:-1.5%; top:-1%; width:91%" src="Images/couverture.jpg" alt="couverture" title="couverture" /></a>-->
-            <a href='profil.php'><img class="img-circle" style="display:block; position:absolute; left:5%; top:4%; width:37%; height:12%;"  alt="photo_profil" title="photo_profil" src="<?php 
+            <a href='profil.php'><img class="img-circle" alt="photo_profil" title="photo_profil" src="<?php 
                     $response =$bdd->query('SELECT imageprofil FROM profil WHERE email="'.$mail.'"'); 
                     $row = $response->fetch();
                     echo($row['imageprofil']);               
                                          ?>" >  </a>
-       <!-- <a href='profil.php'><img class="img-circle" style="display:block; position:absolute; left:5%; top:4%; width:33%; height:12%;" src="Images/photo_profil.jpg" alt="photo_profil" title="photo_profil"/></a>-->
-            <p style="display:block; position:absolute; left:9%; top:20%;font-weight: bold; color:black;"><?php $response = $bdd->query('SELECT prenom FROM profil WHERE email="'.$mail.'"'); 
+            <p><?php $response = $bdd->query('SELECT prenom FROM profil WHERE email="'.$mail.'"'); 
                                         $row = $response->fetch();
                                         echo($row['prenom']); 
                         ?>  <?php  $response =$bdd->query('SELECT nom FROM profil WHERE email="'.$mail.'"'); 
@@ -36,7 +31,6 @@
                     
                     ?> </p>
         </div>
-        
         <?php
                 try{ 
                     $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); 
@@ -45,58 +39,59 @@
                     die('Erreur : '.$e->getMessage()); 
                 }
             ?>
-        
-        <div id="groupes">
-           <ul>Pages    
-  
-                <?php       
-                    $id=$_SESSION['ID'];
-                    $sql='SELECT distinct nompage FROM page Where createur="'.$id.'"';
-                    $req = $bdd->query($sql)  ; 
-                
-                
-                    while($row=$req->fetch()){
-                    
-                        
-                        ?>
-                    <li> 
-                        <a href="page.php?nom=<?php echo $row['nompage'];?>"> <?php echo($row['nompage']); ?>
-                        </a>
-                    </li>
-                    <?php 
-                        }
-                       $req->closeCursor();
-                    ?>
-            
-                
-            </ul>
+        <div id="pages_events">
+            <div id="pages">
+               <ul><h4>Pages</h4>    
+                    <?php       
+                        $id=$_SESSION['ID'];
+                        $sql='SELECT distinct nompage FROM page Where createur="'.$id.'"';
+                        $req = $bdd->query($sql)  ; 
 
-            <a href="creepage.php"><button type="submit" class="btn" style="display:block; position:absolute; left:17%; top:15%;" name="newpage">Créer une page</button></a>
 
-             <ul>Evenements    
-               <?php       
-                    $id=$_SESSION['ID'];
-                    $sql='SELECT distinct nomevenement FROM evenement Where createur="'.$id.'"';
-                    $req = $bdd->query($sql)  ; 
-                
-                
-                    while($row=$req->fetch()){
-                    
-                        
+                        while($row=$req->fetch()){
+
+
+                            ?>
+                        <li> 
+                            <a href="page.php?nom=<?php echo $row['nompage'];?>"> <?php echo($row['nompage']); ?>
+                            </a>
+                        </li>
+                        <?php 
+                            }
+                           $req->closeCursor();
                         ?>
-                    <li> 
-                        <a href="evenement.php?nom=<?php echo $row['nomevenement'];?>"> <?php echo($row['nomevenement']); ?>
-                        </a>
-                    </li>
-                    <?php 
-                        }
-                       $req->closeCursor();
-                    ?>
-            </ul>
-             <a href="creeevenement.php"><button type="submit" class="btn" style="display:block; position:absolute; left:17%; top:15%;" name="newevenement">Créer un evenement</button></a>
+
+
+                </ul>
+                <div class="btn-pages">
+                    <a href="creepage.php"><button type="submit" class="btn" name="newpage">Créer une page</button></a>
+                </div>
+            </div>
+            <div id="events">
+                 <ul><h4>Evenements</h4>    
+                   <?php       
+                        $id=$_SESSION['ID'];
+                        $sql='SELECT distinct nomevenement FROM evenement Where createur="'.$id.'"';
+                        $req = $bdd->query($sql)  ; 
+
+
+                        while($row=$req->fetch()){
+
+
+                            ?>
+                        <li> 
+                            <a href="evenement.php?nom=<?php echo $row['nomevenement'];?>"> <?php echo($row['nomevenement']); ?>
+                            </a>
+                        </li>
+                        <?php 
+                            }
+                           $req->closeCursor();
+                        ?>
+                </ul>
+                 <a href="creeevenement.php"><button type="submit" class="btn" name="newevenement">Créer un evenement</button></a>
+            </div>
         </div>
     </div>
-    <div class="vide1"></div>
     <div id="contenu_centre">
         <div id="filactualite">
             <div id="conteneur_du_post">
@@ -107,7 +102,7 @@
 
 
                     <form method="post" action="traitement_news.php">
-                        <textarea cols="46" row='10' name="message" placeholder="Quoi de neuf ?"></textarea>
+                        <textarea class="form-control" cols="100" row='10' name="message" placeholder="Quoi de neuf ?"></textarea>
                         <input class="form-control" value="Craquetter" type="submit" name="craquetter"/>
                     </form>
                 </div>
@@ -115,7 +110,6 @@
             </div>   
         </div>
     </div>
-    <div class="vide2"></div>
 
      
      <?php
@@ -132,11 +126,8 @@
     
     
     <div id="contenu_droite">
-        <div id="amis">
-   
-            
-            <ul>
-                Groupes
+        <div id="groupes">
+            <ul><h4>Groupes</h4>
                     
                 <?php       
                     $id=$_SESSION['ID'];
@@ -163,7 +154,7 @@
             </ul>
             
            
-            <a href="creegroup.php"><button type="submit" class="btn" style="display:block; position:absolute; left:87%; top:85%;" name="newgroupe">Créer un groupe</button></a>
+            <a href="creegroup.php"><button type="submit" class="btn" name="newgroupe">Créer un groupe</button></a>
         </div>
     </div>
     <div id="calendrier">
