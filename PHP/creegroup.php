@@ -9,17 +9,17 @@
     <p><br><br><br><br></p>
     <h4>Crée un groupe d'ami(e)s</h4>
 
-    <form method="post" action="profilgroupe.php?<?php echo $_POST['nomgroupe'];  ?>" enctype="multipart/form-data">
+    <form method="post" action="profilgroupe.php" enctype="multipart/form-data">
         
      <p> 
     <label for="nomgroupe">Choisisez le nom du groupe:</label>
         
     
         <br>
-    <!--<input type="text" class="input-medium search-query" name="nomgroupe" placeholder="nom du groupe" /> -->
+    <input type="text" class="input-medium search-query" name="nomgroupe" placeholder="nom du groupe" />
          
         
-    <input type="text" class="input-medium search-query" name="nomgroupe" value="<?php if (isset($_POST['nomgroupe'])) echo htmlentities($_POST['nomgroupe']);?>"placeholder= "nom du groupe" /> 
+    <!--<input type="text" class="input-medium search-query" name="nomgroupe" value="<?php// if (isset($_POST['nomgroupe'])) echo htmlentities($_POST['nomgroupe']);?>"placeholder= "nom du groupe" /> -->
          
          
     </p>

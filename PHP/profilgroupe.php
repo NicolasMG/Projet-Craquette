@@ -56,14 +56,13 @@ if(isset($_POST['creegroupe'])){
                     $resultat=move_uploaded_file($_FILES['profilgroupe']['tmp_name'], $profil);
                 }
              }
-            
-
-            echo "salut";
-            $insertion = $bdd->query('insert into groupe values("'.$id.'","'.$nom.'","administrateur","'.$profil.'","'.$couverture.'")'); 
+        
+  
+            $insertion = $bdd->prepare('insert into groupe values("'.$id.'","'.$nom.'","administrateur","'.$profil.'","'.$couverture.'")'); 
             $insertion->execute(); 
             
             $bonsite="profilgroupe.php?nom=$nom";
-           // echo "<script>window.location = "."'".$bonsite."'"."</script>";
+            echo "<script>window.location = "."'".$bonsite."'"."</script>";
         }
                   
     
@@ -114,15 +113,28 @@ if(isset($_POST['creegroupe'])){
        //POUR AJOUTER DES MEMBRES
     if(isset($_POST['ajoutmembre'])){ 
 	   if(!empty($_POST['membre'])){ 
-           $membre1=htmlspecialchars($_POST['membre']);
+            $membre1=htmlspecialchars($_POST['membre']);
             $mail=$membre1;//peut etre a changer
             $nom = $_GET['nom'];
             $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
             $row = $response->fetch();
             $id=($row['id']);
            
-            $insertion2 = $bdd->prepare('insert into groupe values("'.$id.'","'.$nom.'","membre","NULL","NULL")'); 
-            $insertion2->execute();
+           
+            //$nom = htmlspecialchars($_POST['nomgroupe']);
+            //$id=$_SESSION['ID'];
+        
+            $reponse=$bdd->prepare('Select nomgroupe From groupe Where idutil="'.$id.'" AND nomgroupe="'.$nom.'"');
+            $nom=htmlentities($_GET['nom']);
+            $reponse->execute(array('.$nom.'=>htmlspecialchars($_GET['nom'])));
+            $reponse2=$reponse->fetch();
+            //$_GET['nom'] =$_POST['nomgroupe'];                           
+            if(!$reponse2){
+           
+           
+                $insertion2 = $bdd->prepare('insert into groupe values("'.$id.'","'.$nom.'","membre","NULL","NULL")'); 
+                $insertion2->execute();
+            }
         }
     }
 
