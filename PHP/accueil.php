@@ -10,7 +10,6 @@
     //session_start();
     $mail=$_SESSION['mail'];
 ?>
-<br><br>
 <div class="inlineblock">
     <div class="vide_gauche"></div>
     <div id="contenu_gauche">  

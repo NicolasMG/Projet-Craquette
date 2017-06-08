@@ -5,7 +5,7 @@
     catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
         die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
     }
-    include('header.php');
+    include('header_profil.php');
 ?>
 
 <p><br><br><br><br><br><br><br><br><br><br><br></p>
