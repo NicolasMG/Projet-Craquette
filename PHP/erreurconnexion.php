@@ -1,5 +1,7 @@
-<?php
-include('header.php'); 
+
+<?php include('header_non_co.php'); 
+
+
 //PAS CE HEADER
 
  try{ 

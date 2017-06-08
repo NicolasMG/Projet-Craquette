@@ -1,0 +1,207 @@
+#body_profil,#body_accueil {
+     background-image:url(images/gradientby2.jpg);
+     background-attachment:fixed;
+     background-size: 100% 100%;
+
+ }
+
+
+header{
+	width:100%; 
+    position: fixed;
+    top:0;
+    background-image:url(images/gradientby.jpg);
+    background-size: 100% 150px;
+}
+
+
+section {
+    text-align: center;
+}
+
+form label{
+    margin-top:20px;
+}
+
+p .inscription{
+    text-align:center;
+}
+
+.inlineblock{
+    width: 100%;
+    height: 100%;
+}
+.inlineblock #contenu_gauche,#contenu_centre,#contenu_droite,#calendrier,.vide_gauche,.vide1,.vide2,.vide_gaucheprofil,.vide_droitprofil{
+    display:inline-block;
+    vertical-align:top;
+}
+/*
+#contenu_gauche,#contenu_droite,#filactualite,#post,.cal_calendrier,.cal_calendrier th,.cal_calendrier td{
+    border:1px solid black;
+}
+*/
+
+#contenu_gauche, #post, #filactualite,#contenu_droite,#calendrier{
+    margin-top:10px;
+}
+
+#contenu_centre,#contenu_droit,#calendrier{
+    margin-left:27.4%;
+}
+
+#contenu_droite,#contenu_gauche{
+    border-style: groove;
+}
+
+.vide1{
+    width:1%;
+    height: 10000px;
+    background-color: white;
+    margin-left:16%;
+    margin-right:-17%;
+}
+
+.vide2{
+    margin-left: -0.25%;
+    width:0.7%;
+    height: 10000px;
+    background-color: white;
+    margin-right: -2.3%;
+
+}
+
+.vide_gauche{
+    width:11%;
+    height:10000px;
+    background-color: white;
+    margin:-0.2%;
+}
+
+#contenu_gauche{
+    overflow-y: scroll;
+    /*margin-left:11%;*/
+    width: 16%;
+    position: fixed;
+    height:94.8%;
+
+    
+}
+
+#profil{
+    height:200px;
+}
+
+#profil img {
+    margin:15px;
+    margin-left: 18px;
+}
+
+#contenu_gauche ul{
+    margin-bottom: 30px;
+}
+
+#groupes {
+    margin:20px;
+}
+
+#groupes li:first-child{
+    margin-top:10px;
+}
+#groupes li {
+    margin-left:40px;
+}
+
+
+#contenu_centre {
+    margin-left: 16.5%; 
+    width: 35%;
+    background-color: white;
+    height:10000px;
+
+}
+
+#post{
+    width:35%;
+    height:100px;
+    position:fixed;
+}
+
+.textemessage{
+    margin-left: 13.5%;
+    margin-top: 1.5%;
+}
+
+#filactualite{
+    width: 100%;
+    height: 10000px;
+}
+
+
+#contenu_droite{
+    margin-left:2.3%;
+    width:15.1%;
+    height:94.8%;
+    position: fixed;
+    padding:0.3%;
+    padding-top: 0;
+    display:inline-block;
+    vertical-align: top;
+
+}
+
+#amis{
+    width: 100%;
+    padding-left:0%;
+    padding-top:10%;
+    height: 100%;
+    overflow-y: scroll;
+
+}
+
+#couverture{
+    margin-left:10px;
+    margin-right: 10px;
+}
+
+/* ------------------------------CALENDRIER------------------------------------------ */
+#calendrier{
+    background-color: white;
+    height:10000px;
+    margin-left:18.2%;
+    position: fixed;
+    padding-left:0.5%;
+    width:50%;
+
+}
+
+.calendrier{
+    margin-bottom: 10%;
+}
+
+.cal_calendrier
+{
+    width:28%;
+    height:200px;
+}
+
+.cal_calendrier th
+{
+    background-color:#EEEEEE;
+}
+
+.cal_calendrier td
+{
+    background-color:#EEEEEE;
+    text-align:center;
+}
+
+.cal_aujourdhui
+{
+    font-weight: bold;
+    color:#ff0000;
+}
+
+.cal_jours_av_ap
+{
+    color:#5a779e;
+}

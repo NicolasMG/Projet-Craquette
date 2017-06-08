@@ -1,6 +1,6 @@
 
 <?php
- include('header_profil.php');
+ include('header_groupe.php');
 $nom=$_GET['nom']; ?>
     
     <section>

@@ -1,5 +1,6 @@
 <?php
-include ('header.php'); 
+include ('header_non_co.php'); 
+/*
     try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
     }
@@ -9,7 +10,7 @@ include ('header.php');
         
     session_start();
     $mail=$_SESSION['mail'];
-
+*/
 ?>
 <form class="form-horizontal" method="post" action="chgtmdpreussie.php" enctype="multipart/form-data">         
                  <div>

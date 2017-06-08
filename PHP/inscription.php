@@ -6,7 +6,7 @@
         die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
     }
 	
-    include('header.php');
+    include('header_non_co.php');
 	
     // $reponse2 = $bdd->query('SELECT * FROM profil ORDER BY id DESC'); 
 ?>
