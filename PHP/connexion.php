@@ -19,8 +19,8 @@ if(!empty($_POST['mail'])) {
     
     if(!empty($MDP)){
         echo 'test2';
-        $sql=$bdd->prepare('Select motDePasse,Nom,Prenom,id From profil Where email="'.$mail.'"');
-        $sql->execute(array('.$email.'=>htmlspecialchars($_POST['mail'])));
+        $sql=$bdd->prepare('Select motDePasse,Nom,Prenom,id From profil Where email= ? ');
+        $sql->execute(array(htmlspecialchars($_POST['mail'])));
         $sel = $sql->fetch();
         
         echo "<br>";
