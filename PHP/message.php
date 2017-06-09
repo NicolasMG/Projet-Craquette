@@ -36,7 +36,7 @@ $idutil=$_GET['idutil'];
    </form>
 <?php        
 if(!isset($_GET['id']))
-    $req = "SELECT idutil1,message FROM message ORDER BY id DESC limit 50"; //pas sur idutil1
+    $req = "SELECT idutil1,message FROM message WHERE (idutil1='".$id."' AND idutil2='".$idutil."') OR (idutil1='".$idutil."' AND idutil2='".$id."') ORDER BY id DESC limit 50"; //pas sur idutil1
 else
     $req = "SELECT idutil1,message FROM message WHERE id>'".addslashes($_GET['id'])."' ORDER BY id LIMIT 1";//pas sur util 1
 $req=$bdd->query($req) or die(print_r($bdd->errorInfo()));
