@@ -15,20 +15,15 @@ if(!empty($_POST['mail'])) {
     $reponse2=$reponse->fetch();
     
     $MDP=htmlspecialchars($_POST['MDP']);
-    echo $MDP;
     
     if(!empty($MDP)){
-        echo 'test2';
         $sql=$bdd->prepare('Select motDePasse,Nom,Prenom,id From profil Where email= ? ');
         $sql->execute(array(htmlspecialchars($_POST['mail'])));
         $sel = $sql->fetch();
         
-        echo "<br>";
-        echo $sel['motDePasse'];
 
         $self=$sel['motDePasse'];
         
-        echo $sel['id'];
                 
         if(password_verify($MDP, $self)) {
                 
