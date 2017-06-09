@@ -2,8 +2,7 @@
 
 Options -Indexes
 
-<FilesMatch "\.(jpg|txt|sql|)$">
-#idem pour groupe de fichiers
-	order allow,deny
-	deny from all
-</FilesMatch>
+#<FilesMatch "\.(jpg|txt|sql)$">
+#	order allow,deny
+#	deny from all
+#</FilesMatch>

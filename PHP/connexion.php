@@ -9,16 +9,15 @@
 $droitconnexion="erreurconnexion.php";
 if(!empty($_POST['mail'])) {
     $mail=htmlspecialchars($_POST['mail']);
-    $reponse=$bdd->prepare('Select email From profil Where email="'.$mail.'"');
-    $mail=htmlentities($_POST['mail']);
-    $reponse->execute(array('.$email.'=>$_POST['mail']));
+    $reponse=$bdd->prepare('Select email From profil Where email= ? ');
+    $reponse->execute(array($mail));
     $reponse2=$reponse->fetch();
     
     $MDP=htmlspecialchars($_POST['MDP']);
     
     if(!empty($MDP)){
         $sql=$bdd->prepare('Select motDePasse,Nom,Prenom,id From profil Where email= ? ');
-        $sql->execute(array(htmlspecialchars($_POST['mail'])));
+        $sql->execute(array($mail));
         $sel = $sql->fetch();
         
 
@@ -44,7 +43,8 @@ if(!empty($_POST['mail'])) {
             //test
         
         session_start();
-        $_SESSION['mail']=htmlspecialchars($_POST['mail']);//s="rachel.noireau@uha.fr";
+        $_SESSION['mail']=$mail;
+        //s="rachel.noireau@uha.fr";
         //echo $_SESSION['mail'];
         $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
         $row = $response->fetch();
