@@ -1,0 +1,31 @@
+Options +Indexes
+#autorise de voir les fichiers
+IndexOptions FancyIndexing
+#modifie la presentation de l'indexation des fichiers
+
+DirectoryIndex main.php
+#cherchera main.php plutot que index.php
+
+IndexIgnore *.txt *.ico
+#n'affichera plus les .txt et .ico dans l indexation
+
+<files e.txt>
+#pour un fichier en particulier ici e.txt
+	order allow,deny
+	#empeche lecture et vision du fichier
+	#pas d'espace apres ,
+	deny from all
+	#empeche de tous
+</files>
+
+<FilesMatch "\.(txt|kikou)$">
+#idem pour groupe de fichiers
+	order allow,deny
+	deny from all
+</FilesMatch>
+
+AddType application/x-httpd-php .kikou
+#fichier .kikou lu comme des .php
+
+#IndexIgnore *.php
+#ne liste pas les php peut encore acceder

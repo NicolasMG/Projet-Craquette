@@ -1,0 +1,9 @@
+#fichier a coté de l'index:
+
+Options -Indexes
+
+<FilesMatch "\.(jpg|txt|sql|)$">
+#idem pour groupe de fichiers
+	order allow,deny
+	deny from all
+</FilesMatch>
