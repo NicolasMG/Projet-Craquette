@@ -130,8 +130,6 @@ if(isset($_POST['creegroupe'])){
             $reponse2=$reponse->fetch();
             //$_GET['nom'] =$_POST['nomgroupe'];                           
             if(!$reponse2){
-           
-           
                 $insertion2 = $bdd->prepare('insert into groupe values("'.$id.'","'.$nom.'","membre","NULL","NULL")'); 
                 $insertion2->execute();
             }
@@ -146,7 +144,7 @@ if(isset($_POST['creegroupe'])){
        //echo $_GET['nom'];   //ok          
      ?> 
                       
-   <!--TABLEAUX DES AMIS-->        
+          
 <!--<table class="table table-bordered">
     <th><p class="text-error"> Membre du groupe</p></th>-->
     <ul> Membre(s)
@@ -182,10 +180,10 @@ if(isset($_POST['creegroupe'])){
    
     
     try{ 
-        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
+        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); 
     }
-    catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
-        die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
+    catch(Exception $e){ 
+        die('Erreur : '.$e->getMessage()); 
     }
   
     
@@ -214,41 +212,22 @@ if(isset($_POST['creegroupe'])){
     <?php }
     $req->closeCursor();
     ?>
-     
-      <?php  
-                /*
-                    $request=$bdd->query('SELECT role From groupe Where idutil="'.$id.'" AND nomgroupe="'.$nom.'"' );
-                    $row=$request->fetch();
-                    $idtrouver=$row['role']; 
-                    $ad="membre";
-                    if(!$idtrouver==$ad){*/
-                        ?>
+
        <form method="post">
 
     <p> 
-    <label for="nomgroupe">Choisissez le(s) membre(s) à rajouter :</label>
+        <label for="nomgroupe">Choisissez le(s) membre(s) à rajouter :</label>
         
         <br>
-            <input type="text" class="input-medium search-query" name="membre" value="<?php if (isset($_POST['membre'])) echo htmlentities($_POST['membre']);?>"placeholder= "membre" /> 
-        </p>    
-        
+        <input type="text" class="input-medium search-query" name="membre" value="<?php if (isset($_POST['membre'])) echo htmlentities($_POST['membre']);?>"placeholder= "membre" /> 
+    </p>    
         
         
      <p>   
-   <input type="submit" name="ajoutmembre" value="Ajouter"/>
-         
+        <input type="submit" name="ajoutmembre" value="Ajouter"/> 
         
     </p>    
-
-      <?php //}  ?>    
-        
-<!--TABLEAUX DES AMIS-->        
-<!--<table class="table table-bordered">
-    <th><p class="text-error"> Membre du groupe</p></th>-->
     
-   
-
-                    
            
                     
                     </div>
