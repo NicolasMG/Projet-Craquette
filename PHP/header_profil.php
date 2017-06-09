@@ -1,6 +1,7 @@
 <?php 
   include('protection_session.php');
 ?>
+
 <!doctype html>
 <html lang="fr">
     <?php
