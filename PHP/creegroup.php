@@ -2,8 +2,7 @@
     include('header_profil.php');
     
     
-   // echo("Crée un group d'ami(e)s");
-    //$action="groupe.php"
+   
 ?>
 <section>
     <p><br><br><br><br></p>
@@ -16,9 +15,11 @@
         
     
         <br>
-    <input type="text" class="input-medium search-query" name="nomgroupe" placeholder="nom du groupe" /> 
+    <input type="text" class="input-medium search-query" name="nomgroupe" placeholder="nom du groupe" />
          
         
+    <!--<input type="text" class="input-medium search-query" name="nomgroupe" value="<?php// if (isset($_POST['nomgroupe'])) echo htmlentities($_POST['nomgroupe']);?>"placeholder= "nom du groupe" /> -->
+         
          
     </p>
         <br><br>

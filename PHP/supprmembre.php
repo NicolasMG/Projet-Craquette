@@ -1,6 +1,6 @@
 
 <?php
-include('header.php');
+include('header_groupe.php');
  //if(isset($_POST['supprmembre'])){ 
 	//if(!empty($_POST['membre'])){ 
         $id=$_GET['id'];

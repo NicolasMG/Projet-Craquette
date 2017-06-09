@@ -1,0 +1,196 @@
+#body_accueil {
+    /* background-image:url(images/gradientby2.jpg);
+     background-attachment:fixed;
+     background-size: 100% 100%;*/
+    background-color:white;
+
+ }
+
+
+header{
+    width: 100%;
+    height: 50px;
+}
+
+#contenu_gauche,#contenu_centre,#contenu_droite,#calendrier,.vide_gauche,.vide1,.vide2,.vide_gaucheprofil,.vide_droitprofil{
+    display:inline-block;
+    vertical-align:top;
+}
+/*
+#contenu_gauche,#contenu_droite,#filactualite,#post,.cal_calendrier,.cal_calendrier th,.cal_calendrier td{
+    border:1px solid black;
+}
+*/
+/*
+#contenu_centre,#contenu_droit,#calendrier{
+    margin-left:27.4%;
+}
+*/
+
+#contenu_droite,#contenu_gauche{
+    border-style: groove;
+}
+
+.contenu{
+    width:100%;
+}
+
+h4{
+    font-weight: bold;
+}
+
+/*-------------------------CONTENU GAUCHE--------------------*/
+
+#contenu_gauche{
+    overflow-y: scroll;
+    width: 263px;
+    position: fixed;
+    height:94.8%;
+    background-image: url(images/gradientby2.jpg);
+    background-size:100% 100%;
+    background-attachment: fixed;
+    margin-left:200px;
+
+}
+
+#profil{
+    height:200px;
+    padding:5px;
+}
+
+#profil .img-circle, #profil .couverture, #profil p{
+     display:block; 
+    position:absolute; 
+}
+
+#profil .img-circle{
+    margin-left: 15px;
+    margin-top:55px;
+    width:80px; 
+    height:80px;
+}
+
+#profil .couverture{
+    width:230px; 
+    height:110px;
+}
+
+#profil p{
+    margin-left:15px; 
+    margin-top:150px;
+    font-weight: bold; 
+    color:black;
+}
+
+#contenu_gauche ul{
+    margin-bottom: 30px;
+}
+
+#pages_events {
+    margin:20px;
+    margin-left: 0;
+}
+
+#pages li:first-child, #events li:first-child{
+    margin-top:10px;
+}
+
+#pages li, #events li{
+    margin-left:60px;
+}
+
+#pages .btn{
+    margin-left:55px;
+    margin-bottom: 20px;
+}
+
+#events .btn{
+    margin-left:45px;
+}
+
+
+/*-------------------------CONTENU CENTRE--------------------*/
+
+#contenu_centre {
+    margin-left: 470px; 
+    height:10000px;
+    margin-right:7px;
+}
+
+#conteneur_du_post_2{    
+    width:550px;
+    height:100px;
+}
+
+#filactualite{
+    height: 10000px;
+}
+
+
+/*-------------------------CONTENU DROITE--------------------*/
+
+
+#contenu_droite{
+    background-image: url(images/gradientby2.jpg);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    width:263px;
+    height:94.8%;
+    position: fixed;
+    display:inline-block;
+    vertical-align:top;
+    margin-right: 15px;
+}
+
+#groupes{
+    padding-top:30px;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+#groupes .btn{
+    margin-left:55px;
+}
+
+/* ------------------------------CALENDRIER------------------------------------------ */
+
+
+#calendrier{
+    background-color: white;
+    height:10000px;
+    margin-left:270px;
+    position: fixed;
+    width: 900px;
+}
+
+.calendrier{
+    margin-bottom: 10%;
+}
+
+.cal_calendrier
+{
+    width:28%;
+    height:200px;
+}
+
+.cal_calendrier th
+{
+    background-color:#EEEEEE;
+}
+
+.cal_calendrier td
+{
+    background-color:#EEEEEE;
+    text-align:center;
+}
+
+.cal_aujourdhui
+{
+    font-weight: bold;
+    color:#ff0000;
+}
+
+.cal_jours_av_ap
+{
+    color:#5a779e;
+}

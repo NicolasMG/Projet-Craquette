@@ -1,6 +1,6 @@
 
 <?php
- include('header_profil.php');
+ include('header_groupe.php');
 $nom=$_GET['nom']; ?>
     
     <section>
@@ -15,7 +15,7 @@ if(isset($_POST['modif'])){
                 $nomimage="Images/$nom1";
                 $resultat=move_uploaded_file($_FILES['imagecouverture']['tmp_name'], $nomimage);
           
-          $response =$bdd->query('Update groupe set imagecouverture="Images/'.$nom1.'" WHERE email="'.$nom.'"'); //ok
+          $response =$bdd->query('Update groupe set imagecouverture="Images/'.$nom1.'" WHERE nomgroupe="'.$nom.'"'); //ok
           $row = $response->fetch();
           echo($row['imagecouverture']);
       }}

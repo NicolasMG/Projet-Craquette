@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <?php
     include('protection_session.php');
-    session_start();
+    //session_start(); Mise en commentaire
     $mail = $_SESSION['mail'];
    //$mail="rachel.noireau@uha.fr";
    // echo($mail);
     
-    include('header.php');
+    include('header_profil.php');
     try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); 
     }
@@ -22,15 +22,15 @@
     <br>
     Remplisez uniquement les champs que vous souhaiter modifier
 <br>
+<br>
 </p>
-<form class="form-horizontal" method="post" action="traitementmodif.php" enctype="multipart/form-data">
-          <form class="form-horizontal" method="post" action="traitement.php" >
+        <form class="form-horizontal" method="post" action="traitementmodif.php" enctype="multipart/form-data">
+            <form  class="form-horizontal" method="post" action="traitement.php" >
                 
               
               
-              
-              <div>
-					<label for="imagecouverture">
+              <div class="form-group">
+					<label class="col-sm-2 control-label" for="imagecouverture">
 						Photo de couverture:
 					</label>
 					<!--<input type="text" class="input-medium search-query" class="form-control" name="imagecouverture" placeholder= "Chemin pour l'image" />-->
@@ -38,12 +38,11 @@
                     <input type="hidden" name="MAX_FILE_SIZE" value="12345">
 				</div>
               
-              <div>
-					<label for="imageprofil">
+              <div class="form-group">
+					<label class="col-sm-2 control-label" for="imageprofil">
 						Photo de profil:
 					</label>
 					<!--<input type="text" class="input-medium search-query" class="form-control" name="imageprofil" placeholder= "Chemin pour l'image" />-->
-                  <br>
                     <input type="file" name="imageprofil" id="imageprofil"/>
                     <input type="hidden" name="MAX_FILE_SIZE" value="12345">
                     
@@ -59,35 +58,42 @@
 				</div>
               
               
-              
+
               
                 <div class="form-group">
-					<label for="nom">
+					<label class="col-sm-2 control-label" for="nom">
 						Nom:
 					</label>
-					   <input type="text" class="input-medium search-query" name="nom" placeholder= "Votre nom" />  
+                    <div class="col-sm-10">
+					   <input type="text" class="form-control" style="width:250px;"  name="nom" placeholder= "Votre nom" />  
+                    </div>
+
 				</div>
                 
-                <div>
-					<label for="prenom">
+                <div class="form-group">
+					<label class="col-sm-2 control-label" for="prenom">
 						Prénom:
 					</label>
-					   <input type="text" class="input-medium search-query" name="prenom" placeholder= "Votre prénom" />
+                    <div class="col-sm-10">
+					   <input type="text" class="form-control" style="width:250px;" name="prenom" placeholder= "Votre prénom" />
+                    </div>
                 </div>
                 
-                <div>
-					<label for="mail">
+                <div class="form-group">
+					<label class="col-sm-2 control-label" for="mail">
 						Mail:
 					</label>
-					<input type="email" class="input-medium search-query" class="form-control" name="mail" placeholder= "Votre email" />
+                    <div class="col-sm-10">
+					   <input type="email" class="form-control" style="width:250px;" name="mail" placeholder= "Votre email" />
+                    </div>
 				</div>
                     
               
             <p>
-                <label for="filiere">
+                <label class="col-sm-2 control-label" for="filiere">
 						Filiere:
-					</label>
-				<select name="filiere">
+				</label>
+				<select class="form-control" style="width:250px;" name="filiere">
                     <option value="ne pas modifier"> ne pas modifier</option>
 					<option value="IR"> IR </option>
 					<option value="AS"> AS </option>
@@ -97,46 +103,51 @@
                     <option value="enseignant"> enseignant</option>
                     <option value="autre"> autre</option>    
 				</select>
-                </p>
-                <p>
-                    <label for="promo">
-						Année d'etude:
-					</label>
-                    <select name="promo">
-                        <option value="ne pas modifier"> ne pas modifier</option>
-                        <option value="1A"> 1A</option>
-                        <option value="2A"> 2A</option>
-                        <option value="3A"> 3A</option>
-                        <option value="sortie d'ecole"> sortie d'ecole</option>
-                        <option value="autre"> autre</option>
-                    </select>
-                </p>
+            </p>
+            <p>
+                <label class="col-sm-2 control-label" for="promo">
+                    Année d'etude:
+                </label>
+                <select class="form-control" style="width:250px;" name="promo">
+                    <option value="ne pas modifier"> ne pas modifier</option>
+                    <option value="1A"> 1A</option>
+                    <option value="2A"> 2A</option>
+                    <option value="3A"> 3A</option>
+                    <option value="sortie d'ecole"> sortie d'ecole</option>
+                    <option value="autre"> autre</option>
+                </select>
+            </p>
               
               
                 
-                <div>
-					<label for="datenaissance">
+                <div class="form-group">
+					<label class="col-sm-2 control-label" for="datenaissance">
 						Date de naissance:
 					</label>
-					   <input type="date" class="input-medium search-query" name="datenaissance" placeholder= "année-mois-jour" />
+                    <div class="col-sm-10">
+					   <input type="date" class="form-control" style="width:250px;" name="datenaissance" placeholder= "année-mois-jour" />
+                    </div>
 				</div>
               
               
-              <div>
-					<label for="tel">
-						numero de telephone :
+              <div class="form-group">
+					<label class="col-sm-2 control-label" for="tel">
+						Numero de telephone :
 					</label>
-					   <input type="text" class="input-medium search-query" name="tel" placeholder= "Votre numero" />
+                    <div class="col-sm-10">
+					   <input type="text" class="form-control" style="width:250px;" name="tel" placeholder= "Votre numero" />
+                    </div>
 				</div>
 				
                  <div>
-					<label for="commentaire">
+					<label class="col-sm-2 control-label" for="commentaire">
 						Commentaire: 
 					</label>
-					<textarea  name="commentaire" rows="5" cols="180" placeholder= "Decrivez vous..." >
-                     </textarea>
+                     <div class="col-sm-10">
+					<textarea  class="form-control" name="commentaire" rows="5" cols="100" style="width:500px;" placeholder= "Decrivez vous..." >
+                    </textarea>
+                     </div>
                 </div>
-                    
     <p><br></p>
      <input type="submit" value="Appliquer" name="modif"/>
     

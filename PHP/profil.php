@@ -1,4 +1,3 @@
-<p><br><br><br></p>
 <?php
 
     include('header_profil.php');
@@ -34,6 +33,8 @@
                         echo($row['imageprofil']);               
                                              ?>" >  
             <a href='modifprofil.php'><button style="left:62%; top:34%;" type="submit" class="btn">Mettre à jour mon profil</button></a>
+            <a href='voirmessage.php'><button style="left:52%; top:34%;" type="submit" class="btn">Mes Messages</button></a>            
+
             <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php $response = $bdd->query('SELECT nom FROM profil WHERE email="'.$mail.'"'); 
                                         $row = $response->fetch();
                                         echo($row['nom']); 

@@ -10,7 +10,7 @@
     <form method="post" action="page.php" enctype="multipart/form-data">
         
      <p> 
-    <label for="nompage">Choisisez le nom dela page:</label>
+    <label for="nompage">Choisisez le nom de la page:</label>
         
     
         <br>
@@ -20,19 +20,19 @@
         <br><br>
                 
      <div>
-            <label for="couverturepage">
+            <label for="imagecouverture">
 						Photo de couverture:
             </label>
-                  <input type="file" name="couverturepage" id="couverturepage"/>
+                  <input type="file" name="imagecouverture" id="imagecouverture"/>
                     <input type="hidden" name="MAX_FILE_SIZE" value="12345">
     </div>
         
         
          <div>
-            <label for="profilpage">
+            <label for="imageprofil">
 						Photo de profil:
             </label>
-                  <input type="file" name="profilpage" id="profilpage"/>
+                  <input type="file" name="imageprofil" id="imageprofil"/>
                     <input type="hidden" name="MAX_FILE_SIZE" value="12345">
     </div>
         

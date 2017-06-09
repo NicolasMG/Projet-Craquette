@@ -1,0 +1,84 @@
+#body_profil {
+     background-image:url(images/gradientby2.jpg);
+     background-attachment:fixed;
+     background-size: 100% 100%;
+}
+section {
+    text-align: center;
+}
+
+#Page{
+    width:70%;
+    margin-left: auto;
+}
+
+#section_profil{
+    background-color: white;
+    text-align: left;
+}
+
+.vide_gaucheprofil{
+    width:27.7%;
+    height:10000px;
+    background-color: white;
+    margin:-0.2%;
+    margin-top:-10%;
+}
+
+.vide_droitprofil{
+    margin-left: 63.8%;
+    width:39.75%;
+    height: 10000px;
+    background-color: white;
+    margin-top:-270%;
+}
+
+
+#photosduprofil{
+    position:fixed;
+    top:50px;
+}
+
+#PhotoDeCouverture{
+    width:100%;
+}
+
+#PhotoDeProfil{
+    position:absolute;
+    bottom:4px;
+    left:3%;
+    width:20%;
+    height: 50%;
+}
+
+#PanneauGauche{
+    background-image: url(images/gradientby.jpg);
+    background-size: 100% 100%;
+    
+    width: 15%;
+    border-style: groove;
+    height: 60.5%;
+    position:fixed;
+    display: inline-block;
+}
+
+#PanneauDroit{
+   /* border-style: groove;*/
+    margin-top:22.45%;
+    margin-left: 22.2%;
+    width: 41.3%;
+
+}
+
+
+#Page button{
+    position:fixed;
+}
+#Information{
+    display: flex;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+#Infogenerale{
+    margin-left: 8px;
+}

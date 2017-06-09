@@ -5,7 +5,7 @@
     catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
         die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
     }
-    include('header.php');
+    include('header_profil.php');
 ?>
 
 <p><br><br><br><br><br><br><br><br><br><br><br></p>
@@ -136,5 +136,6 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
     <a href='<?php echo $valideinscription;  ?>'><button type="submit" class="btn"><?php echo $bouton; ?></button></a>
     <p><br></p> 
 <?php
-             echo '<p>'.$prenom.' '.$nom.', merci de nous rejoindre .</p>';      //peut etre changer ça    
+             echo '<p>'.$prenom.' '.$nom.', merci de nous rejoindre .</p>';      //peut etre changer ça 
+include ('footer.php');
 ?>
