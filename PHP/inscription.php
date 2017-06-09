@@ -17,14 +17,7 @@
             <h2>Inscription</h2>
                 
             <form class="form-horizontal" method="post" action="traitement.php" >
-                
-             <div class="form-group">
-                    <label for="MDP">Mot de passe :</label>
-                    <div style="display:inline;">
-                        <input class="form-control" style="width:250px; display:inline;" type="password" name="MDP" placeholder="Mot de passe" />
-                    </div>
-                </div>
-                
+
                 
                 
                 <div class="form-group">
