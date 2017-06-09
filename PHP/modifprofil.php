@@ -15,26 +15,20 @@
     }
 ?>
 
-<section>
-<p>
-    <br>
-    <br>
-    <br>
-    Remplisez uniquement les champs que vous souhaiter modifier
-<br>
-<br>
-</p>
+<section id="section_modifprofil">
+        <h4 style="margin-bottom:20px; padding-left:80px;">
+            Remplisez uniquement les champs que vous souhaiter modifier
+        </h4>
         <form class="form-horizontal" method="post" action="traitementmodif.php" enctype="multipart/form-data">
             <form  class="form-horizontal" method="post" action="traitement.php" >
                 
-              
+             
               
               <div class="form-group">
 					<label class="col-sm-2 control-label" for="imagecouverture">
 						Photo de couverture:
 					</label>
-					<!--<input type="text" class="input-medium search-query" class="form-control" name="imagecouverture" placeholder= "Chemin pour l'image" />-->
-                  <input type="file" name="imagecouverture" id="imagecouverture"/>
+                    <input style="display:inline;" type="file" name="imagecouverture" id="imagecouverture"/>
                     <input type="hidden" name="MAX_FILE_SIZE" value="12345">
 				</div>
               
@@ -43,7 +37,7 @@
 						Photo de profil:
 					</label>
 					<!--<input type="text" class="input-medium search-query" class="form-control" name="imageprofil" placeholder= "Chemin pour l'image" />-->
-                    <input type="file" name="imageprofil" id="imageprofil"/>
+                    <input style="display:inline;" type="file" name="imageprofil" id="imageprofil"/>
                     <input type="hidden" name="MAX_FILE_SIZE" value="12345">
                     
                   <?php /*
@@ -56,15 +50,13 @@
                   
                   
 				</div>
-              
-              
+                
 
-              
                 <div class="form-group">
 					<label class="col-sm-2 control-label" for="nom">
 						Nom:
 					</label>
-                    <div class="col-sm-10">
+                    <div  class="col-sm-10"> 
 					   <input type="text" class="form-control" style="width:250px;"  name="nom" placeholder= "Votre nom" />  
                     </div>
 
@@ -148,8 +140,8 @@
                     </textarea>
                      </div>
                 </div>
-    <p><br></p>
-     <input type="submit" value="Appliquer" name="modif"/>
+    
+    <input style="margin-top:180px; width:110px; margin-left:200px;" class="form-control" type="submit" value="Appliquer" name="modif"/>
     
     </form>
   

@@ -19,8 +19,6 @@
 		<meta charset="utf-8"/>
 		<title>Craquette - Connexion</title>
         <script type="text/javascript" src="JS/calendrier.js"></script>
-		<link rel="stylesheet" href="CSS/bootstrap.css"/>
-
 	</head>
 	<body>
 		<header> <!-- header = en tête page -->

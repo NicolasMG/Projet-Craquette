@@ -13,10 +13,10 @@
    
 ?>
 
+    <section id="section_profil">
 
-    <div id="Page">
         <div id="photosduprofil">
-                <img style="height:315px; width:851px;"id="PhotoDeCouverture" src="<?php 
+                <img id="PhotoDeCouverture" src="<?php 
                         $response =$bdd->query('SELECT imagecouverture FROM profil WHERE email="'.$mail.'"'); 
                         $row = $response->fetch();
                         echo($row['imagecouverture']);                                              
@@ -31,9 +31,12 @@
                         $row = $response->fetch();
                         echo($row['imageprofil']);               
                                              ?>" >  
-            <a href='modifprofil.php'><button style="left:62%; top:34%;" type="submit" class="btn">Mettre à jour mon profil</button></a>
-            <a href='voirmessage.php'><button style="left:52%; top:34%;" type="submit" class="btn">Mes Messages</button></a>            
-
+            <form  method="post" action="modifprofil.php">
+                <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:490px; top:270px;" value="Modifier mon profil" type="submit" name="modif"/>
+            </form>
+             <form method="post" action="voirmessage.php">
+                <input class="form-control" style=" display:block; position:absolute; width:150px; display:inline; left:680px; top:270px;" value="Mes messages" type="submit" name="messages"/>
+            </form>          
             <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php $response = $bdd->query('SELECT nom FROM profil WHERE email="'.$mail.'"'); 
                                         $row = $response->fetch();
                                         echo($row['nom']); 
@@ -42,7 +45,7 @@
                                         echo($row['prenom']);
                 ?>
         </div>
-        <div style="display:inline-block;" id="PanneauGauche">
+        <div id="PanneauGauche">
                 <div id="Information">
                     <div id="Infogenerale">
                         <p><h2 style="font-size:20px;" >A propos :</h2></p>
@@ -101,7 +104,7 @@
                         <p>CV : <a href="Documents/Mon%20CV.txt">Mon CV</a></p>    
                     </div>
                 </div>
-        </div>
+            </div>
         <div id="PanneauDroit">
             <div id="conteneur_du_post">
 
@@ -118,6 +121,8 @@
             <?php include ('news_accueil.php') ; ?>
             </div>           
         </div>
-    </div>
 
-<?php include('footer.php'); ?>
+    </section>
+
+</body>
+</html>

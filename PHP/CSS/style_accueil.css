@@ -12,20 +12,10 @@ header{
     height: 50px;
 }
 
-#contenu_gauche,#contenu_centre,#contenu_droite,#calendrier,.vide_gauche,.vide1,.vide2,.vide_gaucheprofil,.vide_droitprofil{
+#contenu_gauche,#contenu_centre,#contenu_droite,#calendrier{
     display:inline-block;
     vertical-align:top;
 }
-/*
-#contenu_gauche,#contenu_droite,#filactualite,#post,.cal_calendrier,.cal_calendrier th,.cal_calendrier td{
-    border:1px solid black;
-}
-*/
-/*
-#contenu_centre,#contenu_droit,#calendrier{
-    margin-left:27.4%;
-}
-*/
 
 #contenu_droite,#contenu_gauche{
     border-style: groove;

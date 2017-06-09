@@ -17,7 +17,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 	<body id="body_accueil">
-		<header> <!-- header = en tête page -->
+		<header> 
         <div class="topnav" id="myTopnav">
             <div class="topnav_logo">
                 <a href="accueil.php"><img src='Images/logo.png'/></a>
@@ -55,4 +55,3 @@
         }
         </script>
 		</header>
-		<section id="section_profil">
