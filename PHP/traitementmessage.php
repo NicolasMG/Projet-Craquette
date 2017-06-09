@@ -33,15 +33,15 @@ if (isset($_POST['craquetter'])){
         
         
         
-        $req=$bdd->prepare('insert into message values("'.$idefi.'","'.$message.'")');
+        $req=$bdd->prepare('insert into message values("'.$idefi.'","'.$id.'","'.$idutil.'","'.$message.'")');
         $req->execute();
-        
+        /*
         $req=$bdd->prepare('insert into envoie values("'.$idefi.'","'.$id.'")');
         $req->execute();
         
         $req=$bdd->prepare('insert into destination values("'.$idefi.'","'.$idutil.'")');
         $req->execute();
-
+        */
         
 	}
 }

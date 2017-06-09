@@ -13,7 +13,7 @@
                     
         <?php       
             $id=$_SESSION['ID'];
-            $sql='SELECT idutil1 id1a,idutil2 FROM message Where idutil1="'.$id.'" OR idutil2="'.$id.'"';
+            $sql='SELECT distinct(idutil2) FROM message Where idutil1="'.$id.'" ORDER BY id';
             $req = $bdd->query($sql)  ; 
           
         ?>    
@@ -24,12 +24,35 @@
         ?>
         <tr>
         <td>
-            <p>metre photo ici</p>
+            <?php    
+                $idutil=$row['idutil2'];?>
+            
+           <a href="message.php?idutil=<?php echo $idutil; ?>"> <img  src="<?php
+                
+                $response =$bdd->query('SELECT imageprofil FROM profil WHERE id="'.$idutil.'"'); 
+                $row = $response->fetch();
+                $image= ($row['imageprofil']);
+                echo $image;
+               ?>" alt="image de votre ami " /></a>
         </td>
             
         <td>
-            <a href="profilgroupe.php?nom=<?php echo $row['message']; ?>">
-                            <?php echo($row['message']); ?>
+            <p>
+            <?php
+                $response =$bdd->query('SELECT prenom FROM profil WHERE id="'.$idutil.'"'); 
+                $row = $response->fetch();
+                $prenom=($row['prenom']);
+            ?>
+            
+            
+            <?php
+                $response =$bdd->query('SELECT nom FROM profil WHERE id="'.$idutil.'"'); 
+                $row = $response->fetch();
+                $nom=($row['nom']);
+            ?>
+            
+            <a href="message.php?idutil=<?php echo $idutil; ?>">
+                            <?php echo($prenom); echo " "; echo $nom; ?>
             </a>
             
         </td>

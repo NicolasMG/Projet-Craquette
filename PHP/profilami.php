@@ -41,9 +41,9 @@
                                          ?>" >  
         
         <!--BOUTON DEMANDE AMI-->
-        <form action='message.php?idutil=<?php echo $mail ; ?>'>
-            <input name="envoyer un message" type="submit" class="btn">Envoyer un message/>
-        </form>
+        <!--<form action='message.php?idutil=<?php echo $mail ; ?>'>-->
+            <a href='message.php?idutil=<?php echo $mail ; ?>'><input name="envoyer un message" type="submit" class="btn"/></a>
+        <!--</form>-->
     </div>
     <div id="PanneauGauche">
         <p>A propos :</p>

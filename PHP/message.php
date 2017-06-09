@@ -36,9 +36,9 @@ $idutil=$_GET['idutil'];
    </form>
 <?php        
 if(!isset($_GET['id']))
-    $req = "SELECT idutil,mp from profil a inner join envoie on a.id=envoie.idutil inner join message on envoie.idenvoie=message.id inner JOIN destination on message.id=destination.idmp INNER JOIN profil b ON destination.idutil2=b.id  WHERE (idenvoie='".$id."' AND idutil='".$idutil."') OR (idenvoie='".$idutil."' AND idutil='".$id."') ORDER BY message.id DESC limit 50"; //pas sur idutil1
+    $req = "SELECT idutil1,mp from message WHERE (idutil1='".$id."' AND idutil2='".$idutil."') OR (idutil1='".$idutil."' AND idutil2='".$id."') ORDER BY message.id DESC limit 50"; //pas sur idutil1
 else
-    $req = "SELECT idutil1,message FROM message WHERE id>'".addslashes($_GET['id'])."' ORDER BY id LIMIT 1";//pas sur util 1
+    $req = "SELECT idutil1,mp FROM message WHERE id>'".addslashes($_GET['id'])."' ORDER BY id LIMIT 1";//pas sur util 1
 $req=$bdd->query($req) or die(print_r($bdd->errorInfo()));
 $first = true;
 while($res = $req->fetch()){
@@ -60,11 +60,11 @@ while($res = $req->fetch()){
                 $nom=($row['nom']);
     
     print '<div id="conteneur_newsfeed">
-				<img class="img-circle" src="'.$idutil.'"/>
+				<img class="img-circle" alt="phtode votre ami" src="'.$idutil.'"/>
 					<div id="contenu_droit">
 						<p id="nom_profil"> '.$prenom.' '.$nom.'
                         </p>
-				        <p id="contenu_int">'.$res['message'].'</p>	
+				        <p id="contenu_int">'.$res['mp'].'</p>	
 					</div>
 			</div>';
 }
