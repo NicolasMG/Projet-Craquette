@@ -24,7 +24,7 @@
 
 <div id="Page">
     <div id="photosduprofil">
-            <img style="height:315px; width:851px;"id="PhotoDeCouverture" src="<?php 
+            <img style="height:315px; width:851px;" alt="phto de couverture" id="PhotoDeCouverture" src="<?php 
                     $response =$bdd->query('SELECT imagecouverture FROM profil WHERE id="'.$mail.'"'); 
                     $row = $response->fetch();
                     echo($row['imagecouverture']);                                              
@@ -34,15 +34,16 @@
             
             
             
-            <img id="PhotoDeProfil" src="<?php 
+            <img id="PhotoDeProfil" alt="photo de couverture" src="<?php 
                     $response =$bdd->query('SELECT imageprofil FROM profil WHERE id="'.$mail.'"'); 
                     $row = $response->fetch();
                     echo($row['imageprofil']);               
                                          ?>" >  
         
         <!--BOUTON DEMANDE AMI-->
-         <a href='message.php?idutil=<?php echo $mail ; ?>'><button type="submit" class="btn">Envoyer un message</button></a>
-        
+        <form action='message.php?idutil=<?php echo $mail ; ?>'>
+            <input name="envoyer un message" type="submit" class="btn">Envoyer un message/>
+        </form>
     </div>
     <div id="PanneauGauche">
         <p>A propos :</p>
