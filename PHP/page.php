@@ -60,7 +60,21 @@ if(isset($_POST['creepage'])){
             $insertion = $bdd->prepare('insert into page values("'.$nom.'","'.$id.'","'.$profil.'","'.$couverture.'")'); 
             $insertion->execute(); 
             
-            $insertion = $bdd->prepare('insert into page values("'.$nom.'","'.$id.'","'.$profil.'","'.$couverture.'")'); 
+
+            
+            try{ 
+                $bddaime = new PDO('mysql:host=localhost;dbname=aimepage;charset=utf8','root',''); 
+                echo "coucou";
+            }
+            catch(Exception $e){ 
+                die('Erreur : '.$e->getMessage()); 
+                
+            }
+  
+                
+
+            
+            $insertion = $bddaime->prepare('create table "'.$nom.'"(aime integer primary key)');
             $insertion->execute(); 
             
             $bonsite="page.php?nom=$nom";
