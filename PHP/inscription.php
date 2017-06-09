@@ -18,9 +18,6 @@
                 
             <form class="form-horizontal" method="post" action="traitement.php" >
                 
-           
-                
-                
                 
                 <div class="form-group">
 					<label for="nom">
