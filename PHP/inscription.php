@@ -18,6 +18,12 @@
                 
             <form class="form-horizontal" method="post" action="traitement.php" >
                 
+                <div>
+					<label for="prenom">
+						Prénom:
+					</label>
+					<input type="text" class="input-medium search-query" name="prenom" placeholder= "Votre prénom" />
+                </div>
                 
                 <div class="form-group">
 					<label for="nom">
@@ -98,11 +104,6 @@
 					 <a href='inscription.php'><button type="reset" class="btn">Effacer</button></a>
                     </label>
                 </div>
-                <div>
-					<label for="bla">
-						C'est fini 
-					</label> 
-				</div>
 			</form>
             
 </section>             
