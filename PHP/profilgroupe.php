@@ -1,6 +1,5 @@
 
 <?php
-   
     include('header_groupe.php');
     try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
@@ -9,20 +8,14 @@
         die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
     }
   
-    //session_start();
     $mail=$_SESSION['mail'];
     $id=$_SESSION['ID'];
-?>
-<p><br><br><br></p>
-<?php
 
 //CREATION DU GROUPE
 if(isset($_POST['creegroupe'])){ 
 	if(!empty($_POST['nomgroupe'])){
-        
         $nom = htmlspecialchars($_POST['nomgroupe']);
         $id=$_SESSION['ID'];
-        
         $reponse=$bdd->prepare('Select nomgroupe From groupe Where nomgroupe="'.$nom.'"');
         $nom=htmlentities($_POST['nomgroupe']);
         $reponse->execute(array('.$nom.'=>htmlspecialchars($_POST['nomgroupe'])));
@@ -33,31 +26,24 @@ if(isset($_POST['creegroupe'])){
             $pbnom="creegroup.php";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
         }else{
-            
-        
             $couverture="Images/imagesgroupecouverture.jpg";
             if(!$_FILES['couverturegroupe']['error']>0){
                 if(!empty($_FILES['couverturegroupe'])){ 
-                     $imagecouverture = $_FILES['couverturegroupe']; 
-                   
+                    $imagecouverture = $_FILES['couverturegroupe']; 
                     $nom1=md5(uniqid(rand(),true)); 
                     $couverture="Images/$nom1";
                     $resultat=move_uploaded_file($_FILES['couverturegroupe']['tmp_name'], $couverture);
                 }
             }
-        
             $profil="Images/imagegroupeprofil.jpg";
              if(!$_FILES['profilgroupe']['error']>0){
                  if(!empty($_FILES['profilgroupe'])){ 
                     $imagecouverture = $_FILES['profilgroupe']; 
-                   
-                     $nom1=md5(uniqid(rand(),true)); 
+                    $nom1=md5(uniqid(rand(),true)); 
                     $profil="Images/$nom1";
                     $resultat=move_uploaded_file($_FILES['profilgroupe']['tmp_name'], $profil);
                 }
              }
-        
-  
             $insertion = $bdd->prepare('insert into groupe values("'.$id.'","'.$nom.'","administrateur","'.$profil.'","'.$couverture.'")'); 
             $insertion->execute(); 
             
@@ -74,26 +60,24 @@ if(isset($_POST['creegroupe'])){
     }
 }
 
-?>
-    <?php $nom= $_GET['nom'];  ?>
-    <div class="vide_gaucheprofil" style="display:inline-block;"></div>
-    <div style="display:inline-block;" id="Page">
-        <div id="photosduprofil">
-                <img style="height:315px; width:851px;"id="PhotoDeCouverture" src="<?php 
+    $nom= $_GET['nom'];  ?>
+    <section id="section_profil">
+            <div id="Page">
+                <div id="photosduprofil">
+                    <img style="height:315px; width:851px;"id="PhotoDeCouverture" src="<?php 
                         $response =$bdd->query('SELECT imagecouverture FROM groupe WHERE nomgroupe="'.$nom.'"'); 
                         $row = $response->fetch();
                         echo($row['imagecouverture']);                                              
                                                  ?>">
 
-                <img id="PhotoDeProfil" src="<?php 
+                    <img id="PhotoDeProfil" src="<?php 
                         $response =$bdd->query('SELECT imageprofil FROM groupe WHERE nomgroupe="'.$nom.'"'); 
                         $row = $response->fetch();
                         echo($row['imageprofil']);               
                                              ?>" >  
-            <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php echo $_GET['nom'];
-                        ?>  
+                    <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php echo $_GET['nom']; ?>  
         </div>
-        <div style="display:inline-block;" id="PanneauGauche">
+        <div id="PanneauGauche">
                 <div id="Information">
                     <div id="Infogenerale">
                         <p><h2 style="font-size:20px;" >Membres du groupe :</h2></p>
@@ -229,11 +213,9 @@ if(isset($_POST['creegroupe'])){
     </p>    
     
            
-                    
-                    </div>
-
-                </div>
-
+                   </div>
+     
+        </div>
         </div>
         <div id="PanneauDroit">
             <div id="conteneur_du_post">
@@ -245,14 +227,16 @@ if(isset($_POST['creegroupe'])){
 
                     <form method="post" action="traitement_news.php">
                         <textarea cols="46" row='10' name="message" placeholder="Quoi de neuf ?"></textarea>
-                        <input class="form-control" value="Craquetter" type="submit" name="craquetter"/>
+                        <input style="width:100px;" class="form-control" value="Craquetter" type="submit" name="craquetter"/>
                     </form>
                 </div>
             <?php include ('news_accueil.php') ; ?>
             </div>           
         </div>
 
-    <div class="vide_droitprofil" style="display:inline-block;"></div>
+        </div>
 
+</section>
 
-<?php include('footer.php'); ?>
+</body>
+</html>

@@ -22,6 +22,6 @@ if(isset($_POST['creegroupe'])){
 <p>Votre groupe a bien été crée.</p>
     <br>
 
-<a href='groupe.php'><button type="submit" class="btn">Voir mon groupe.</button></a>
+<a href='groupe.php?nom=<?php echo $nom ; ?>'><button type="submit" class="btn">Voir mon groupe.</button></a>
 
 </section>

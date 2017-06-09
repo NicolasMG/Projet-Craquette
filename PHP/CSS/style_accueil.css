@@ -89,13 +89,34 @@ h4{
     margin-left:60px;
 }
 
-#pages .btn{
-    margin-left:55px;
+.btn-pages{
+    padding-left:45px;
     margin-bottom: 20px;
 }
 
-#events .btn{
-    margin-left:45px;
+.btn-pages input{
+    width: 150px;
+}
+
+.btn-events{
+    padding-left:35px;
+}
+
+.btn-events{
+    width: 200px;
+}
+
+/* ------creegroup.php ------*/
+
+#section_creegroup{
+    padding-top:100px;
+    margin-left: 450px;
+
+}
+
+#section_creegroup h4{
+    padding-left: 200px;
+    margin-bottom: 50px;
 }
 
 
@@ -138,8 +159,12 @@ h4{
     overflow-y: scroll;
 }
 
-#groupes .btn{
-    margin-left:55px;
+.btn-groupes{
+    margin-left:50px;
+}
+
+.btn-groupes input{
+    width: 140px;
 }
 
 /* ------------------------------CALENDRIER------------------------------------------ */

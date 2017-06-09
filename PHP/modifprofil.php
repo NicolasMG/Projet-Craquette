@@ -56,10 +56,9 @@
 					<label class="col-sm-2 control-label" for="nom">
 						Nom:
 					</label>
-                    <div  class="col-sm-10"> 
+                    <div class="col-sm-10"> 
 					   <input type="text" class="form-control" style="width:250px;"  name="nom" placeholder= "Votre nom" />  
                     </div>
-
 				</div>
                 
                 <div class="form-group">

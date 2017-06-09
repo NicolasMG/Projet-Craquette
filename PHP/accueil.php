@@ -64,7 +64,9 @@
 
                 </ul>
                 <div class="btn-pages">
-                    <a href="creepage.php"><button type="submit" class="btn" name="newpage">Créer une page</button></a>
+                    <form  method="post" action="creepage.php">
+                        <input class="form-control" value="Créer une page" type="submit" name="creepage"/>
+                    </form>
                 </div>
             </div>
             <div id="events">
@@ -88,7 +90,11 @@
                            $req->closeCursor();
                         ?>
                 </ul>
-                 <a href="creeevenement.php"><button type="submit" class="btn" name="newevenement">Créer un evenement</button></a>
+                <div class="btn-events">
+                    <form  method="post" action="creeevenement.php">
+                            <input class="form-control" value="Créer un evenement" type="submit" name="creeevenement"/>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -152,9 +158,11 @@
                     ?>
             
             </ul>
-            
-           
-            <a href="creegroup.php"><button type="submit" class="btn" name="newgroupe">Créer un groupe</button></a>
+            <div class="btn-groupes">
+                    <form  method="post" action="creegroup.php">
+                            <input class="form-control" value="Créer un groupe" type="submit" name="creegroup"/>
+                    </form>
+            </div>
         </div>
     </div>
     <div id="calendrier">
