@@ -1,36 +1,11 @@
-#body_profil {
-     background-image:url(images/gradientby2.jpg);
-     background-attachment:fixed;
-     background-size: 100% 100%;
-}
-section {
-    text-align: center;
+#section_profil {
+    background-color: white;
+    text-align: left;
+    margin-left:400px;
+    margin-right:400px;
 }
 
 #Page{
-    width:70%;
-    margin-left: auto;
-}
-
-#section_profil{
-    background-color: white;
-    text-align: left;
-}
-
-.vide_gaucheprofil{
-    width:27.7%;
-    height:10000px;
-    background-color: white;
-    margin:-0.2%;
-    margin-top:-10%;
-}
-
-.vide_droitprofil{
-    margin-left: 63.8%;
-    width:39.75%;
-    height: 10000px;
-    background-color: white;
-    margin-top:-270%;
 }
 
 

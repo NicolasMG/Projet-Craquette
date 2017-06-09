@@ -34,7 +34,7 @@
 		<header> <!-- header = en tête page -->
 
         <div style="height:50px;" class="topnav" id="myTopnav">
-            <img style="padding-left:48%;" class="headerimg" src='PHP/Images/logo.png' />
+            <img style="padding-left:48%;" class="headerimg" src='PHP/Images/logo.png' alt="logo"/>
         </div>
 		</header>
 		<section style="text-align:center;">
@@ -47,7 +47,7 @@
                 <div class="form-group" >
                     <label for="mail">Adresse Email :</label>
                     <div style="display:inline;">
-                        <input class="form-control" style="width:250px; display:inline;"  type="Email" name="mail" placeholder="prenom.nom@uha.fr" />
+                        <input class="form-control" style="width:250px; display:inline;"  type="email" name="mail" placeholder="prenom.nom@uha.fr" />
                     </div>             
                 </div>
                 
@@ -60,8 +60,9 @@
                 
                 <p><a href="PHP/chgtmdp.php">Mot de passe oublié ?</a></p>                
                 <p><a href="PHP/inscription.php">Pas de compte ? Inscrivez vous !</a></p>
-
-                <a href='PHP/connexion.php'><button type="submit" class="btn">Se connecter</button></a>
+                <div class="form-group">
+                    <input type="submit" style="width:100px; display:inline;" class="form-control" name="Se connecter"/>
+                </div>
                 
             </form>
 

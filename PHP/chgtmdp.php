@@ -17,7 +17,7 @@ include ('header_non_co.php');
 					<label for="mail">
 						Adresse Email : 
 					</label>
-					<input type="mail" class="input-medium search-query" name="mail" placeholder= "Email" />  
+					<input type="email" class="input-medium search-query" name="mail" placeholder= "Email" />  
 				</div>
               
               <div>
@@ -33,8 +33,10 @@ include ('header_non_co.php');
 					</label>
 					<input type="password" class="input-medium search-query" name="confirmermdp" placeholder= "Mot de passe" />
                 </div>
-            <a href='chgtmdpreussie'><button type="submit" class="btn" name="chgtmdpreussie">Confirmer</button></a>
-              <br>
+                <div class="form-group">
+                    <input type="submit" style="width:100px; display:inline;" class="form-control" name="Confirmer"/>
+                </div>
+                <br>
 
     </form>
 
