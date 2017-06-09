@@ -60,8 +60,13 @@ if(isset($_POST['creepage'])){
             $insertion = $bdd->prepare('insert into page values("'.$nom.'","'.$id.'","'.$profil.'","'.$couverture.'")'); 
             $insertion->execute(); 
             
+            $insertion = $bdd->prepare('insert into page values("'.$nom.'","'.$id.'","'.$profil.'","'.$couverture.'")'); 
+            $insertion->execute(); 
+            
             $bonsite="page.php?nom=$nom";
             echo "<script>window.location = "."'".$bonsite."'"."</script>";
+            
+            
         }
                   
     

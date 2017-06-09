@@ -3,7 +3,7 @@
 <br>
     <br>
 <?php
-
+///coucou
 include('header_groupe.php');
 //session_start();
 if(isset($_POST['creegroupe'])){ 
