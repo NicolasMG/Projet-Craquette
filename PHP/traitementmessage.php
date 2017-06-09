@@ -19,11 +19,30 @@ if (isset($_POST['craquetter'])){
         $idef = $ide[0] ;
         $idefi = $idef + 1;
 
+     /*   $sql=$bdd->prepare('SELECT max(idenvoie) FROM envoie ');
+        $sql->execute();
+        $ide = $sql->fetch();
+        $idef = $ide[0] ;
+        $idefie = $idef + 1;
+        
+        $sql=$bdd->prepare('SELECT max(idmp) FROM destination ');
+        $sql->execute();
+        $ide = $sql->fetch();
+        $idef = $ide[0] ;
+        $idefid = $idef + 1; */
+        
+        
+        
+        $req=$bdd->prepare('insert into message values("'.$idefi.'","'.$message.'")');
+        $req->execute();
+        
+        $req=$bdd->prepare('insert into envoie values("'.$idefi.'","'.$id.'")');
+        $req->execute();
+        
+        $req=$bdd->prepare('insert into destination values("'.$idefi.'","'.$idutil.'")');
+        $req->execute();
 
         
-        
-        $req=$bdd->prepare('insert into message values("'.$idefi.'","'.$id.'","'.$idutil.'","'.$message.'")');
-        $req->execute();
 	}
 }
 echo $idefi;
