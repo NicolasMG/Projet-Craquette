@@ -119,10 +119,37 @@ if(isset($_POST['creeevenement'])){
                 
                     
                    <?php $nom=$_GET['nom']; ?>
-                    <a href='modifevenement.php?nom=<?php echo $nom;?>'><button style="left:62%; top:34%;" type="submit" class="btn">Modifier l'évenement</button></a>
                     
-                    <a href='participe.php?nom=<?php echo $nom;?>'><button style="left:52%; top:34%;" type="submit" class="btn">Je vient</button></a>
                     
+                     <?php
+                        $nom = htmlspecialchars($_GET['nom']);
+                        $id=$_SESSION['ID'];
+        
+                        $reponse=$bdd->prepare('Select nompage From page Where createur="'.$id.'" AND nompage="'.$nom.'"');
+                        $nom=htmlentities($_GET['nom']);
+                        $reponse->execute(array('.$nom.'=>htmlspecialchars($_GET['nom'])));
+                        $reponse2=$reponse->fetch();
+                        //$_GET['nom'] =$_POST['nompage'];                           
+                        if(!$reponse2){    
+                        
+                        ?>   
+                        
+                    
+                        <a href='modifevenement.php?nom=<?php echo $nom;?>'><button style="left:62%; top:34%;" type="submit" class="btn">Modifier l'évenement</button></a>
+                    
+                    
+                        <?php } ?>
+                    
+                    
+                    <a href='participe.php?nom=<?php echo $nom;?>'><button style="left:52%; top:34%;" type="submit" class="btn">Je viens</button></a>
+                    
+                     <p> <?php 
+                            $reponse = $bdd->query('select count(idutil) FROM  vientevenement WHERE nomevenement="'.$nom.'"'); 
+                            $row=$reponse->fetch();  
+                            echo $row[0];
+                
+                            
+                            ?>   personne(s) à cette événement</p>
                   
 
                     
