@@ -17,6 +17,7 @@
             <h2>Inscription</h2>
                 
             <form class="form-horizontal" method="post" action="traitement.php" >
+<<<<<<< HEAD
                 
              <!--<div class="form-group">
                     <label for="MDP">Mot de passe :</label>
@@ -31,6 +32,9 @@
 					</label>
 					<input type="text" class="input-medium search-query" name="prenom" placeholder= "Votre prénom" />
                 </div>
+=======
+
+>>>>>>> c225510f1ee837edbd0e7aed01d7c28bdf55accc
                 
                 
                 <div class="form-group">
