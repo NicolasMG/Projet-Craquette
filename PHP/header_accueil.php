@@ -1,6 +1,4 @@
-<?php 
-  include('protection_session.php');
-?>
+<?php  include('protection_session.php'); ?>
 <!doctype html>
 <html lang="fr">
 	<head> <!-- en tête du fichier -->
@@ -18,7 +16,7 @@
 		<header> <!-- header = en tête page -->
         <div class="topnav" id="myTopnav">
             <div class="topnav_logo">
-                <a href="accueil.php"><img src='Images/logo.png'/></a>
+                <a href="accueil.php"><img src='Images/logo.png' alt="Logo"/></a>
             </div>
             <div class="topnav_icons">
                 <a class="active" href="deconnexion.php"><span class="glyphicon glyphicon-off"></span></a>

@@ -55,4 +55,4 @@
         }
         </script>
 		</header>
-		<section style="text-align:center;" id="section_profil">
+		<section id="section_profil">

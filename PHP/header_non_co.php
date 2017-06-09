@@ -26,11 +26,11 @@
 		<header> <!-- header = en tête page -->
 
         <div style="height:50px;" class="topnav" id="myTopnav">
-            <img style="padding-left:48%;" class="headerimg" src='Images/logo.png' />
+
+            <img style="padding-left:48%;" class="headerimg" src='Images/logo.png' alt="Logo" />
         </div>
 
 
 
 		</header>
 		<section>
-		

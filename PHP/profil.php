@@ -14,8 +14,7 @@
 ?>
 
 
-    <div class="vide_gaucheprofil" style="display:inline-block;"></div>
-    <div style="display:inline-block;" id="Page">
+    <div id="Page">
         <div id="photosduprofil">
                 <img style="height:315px; width:851px;"id="PhotoDeCouverture" src="<?php 
                         $response =$bdd->query('SELECT imagecouverture FROM profil WHERE email="'.$mail.'"'); 
@@ -53,7 +52,7 @@
                                             echo($row['nom']);
 
 
-                        ?> 
+                            ?> </p>
 
                        <p>Prénom : <?php $response = $bdd->query('SELECT prenom FROM profil WHERE email="'.$mail.'"'); 
                                             $row = $response->fetch();
@@ -119,8 +118,6 @@
             <?php include ('news_accueil.php') ; ?>
             </div>           
         </div>
-
-    <div class="vide_droitprofil" style="display:inline-block;"></div>
-
+    </div>
 
 <?php include('footer.php'); ?>

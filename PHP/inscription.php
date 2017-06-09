@@ -49,7 +49,7 @@
 					<option value="AS"> AS </option>
                     <option value="TF"> TF</option>
                     <option value="Méca"> Méca </option>
-                    <option vallue="Fip"> FIP</option>
+                    <option value="Fip"> FIP</option>
                     <option value="enseignant"> enseignant</option>
                     <option value="autre"> autre</option>    
 				</select>
@@ -73,7 +73,7 @@
 					<label for="datenaissance">
 						Date de naissance:
 					</label>
-					<input type="date" class="input-medium search-query" name="datenaissance" placeholder= "année-mois-jour" />
+					<input type="date" class="input-medium search-query" name="datenaissance" placeholder="année-mois-jour" />
 				</div>
 				
                 <div>
