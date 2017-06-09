@@ -150,7 +150,40 @@ if(isset($_POST['creeevenement'])){
                 
                             
                             ?>   personne(s) à cette événement</p>
-                  
+                             
+                    
+                    
+                    
+                    <ul><h4>Participants</h4>    
+                   <?php       
+                        $id=$_SESSION['ID'];
+                        $sql='SELECT distinct idutil FROM vientevenement Where nomevenement="'.$nom.'"';
+                        $req = $bdd->query($sql)  ; 
+
+
+                        while($row=$req->fetch()){
+
+
+                            ?>
+                        <li> 
+                            <a href="profilami.php?nom=<?php echo $row['idutil'];?>"> <?php  
+                                            $idutil=$row['idutil'];
+                                            $response =$bdd->query('SELECT prenom FROM profil WHERE id="'.$idutil.'"'); 
+                                            $row = $response->fetch();
+                                            echo($row['prenom']);
+                                            echo " ";
+                                        
+                                            $response =$bdd->query('SELECT nom FROM profil WHERE id="'.$idutil.'"'); 
+                                            $row = $response->fetch();
+                                            echo($row['nom']);
+                                ?>
+                            </a>
+                        </li>
+                        <?php 
+                            }
+                           $req->closeCursor();
+                        ?>
+                </ul>
 
                     
                     
