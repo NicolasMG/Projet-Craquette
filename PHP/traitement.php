@@ -8,7 +8,6 @@
     include('header_non_co.php');
 ?>
 
-<p><br><br><br><br><br><br><br><br><br></p>
 
 <?php
         $sql=$bdd->prepare('SELECT max(Id) FROM profil ');
@@ -19,7 +18,7 @@
 <?php
 $valideinscription="erreurinscription.php";
 $message="Oups....une erreur c'est glisser dans votre formulaire d'inscription";
-$bouton="recommencer";
+$bouton="Recommencer";
 $massage2="il faut recommencer";
 
 if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
@@ -67,24 +66,6 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
 
                                         if(!$reponse2){
 
-                                          /*  echo "ca marche";
-                                            echo "<br>";
-                                            echo $ide +1;
-                                            echo "<br>";
-                                            echo $nom;
-                                            echo "<br>";
-                                            echo $prenom;
-                                            echo "<br>";
-                                            echo $sel;
-                                            echo "<br>";
-                                            echo $mail;
-                                            echo "<br>";
-                                            echo $date;
-                                            echo "<br>";
-                                            echo $promo;
-                                            echo "<br>";
-                                            echo $filiere;
-                                            echo "<br>";*/
 
                                             $idef = $ide +1 ;
                                             $insertion = $bdd->prepare('INSERT INTO profil VALUES("'.$idef.'","'.$nom.'","'.$prenom.'","'.$sel.'","'.$mail.'","'.$date.'","'.$promo.'","'.$filiere.'","NULL","NULL","Images/profilpardefaut.png","Images/couverturepardefaut.jpg","NULL")'); // préparation de la requête d'insertion dans la base de données
@@ -126,13 +107,17 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
             echo($row['nom']); 
             */
             
-            echo($message);
             
           
-?>        
-    <p><br></p> 
-    <a href='<?php echo $valideinscription;  ?>'><button type="submit" class="btn"><?php echo $bouton; ?></button></a>
-    <p><br></p> 
+?>       
+<section style="text-align:center;">
+    <br>
+    <?php  echo($message); ?>
+    <form  method="post" action="<?php echo $valideinscription;  ?>">
+        <input class="form-control" style="width:170px; display:inline;" value="<?php echo $bouton; ?>" type="submit" name="modif"/>
+    </form>
+</section>
+
 <?php
 include ('footer.php');
 ?>

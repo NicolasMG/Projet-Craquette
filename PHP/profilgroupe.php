@@ -17,12 +17,11 @@ if(isset($_POST['creegroupe'])){
         $nom = htmlspecialchars($_POST['nomgroupe']);
         $id=$_SESSION['ID'];
         $reponse=$bdd->prepare('Select nomgroupe From groupe Where nomgroupe="'.$nom.'"');
-        $nom=htmlentities($_POST['nomgroupe']);
+        $nom=htmlspecialchars($_POST['nomgroupe']);
         $reponse->execute(array('.$nom.'=>htmlspecialchars($_POST['nomgroupe'])));
         $reponse2=$reponse->fetch();
-        $_GET['nom'] =$_POST['nomgroupe'];                           
         if($reponse2){
-            echo "Se nom est deja prit il faut en choisir un autre";
+            echo "Ce nom est deja prit il faut en choisir un autre";
             $pbnom="creegroup.php";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
         }else{
@@ -31,7 +30,7 @@ if(isset($_POST['creegroupe'])){
                 if(!empty($_FILES['couverturegroupe'])){ 
                     $imagecouverture = $_FILES['couverturegroupe']; 
                     $nom1=md5(uniqid(rand(),true)); 
-                    $couverture="Images/$nom1";
+                    $couverture=htmlspecialchars("Images/$nom1");
                     $resultat=move_uploaded_file($_FILES['couverturegroupe']['tmp_name'], $couverture);
                 }
             }
@@ -60,7 +59,7 @@ if(isset($_POST['creegroupe'])){
     }
 }
 
-    $nom= $_GET['nom'];  ?>
+    $nom= htmlspecialchars($_GET['nom']);  ?>
     <section id="section_profil">
             <div id="Page">
                 <div id="photosduprofil">
@@ -75,10 +74,10 @@ if(isset($_POST['creegroupe'])){
                         $row = $response->fetch();
                         echo($row['imageprofil']);               
                                              ?>" >  
-                    <form  method="post" action="modifgroupe.php?nom=<?php echo $nom;?>">
+                    <form  method="post" action="modifgroupe.php?nom=<?php echo htmlspecialchars($nom);?>">
                         <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:680px; top:280px;" value="Modifier le groupe" type="submit" name="modif"/>
                     </form>
-                    <p style="display:block; position:absolute; left:25%; top:88%;font-weight: bold; color:black; font-size:20px;"><?php echo $_GET['nom']; ?> 
+                    <p style="display:block; position:absolute; left:25%; top:88%;font-weight: bold; color:black; font-size:20px;"><?php echo htmlspecialchars($_GET['nom']); ?> 
                     
         </div>
         <div id="PanneauGauche">

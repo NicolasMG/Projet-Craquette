@@ -8,49 +8,44 @@
 	
     include('header_non_co.php');
 	
-    // $reponse2 = $bdd->query('SELECT * FROM profil ORDER BY id DESC'); 
 ?>
-<section id="section_modifprofil">
-        <h4 style="margin-bottom:20px; padding-left:200px;">
-            Inscription
-        </h4>
+<section style="text-align:center;">
             <form class="form-horizontal" method="post" action="traitement.php" enctype="multipart/form-data">
                 <h2>Inscription</h2>
-
+                <p>Tous les champs sont obligatoires</p>
                 <div class="form-group">
-					<label class="col-sm-2 control-label" for="nom">
-						Nom:
-					</label>
-                    <div class="col-sm-10"> 
-					   <input type="text" class="form-control" style="width:250px;"  name="nom" placeholder= "Votre nom" />  
-                    </div>
-				</div>
-                
-                <div class="form-group">
-					<label class="col-sm-2 control-label" for="prenom">
+					<label for="prenom">
 						Prénom:
 					</label>
-                    <div class="col-sm-10">
-					   <input type="text" class="form-control" style="width:250px;" name="prenom" placeholder= "Votre prénom" />
+                    <div style="display:inline;">
+					   <input type="text" class="form-control" style="width:250px; display:inline;" name="prenom" placeholder= "Votre prénom" />
                     </div>
                 </div>
                 
                 <div class="form-group">
-					<label class="col-sm-2 control-label" for="mail">
+					<label for="nom">
+						Nom:
+					</label>
+                    <div style="display:inline;">
+					   <input type="text" class="form-control" style="width:250px; display:inline;"  name="nom" placeholder= "Votre nom" />  
+                    </div>
+				</div>
+                
+                <div class="form-group">
+					<label for="mail">
 						Mail:
 					</label>
-                    <div class="col-sm-10">
-					   <input type="email" class="form-control" style="width:250px;" name="mail" placeholder= "Votre email" />
+                    <div style="display:inline;">
+					   <input type="email" class="form-control" style="width:250px; display:inline;" name="mail" placeholder= "Votre email" />
                     </div>
 				</div>
                     
               
             <p>
-                <label class="col-sm-2 control-label" for="filiere">
+                <label for="filiere">
 						Filiere:
 				</label>
-				<select class="form-control" style="width:250px;" name="filiere">
-                    <option value="ne pas modifier"> ne pas modifier</option>
+				<select class="form-control" style="width:250px; display:inline;" name="filiere">
 					<option value="IR"> IR </option>
 					<option value="AS"> AS </option>
                     <option value="TF"> TF</option>
@@ -61,11 +56,10 @@
 				</select>
             </p>
             <p>
-                <label class="col-sm-2 control-label" for="promo">
+                <label for="promo">
                     Année d'etude:
                 </label>
-                <select class="form-control" style="width:250px;" name="promo">
-                    <option value="ne pas modifier"> ne pas modifier</option>
+                <select class="form-control" style="width:250px; display:inline;" name="promo">
                     <option value="1A"> 1A</option>
                     <option value="2A"> 2A</option>
                     <option value="3A"> 3A</option>
@@ -77,126 +71,52 @@
               
                 
                 <div class="form-group">
-					<label class="col-sm-2 control-label" for="datenaissance">
+					<label for="datenaissance">
 						Date de naissance:
 					</label>
-                    <div class="col-sm-10">
-					   <input type="date" class="form-control" style="width:250px;" name="datenaissance" placeholder= "année-mois-jour" />
+                    <div style="display:inline;">
+					   <input type="date" class="form-control" style="width:250px; display:inline;" name="datenaissance" placeholder= "année-mois-jour" />
                     </div>
 				</div>
               
               
               <div class="form-group">
-					<label class="col-sm-2 control-label" for="tel">
+					<label for="tel">
 						Numero de telephone :
 					</label>
-                    <div class="col-sm-10">
-					   <input type="text" class="form-control" style="width:250px;" name="tel" placeholder= "Votre numero" />
-                    </div>
-				</div>
-                
-                <input style="margin-top:180px; width:110px; margin-left:200px;" class="form-control" type="submit" name="inscription"/>
-
-            
-            
-            <input type="submit" style="width:100px; display:inline;" class="form-control" name="inscription"/>
-            <form  method="post" action="inscription.php">
-                <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:680px; top:280px;" value="Effacer" type="submit" name="modif"/>
-            </form>
-            
-            
-		<section> 
-	
-            <h2>Inscription</h2>
-                
-            <form class="form-horizontal" method="post" action="traitement.php" >
-                    
-                <div>
-					<label for="prenom">
-						Prénom *:
-					</label>
-					<input type="text" class="input-medium search-query" name="prenom" placeholder= "Votre prénom" />
-                </div>
-                
-                
-                <div class="form-group">
-					<label for="nom">
-						Nom *:
-					</label>
                     <div style="display:inline;">
-					   <input type="text" class="form-control" style="width:250px; display:inline;" name="nom" placeholder= "Votre nom" />  
+					   <input type="text" class="form-control" style="width:250px; display:inline;" name="tel" placeholder= "Votre numero" />
                     </div>
 				</div>
                 
-                
-                <div>
-					<label for="mail">
-						Mail *:
-					</label>
-					<input type="email" class="input-medium search-query" class="form-control" name="mail" placeholder= "Votre email" />
-				</div>
-                
-          
-				<p>
-                <label for="filiere">
-						Filiere *:
-					</label>
-				<select name="filiere">
-					<option value="IR"> IR </option>
-					<option value="AS"> AS </option>
-                    <option value="TF"> TF</option>
-                    <option value="Méca"> Méca </option>
-                    <option value="Fip"> FIP</option>
-                    <option value="enseignant"> enseignant</option>
-                    <option value="autre"> autre</option>    
-				</select>
-                </p>
-                <p>
-                    <label for="promo">
-						Année d'etude *:
-					</label>
-                    <select name="promo">
-                        <option value="1A">1A</option>
-                        <option value="2A">2A</option>
-                        <option value="3A">3A</option>
-                        <option value="sortie d'ecole"> sortie d'ecole</option>
-                        <option value="autre"> autre</option>
-                    </select>
-                </p>
-                
-                
-                
-                <div>
-					<label for="datenaissance">
-						Date de naissance *:
-					</label>
-					<input type="date" class="input-medium search-query" name="datenaissance" placeholder="année-mois-jour" />
-				</div>
-				
-                <div>
-					<label for="MDP">
-						Mot de passe(6 caractéres minimum) * :
-					</label>
-					<input type="password" class="input-medium search-query" name="MDP" placeholder= "Votre mot de passe" />
-				</div>
-                
-                 <div>
-					<label for="MDPconfirmation">
-						Confirmation de mot de passe *:
-					</label>
-					<input type="password" class="input-medium search-query" name="MDPconfirmation" placeholder= "Confirmer votre mot de passe" />
-				</div>              
-                <div >
-				    <label>
-                    <input type="submit" style="width:100px; display:inline;" class="form-control" name="inscription"/>
-					 <a href='inscription.php'><button type="reset" class="btn">Effacer</button></a>
-                        <p>*Champ obligatoire</p>
+
+                <div class="form-group">
+                    <label for="MDP"> 
+                        Mot de passe :
                     </label>
+
+                    <div style="display:inline;">
+                        <input type="password" class="form-control" style="width:250px; display:inline;" name="MDP" placeholder= "Mot de passe" />                    
+                    </div>
                 </div>
-			</form>
+                <div class="form-group">
+                    <label for="MDPconfirmation"> 
+                       Confirmer mot de passe :
+
+                    </label>
+                    <div style="display:inline;">
+                        <input type="password" class="form-control" style="width:250px; display:inline;" name="MDPconfirmation" placeholder= "Mot de passe" />                    
+                    </div>
+                </div>
             
-</section>             
-    
+            
+            <input type="submit" style="width:100px; display:inline; margin-right:15px;" class="form-control" name="inscription"/>
+            <form  method="post" action="inscription.php">
+                <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; " value="Effacer" type="submit" name="modif"/>
+            </form>
+    </form>
+            
+            
  <?php 
 
     include('footer.php'); 
