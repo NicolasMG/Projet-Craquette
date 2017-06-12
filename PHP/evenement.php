@@ -114,16 +114,7 @@ if(isset($_POST['creeevenement'])){
                         ?>  
         </div>
         <div style="display:inline-block;" id="PanneauGauche">
-                <div id="Information">
-                    <div id="Infogenerale">
-                        <p><h2 style="font-size:20px;" >Membres du groupe :</h2></p>
-   
-                        <!--<a href='gestionmembres.php'><button style="left:30.2%; top:95%;" type="submit" class="btn">Gérer des membres</button></a>-->
-                
-                    
-                   <?php $nom=$_GET['nom']; ?>
-                    
-                     <div style="display:inline-block;" id="PanneauGauche">
+               
                 <div id="Information">
                     <div id="Infogenerale">
                         <p><h2 style="font-size:20px;" >Information sur l'événement :</h2></p>
@@ -160,135 +151,7 @@ if(isset($_POST['creeevenement'])){
                     </div>
                 </div>
         </div>
-                    
-              
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-   <?php  /*
-       //POUR AJOUTER DES MEMBRES
-    if(isset($_POST['ajoutmembre'])){ 
-	   if(!empty($_POST['membre'])){ 
-            $membre1=htmlspecialchars($_POST['membre']);
-            $mail=$membre1;//peut etre a changer
-            $nom = $_GET['nom'];
-            $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
-            $row = $response->fetch();
-            $id=($row['id']);
-           
-           
-            //$nom = htmlspecialchars($_POST['nomgroupe']);
-            //$id=$_SESSION['ID'];
-        
-            $reponse=$bdd->prepare('Select nomgroupe From groupe Where idutil="'.$id.'" AND nomgroupe="'.$nom.'"');
-            $nom=htmlentities($_GET['nom']);
-            $reponse->execute(array('.$nom.'=>htmlspecialchars($_GET['nom'])));
-            $reponse2=$reponse->fetch();
-            //$_GET['nom'] =$_POST['nomgroupe'];                           
-            if(!$reponse2){
-           
-           
-                $insertion2 = $bdd->prepare('insert into groupe values("'.$id.'","'.$nom.'","membre","NULL","NULL")'); 
-                $insertion2->execute();
-            }
-        }
-    }
-*/
-?>     
-           <?php /*       
-   //LISTE DES MEMBRES     
-    $sql='SELECT distinct idutil FROM groupe Where nomgroupe="'.$_GET['nom'].'"';
-     $req = $bdd->query($sql)  ;                
-       //echo $_GET['nom'];   //ok          
-     ?> 
-                      
-   <!--TABLEAUX DES AMIS-->        
-<!--<table class="table table-bordered">
-    <th><p class="text-error"> Membre du groupe</p></th>-->
-    <ul> Membre(s)
-             <?php //echo $nom;//ok ?>
-            <?php while($row=$req->fetch()){
-                $idutil=$row['idutil']; 
-                //echo "coucou";
-                $nom=$_GET['nom'];
-            ?>
-                
-                <li>
-                    <a href="profilami.php?id=<?php echo $idutil;?>">
-                        <?php 
-                            //echo "coucou";
-                            $idutil=$row['idutil'];
-                            $response = $bdd->query('SELECT prenom FROM profil WHERE id="'.$idutil.'"'); 
-                            $row = $response->fetch();
-                            echo($row['prenom']); 
-                            echo(" ");
-                            $response =$bdd->query('SELECT nom FROM profil WHERE id="'.$idutil.'"'); 
-                            $row = $response->fetch();
-                            echo($row['nom']);
-                            //echo($idutil);
 
-                        ?>
-                
-                    </a>
-                    
-                    
-                    
-                    
-                    <?php
-   
-    
-    try{ 
-        $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
-    }
-    catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
-        die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
-    }
-  
-    
-?>
-
-                   
-                  
-                            <a href="supprmembre.php?id=<?php echo $idutil;?>&amp;nom=<?php echo $_GET['nom']; ?>"> <span class="glyphicon glyphicon-remove"></span></a>
-                    <?php //}  ?>
-                </li>
-               
-
-
-        
-    </ul>
-    <?php }
-    $req->closeCursor();
-    ?>
-     
-      <?php  
-                        ?>
-       <form method="post">
-
-    <p> 
-    <label for="nomgroupe">Choisissez le(s) membre(s) à rajouter :</label>
-        
-        <br>
-            <input type="text" class="input-medium search-query" name="membre" value="<?php if (isset($_POST['membre'])) echo htmlentities($_POST['membre']);?>"placeholder= "membre" /> 
-        </p>    
-        
-        
-        
-     <p>   
-   <input type="submit" name="ajoutmembre" value="Ajouter"/>
-         
-        
-    </p>    
-
-      <?php //} 
-        */            ?>    
-   
                     
                 </div>
             </div>

@@ -21,8 +21,8 @@ if(isset($_POST['Confirmer2'])){
                    
                     if ($nouveaumdp==$confirmermdp){
 
-                        $sql=$bdd->prepare('Select Nom,Prenom,id From profil Where email="'.$destinataire.'"');
-                        $sql->execute(array('.$email.'  =>$destinataire)); //ATTIENTION AU email
+                        $sql=$bdd->prepare('Select Nom,Prenom,id From profil Where email="'.$_SESSION['mailChangementMDP'].'"');
+                        $sql->execute(array('.$email.'  =>$_SESSION['mailChangementMDP'])); //ATTIENTION AU email
                         $sel = $sql->fetch();
                         $option = [
                         $sel['Nom']=> $sel['id'],
@@ -30,7 +30,7 @@ if(isset($_POST['Confirmer2'])){
                         ];
                         $MDPS = password_hash($nouveaumdp ,PASSWORD_DEFAULT, $option);
 
-                        $response =$bdd->query('Update profil set motDePasse="'.$MDPS.'" WHERE email="'.$destinataire.'"'); 
+                        $response =$bdd->query('Update profil set motDePasse="'.$MDPS.'" WHERE email="'.$_SESSION['mailChangementMDP'].'"'); 
                         $row = $response->fetch();
                         
                         echo '
@@ -43,6 +43,8 @@ if(isset($_POST['Confirmer2'])){
         
     </form>
     </section>';
+                        session_unset();
+                        session_destroy();
                     }
                     else
                     {
@@ -131,10 +133,6 @@ else{
         if(!empty($_POST['mail'])){            
             $destinataire = htmlspecialchars($_POST['mail']);
             //Verifier SQL si mail dans base de donnée
-                $reponse=$bdd->prepare('Select email From profil Where email= ? ');
-                $reponse->execute(array($destinataire));
-                $reponse2=$reponse->fetch();
-                if($reponse2){
                         $_SESSION['mailChangementMDP']=$destinataire;
 
                         require 'PHPMailer/PHPMailerAutoload.php';
@@ -207,7 +205,7 @@ else{
                         </form>
                 </section>';
                         }
-                }
+                
         }
         else{
         echo '
