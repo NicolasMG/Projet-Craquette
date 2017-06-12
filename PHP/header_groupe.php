@@ -3,6 +3,7 @@
 ?>
 <!doctype html>
 <html lang="fr">
+<link rel="shortcut icon" href="./Images/favicon.ico">
     <?php
         try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
