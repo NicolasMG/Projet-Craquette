@@ -1,6 +1,31 @@
 <?php 
     include('header_accueil.php');
 ?>
+
+
+<!--<form  method="post" action="aimepage.php?nom=<?php echo $nom;?>">
+    <input class="form-control" style="display:block; position:absolute; width:200px; display:inline; left:480px; top:100px;" value="Démarer une conversation" type="submit" name="conversation"/>
+</form>-->
+  <form method="post">
+
+    <p> 
+    <label for="ami"> A qui voulez vous parler :</label>
+    <br>
+    <br>
+    <input type="text" class="form-control" name="nouvelconversation" value="<?php if (isset($_POST['nouvelconversation'])) echo htmlspecialchars($_POST['nouvelconversation']);?>"placeholder= "nouvem ami" /> 
+    
+        <br>   
+   <input type="submit" name="nouvelconversation" value="Nouvel conversation"/>
+      <?php  if(isset($_POST['nouvelconversation'])){  
+        $mail=$_POST['nouvelconversation'];
+        $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
+        $row = $response->fetch();
+        $idutil=$row['id'];          
+        $pbnom="./message.php?idutil='".$idutil."'";
+        echo "<script>window.location = "."'".$pbnom."'"."</script>";
+        echo"coucou";
+        }  ?>
+
 <h3> Mes conversations :</h3>
 <table class="table table-bordered">
     <!--<thead>
@@ -33,7 +58,7 @@
                 $row = $response->fetch();
                 $image= ($row['imageprofil']);
                 echo $image;
-               ?>" alt="image de votre ami " /></a>
+               ?>" alt="image de votre ami " height="150" /></a>
         </td>
             
         <td>

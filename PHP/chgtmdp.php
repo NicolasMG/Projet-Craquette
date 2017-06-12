@@ -137,8 +137,14 @@ else{
         if(!empty($_POST['mail'])){            
             $destinataire = htmlspecialchars($_POST['mail']);
             //Verifier SQL si mail dans base de donnée
-                        $_SESSION['mailChangementMDP']=$destinataire;
+                $reponse=$bdd->prepare('Select email From profil Where email="'.$destinataire.'"');
+                $reponse->execute(array('.$destinataire.'=>htmlspecialchars($_POST['mail'])));
+                $reponse2=$reponse->fetch();
 
+                if(!$reponse2){
+                
+                        $_SESSION['mailChangementMDP']=$destinataire;
+                
                         require 'PHPMailer/PHPMailerAutoload.php';
                         require 'random_compat/lib/random.php';
                         $string = random_bytes(5);
@@ -209,6 +215,7 @@ else{
                         </form>
                 </section>';
                         }
+                }
                 
         }
         else{

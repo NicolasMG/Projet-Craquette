@@ -49,11 +49,15 @@ if(isset($_POST['creegroupe'])){
 
             
             $insertion = $bdd->query('insert into groupe values("'.$id.'","'.$nom.'","admin","Images/imagegroupeprofil.jpg","'.$couverture.'")'); 
-            $insertion->execute();    
+            $insertion->execute();   
+            
+            $pbnom="group.php?nom='".$nom"'";
+            echo "<script>window.location = "."'".$pbnom."'"."</script>";
         }
                   
     
-    }
+    }else{  $pbnom="creegroup.php";
+            echo "<script>window.location = "."'".$pbnom."'"."</script>";}
 }
 
 ?>

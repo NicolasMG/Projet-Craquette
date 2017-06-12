@@ -43,6 +43,7 @@ if(!empty($_POST['mail'])) {
             //test
         
         session_start();
+
         $_SESSION['mail']=$mail;
         //s="rachel.noireau@uha.fr";
         //echo $_SESSION['mail'];
@@ -50,7 +51,10 @@ if(!empty($_POST['mail'])) {
         $row = $response->fetch();
         //echo($row['id']);
          $_SESSION['ID']= $row['id'];
-        $_SESSION['imageprofil']=$row['imageprofil'];
+
+                $_SESSION['imageprofil']=$row['imageprofil'];
+		 
+        
        // <a href="./profil.php">mon compte</a>
         $droitconnexion="./accueil.php";
 //}   // pas sur si on doit d'arreter ici ou plus loin (doute de mon niveau de php)

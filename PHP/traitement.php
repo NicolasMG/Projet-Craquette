@@ -83,7 +83,8 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                                             $message2= "merci de nous rejoindre";
                                             
                                             
-                                            mkdir('fichier"'.$id"'",0777, true);
+                                            mkdir("Images/album/fichier".$idef."",0777, true);//ok
+                                            
                                         }
                                     }
                                 }

@@ -129,7 +129,26 @@ if(isset($_POST['creeevenement'])){
                     ?>
             
                 <form  method="post" action="participe.php?nom=<?php echo $nom;?>">
-                        <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:490px; top:280px;" value="Je participe" type="submit" name="modif"/>
+                     <?php   
+                    
+                        $nom = htmlspecialchars($_GET['nom']);
+                        $id=$_SESSION['ID'];
+        
+                        $reponse=$bdd->prepare('Select nomevenement From vientevenement Where idutil="'.$id.'" AND nomevenement="'.$nom.'"');
+
+                        $nom=htmlspecialchars($_GET['nom']);
+                        $reponse->execute(array('.$nom.'=>htmlspecialchars($_GET['nom'])));
+                        $reponse2=$reponse->fetch();                          
+                        if(!$reponse2){  
+                    ?>
+                    
+                        <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:490px; top:280px;" value="Je participe" type="submit" name="participe"/>
+                    
+                    <?php }else{ ?>
+                    
+                        <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:490px; top:280px;" value="Je ne participe plus" type="submit" name="modif"/>
+                    
+                    <?php } ?>
                 </form>
                 <p style="display:block; position:absolute; left:25%; top:88%;font-weight: bold; color:black; font-size:20px;"><?php echo $_GET['nom']; ?>  
         </div>

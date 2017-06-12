@@ -15,7 +15,7 @@
 
     $nom = htmlspecialchars($_GET['nom']);
     $id=$_SESSION['ID'];
-        
+      if(isset($_POST['participe'])){      
      $reponse=$bdd->prepare('Select nomevenement From vientevenement Where idutil="'.$id.'" AND nomevenement="'.$nom.'"');
     $nom=htmlentities($_GET['nom']);
     $reponse->execute(array('.$nom.'=>htmlspecialchars($_GET['nom'])));
@@ -26,6 +26,13 @@
         $insertion->execute(); 
 
      }
+      }else{
+          
+            $reponse=$bdd->query('delete From vientevenement Where idutil="'.$id.'" AND nomevenement="'.$nom.'"');         
+
+          
+          
+      }
     header('Location: ./evenement.php?nom='.$nom.'');
 
 ?>

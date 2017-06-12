@@ -129,7 +129,7 @@ if(isset($_POST['creegroupe'])){
           
 <!--<table class="table table-bordered">
     <th><p class="text-error"> Membre du groupe</p></th>-->
-    <ul> Membre(s)
+    <ul> 
              <?php //echo $nom;//ok ?>
             <?php while($row=$req->fetch()){
                 $idutil=$row['idutil']; 
