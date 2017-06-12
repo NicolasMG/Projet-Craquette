@@ -22,14 +22,14 @@ include ('header_non_co.php');
               
               <div>
 					<label for="nouveaumdp">
-						Nouveau mot de passe:
+						Nouveau mot de passe :
 					</label>
 					<input type="password" class="input-medium search-query" name="nouveaumdp" placeholder= "Mot de passe" />  
 				</div>
                 
                 <div>
 					<label for="confirmermdp">
-						Confirmer nouveau mot de passe:
+						Confirmer nouveau mot de passe :
 					</label>
 					<input type="password" class="input-medium search-query" name="confirmermdp" placeholder= "Mot de passe" />
                 </div>
@@ -37,7 +37,6 @@ include ('header_non_co.php');
                     <input type="submit" style="width:100px; display:inline;" class="form-control" name="Confirmer"/>
                 </div>
                 <br>
-
     </form>
 
 <?php include ('footer.php'); ?>

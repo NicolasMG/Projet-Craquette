@@ -30,6 +30,10 @@
                     
                     
                     ?> </p>
+        */            
+            $reponse=$bdd->prepare('Select email From profil Where email= ? ');
+            $reponse->execute(array($mail));
+        */
         </div>
         <?php
                 try{ 

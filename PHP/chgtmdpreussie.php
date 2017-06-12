@@ -17,24 +17,27 @@ if(isset($_POST['Confirmer'])){
 
         if(!empty($_POST['nouveaumdp'])){ 
             $nouveaumdp = htmlspecialchars($_POST['nouveaumdp']);
+            
+            if(strlen($nouveaumdp)>5){ // taille du mot de passe
+                
+                if(!empty($_POST['confirmermdp'])){
+                    $confirmermdp = htmlspecialchars($_POST['confirmermdp']);
 
-            if(!empty($_POST['confirmermdp'])){
-                $confirmermdp = htmlspecialchars($_POST['confirmermdp']);
+                    if (password_verify($nouveaumdp,$confirmermdp)){
+                        //A Completer
 
-                if (password_verify($nouveaumdp,$confirmermdp)){
-                    //A Completer
-                    
-                    $sql=$bdd->prepare('Select Nom,Prenom,id From profil Where email="'.$mail.'"');
-                    $sql->execute(array('.$email.'  =>htmlspecialchars($_POST['mail'])));
-                    $sel = $sql->fetch();
-                    $option = [
-                    $sel['Nom']=> $sel['id'],
-                    $sel['Prenom'] => $sel['id'] + 5,
-                    ];
-                    $MDPS = password_hash($nouveaumdp ,PASSWORD_DEFAULT, $option);
+                        $sql=$bdd->prepare('Select Nom,Prenom,id From profil Where email="'.$mail.'"');
+                        $sql->execute(array('.$email.'  =>htmlspecialchars($_POST['mail'])));
+                        $sel = $sql->fetch();
+                        $option = [
+                        $sel['Nom']=> $sel['id'],
+                        $sel['Prenom'] => $sel['id'] + 5,
+                        ];
+                        $MDPS = password_hash($nouveaumdp ,PASSWORD_DEFAULT, $option);
 
-                    $response =$bdd->query('Update profil set motDePasse="'.$MDPS.'" WHERE email="'.$mail.'"'); 
-                    $row = $response->fetch();
+                        $response =$bdd->query('Update profil set motDePasse="'.$MDPS.'" WHERE email="'.$mail.'"'); 
+                        $row = $response->fetch();
+                    }
                 }
             }
         }

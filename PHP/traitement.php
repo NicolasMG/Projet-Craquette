@@ -49,7 +49,6 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
 				            if(!empty($MDP) && !empty($MDPC)) {
                                 
                                 if(strlen($MDP)>5){ // taille du mot de passe
-
                                     if($MDP == $MDPC){ 
                                         $ide = $id[0] ; //id est auto incrementé se serai mieux
                                         $option = [
