@@ -116,9 +116,45 @@ if(isset($_POST['creeevenement'])){
         <div style="display:inline-block;" id="PanneauGauche">
                 <div id="Information">
                     <div id="Infogenerale">
-                        <p><h2 style="font-size:20px;" >Membres du groupe :</h2></p>
-   
-                        <!--<a href='gestionmembres.php'><button style="left:30.2%; top:95%;" type="submit" class="btn">Gérer des membres</button></a>-->
+                          
+                        <p><?php 
+                            $reponse = $bdd->query('select count(idutil) FROM  vientevenement WHERE nomevenement="'.$nom.'"'); 
+                            $row=$reponse->fetch();  
+                            echo $row[0];
+                
+                            
+                            ?>   participant(s)</p>
+                        <p><h2 style="font-size:20px;" >Participant(s) :</h2></p>
+                         <ul>  
+                   <?php       
+                        $id=$_SESSION['ID'];
+                        $sql='SELECT distinct idutil FROM vientevenement Where nomevenement="'.$nom.'"';
+                        $req = $bdd->query($sql)  ; 
+
+
+                        while($row=$req->fetch()){
+                            $idutil=$row['idutil'];
+                           
+
+                            ?>
+                        <li> 
+                            <a href="profilami.php?id=<?php echo $idutil;?>"> <?php $response =$bdd->query('SELECT prenom FROM profil WHERE id="'.$idutil.'"'); 
+                                            $row = $response->fetch();
+                                            echo($row['prenom']); 
+                                            echo " ";
+                                            $response =$bdd->query('SELECT nom FROM profil WHERE id="'.$idutil.'"'); 
+                                            $row = $response->fetch();
+                                            echo($row['nom']);
+                                
+                                ?>
+                            </a>
+                        </li>
+                        <?php 
+                            }
+                           $req->closeCursor();
+                        ?>
+                </ul>
+                     
                 
                     
                    <?php $nom=$_GET['nom']; ?>
