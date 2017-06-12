@@ -5,7 +5,7 @@
     <form method="post" class="form-horizontal" action="evenement.php" enctype="multipart/form-data">
         <div class="form-group">
             <label class="col-sm-2 control-label" for="nomevenement">
-				Nom de l'évènement :
+				Nom de l'évènement *:
             </label>
             <div class="col-sm-10"> 
 				<input type="text" class="form-control" style="width:250px;"  name="nomevenement" placeholder= "Nom de l'évènement" />  
@@ -59,6 +59,7 @@
         </div>
         
         <input style="margin-top:50px; width:110px; margin-left:200px;" class="form-control" type="submit" value="Créer" name="creeevenement"/>
+        <p>*Champ obligatoire</p>
 
     </form> 
 </section>

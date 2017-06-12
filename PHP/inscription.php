@@ -17,26 +17,28 @@
             <h2>Inscription</h2>
                 
             <form class="form-horizontal" method="post" action="traitement.php" >
-
+                    
+                <div>
+					<label for="prenom">
+						Prénom *:
+					</label>
+					<input type="text" class="input-medium search-query" name="prenom" placeholder= "Votre prénom" />
+                </div>
+                
+                
                 <div class="form-group">
 					<label for="nom">
-						Nom:
+						Nom *:
 					</label>
                     <div style="display:inline;">
 					   <input type="text" class="form-control" style="width:250px; display:inline;" name="nom" placeholder= "Votre nom" />  
                     </div>
 				</div>
                 
-                <div>
-					<label for="prenom">
-						Prénom:
-					</label>
-					<input type="text" class="input-medium search-query" name="prenom" placeholder= "Votre prénom" />
-                </div>
                 
                 <div>
 					<label for="mail">
-						Mail:
+						Mail *:
 					</label>
 					<input type="email" class="input-medium search-query" class="form-control" name="mail" placeholder= "Votre email" />
 				</div>
@@ -44,7 +46,7 @@
           
 				<p>
                 <label for="filiere">
-						Filiere:
+						Filiere *:
 					</label>
 				<select name="filiere">
 					<option value="IR"> IR </option>
@@ -58,7 +60,7 @@
                 </p>
                 <p>
                     <label for="promo">
-						Année d'etude:
+						Année d'etude *:
 					</label>
                     <select name="promo">
                         <option value="1A">1A</option>
@@ -73,21 +75,21 @@
                 
                 <div>
 					<label for="datenaissance">
-						Date de naissance:
+						Date de naissance *:
 					</label>
 					<input type="date" class="input-medium search-query" name="datenaissance" placeholder="année-mois-jour" />
 				</div>
 				
                 <div>
 					<label for="MDP">
-						Mot de passe:
+						Mot de passe(6 caractéres minimum) * :
 					</label>
 					<input type="password" class="input-medium search-query" name="MDP" placeholder= "Votre mot de passe" />
 				</div>
                 
                  <div>
 					<label for="MDPconfirmation">
-						Confirmation de mot de passe:
+						Confirmation de mot de passe *:
 					</label>
 					<input type="password" class="input-medium search-query" name="MDPconfirmation" placeholder= "Confirmer votre mot de passe" />
 				</div>              
@@ -95,6 +97,7 @@
 				    <label>
                     <input type="submit" style="width:100px; display:inline;" class="form-control" name="inscription"/>
 					 <a href='inscription.php'><button type="reset" class="btn">Effacer</button></a>
+                        <p>*Champ obligatoire</p>
                     </label>
                 </div>
 			</form>

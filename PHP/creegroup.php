@@ -11,7 +11,7 @@
     <form class="form-horizontal" method="post" action="profilgroupe.php" enctype="multipart/form-data">
 
         <div class="form-group">
-            <label style="padding-left:0;" class="col-sm-2 control-label" for="nomgroupe">Nom du groupe :</label>           
+            <label style="padding-left:0;" class="col-sm-2 control-label" for="nomgroupe">Nom du groupe* :</label>           
             <div  class="col-sm-10" style="display:inline;">
                 <input class="form-control" style="width:250px; display:inline;" type="text" name="nomgroupe" placeholder="Nom du groupe" />
             </div>
@@ -33,6 +33,7 @@
             <input type="hidden" name="MAX_FILE_SIZE" value="12345">                  
         </div>
 
-        <input style="margin-top:50px; width:110px; margin-left:200px;" class="form-control" type="submit" value="Créer" name="creegroupe"/>           
+        <input style="margin-top:50px; width:110px; margin-left:200px;" class="form-control" type="submit" value="Créer" name="creegroupe"/>     
+        <p>Champ obligatoire</p>
     </form> 
 </section>

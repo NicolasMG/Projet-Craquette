@@ -104,9 +104,23 @@ if(isset($_POST['creeevenement'])){
                         $row = $response->fetch();
                         echo($row['profilevenement']);               
                                              ?>" >  
+                <?php $nom = htmlspecialchars($_GET['nom']);
+                        $id=$_SESSION['ID'];
+        
+                        $reponse=$bdd->prepare('Select nomevenement From evenement Where createur="'.$id.'" AND nomevenement="'.$nom.'"');
+                        $nom=htmlentities($_GET['nom']);
+                        $reponse->execute(array('.$nom.'=>htmlspecialchars($_GET['nom'])));
+                        $reponse2=$reponse->fetch();
+                        //$_GET['nom'] =$_POST['nompage'];                           
+                        if($reponse2){  
+                        ?>
                 <form  method="post" action="modifevenement.php?nom=<?php echo $nom;?>">
                         <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:680px; top:280px;" value="Modifier l'évènement" type="submit" name="modif"/>
                 </form>
+                    <?php
+                        }
+                    ?>
+            
                 <form  method="post" action="participe.php?nom=<?php echo $nom;?>">
                         <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:490px; top:280px;" value="Je participe" type="submit" name="modif"/>
                 </form>
