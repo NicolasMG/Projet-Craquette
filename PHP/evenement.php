@@ -24,6 +24,7 @@ if(isset($_POST['creeevenement'])){
         $nom=htmlentities($_POST['nomevenement']);
         $reponse->execute(array('.$nom.'=>htmlspecialchars($_POST['nomevenement'])));
         $reponse2=$reponse->fetch();
+        $_GET['nom'] =htmlspecialchars($_POST['nomevenement']);                           
         if($reponse2){
             echo "Se nom est deja prit il faut en choisir un autre";
             $pbnom="creeevenement.php";
@@ -53,12 +54,12 @@ if(isset($_POST['creeevenement'])){
             
             $date="2017-08-06"; //VOIR SI OBLIGATOIRE OU PAS
             if(!empty($_POST['date'])){
-                $date=htmlspecialchars($_POST['date']);   
+                $date=$_POST['date'];   
             }
             
             $heure="00:00:00";
             if(!empty($_POST['heure'])){
-                $heure=htmlspecialchars($_POST['heure']);  
+                $heure=htmlspecialchars($_POST['heure']);
                 echo $heure;
             }
             
@@ -88,7 +89,7 @@ if(isset($_POST['creeevenement'])){
     }
 }
 
- $nom= htmlspecialchars($_GET['nom']);  ?>
+ $nom=htmlspecialchars($_GET['nom']);  ?>
 <section id="section_profil">
     <div id="Page">
         <div id="photosduprofil">
@@ -103,17 +104,76 @@ if(isset($_POST['creeevenement'])){
                         $row = $response->fetch();
                         echo($row['profilevenement']);               
                                              ?>" >  
+                <?php $nom = htmlspecialchars($_GET['nom']);
+                        $id=$_SESSION['ID'];
+        
+                        $reponse=$bdd->prepare('Select nomevenement From evenement Where createur="'.$id.'" AND nomevenement="'.$nom.'"');
+                        $nom=htmlspecialchars($_GET['nom']);
+                        $reponse->execute(array('.$nom.'=>htmlspecialchars($_GET['nom'])));
+                        $reponse2=$reponse->fetch();
+                        //$_GET['nom'] =$_POST['nompage'];                           
+                        if($reponse2){  
+                        ?>
                 <form  method="post" action="modifevenement.php?nom=<?php echo $nom;?>">
                         <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:680px; top:280px;" value="Modifier l'évènement" type="submit" name="modif"/>
                 </form>
+                    <?php
+                        }
+                    ?>
+            
                 <form  method="post" action="participe.php?nom=<?php echo $nom;?>">
                         <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:490px; top:280px;" value="Je participe" type="submit" name="modif"/>
                 </form>
-                <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php echo htmlspecialchars($_GET['nom']);
+                <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php echo $_GET['nom'];
                         ?>  
         </div>
         <div style="display:inline-block;" id="PanneauGauche">
-               
+                <div id="Information">
+                    <div id="Infogenerale">
+                          
+                        <p><?php 
+                            $reponse = $bdd->query('select count(idutil) FROM  vientevenement WHERE nomevenement="'.$nom.'"'); 
+                            $row=$reponse->fetch();  
+                            echo htmlspecialchars($row[0]);
+                
+                            
+                            ?>   participant(s)</p>
+                        <p><h2 style="font-size:20px;" >Participant(s) :</h2></p>
+                         <ul>  
+                   <?php       
+                        $id=$_SESSION['ID'];
+                        $sql='SELECT distinct idutil FROM vientevenement Where nomevenement="'.$nom.'"';
+                        $req = $bdd->query($sql)  ; 
+
+
+                        while($row=$req->fetch()){
+                            $idutil=htmlspecialchars($row['idutil']);
+                           
+
+                            ?>
+                        <li> 
+                            <a href="profilami.php?id=<?php echo $idutil;?>"> <?php $response =$bdd->query('SELECT prenom FROM profil WHERE id="'.$idutil.'"'); 
+                                            $row = $response->fetch();
+                                            echo(htmlspecialchars($row['prenom']); 
+                                            echo " ";
+                                            $response =$bdd->query('SELECT nom FROM profil WHERE id="'.$idutil.'"'); 
+                                            $row = $response->fetch();
+                                            echo(htmlspecialchars($row['nom']));
+                                
+                                ?>
+                            </a>
+                        </li>
+                        <?php 
+                            }
+                           $req->closeCursor();
+                        ?>
+                </ul>
+                     
+                
+                    
+                   <?php $nom=htmlspecialchars($_GET['nom']); ?>
+                    
+                     <div style="display:inline-block;" id="PanneauGauche">
                 <div id="Information">
                     <div id="Infogenerale">
                         <p><h2 style="font-size:20px;" >Information sur l'événement :</h2></p>
@@ -122,7 +182,7 @@ if(isset($_POST['creeevenement'])){
                     
                         <p>Date : <?php  $response =$bdd->query('SELECT date FROM evenement WHERE nomevenement="'.$nom.'"'); 
                                             $row = $response->fetch();
-                                            echo($row['date']);
+                                            echo(htmlspecialchars($row['date']));
                         ?></p>
                     
                     
@@ -130,19 +190,19 @@ if(isset($_POST['creeevenement'])){
                     
                         <p>Heure : <?php  $response =$bdd->query('SELECT heure FROM evenement WHERE nomevenement="'.$nom.'"'); 
                                             $row = $response->fetch();
-                                            echo($row['heure']);
+                                            echo(htmlspecialchars($row['heure']));
                         ?></p>
                         
                     
                         <p>Lieu : <?php  $response =$bdd->query('SELECT lieu FROM evenement WHERE nomevenement="'.$nom.'"'); 
                                             $row = $response->fetch();
-                                            echo($row['lieu']);
+                                            echo(htmlspecialchars($row['lieu']));
                         ?></p>
                     
                         
                         <p>Déscription :<?php  $response =$bdd->query('SELECT commentaire FROM evenement WHERE nomevenement="'.$nom.'"'); 
                                             $row = $response->fetch();
-                                            echo($row['commentaire']);
+                                            echo(htmlspecialchars($row['commentaire']));
                     
                         ?>
                         </p>
@@ -150,9 +210,13 @@ if(isset($_POST['creeevenement'])){
                     </div>
                 </div>
         </div>
-
                     
-                </div>
+              
+                    
+  
+   
+                    
+                
             </div>
         </div>
         <div id="PanneauDroit">
@@ -174,3 +238,4 @@ if(isset($_POST['creeevenement'])){
      </section> 
 </body>
 </html>
+
