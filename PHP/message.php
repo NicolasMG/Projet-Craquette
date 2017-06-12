@@ -67,7 +67,7 @@ while($res = $req->fetch()){
                 $row = $response->fetch();
                 $nom=($row['nom']);
     
-    if($format=="image"){
+    if($format=="text"){
     print '<div id="conteneur_newsfeed">
 				<a href="profilami.php?id='.$res['idutil1'].'"><img class="img-circle" alt="phtode votre ami" src="'.$idutil.'"/></a>
 					<div id="contenu_droit">

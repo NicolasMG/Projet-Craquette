@@ -101,6 +101,11 @@
                         <form method="post" action="album.php">
                             <input class="form-control" style=" display:block; position:absolute; width:130px; display:inline;" value="Album" type="submit" name="ablum"/>
                         </form>
+                    
+                    
+                        <form method="post" action="video.php">
+                            <input class="form-control" style=" display:block; position:absolute; width:50px; display:inline;" value="Video" type="submit" name="video"/>
+                        </form>
                     </div>
           
                 </div>
