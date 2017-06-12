@@ -21,10 +21,9 @@ if(isset($_POST['creeevenement'])){
         $id=$_SESSION['ID'];
         
         $reponse=$bdd->prepare('Select nomevenement From groupe Where nomevenement="'.$nom.'"');
-        $nom=htmlspecialchars($_POST['nomevenement']);
+        $nom=htmlentities($_POST['nomevenement']);
         $reponse->execute(array('.$nom.'=>htmlspecialchars($_POST['nomevenement'])));
         $reponse2=$reponse->fetch();
-        $_GET['nom'] = htmlspecialchars($_POST['nomevenement']);                           
         if($reponse2){
             echo "Se nom est deja prit il faut en choisir un autre";
             $pbnom="creeevenement.php";

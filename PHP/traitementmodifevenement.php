@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <?php
      //session_start();
@@ -59,10 +60,17 @@ if(isset($_POST['modif'])){
     
     
       if(!empty($_POST['nom'])){ 
-          $nom = htmlspecialchars($_POST['nom']); 
-          $response =$bdd->query('Update evenement set nom="'.$nom.'" WHERE nomevenement="'.$nom.'"'); 
+          $nom1 = htmlspecialchars($_POST['nom']); 
+          //$nom1=$_POST['nom'];
+          $response =$bdd->query('Update evenement set nomevenement="'.$nom1.'" WHERE nomevenement="'.$nom.'"'); 
           $row = $response->fetch();
           echo($row['nom']);
+         //$nom=$nom1;
+          $response =$bdd->query('Update vientevenement set nomevenement="'.$nom1.'" WHERE nomevenement="'.$nom.'"'); 
+          $row = $response->fetch();
+          $nom=$nom1;
+          
+          
       }
 
 
