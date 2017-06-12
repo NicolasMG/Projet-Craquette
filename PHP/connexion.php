@@ -51,7 +51,7 @@ if(!empty($_POST['mail'])) {
         $row = $response->fetch();
         //echo($row['id']);
          $_SESSION['ID']= $row['id'];
-		 $_SESSION['imageprofil']=$row['imageprofil'];
+                $_SESSION['imageprofil']=$row['imageprofil'];
 		 
         
        // <a href="./profil.php">mon compte</a>

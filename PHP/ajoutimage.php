@@ -2,7 +2,7 @@
 
 include('header_accueil.php');
 
-
+//if(isset($_POST['inscription'])){
     if(!$_FILES['image']['error']>0){
       if(!empty($_FILES['image'])){ 
           $imageprofil = $_FILES['image']['name']; 

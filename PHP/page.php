@@ -114,9 +114,9 @@ if(isset($_POST['creepage'])){
                         <?php }else{ ?>
                         
                             <form  method="post" action="aimepage.php?nom=<?php echo $nom;?>">
-                                <input class="form-control" style="display:block; position:absolute; width:160px; display:inline; left:680px; top:280px;" value="J'aime" type="submit"      name="modif"/>
+                                <input class="form-control" style="display:block; position:absolute; width:160px; display:inline; left:680px; top:280px;" value="J'aime" type="submit"      name="aime"/>
                                 
-                                <input class="form-control" style="display:block; position:absolute; width:160px; display:inline; left:510px; top:280px;" value="Je n'aime plus" type="submit"      name="modif"/>
+                                <input class="form-control" style="display:block; position:absolute; width:160px; display:inline; left:510px; top:280px;" value="Je n'aime plus" type="submit"      name="aimeplus"/>
                                 
                             </form>
                         

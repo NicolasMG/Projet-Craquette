@@ -60,7 +60,7 @@ while($res = $req->fetch()){
                 $nom=($row['nom']);
     
     print '<div id="conteneur_newsfeed">
-				<img class="img-circle" alt="phtode votre ami" src="'.$idutil.'"/>
+				<a href="profilami.php?id='.$res['idutil1'].'"><img class="img-circle" alt="phtode votre ami" src="'.$idutil.'"/></a>
 					<div id="contenu_droit">
 						<p id="nom_profil"> '.$prenom.' '.$nom.'
                         </p>
