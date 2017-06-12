@@ -21,10 +21,10 @@ if(isset($_POST['creeevenement'])){
         $id=$_SESSION['ID'];
         
         $reponse=$bdd->prepare('Select nomevenement From groupe Where nomevenement="'.$nom.'"');
-        $nom=htmlentities($_POST['nomevenement']);
+        $nom=htmlspecialchars($_POST['nomevenement']);
         $reponse->execute(array('.$nom.'=>htmlspecialchars($_POST['nomevenement'])));
         $reponse2=$reponse->fetch();
-        $_GET['nom'] =$_POST['nomevenement'];                           
+        $_GET['nom'] = htmlspecialchars($_POST['nomevenement']);                           
         if($reponse2){
             echo "Se nom est deja prit il faut en choisir un autre";
             $pbnom="creeevenement.php";
@@ -46,7 +46,7 @@ if(isset($_POST['creeevenement'])){
                  if(!empty($_FILES['profilevenement'])){ 
                     $imagecouverture = $_FILES['profilevenement']; 
                    
-                     $nom1=md5(uniqid(rand(),true)); 
+                    $nom1=md5(uniqid(rand(),true)); 
                     $profil="Images/$nom1";
                     $resultat=move_uploaded_file($_FILES['profilevenement']['tmp_name'], $profil);
                 }
@@ -54,23 +54,23 @@ if(isset($_POST['creeevenement'])){
             
             $date="2017-08-06"; //VOIR SI OBLIGATOIRE OU PAS
             if(!empty($_POST['date'])){
-                $date=$_POST['date'];   
+                $date=htmlspecialchars($_POST['date']);   
             }
             
             $heure="00:00:00";
             if(!empty($_POST['heure'])){
-                $heure=$_POST['heure'];  
+                $heure=htmlspecialchars($_POST['heure']);  
                 echo $heure;
             }
             
             $lieu="NULL";
             if(!empty($_POST['lieu'])){
-                $date=$_POST['lieu'];   
+                $lieu=htmlspecialchars($_POST['lieu']);   
             }
             
             $commentaire="NULL";
             if(!empty($_POST['commentaire'])){
-                $date=$_POST['commentaire'];   
+                $commentaire=htmlspecialchars($_POST['commentaire']);   
             }
   
             $insertion = $bdd->prepare('insert into evenement values("'.$nom.'","'.$id.'","'.$date.'","'.$heure.'","'.$lieu.'","'.$commentaire.'","'.$couverture.'","'.$profil.'")'); 
@@ -89,7 +89,7 @@ if(isset($_POST['creeevenement'])){
     }
 }
 
- $nom= $_GET['nom'];  ?>
+ $nom= htmlspecialchars($_GET['nom']);  ?>
 <section id="section_profil">
     <div id="Page">
         <div id="photosduprofil">
@@ -110,7 +110,7 @@ if(isset($_POST['creeevenement'])){
                 <form  method="post" action="participe.php?nom=<?php echo $nom;?>">
                         <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:490px; top:280px;" value="Je participe" type="submit" name="modif"/>
                 </form>
-                <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php echo $_GET['nom'];
+                <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php echo htmlspecialchars($_GET['nom']);
                         ?>  
         </div>
         <div style="display:inline-block;" id="PanneauGauche">

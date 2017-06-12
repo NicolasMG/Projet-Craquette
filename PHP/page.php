@@ -22,10 +22,10 @@ if(isset($_POST['creepage'])){
         $id=$_SESSION['ID'];
         
         $reponse=$bdd->prepare('Select nompage From page Where nompage="'.$nom.'"');
-        $nom=htmlentities($_POST['nompage']);
+        $nom=htmlspecialchars($_POST['nompage']);
         $reponse->execute(array('.$nom.'=>htmlspecialchars($_POST['nompage'])));
         $reponse2=$reponse->fetch();
-        $_GET['nom'] =$_POST['nompage'];                           
+        $_GET['nom'] =htmlspecialchars($_POST['nompage']);                           
         if($reponse2){
             echo "Se nom est deja prit il faut en choisir un autre";
             $pbnom="creegroup.php";
@@ -73,7 +73,7 @@ if(isset($_POST['creepage'])){
 }
 
 ?>
-    <?php $nom= $_GET['nom'];  ?>
+    <?php $nom= htmlspecialchars($_GET['nom']);  ?>
 <section id="section_profil">
     <div id="Page">
         <div id="photosduprofil">
@@ -91,7 +91,7 @@ if(isset($_POST['creepage'])){
                 <form  method="post" action="modifpage.php?nom=<?php echo $nom;?>">
                     <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:680px; top:280px;" value="Modifier la page" type="submit" name="modif"/>
                 </form>
-                <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php echo $_GET['nom'];
+                <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php echo htmlspecialchars($_GET['nom']);
                         ?>  
         </div>
         <div style="display:inline-block;" id="PanneauGauche">
@@ -110,7 +110,7 @@ if(isset($_POST['creepage'])){
                         $id=$_SESSION['ID'];
         
                         $reponse=$bdd->prepare('Select nompage From page Where createur="'.$id.'" AND nompage="'.$nom.'"');
-                        $nom=htmlentities($_GET['nom']);
+                        $nom=htmlspecialchars($_GET['nom']);
                         $reponse->execute(array('.$nom.'=>htmlspecialchars($_GET['nom'])));
                         $reponse2=$reponse->fetch();
                         //$_GET['nom'] =$_POST['nompage'];                           
@@ -119,7 +119,7 @@ if(isset($_POST['creepage'])){
                         ?>   
                         
                         
-                        <?php $nom=$_GET['nom']; ?>
+                        <?php $nom=htmlspecialchars($_GET['nom']); ?>
 
                         <a href='modifpage.php?nom=<?php echo $nom;?>'><button style="left:62%; top:34%;" type="submit" class="btn">Mettre à jour ma page</button></a>
                 
