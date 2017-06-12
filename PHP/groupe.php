@@ -74,8 +74,7 @@ if(isset($_POST['creegroupe'])){
     <input type="text" class="form-control" name="membre" value="<?php if (isset($_POST['membre'])) echo htmlspecialchars($_POST['membre']);?>"placeholder= "membre" /> 
         </p>    
         <br>   
-        
-        
+
      <p>   
    <input type="submit" name="ajoutmembre" value="Ajouter"/>
          

@@ -64,7 +64,7 @@ $data2=$req2->fetch();
                             ?>
                         <li> 
                             <a href="page.php?nom=<?php echo $row['nompage'];?>"> <?php echo($row['nompage']); ?>
-                            </a>
+                            </a><a href="supprpage.php?nom=<?php echo $row['nompage'];?>"> <span class="glyphicon glyphicon-remove"></span></a>
                         </li>
                         <?php 
                             }
@@ -93,7 +93,7 @@ $data2=$req2->fetch();
                             ?>
                         <li> 
                             <a href="evenement.php?nom=<?php echo $row['nomevenement'];?>"> <?php echo($row['nomevenement']); ?>
-                            </a>
+                            </a><a href="supprevenement.php?nom=<?php echo $row['nomevenement'];?>"> <span class="glyphicon glyphicon-remove"></span></a>
                         </li>
                         <?php 
                             }

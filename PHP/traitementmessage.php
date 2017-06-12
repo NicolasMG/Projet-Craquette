@@ -1,49 +1,42 @@
 <?php
-$idutil=$_GET['idutil'];
-if (isset($_POST['craquetter'])){
-	if(!empty($_POST['message'])){
-		$message=htmlspecialchars($_POST['message']);
-        session_start();
-        $id=$_SESSION['ID'];
-        try{ 
+   try{ 
             $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); 
         }
             catch(Exception $e){ 
             die('Erreur : '.$e->getMessage()); 
         }
-        
-      
-        $sql=$bdd->prepare('SELECT max(id) FROM message ');
+    session_start();
+  $id=$_SESSION['ID'];
+$idutil=$_GET['idutil'];
+if (isset($_POST['craquetter'])){
+     $sql=$bdd->prepare('SELECT max(id) FROM message ');
         $sql->execute();
         $ide = $sql->fetch();
         $idef = $ide[0] ;
         $idefi = $idef + 1;
+    
+    
+	if(!empty($_POST['message'])){
+		$message=htmlspecialchars($_POST['message']);
+        session_start();
+       
 
-     /*   $sql=$bdd->prepare('SELECT max(idenvoie) FROM envoie ');
-        $sql->execute();
-        $ide = $sql->fetch();
-        $idef = $ide[0] ;
-        $idefie = $idef + 1;
-        
-        $sql=$bdd->prepare('SELECT max(idmp) FROM destination ');
-        $sql->execute();
-        $ide = $sql->fetch();
-        $idef = $ide[0] ;
-        $idefid = $idef + 1; */
-        
-        
-        
-        $req=$bdd->prepare('insert into message values("'.$idefi.'","'.$id.'","'.$idutil.'","'.$message.'")');
+        $req=$bdd->prepare('insert into message values("'.$idefi.'","'.$id.'","'.$idutil.'","'.$message.'","text")');
         $req->execute();
-        /*
-        $req=$bdd->prepare('insert into envoie values("'.$idefi.'","'.$id.'")');
-        $req->execute();
+    }
+    if(!empty($_FILES['imageenvoie'])){ 
+        $imageprofil = $_FILES['imageenvoie']['name'];             
+        $nom1=md5(uniqid(rand(),true)); 
+        $nom="Images/$nom1";
+        $resultat=move_uploaded_file($_FILES['imageenvoie']['tmp_name'], $nom);
+        echo"salut";
         
-        $req=$bdd->prepare('insert into destination values("'.$idefi.'","'.$idutil.'")');
+        $req=$bdd->prepare('insert into message values("'.$idefi.'","'.$id.'","'.$idutil.'","'.$nom.'","image")');
         $req->execute();
-        */
-        
-	}
+        echo"coucou";
+    }
+
+    
 }
 header('Location: ./message.php?idutil='.$idutil.'');
 ?>

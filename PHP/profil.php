@@ -51,7 +51,6 @@
                                             $row = $response->fetch();
                                             echo($row['nom']);
 
-
                             ?> </p>
 
                        <p>Prénom : <?php $response = $bdd->query('SELECT prenom FROM profil WHERE email="'.$mail.'"'); 
