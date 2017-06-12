@@ -1,6 +1,6 @@
 <?php
 
-    include('header_profil.php');
+    include('header_accueil.php');
 
     $id=$_SESSION['ID'];
 
@@ -23,7 +23,7 @@
             <input type="hidden" name="MAX_FILE_SIZE" value="12345">
         </div>
 
-        <input style="margin-top:50px; width:110px; margin-left:200px;" class="form-control" type="submit" value="Ajouter" name="modif"/> 
+        <input style="margin-top:50px; width:110px; height=110px; margin-left:200px;" class="form-control" type="submit" value="Ajouter" name="modif"/> 
 </form>
 </section>
 
@@ -32,16 +32,17 @@
 <br><br><br>
 
 <?php
+$num=0;
 $files=glob("Images/album/fichier".$id."/*");
 foreach($files as $filename){
     
   ?>  
     
-<img id="image" src="<?php echo $filename;?>" >  
-
-
+<a href="grandeimage.php?num=<?php echo $num;?>"> <img id="image" src="<?php echo $filename;?>" >  </a>
 
 <?php
+    //scandir("Images/album/fichier".$id."/*", $num);
+    $num=$num+1;
 }
 
 ?>

@@ -43,21 +43,13 @@ if(!empty($_POST['mail'])) {
             //test
         
         session_start();
-<<<<<<< HEAD:connexion.php
-        $_SESSION['mail']=$_POST['mail'];//s="rachel.noireau@uha.fr";
-        echo $_SESSION['mail'];
-        echo "<br>";
-       $response =$bdd->query('SELECT id,imageprofil FROM profil WHERE email="'.$mail.'"'); 
-       $row = $response->fetch();
-        echo($row['id']);
-=======
+
         $_SESSION['mail']=$mail;
         //s="rachel.noireau@uha.fr";
         //echo $_SESSION['mail'];
         $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
         $row = $response->fetch();
         //echo($row['id']);
->>>>>>> 214bdcadb15effb785bc93b9ec9715429bfbfda3:PHP/connexion.php
          $_SESSION['ID']= $row['id'];
 		 $_SESSION['imageprofil']=$row['imageprofil'];
 		 
