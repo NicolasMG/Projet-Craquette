@@ -1,57 +1,32 @@
 
 <?php
-    include('header_profil.php');
+    include('header_accueil.php');
     $nom=$_GET['nom'];
 ?>
-<section>
-    <br><br><br><br>
-        Remplisez uniquement les champs que vous souhaiter modifier
-<br>
-
-<form class="form-horizontal" method="post" action="traitementmodifgroupe.php?nom=<?php echo $nom;?>" enctype="multipart/form-data">
-          <!--<form class="form-horizontal" method="post" action="traitement.php" >-->
-<div>
-					<label for="imagecouverture">
-						Photo de couverture:
-					</label>
-					<!--<input type="text" class="input-medium search-query" class="form-control" name="imagecouverture" placeholder= "Chemin pour l'image" />-->
-                  <input type="file" name="imagecouverture" id="imagecouverture"/>
-                    <input type="hidden" name="MAX_FILE_SIZE" value="12345">
-				</div>
-              
-              <div>
-					<label for="imageprofil">
-						Photo de profil:
-					</label>
-					<!--<input type="text" class="input-medium search-query" class="form-control" name="imageprofil" placeholder= "Chemin pour l'image" />-->
-                  <br>
-                    <input type="file" name="imageprofil" id="imageprofil"/>
-                    <input type="hidden" name="MAX_FILE_SIZE" value="12345">
-                    
-                  <?php /*
-                        mkdir('fichier2/1',0777, true);
-                        $nom=md5(uniqid(rand(),true));  
-                        $resultat=move_uploaded_file($_FILES['imageprofil']['tmp_name'], $nom);
-                        if($resultat){echo "coucou";}
-                        */
-                    ?>
-                  
-                  
-				</div>
-              
-              
-              
-              
-                <div class="form-group">
-					<label for="nom">
-						Nom de notre page:
-					</label>
-					   <input type="text" class="input-medium search-query" name="nom" placeholder= "Votre nom de page" />  
-				</div>
-              
-              
-                <input type="submit" value="Appliquer" name="modif"/>
-              <br>
-              <br>
-    
+<section id="section_modifprofil">
+    <h4 style="margin-bottom:20px; padding-left:10px;">
+        Remplisez uniquement les champs que vous souhaitez modifier
+    </h4>
+    <form class="form-horizontal" method="post" action="traitementmodifgroupe.php?nom=<?php echo $nom;?>" enctype="multipart/form-data">
+        <div class="form-group">
+            <label style="padding-left:0;" class="col-sm-2 control-label" for="nom">Nom du groupe :</label>           
+            <div  class="col-sm-10" style="display:inline;">
+                <input class="form-control" style="width:250px; display:inline;" type="text" name="nom" placeholder="Nom du groupe" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="imagecouverture">
+                Photo de couverture:
+            </label>
+            <input style="display:inline;" type="file" name="imagecouverture" id="imagecouverture"/>
+            <input type="hidden" name="MAX_FILE_SIZE" value="12345">
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="imageprofil">
+                Photo de profil:					
+            </label>
+            <input style="display:inline;" type="file" name="imageprofil" id="imageprofil"/>
+            <input type="hidden" name="MAX_FILE_SIZE" value="12345">                  
+        </div> 
+    <input style="margin-top:70px; width:110px; margin-left:200px;" class="form-control" type="submit" value="Appliquer" name="modif"/>
 </section>

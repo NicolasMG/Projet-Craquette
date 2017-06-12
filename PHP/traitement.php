@@ -5,7 +5,7 @@
     catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
         die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
     }
-    include('header_profil.php');
+    include('header_non_co.php');
 ?>
 
 <p><br><br><br><br><br><br><br><br><br><br><br></p>
@@ -23,7 +23,7 @@ $bouton="recommencer";
 $massage2="il faut recommencer";
 
 if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
-
+    
 	if(!empty($_POST['nom'])){ // si le champ nom a été rempli
 		$nom = htmlspecialchars($_POST['nom']); // stocker la valeur qu'il contient dans une variable
 		

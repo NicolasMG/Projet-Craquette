@@ -176,8 +176,9 @@
             </script>
         </div>
         <div>
-       <p><a href="https://www.e-services.uha.fr/">E-service UHA</a></p> 
-       <p><a href="http://www.ensisa.uha.fr/">ENSISA</a></p> 
+        <p><a href="https://www.e-services.uha.fr/" target="_blank">E-service UHA</a></p> 
+        <p><a href="http://www.ensisa.uha.fr/" target="_blank">ENSISA</a></p> 
+        <p><a href="http://edt.iariss.fr/" target="_blank">IARISS</a></p>
         
         </div>
     </div>

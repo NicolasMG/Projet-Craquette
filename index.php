@@ -47,7 +47,7 @@
                 <div class="form-group" >
                     <label for="mail">Adresse Email :</label>
                     <div style="display:inline;">
-                        <input class="form-control" style="width:250px; display:inline;"  type="email" name="mail" placeholder="prenom.nom@uha.fr" />
+                        <input class="form-control" style="width:250px; display:inline;"  type="email" name="mail" placeholder="exemple@exemple.com" />
                     </div>             
                 </div>
                 
@@ -61,7 +61,7 @@
                 <p><a href="PHP/chgtmdp.php">Mot de passe oublié ?</a></p>                
                 <p><a href="PHP/inscription.php">Pas de compte ? Inscrivez vous !</a></p>
                 <div class="form-group">
-                    <input type="submit" style="width:100px; display:inline;" class="form-control" name="Se connecter"/>
+                    <input type="submit" style="width:100px; display:inline;" class="form-control" name="Se connecter" />
                 </div>
                 
             </form>

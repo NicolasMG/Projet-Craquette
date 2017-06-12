@@ -6,7 +6,7 @@
    //$mail="rachel.noireau@uha.fr";
    // echo($mail);
     
-    include('header_profil.php');
+    include('header_accueil.php');
     try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); 
     }
@@ -17,37 +17,29 @@
 
 <section id="section_modifprofil">
         <h4 style="margin-bottom:20px; padding-left:80px;">
-            Remplisez uniquement les champs que vous souhaiter modifier
+            Remplisez uniquement les champs que vous souhaitez modifier
         </h4>
         <form class="form-horizontal" method="post" action="traitementmodif.php" enctype="multipart/form-data">
             <form  class="form-horizontal" method="post" action="traitement.php" >
                 
              
               
-              <div class="form-group">
+                <div class="form-group">
 					<label class="col-sm-2 control-label" for="imagecouverture">
 						Photo de couverture:
 					</label>
                     <input style="display:inline;" type="file" name="imagecouverture" id="imagecouverture"/>
                     <input type="hidden" name="MAX_FILE_SIZE" value="12345">
-				</div>
+                </div>
               
-              <div class="form-group">
+                <div class="form-group">
 					<label class="col-sm-2 control-label" for="imageprofil">
 						Photo de profil:
 					</label>
 					<!--<input type="text" class="input-medium search-query" class="form-control" name="imageprofil" placeholder= "Chemin pour l'image" />-->
                     <input style="display:inline;" type="file" name="imageprofil" id="imageprofil"/>
                     <input type="hidden" name="MAX_FILE_SIZE" value="12345">
-                    
-                  <?php /*
-                        mkdir('fichier2/1',0777, true);
-                        $nom=md5(uniqid(rand(),true));  
-                        $resultat=move_uploaded_file($_FILES['imageprofil']['tmp_name'], $nom);
-                        if($resultat){echo "coucou";}
-                        */
-                    ?>
-                  
+         
                   
 				</div>
                 

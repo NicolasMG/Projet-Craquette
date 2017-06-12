@@ -1,6 +1,6 @@
 <?php
     
-    include('header_profil.php');
+    include('header_accueil.php');
     $mail=$_SESSION['mail'];
     try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd

@@ -1,6 +1,6 @@
 
 <?php
-    include('header_groupe.php');
+    include('header_accueil.php');
     try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
     }
@@ -64,7 +64,7 @@ if(isset($_POST['creegroupe'])){
     <section id="section_profil">
             <div id="Page">
                 <div id="photosduprofil">
-                    <img style="height:315px; width:851px;"id="PhotoDeCouverture" src="<?php 
+                    <img style="height:270px; width:851px;"id="PhotoDeCouverture" src="<?php 
                         $response =$bdd->query('SELECT imagecouverture FROM groupe WHERE nomgroupe="'.$nom.'"'); 
                         $row = $response->fetch();
                         echo($row['imagecouverture']);                                              
@@ -75,7 +75,11 @@ if(isset($_POST['creegroupe'])){
                         $row = $response->fetch();
                         echo($row['imageprofil']);               
                                              ?>" >  
-                    <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php echo $_GET['nom']; ?>  
+                    <form  method="post" action="modifgroupe.php?nom=<?php echo $nom;?>">
+                        <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:680px; top:280px;" value="Modifier le groupe" type="submit" name="modif"/>
+                    </form>
+                    <p style="display:block; position:absolute; left:25%; top:88%;font-weight: bold; color:black; font-size:20px;"><?php echo $_GET['nom']; ?> 
+                    
         </div>
         <div id="PanneauGauche">
                 <div id="Information">
@@ -85,9 +89,11 @@ if(isset($_POST['creegroupe'])){
                         <!--<a href='gestionmembres.php'><button style="left:30.2%; top:95%;" type="submit" class="btn">Gérer des membres</button></a>-->
                 
                     
-                   <?php $nom=$_GET['nom']; ?>
-                    <a href='modifgroupe.php?nom=<?php echo $nom;?>'><button style="left:62%; top:34%;" type="submit" class="btn">Mettre à jour le groupe</button></a>
-                    
+                    <?php $nom=$_GET['nom']; ?>
+                    <form  method="post" action="modifgroupe.php?nom=<?php echo $nom;?>">
+                        <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:490px; top:280px;" value="Modifier le groupe" type="submit" name="modif"/>
+                    </form>
+                 
                   
 
                     
@@ -201,8 +207,7 @@ if(isset($_POST['creegroupe'])){
 
     <p> 
         <label for="nomgroupe">Choisissez le(s) membre(s) à rajouter :</label>
-        
-        <br>
+    
         <input type="text" class="input-medium search-query" name="membre" value="<?php if (isset($_POST['membre'])) echo htmlentities($_POST['membre']);?>"placeholder= "membre" /> 
     </p>    
         

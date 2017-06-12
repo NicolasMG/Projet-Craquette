@@ -1,6 +1,6 @@
 <?php
    
-    include('header_groupe.php');
+    include('header_accueil.php');
     try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); 
     }
@@ -12,7 +12,6 @@
     $mail=$_SESSION['mail'];
     $id=$_SESSION['ID'];
 ?>
-<p><br><br><br></p>
 <?php
 
 //CREATION DU PAGE
@@ -80,10 +79,10 @@ if(isset($_POST['creepage'])){
 
 ?>
     <?php $nom= $_GET['nom'];  ?>
-    <div class="vide_gaucheprofil" style="display:inline-block;"></div>
-    <div style="display:inline-block;" id="Page">
+<section id="section_profil">
+    <div id="Page">
         <div id="photosduprofil">
-                <img style="height:315px; width:851px;"id="PhotoDeCouverture" src="<?php 
+                <img style="height:270px; width:851px;"id="PhotoDeCouverture" src="<?php 
                         $response =$bdd->query('SELECT imagecouverture FROM page WHERE nompage="'.$nom.'"'); 
                         $row = $response->fetch();
                         echo($row['imagecouverture']);                                              
@@ -94,7 +93,10 @@ if(isset($_POST['creepage'])){
                         $row = $response->fetch();
                         echo($row['imageprofil']);               
                                              ?>" >  
-            <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php echo $_GET['nom'];
+                <form  method="post" action="modifpage.php?nom=<?php echo $nom;?>">
+                    <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:680px; top:280px;" value="Modifier mon profil" type="submit" name="modif"/>
+                </form>
+                <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php echo $_GET['nom'];
                         ?>  
         </div>
         <div style="display:inline-block;" id="PanneauGauche">
@@ -122,11 +124,7 @@ if(isset($_POST['creepage'])){
                         ?>   
                         
                         
-                        
-                        
                         <?php $nom=$_GET['nom']; ?>
-                        <a href='modifpage.php?nom=<?php echo $nom;?>'><button style="left:62%; top:34%;" type="submit" class="btn">Mettre à jour ma page</button></a>
-                
                         
                         <?php }  ?>
                         
@@ -153,7 +151,7 @@ if(isset($_POST['creepage'])){
             </div>           
         </div>
 
-    <div class="vide_droitprofil" style="display:inline-block;"></div>
+</section>
+</body>
+</html>
 
-
-<?php include('footer.php'); ?>

@@ -1,9 +1,6 @@
 
-<br>
-<br>
-    <br>
 <?php
-include('header_groupe.php');
+include('header_accueil.php');
 //session_start();
 if(isset($_POST['creegroupe'])){ 
 	if(!empty($_POST['nomgroupe'])){

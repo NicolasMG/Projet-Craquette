@@ -1,4 +1,4 @@
-<?php
+<?php include('header_non_co.php');
  try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
     }

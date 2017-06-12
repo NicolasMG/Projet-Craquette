@@ -1,7 +1,4 @@
 
-<br>
-<br>
-    <br>
 <?php
 ///coucou
 include('header_groupe.php');
@@ -53,8 +50,6 @@ if(isset($_POST['creegroupe'])){
             
             $insertion = $bdd->query('insert into groupe values("'.$id.'","'.$nom.'","admin","Images/imagegroupeprofil.jpg","'.$couverture.'")'); 
             $insertion->execute();    
-            $monsite="page.php?nom=$nom";
-            echo "<script> window.location="."'".$monsite."'"."</script>";
         }
                   
     

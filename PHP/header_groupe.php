@@ -1,55 +1,42 @@
 <?php 
-    include('protection_session.php');
-    try{ 
+  include('protection_session.php');
+?>
+<!doctype html>
+<html lang="fr">
+    <?php
+        try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
     }
     catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
         die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
     }
-?>
+    ?>  
 
-<!doctype html>
-<html lang="fr">
 	<head> <!-- en tête du fichier -->
-		<meta charset="utf-8"/>
+		<meta content="text/html" charset="utf-8"/>
 		<title>Craquette - Connexion</title>
-        <link rel="stylesheet" href="CSS/style_accueil.css"/>
-        <link rel="stylesheet" href="CSS/style_header_accueil.css"/>
-        <link rel="stylesheet" href="CSS/style_fil_actualite.css"/>       
-        <link rel="stylesheet" href="CSS/style_profil.css"/>
+		<link rel="stylesheet" href="CSS/bootstrap.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <script type="text/javascript" src="JS/calendrier.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
-	<body id="body_accueil">
-		<header> 
-        <div class="topnav" id="myTopnav">
-            <div class="topnav_logo">
-                <a href="accueil.php"><img src='Images/logo.png'/></a>
-            </div>
-            <div class="topnav_icons">
+	<body id="body_profil">
+		<header> <!-- header = en tête page -->
+
+        <div style="height:50px;" class="topnav" id="myTopnav">
+            <a href="accueil.php"><img style="padding-left:17%;" class="headerimg" src='Images/logo.png' /></a>
+            <div class="contenu_entete">
+                <a style="padding-top:0px;padding-bottom:0px;"href="#home">
+                <form style="padding-left:200%; padding-top:10px;">
+                    <input class="input-medium search-query" style="border-radius:8px; font-size:17px;" type="text" name="Search" placeholder="Recherche..">
+                </form>
+                </a>
                 <a class="active" href="deconnexion.php"><span class="glyphicon glyphicon-off"></span></a>
                 <a class="active" href="accueil.php"><span class="glyphicon glyphicon-bell"></span></a>
                 <a class="active" href="accueil.php"><span class="glyphicon glyphicon-home"></span></a>
-                <a class="active"  href="profil.php"><span class="glyphicon glyphicon-cog"></span></a>
                 <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-            </div>
-            <div class="topnav_search">
-                <form class="navbar-form navbar-left">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                        <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit">
-                                <i class="glyphicon glyphicon-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                
                 
             </div>
         </div>
+
         <script>
         function myFunction() {
             var x = document.getElementById("myTopnav");
@@ -60,4 +47,7 @@
             }
         }
         </script>
+
+
 		</header>
+		<section id="section_profil">

@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<section>
-    <br><br>
 <?php
      //session_start();
     
-    include('header_profil.php');
+    include('header_accueil.php');
     $mail=$_SESSION['mail'];
     $nom=$_GET['nom'];
     try{ 
@@ -14,7 +12,6 @@
         die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
     }
     
-    //include('header2.php');
 
  
 if(isset($_POST['modif'])){
@@ -102,14 +99,9 @@ if(isset($_POST['modif'])){
       }
 }
 ?>
-<p><br><br><br></p>
-<?php
-    echo("Les modifications ont bien était effectués");
-   
-
-?>
-<p><br></p>
-<a href='evenement.php?nom=<?php echo $nom; ?>'><button type="submit" class="btn">revenir à mon compte</button></a>
-<br><br>
+<section id="section_traitement_modif">
+    <p>Les modifications ont bien été effectué</p>
+    <form  method="post" action="evenement.php?nom=<?php echo $nom; ?>">
+        <input class="form-control" value="Revenir au groupe" type="submit" name="revenir"/>
+    </form>
 </section>
-<br>
