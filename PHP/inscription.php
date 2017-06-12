@@ -17,8 +17,7 @@
             <h2>Inscription</h2>
                 
             <form class="form-horizontal" method="post" action="traitement.php" >
-                
-                
+
                 <div class="form-group">
 					<label for="nom">
 						Nom:
@@ -94,7 +93,7 @@
 				</div>              
                 <div >
 				    <label>
-					 <a href='traitement.php'><button type="submit" class="btn" name="inscription">Inscription</button></a>
+                    <input type="submit" style="width:100px; display:inline;" class="form-control" name="inscription"/>
 					 <a href='inscription.php'><button type="reset" class="btn">Effacer</button></a>
                     </label>
                 </div>

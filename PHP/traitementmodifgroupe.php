@@ -1,6 +1,6 @@
 
 <?php
- include('header_groupe.php');
+ include('header_accueil.php');
 $nom=$_GET['nom']; ?>
     
     <section>
@@ -46,13 +46,10 @@ if(isset($_POST['modif'])){
       }
 }
 ?>
-<p><br><br><br></p>
-<?php
-    echo("Les modifications ont bien était effectués");
-   
 
-?>
-<p><br></p>
-<a href='profilgroupe.php?nom=<?php echo $nom ;?>'><button type="submit" class="btn">revenir à ma page</button></a>
+<section id="section_traitement_modif">
+    <p>Les modifications ont bien été effectuées</p>
+    <form  method="post" action="profilgroupe.php?nom=<?php echo $nom ;?>">
+        <input class="form-control" value="Revenir au groupe" type="submit" name="retour"/>
+    </form>
 </section>
-<br>

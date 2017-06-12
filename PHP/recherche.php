@@ -1,7 +1,7 @@
 
 
 <?php
-    include(entete.php);
+    include('header_accueil');
     
     if(!empty($_POST['recherche'])){ 
         $rechercher = htmlspecialchars($_POST['rechercher']);      

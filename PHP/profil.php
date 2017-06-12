@@ -1,6 +1,6 @@
 <?php
 
-    include('header_profil.php');
+    include('header_accueil.php');
     try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
     }
@@ -22,25 +22,20 @@
                         echo($row['imagecouverture']);                                              
                                                  ?>">
 
-
-
-
-
                 <img id="PhotoDeProfil" src="<?php 
                         $response =$bdd->query('SELECT imageprofil FROM profil WHERE email="'.$mail.'"'); 
                         $row = $response->fetch();
                         echo($row['imageprofil']);               
                                              ?>" >  
             <form  method="post" action="modifprofil.php">
-                <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:490px; top:270px;" value="Modifier mon profil" type="submit" name="modif"/>
+                <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:490px; top:280px;" value="Modifier mon profil" type="submit" name="modif"/>
             </form>
             
              <form method="post" action="voirmessage.php">
-                <input class="form-control" style=" display:block; position:absolute; width:150px; display:inline; left:680px; top:270px;" value="Mes messages" type="submit" name="messages"/>
-            </form> 
-            
+                <input class="form-control" style=" display:block; position:absolute; width:150px; display:inline; left:680px; top:280px;" value="Mes messages" type="submit" name="messages"/>
+            </form>                      
             <form method="post" action="album.php">
-                <input class="form-control" style=" display:block; position:absolute; width:130px; display:inline; left:780px; top:270px;" value="Album" type="submit" name="ablum"/>
+                <input class="form-control" style=" display:block; position:absolute; width:130px; display:inline; left:340px; top:280px;" value="Album" type="submit" name="ablum"/>
             </form>
             <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php $response = $bdd->query('SELECT nom FROM profil WHERE email="'.$mail.'"'); 
                                         $row = $response->fetch();

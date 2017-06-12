@@ -13,7 +13,7 @@
 }
 
 #PhotoDeCouverture{
-    height:315px; 
+    height:270px; 
     width:851px;
 }
 
@@ -58,4 +58,24 @@
 #section_modifprofil{
     padding-left: 500px;
     padding-top:20px;
+}
+
+#section_traitement_modif{
+    text-align: center;
+    padding: 100px;
+}
+
+#section_traitement_modif input{
+    margin-top: 30px;
+    width:170px; 
+    display:inline;
+}
+
+#section_creepage{
+    padding-left: 500px;
+    padding-top:20px;
+}
+
+#section_creepage input{
+    display:inline;
 }

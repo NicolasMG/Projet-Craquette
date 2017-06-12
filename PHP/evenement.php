@@ -1,6 +1,6 @@
 <?php
    
-    include('header_groupe.php');
+    include('header_accueil.php');
     try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
     }
@@ -11,9 +11,7 @@
     //session_start();
     $mail=$_SESSION['mail'];
     $id=$_SESSION['ID'];
-?>
-<p><br><br><br></p>
-<?php
+
 
 //CREATION DE L'EVENEMENT
 if(isset($_POST['creeevenement'])){ 
@@ -91,12 +89,11 @@ if(isset($_POST['creeevenement'])){
     }
 }
 
-?>
-    <?php $nom= $_GET['nom'];  ?>
-    <div class="vide_gaucheprofil" style="display:inline-block;"></div>
-    <div style="display:inline-block;" id="Page">
+ $nom= $_GET['nom'];  ?>
+<section id="section_profil">
+    <div id="Page">
         <div id="photosduprofil">
-                <img style="height:315px; width:851px;"id="PhotoDeCouverture" src="<?php 
+                <img style="height:270px; width:851px;"id="PhotoDeCouverture" src="<?php 
                         $response =$bdd->query('SELECT couvertureevenement FROM evenement WHERE nomevenement="'.$nom.'"'); 
                         $row = $response->fetch();
                         echo($row['couvertureevenement']);                                              
@@ -107,7 +104,13 @@ if(isset($_POST['creeevenement'])){
                         $row = $response->fetch();
                         echo($row['profilevenement']);               
                                              ?>" >  
-            <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php echo $_GET['nom'];
+                <form  method="post" action="modifevenement.php?nom=<?php echo $nom;?>">
+                        <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:680px; top:280px;" value="Modifier l'évènement" type="submit" name="modif"/>
+                </form>
+                <form  method="post" action="participe.php?nom=<?php echo $nom;?>">
+                        <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:490px; top:280px;" value="Je participe" type="submit" name="modif"/>
+                </form>
+                <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php echo $_GET['nom'];
                         ?>  
         </div>
         <div style="display:inline-block;" id="PanneauGauche">
@@ -119,76 +122,6 @@ if(isset($_POST['creeevenement'])){
                 
                     
                    <?php $nom=$_GET['nom']; ?>
-                    
-                    
-                     <?php
-                        $nom = htmlspecialchars($_GET['nom']);
-                        $id=$_SESSION['ID'];
-        
-                        $reponse=$bdd->prepare('Select nompage From page Where createur="'.$id.'" AND nompage="'.$nom.'"');
-                        $nom=htmlentities($_GET['nom']);
-                        $reponse->execute(array('.$nom.'=>htmlspecialchars($_GET['nom'])));
-                        $reponse2=$reponse->fetch();
-                        //$_GET['nom'] =$_POST['nompage'];                           
-                        if(!$reponse2){    
-                        
-                        ?>   
-                        
-                    
-                        <a href='modifevenement.php?nom=<?php echo $nom;?>'><button style="left:62%; top:34%;" type="submit" class="btn">Modifier l'évenement</button></a>
-                    
-                    
-                        <?php } ?>
-                    
-                    
-                    <a href='participe.php?nom=<?php echo $nom;?>'><button style="left:52%; top:34%;" type="submit" class="btn">Je viens</button></a>
-                    
-                     <p> <?php 
-                            $reponse = $bdd->query('select count(idutil) FROM  vientevenement WHERE nomevenement="'.$nom.'"'); 
-                            $row=$reponse->fetch();  
-                            echo $row[0];
-                
-                            
-                            ?>   personne(s) à cette événement</p>
-                             
-                    
-                    
-                    
-                    <ul><h4>Participants</h4>    
-                   <?php       
-                        $id=$_SESSION['ID'];
-                        $sql='SELECT distinct idutil FROM vientevenement Where nomevenement="'.$nom.'"';
-                        $req = $bdd->query($sql)  ; 
-
-
-                        while($row=$req->fetch()){
-
-
-                            ?>
-                        <li> 
-                            <a href="profilami.php?nom=<?php echo $row['idutil'];?>"> <?php  
-                                            $idutil=$row['idutil'];
-                                            $response =$bdd->query('SELECT prenom FROM profil WHERE id="'.$idutil.'"'); 
-                                            $row = $response->fetch();
-                                            echo($row['prenom']);
-                                            echo " ";
-                                        
-                                            $response =$bdd->query('SELECT nom FROM profil WHERE id="'.$idutil.'"'); 
-                                            $row = $response->fetch();
-                                            echo($row['nom']);
-                                ?>
-                            </a>
-                        </li>
-                        <?php 
-                            }
-                           $req->closeCursor();
-                        ?>
-                </ul>
-
-                    
-                    
-                    
-                    
                     
                      <div style="display:inline-block;" id="PanneauGauche">
                 <div id="Information">
@@ -228,7 +161,7 @@ if(isset($_POST['creeevenement'])){
                 </div>
         </div>
                     
-                    
+              
                     
                     
                     
@@ -357,10 +290,8 @@ if(isset($_POST['creeevenement'])){
         */            ?>    
    
                     
-                    </div>
-
                 </div>
-
+            </div>
         </div>
         <div id="PanneauDroit">
             <div id="conteneur_du_post">
@@ -378,8 +309,6 @@ if(isset($_POST['creeevenement'])){
             <?php include ('news_accueil.php') ; ?>
             </div>           
         </div>
-
-    <div class="vide_droitprofil" style="display:inline-block;"></div>
-
-
-<?php include('footer.php'); ?>
+     </section> 
+</body>
+</html>

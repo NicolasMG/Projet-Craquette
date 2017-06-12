@@ -19,16 +19,13 @@
 		<meta charset="utf-8"/>
 		<title>Craquette - Connexion</title>
         <script type="text/javascript" src="JS/calendrier.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="CSS/style_header_non_co.css"/>
+
 	</head>
 	<body>
 		<header> <!-- header = en tête page -->
-
-        <div style="height:50px;" class="topnav" id="myTopnav">
-
-            <img style="padding-left:48%;" class="headerimg" src='Images/logo.png' alt="Logo" />
-        </div>
-
-
-
-		</header>
-		<section>
+            <div style="height:50px;" class="topnav" id="myTopnav">
+                <img style="padding-left:48%;" class="headerimg" src='Images/logo.png' alt="Logo" />
+            </div>
+        </header>

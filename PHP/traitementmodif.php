@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<section>
-    <br><br>
 <?php
-     //session_start();
     
-    include('header_profil.php');
+    include('header_accueil.php');
     $mail=$_SESSION['mail'];
     try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
@@ -12,9 +8,6 @@
     catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
         die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
     }
-    
-    //include('header2.php');
-
  
 if(isset($_POST['modif'])){
       
@@ -40,20 +33,16 @@ if(isset($_POST['modif'])){
           $imageprofil = $_FILES['imageprofil']['name']; 
         /*  $response =$bdd->query('Update profil set imageprofil="Images/'.$imageprofil.'" WHERE email="'.$mail.'"'); 
           $row = $response->fetch();
-          echo($row['imageprofil']);
-          echo("salut");*/
+          */
           
                // mkdir('fichier6',0777, true); //fichier cré               
                 $nom1=md5(uniqid(rand(),true)); 
                 $nom="Images/$nom1";
                 $resultat=move_uploaded_file($_FILES['imageprofil']['tmp_name'], $nom);
-                //if($resultat){echo "coucou";}
           
           $response =$bdd->query('Update profil set imageprofil="Images/'.$nom1.'" WHERE email="'.$mail.'"'); //ok
           $row = $response->fetch();
           echo($row['imageprofil']);
-          //echo("salut");
-          //echo($row['imageprofil']);
                 
             
       }}
@@ -125,14 +114,11 @@ if(isset($_POST['modif'])){
           $row = $response->fetch();
           echo($row['commentaire']);
       }
-}
+}   
 ?>
-<p><br><br><br></p>
-<?php
-    echo("Les modifications ont bien était effectués");
-   
-
-?>
-<p><br></p>
-<a href='profil.php'><button type="submit" class="btn">revenir à mon compte</button></a>
+<section id="section_traitement_modif">
+    <p>Les modifications ont bien été effectuées</p>
+    <form  method="post" action="profil.php">
+        <input class="form-control" value="Revenir à mon compte" type="submit" name="revenir"/>
+    </form>
 </section>

@@ -24,6 +24,7 @@ ul #menu_horizontal {
     width:35%; 
     position: relative;
     float:left;
+    padding-right: 100px;
 }
 
 .topnav .topnav_icons{

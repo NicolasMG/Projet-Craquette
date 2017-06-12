@@ -1,7 +1,4 @@
 
-<br>
-<br>
-    <br>
 <?php
 ///coucou
 include('header_groupe.php');

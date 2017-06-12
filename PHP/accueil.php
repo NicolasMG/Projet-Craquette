@@ -68,7 +68,9 @@
 
                 </ul>
                 <div class="btn-pages">
-                    <a href="creepage.php"><button type="submit" class="btn" name="newpage">Créer une page</button></a>
+                    <form  method="post" action="creepage.php">
+                        <input class="form-control" value="Créer une page" type="submit" name="creepage"/>
+                    </form>
                 </div>
             </div>
             <div id="events">
@@ -92,7 +94,11 @@
                            $req->closeCursor();
                         ?>
                 </ul>
-                 <a href="creeevenement.php"><button type="submit" class="btn" name="newevenement">Créer un evenement</button></a>
+                <div class="btn-events">
+                    <form  method="post" action="creeevenement.php">
+                            <input class="form-control" value="Créer un evenement" type="submit" name="creeevenement"/>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -156,9 +162,11 @@
                     ?>
             
             </ul>
-            
-           
-            <a href="creegroup.php"><button type="submit" class="btn" name="newgroupe">Créer un groupe</button></a>
+            <div class="btn-groupes">
+                    <form  method="post" action="creegroup.php">
+                            <input class="form-control" value="Créer un groupe" type="submit" name="creegroup"/>
+                    </form>
+            </div>
         </div>
     </div>
     <div id="calendrier">
@@ -172,8 +180,9 @@
             </script>
         </div>
         <div>
-       <p><a href="https://www.e-services.uha.fr/">E-service UHA</a></p> 
-       <p><a href="http://www.ensisa.uha.fr/">ENSISA</a></p> 
+        <p><a href="https://www.e-services.uha.fr/" target="_blank">E-service UHA</a></p> 
+        <p><a href="http://www.ensisa.uha.fr/" target="_blank">ENSISA</a></p> 
+        <p><a href="http://edt.iariss.fr/" target="_blank">IARISS</a></p>
         
         </div>
     </div>

@@ -1,50 +1,38 @@
 <?php 
-    include('header_profil.php');
+    include('header_accueil.php');
     
     
    
 ?>
-<section>
-    <p><br><br><br><br></p>
-    <h4>Crée un groupe d'ami(e)s</h4>
+<section id="section_creepage">
 
-    <form method="post" action="profilgroupe.php" enctype="multipart/form-data">
-        
-     <p> 
-    <label for="nomgroupe">Choisisez le nom du groupe:</label>
-        
-    
-        <br>
-    <input type="text" class="input-medium search-query" name="nomgroupe" placeholder="nom du groupe" />
-         
-        
-    <!--<input type="text" class="input-medium search-query" name="nomgroupe" value="<?php// if (isset($_POST['nomgroupe'])) echo htmlentities($_POST['nomgroupe']);?>"placeholder= "nom du groupe" /> -->
-         
-         
-    </p>
-        <br><br>
-        
-                
-     <div>
-            <label for="couverturegroupe">
-						Photo de couverture:
+    <h4 style="margin-bottom:20px; padding-left:180px;" >Crée un groupe</h4>
+
+    <form class="form-horizontal" method="post" action="profilgroupe.php" enctype="multipart/form-data">
+
+        <div class="form-group">
+            <label style="padding-left:0;" class="col-sm-2 control-label" for="nomgroupe">Nom du groupe :</label>           
+            <div  class="col-sm-10" style="display:inline;">
+                <input class="form-control" style="width:250px; display:inline;" type="text" name="nomgroupe" placeholder="Nom du groupe" />
+            </div>
+        </div>
+
+         <div class="form-group">
+            <label class="col-sm-2 control-label" for="couverturegroupe">
+                Photo de couverture:
             </label>
-                  <input type="file" name="couverturegroupe" id="couverturegroupe"/>
-                    <input type="hidden" name="MAX_FILE_SIZE" value="12345">
-    </div>
-        
-        
-         <div>
-            <label for="profilgroupe">
-						Photo de profil:
+            <input style="display:inline;" type="file" name="couverturegroupe" id="couverturegroupe"/>
+            <input type="hidden" name="MAX_FILE_SIZE" value="12345">
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="profilgroupe">
+                Photo de profil:					
             </label>
-                  <input type="file" name="profilgroupe" id="profilgroupe"/>
-                    <input type="hidden" name="MAX_FILE_SIZE" value="12345">
-    </div>
-        
-        <input type="submit" value="Cree groupe" name="creegroupe"/>
-           
+            <input style="display:inline;" type="file" name="profilgroupe" id="profilgroupe"/>
+            <input type="hidden" name="MAX_FILE_SIZE" value="12345">                  
+        </div>
+
+        <input style="margin-top:50px; width:110px; margin-left:200px;" class="form-control" type="submit" value="Créer" name="creegroupe"/>           
     </form> 
-
-        <br>
 </section>
