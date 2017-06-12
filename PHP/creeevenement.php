@@ -1,3 +1,4 @@
+
 <?php include('header_accueil.php'); ?>
 <section id="section_modifprofil">
     <h4 style="margin-bottom:30px; padding-left:180px;">Crée un evenement</h4>
@@ -62,4 +63,5 @@
         <p>*Champ obligatoire</p>
 
     </form> 
+
 </section>
