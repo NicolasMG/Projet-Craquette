@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
    
     include('header_accueil.php');
