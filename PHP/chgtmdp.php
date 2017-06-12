@@ -44,7 +44,9 @@ if(isset($_POST['Confirmer2'])){
     </form>
     </section>';
                     }
-                    else{echo '
+                    else
+                    {
+                        echo '
         <p style="text-align:center; margin-top:50px;">Les deux mots de passe ne sont pas identiques. Veuillez recommencer.</p>
         <section style="text-align:center;">
 
@@ -79,7 +81,8 @@ if(isset($_POST['Confirmer2'])){
                     </div>
 
             </form>
-    </section>';}
+    </section>';
+                    }
                 }
             }
        }
