@@ -45,7 +45,5 @@ if (isset($_POST['craquetter'])){
         
 	}
 }
-echo $idefi;
-echo $idef;
 header('Location: ./message.php?idutil='.$idutil.'');
 ?>

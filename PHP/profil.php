@@ -30,10 +30,18 @@
             <form  method="post" action="modifprofil.php">
                 <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:490px; top:280px;" value="Modifier mon profil" type="submit" name="modif"/>
             </form>
+            
              <form method="post" action="voirmessage.php">
                 <input class="form-control" style=" display:block; position:absolute; width:150px; display:inline; left:680px; top:280px;" value="Mes messages" type="submit" name="messages"/>
             </form>          
             <p style="display:block; position:absolute; left:25%; top:88%;font-weight: bold; color:black; font-size:20px;"><?php $response = $bdd->query('SELECT nom FROM profil WHERE email="'.$mail.'"'); 
+                <input class="form-control" style=" display:block; position:absolute; width:150px; display:inline; left:680px; top:270px;" value="Mes messages" type="submit" name="messages"/>
+            </form> 
+            
+            <form method="post" action="album.php">
+                <input class="form-control" style=" display:block; position:absolute; width:130px; display:inline; left:780px; top:270px;" value="Album" type="submit" name="ablum"/>
+            </form>
+            <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php $response = $bdd->query('SELECT nom FROM profil WHERE email="'.$mail.'"'); 
                                         $row = $response->fetch();
                                         echo($row['nom']); 
                         ?>  <?php  $response =$bdd->query('SELECT prenom FROM profil WHERE email="'.$mail.'"'); 
