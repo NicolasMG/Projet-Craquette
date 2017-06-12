@@ -7,6 +7,7 @@
     }
             $mail=$_SESSION['mail'];?>
 <!doctype html>
+<link rel="shortcut icon" href="./Images/favicon.ico">
 <html lang="fr">
 	<head> <!-- en tête du fichier -->
 		<meta charset="utf-8"/>

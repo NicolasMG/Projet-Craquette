@@ -4,6 +4,7 @@
 
 <!doctype html>
 <html lang="fr">
+<link rel="shortcut icon" href="./Images/favicon.ico">
 	<head> <!-- en tête du fichier -->
 		<meta charset="utf-8"/>
 		<title>Craquette - Connexion</title>

@@ -10,9 +10,102 @@
 	
     // $reponse2 = $bdd->query('SELECT * FROM profil ORDER BY id DESC'); 
 ?>
+<section id="section_modifprofil">
+        <h4 style="margin-bottom:20px; padding-left:200px;">
+            Inscription
+        </h4>
+            <form class="form-horizontal" method="post" action="traitement.php" enctype="multipart/form-data">
+                <h2>Inscription</h2>
 
-		
-		<section> <!-- Contenu principal de la page -->
+                <div class="form-group">
+					<label class="col-sm-2 control-label" for="nom">
+						Nom:
+					</label>
+                    <div class="col-sm-10"> 
+					   <input type="text" class="form-control" style="width:250px;"  name="nom" placeholder= "Votre nom" />  
+                    </div>
+				</div>
+                
+                <div class="form-group">
+					<label class="col-sm-2 control-label" for="prenom">
+						Prénom:
+					</label>
+                    <div class="col-sm-10">
+					   <input type="text" class="form-control" style="width:250px;" name="prenom" placeholder= "Votre prénom" />
+                    </div>
+                </div>
+                
+                <div class="form-group">
+					<label class="col-sm-2 control-label" for="mail">
+						Mail:
+					</label>
+                    <div class="col-sm-10">
+					   <input type="email" class="form-control" style="width:250px;" name="mail" placeholder= "Votre email" />
+                    </div>
+				</div>
+                    
+              
+            <p>
+                <label class="col-sm-2 control-label" for="filiere">
+						Filiere:
+				</label>
+				<select class="form-control" style="width:250px;" name="filiere">
+                    <option value="ne pas modifier"> ne pas modifier</option>
+					<option value="IR"> IR </option>
+					<option value="AS"> AS </option>
+                    <option value="TF"> TF</option>
+                    <option value="Méca"> Méca </option>
+                    <option vallue="Fip"> FIP</option>
+                    <option value="enseignant"> enseignant</option>
+                    <option value="autre"> autre</option>    
+				</select>
+            </p>
+            <p>
+                <label class="col-sm-2 control-label" for="promo">
+                    Année d'etude:
+                </label>
+                <select class="form-control" style="width:250px;" name="promo">
+                    <option value="ne pas modifier"> ne pas modifier</option>
+                    <option value="1A"> 1A</option>
+                    <option value="2A"> 2A</option>
+                    <option value="3A"> 3A</option>
+                    <option value="sortie d'ecole"> sortie d'ecole</option>
+                    <option value="autre"> autre</option>
+                </select>
+            </p>
+              
+              
+                
+                <div class="form-group">
+					<label class="col-sm-2 control-label" for="datenaissance">
+						Date de naissance:
+					</label>
+                    <div class="col-sm-10">
+					   <input type="date" class="form-control" style="width:250px;" name="datenaissance" placeholder= "année-mois-jour" />
+                    </div>
+				</div>
+              
+              
+              <div class="form-group">
+					<label class="col-sm-2 control-label" for="tel">
+						Numero de telephone :
+					</label>
+                    <div class="col-sm-10">
+					   <input type="text" class="form-control" style="width:250px;" name="tel" placeholder= "Votre numero" />
+                    </div>
+				</div>
+                
+                <input style="margin-top:180px; width:110px; margin-left:200px;" class="form-control" type="submit" name="inscription"/>
+
+            
+            
+            <input type="submit" style="width:100px; display:inline;" class="form-control" name="inscription"/>
+            <form  method="post" action="inscription.php">
+                <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:680px; top:280px;" value="Effacer" type="submit" name="modif"/>
+            </form>
+            
+            
+		<section> 
 	
             <h2>Inscription</h2>
                 

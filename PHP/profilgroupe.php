@@ -90,14 +90,7 @@ if(isset($_POST['creegroupe'])){
                 
                     
                     <?php $nom=$_GET['nom']; ?>
-                    <form  method="post" action="modifgroupe.php?nom=<?php echo $nom;?>">
-                        <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:490px; top:280px;" value="Modifier le groupe" type="submit" name="modif"/>
-                    </form>
-                 
-                  
-
-                    
-                    
+                                     
                     
    <?php
        //POUR AJOUTER DES MEMBRES

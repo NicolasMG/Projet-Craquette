@@ -8,7 +8,7 @@
     include('header_non_co.php');
 ?>
 
-<p><br><br><br><br><br><br><br><br><br><br><br></p>
+<p><br><br><br><br><br><br><br><br><br></p>
 
 <?php
         $sql=$bdd->prepare('SELECT max(Id) FROM profil ');
@@ -49,7 +49,6 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
 				            if(!empty($MDP) && !empty($MDPC)) {
                                 
                                 if(strlen($MDP)>5){ // taille du mot de passe
-
                                     if($MDP == $MDPC){ 
                                         $ide = $id[0] ; //id est auto incrementé se serai mieux
                                         $option = [
@@ -132,6 +131,5 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
     <a href='<?php echo $valideinscription;  ?>'><button type="submit" class="btn"><?php echo $bouton; ?></button></a>
     <p><br></p> 
 <?php
-             echo '<p>'.$prenom.' '.$nom.', merci de nous rejoindre .</p>';      //peut etre changer ça 
 include ('footer.php');
 ?>

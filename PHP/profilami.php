@@ -1,4 +1,3 @@
-<p><br><br><br></p>
 <?php
 
    
@@ -20,11 +19,11 @@
     //$photocouverture="Images/Portrait_Unfallen_a.png";
 ?>
 
-
+<section id="section_profil">
 
 <div id="Page">
     <div id="photosduprofil">
-            <img style="height:315px; width:851px;" alt="phto de couverture" id="PhotoDeCouverture" src="<?php 
+            <img style="height:270px; width:851px;" alt="phto de couverture" id="PhotoDeCouverture" src="<?php 
                     $response =$bdd->query('SELECT imagecouverture FROM profil WHERE id="'.$mail.'"'); 
                     $row = $response->fetch();
                     echo($row['imagecouverture']);                                              
@@ -40,10 +39,9 @@
                     echo($row['imageprofil']);               
                                          ?>" >  
         
-        <!--BOUTON DEMANDE AMI-->
-        <!--<form action='message.php?idutil=<?php echo $mail ; ?>'>-->
-            <a href='message.php?idutil=<?php echo $mail ; ?>'><input name="envoyer un message" type="submit" class="btn"/></a>
-        <!--</form>-->
+            <form method="post" action="message.php?idutil=<?php echo $mail ; ?>">
+                <input class="form-control" style=" display:block; position:absolute; width:170px; display:inline; left:680px; top:280px;" value="Envoyer un message" type="submit" name="envoyer un message"/>
+            </form>      
     </div>
     <div id="PanneauGauche">
         <p>A propos :</p>
@@ -86,6 +84,6 @@
     </div>
        
 </div>
-
+</section>
 
 <?php include('footer.php'); ?>
