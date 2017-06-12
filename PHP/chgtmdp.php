@@ -25,13 +25,17 @@ if(isset($_POST['Confirmer2'])){
                         $sql->execute(array('.$email.'  =>$_SESSION['mailChangementMDP'])); //ATTIENTION AU email
                         $sel = $sql->fetch();
                         $option = [
-                        $sel['Nom']=> $sel['id'],
-                        $sel['Prenom'] => $sel['id'] + 5,
+                            $sel['Nom']=> $sel['id'],
+                            $sel['Prenom'] => $sel['id'] + 5,
                         ];
+                        
                         $MDPS = password_hash($nouveaumdp ,PASSWORD_DEFAULT, $option);
-
+                        /*
                         $response =$bdd->query('Update profil set motDePasse="'.$MDPS.'" WHERE email="'.$_SESSION['mailChangementMDP'].'"'); 
                         $row = $response->fetch();
+                        */
+                        $response = $bdd->prepare('Update profil set motDePasse="'.$MDPS.'" WHERE email="'.$_SESSION['mailChangementMDP'].'"');
+                        $response->execute();  // exécution de l'insertion
                         
                         echo '
     <section style="text-align:center;">

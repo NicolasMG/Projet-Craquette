@@ -8,7 +8,7 @@
     include('header_non_co.php');
 ?>
 
-<p><br><br><br><br><br><br><br><br><br><br><br></p>
+<p><br><br><br><br><br><br><br><br><br></p>
 
 <?php
         $sql=$bdd->prepare('SELECT max(Id) FROM profil ');
