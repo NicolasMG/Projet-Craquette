@@ -67,7 +67,7 @@ if(isset($_POST['creegroupe'])){
         </p>   <br>
 <p>
         <br>
-    <input type="text" class="input-medium search-query" name="membre" value="<?php if (isset($_POST['membre'])) echo htmlspecialchars($_POST['membre']);?>"placeholder= "membre" /> 
+    <input type="text" class="form-control" name="membre" value="<?php if (isset($_POST['membre'])) echo htmlspecialchars($_POST['membre']);?>"placeholder= "membre" /> 
         </p>    
         <br>   
         

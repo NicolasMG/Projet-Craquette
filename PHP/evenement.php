@@ -131,8 +131,7 @@ if(isset($_POST['creeevenement'])){
                 <form  method="post" action="participe.php?nom=<?php echo $nom;?>">
                         <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:490px; top:280px;" value="Je participe" type="submit" name="modif"/>
                 </form>
-                <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php echo $_GET['nom'];
-                        ?>  
+                <p style="display:block; position:absolute; left:25%; top:88%;font-weight: bold; color:black; font-size:20px;"><?php echo $_GET['nom']; ?>  
         </div>
         <div style="display:inline-block;" id="PanneauGauche">
                 <div id="Information">
@@ -164,7 +163,7 @@ if(isset($_POST['creeevenement'])){
                             <a href="profilami.php?id=<?php echo $idutil;?>"> <?php $response =$bdd->query('SELECT prenom FROM profil WHERE id="'.$idutil.'"'); 
                                             $row = $response->fetch();
 
-                                            echo(htmlspecialchars($row['prenom']); 
+                                            echo(htmlspecialchars($row['prenom'])); 
                                             echo " ";
                                             $response =$bdd->query('SELECT nom FROM profil WHERE id="'.$idutil.'"'); 
                                             $row = $response->fetch();

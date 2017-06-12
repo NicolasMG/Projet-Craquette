@@ -34,10 +34,7 @@
              <form method="post" action="voirmessage.php">
                 <input class="form-control" style=" display:block; position:absolute; width:150px; display:inline; left:680px; top:280px;" value="Mes messages" type="submit" name="messages"/>
             </form>                      
-            <form method="post" action="album.php">
-                <input class="form-control" style=" display:block; position:absolute; width:130px; display:inline; left:340px; top:280px;" value="Album" type="submit" name="ablum"/>
-            </form>
-            <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php $response = $bdd->query('SELECT nom FROM profil WHERE email="'.$mail.'"'); 
+            <p style="display:block; position:absolute; left:25%; top:88%;font-weight: bold; color:black; font-size:20px;"><?php $response = $bdd->query('SELECT nom FROM profil WHERE email="'.$mail.'"'); 
                                         $row = $response->fetch();
                                         echo($row['nom']); 
                         ?>  <?php  $response =$bdd->query('SELECT prenom FROM profil WHERE email="'.$mail.'"'); 
@@ -102,7 +99,11 @@
                         ?>
                         </p>
                         <p>CV : <a href="Documents/Mon%20CV.txt">Mon CV</a></p>    
+                        <form method="post" action="album.php">
+                            <input class="form-control" style=" display:block; position:absolute; width:130px; display:inline;" value="Album" type="submit" name="ablum"/>
+                        </form>
                     </div>
+          
                 </div>
             </div>
         <div id="PanneauDroit">

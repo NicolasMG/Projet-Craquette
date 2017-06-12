@@ -41,10 +41,18 @@
         
             <form method="post" action="message.php?idutil=<?php echo $mail ; ?>">
                 <input class="form-control" style=" display:block; position:absolute; width:170px; display:inline; left:680px; top:280px;" value="Envoyer un message" type="submit" name="envoyer un message"/>
-            </form>      
+            </form>  
+         <p style="display:block; position:absolute; left:25%; top:88%;font-weight: bold; color:black; font-size:20px;"><?php  $response =$bdd->query('SELECT nom FROM profil WHERE id="'.$mail.'"'); 
+                                        $row = $response->fetch();
+                                        echo($row['nom']); 
+                        ?>  <?php $response = $bdd->query('SELECT prenom FROM profil WHERE id="'.$mail.'"'); 
+                                        $row = $response->fetch();
+                                        echo($row['prenom']);
+                ?>
+        
     </div>
     <div id="PanneauGauche">
-        <p>A propos :</p>
+        <p><h2 style="font-size:20px;" >A propos :</h2></p>
             <div id="Information">
                 <div id="Infogenerale">
                     <p>Nom : <?php  $response =$bdd->query('SELECT nom FROM profil WHERE id="'.$mail.'"'); 

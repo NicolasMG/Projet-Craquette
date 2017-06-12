@@ -92,7 +92,7 @@
 
                 <div class="form-group">
                     <label for="MDP"> 
-                        Mot de passe :
+                        Mot de passe : (6 caractères minimum)
                     </label>
 
                     <div style="display:inline;">

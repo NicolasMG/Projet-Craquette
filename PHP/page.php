@@ -88,25 +88,8 @@ if(isset($_POST['creepage'])){
                         $row = $response->fetch();
                         echo($row['imageprofil']);               
 
-                                             ?>" >  
-                <form  method="post" action="modifpage.php?nom=<?php echo $nom;?>">
-                    <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:680px; top:280px;" value="Modifier la page" type="submit" name="modif"/>
-                </form>
-                <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php echo htmlspecialchars($_GET['nom']);
-                        ?>  
-        </div>
-        <div style="display:inline-block;" id="PanneauGauche">
-                <div id="Information">
-                    <div id="Infogenerale">
-                        <!--<p><h2 style="font-size:20px;" >Membres du page :</h2></p>-->
-                    
-                        
-                        
-                        
-                        
-                        
-                        <!--DOIT ETRE VU UNUQUEMENT PAR CREATEUR-->
-                        <?php
+                                             ?>" />
+            <?php
                         $nom = htmlspecialchars($_GET['nom']);
                         $id=$_SESSION['ID'];
         
@@ -123,7 +106,9 @@ if(isset($_POST['creepage'])){
 
                         <?php $nom=htmlspecialchars($_GET['nom']); ?>
 
-                        <a href='modifpage.php?nom=<?php echo $nom;?>'><button style="left:62%; top:34%;" type="submit" class="btn">Mettre à jour ma page</button></a>
+                        <form  method="post" action="modifpage.php?nom=<?php echo $nom;?>">
+                            <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:680px; top:280px;" value="Modifier la page" type="submit" name="modif"/>
+                        </form>
                 
                         <?php }else{ ?>
                         
@@ -132,22 +117,14 @@ if(isset($_POST['creepage'])){
                             </form>
                         
                         <?php }  ?>
-                
-                <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php echo $_GET['nom'];
-                        ?>  
+                                    <p style="display:block; position:absolute; left:25%; top:88%;font-weight: bold; color:black; font-size:20px;"><?php echo htmlspecialchars($_GET['nom']);                        ?>  
         </div>
+    
         <div style="display:inline-block;" id="PanneauGauche">
                 <div id="Information">
                     <div id="Infogenerale">
                         <!--<p><h2 style="font-size:20px;" >Membres du page :</h2></p>-->
                     
-                        
-                        
-                        
-                        
-                        
-                        <!--DOIT ETRE VU UNUQUEMENT PAR CREATEUR-->
-                       
                         
                         <p>cette page a <?php 
                             $reponse = $bdd->query('select count(idutil) FROM  aimepage WHERE nompage="'.$nom.'"'); 
