@@ -27,6 +27,8 @@
 	<body>
 		<header> <!-- header = en tête page -->
             <div style="height:50px;" class="topnav" id="myTopnav">
-                <img style="padding-left:48%;" class="headerimg" src='Images/logo.png' alt="Logo" />
+                    <img style="display:inline; padding-left:48%;" class="headerimg" src='Images/logo.png' alt="Logo" />
+                    <p style="float:none; padding-left:60%; display:inline; color:white; font-weight:bold;">Craquette</p>       
             </div>
+
         </header>

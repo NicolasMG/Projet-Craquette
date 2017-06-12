@@ -81,16 +81,40 @@ if(isset($_POST['creepage'])){
                         $response =$bdd->query('SELECT imagecouverture FROM page WHERE nompage="'.$nom.'"'); 
                         $row = $response->fetch();
                         echo($row['imagecouverture']);                                              
-                                                 ?>">
+                                                 ?>"/>
 
                 <img id="PhotoDeProfil" src="<?php 
                         $response =$bdd->query('SELECT imageprofil FROM page WHERE nompage="'.$nom.'"'); 
                         $row = $response->fetch();
                         echo($row['imageprofil']);               
-                                             ?>" >  
-                <form  method="post" action="modifpage.php?nom=<?php echo $nom;?>">
-                    <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:680px; top:280px;" value="Modifier la page" type="submit" name="modif"/>
-                </form>
+                                             ?>" />
+                <?php
+                        $nom = htmlspecialchars($_GET['nom']);
+                        $id=$_SESSION['ID'];
+        
+                        $reponse=$bdd->prepare('Select nompage From page Where createur="'.$id.'" AND nompage="'.$nom.'"');
+                        $nom=htmlentities($_GET['nom']);
+                        $reponse->execute(array('.$nom.'=>htmlspecialchars($_GET['nom'])));
+                        $reponse2=$reponse->fetch();
+                        //$_GET['nom'] =$_POST['nompage'];                           
+                        if($reponse2){    
+                        
+                        ?>   
+                        
+                        
+                            <?php $nom=$_GET['nom']; ?>
+            
+                            <form  method="post" action="modifpage.php?nom=<?php echo $nom;?>">
+                                <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:680px; top:280px;" value="Modifier la page" type="submit"        name="modif"/>
+                            </form>                
+                        <?php }else{ ?>
+                        
+                            <form  method="post" action="aimepage.php?nom=<?php echo $nom;?>">
+                                <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:680px; top:280px;" value="J'aime" type="submit"      name="modif"/>
+                            </form>
+                        
+                        <?php }  ?>
+                
                 <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php echo $_GET['nom'];
                         ?>  
         </div>
@@ -105,30 +129,7 @@ if(isset($_POST['creepage'])){
                         
                         
                         <!--DOIT ETRE VU UNUQUEMENT PAR CREATEUR-->
-                        <?php
-                        $nom = htmlspecialchars($_GET['nom']);
-                        $id=$_SESSION['ID'];
-        
-                        $reponse=$bdd->prepare('Select nompage From page Where createur="'.$id.'" AND nompage="'.$nom.'"');
-                        $nom=htmlentities($_GET['nom']);
-                        $reponse->execute(array('.$nom.'=>htmlspecialchars($_GET['nom'])));
-                        $reponse2=$reponse->fetch();
-                        //$_GET['nom'] =$_POST['nompage'];                           
-                        if($reponse2){    
-                        
-                        ?>   
-                        
-                        
-                        <?php $nom=$_GET['nom']; ?>
-
-                        <a href='modifpage.php?nom=<?php echo $nom;?>'><button style="left:62%; top:34%;" type="submit" class="btn">Mettre à jour ma page</button></a>
-                
-                        <?php }else{ ?>
-                        
-                        
-                        <a href='aimepage.php?nom=<?php echo $nom;?>'><button style="left:52%; top:34%;" type="submit" class="btn">J'aime</button></a>
-                        
-                        <?php }  ?>
+                       
                         
                         <p>cette page a <?php 
                             $reponse = $bdd->query('select count(idutil) FROM  aimepage WHERE nompage="'.$nom.'"'); 

@@ -34,13 +34,14 @@
 		<header> <!-- header = en tête page -->
 
         <div style="height:50px;" class="topnav" id="myTopnav">
-            <img style="padding-left:48%;" class="headerimg" src='PHP/Images/logo.png' alt="logo"/>
+            <img style="display:inline; padding-left:48%;" class="headerimg" src='PHP/Images/logo.png' alt="logo"/>
+
         </div>
 		</header>
 		<section style="text-align:center;">
             
             
-       <h2>Connexion</h2>
+       <h2>Connexion - Craquette</h2>
             <br>
             <form class="form-horizontal" method="post" action="PHP/connexion.php" >
                 

@@ -12,17 +12,12 @@
 ?>
 
 		
-		<section> <!-- Contenu principal de la page -->
+		<section style="text-align:center;"> <!-- Contenu principal de la page -->
 	
             <h2>Inscription</h2>
-            <!--message de modele liste prevenant que :
-                * Merci de bien rempplir tout les champs
-                * Pas de caractere speciaux dans les identifiants
-                * mot de passe d'au moins 6 caracteres 
-                * Date de naissance du format ANNEE-MOIS-JOUR
-                
-                EN Rouge
-            -->
+            <p style="color:red;">* Merci de bien rempplir tout les champs </p>
+            <p style="color:red;"> * Pas de caractere speciaux dans les identifiants</p>
+            <p style="color:red;"> * Mot de passe d'au moins 6 caracteres </p>
             <form class="form-horizontal" method="post" action="traitement.php" >
 
                 <div class="form-group">
@@ -34,18 +29,22 @@
                     </div>
 				</div>
                 
-                <div>
+                <div class="form-group">
 					<label for="prenom">
 						Prénom:
 					</label>
-					<input type="text" class="input-medium search-query" name="prenom" placeholder= "Votre prénom" />
+                    <div style="display:inline;">
+					   <input type="text" class="form-control" style="width:250px; display:inline;" name="prenom" placeholder= "Votre prénom" />
+                    </div>
                 </div>
                 
-                <div>
+                <div class="form-group">
 					<label for="mail">
 						Mail:
 					</label>
-					<input type="email" class="input-medium search-query" class="form-control" name="mail" placeholder= "Votre email" />
+                    <div style="display:inline;">
+					   <input type="email" class="form-control" style="width:250px; display:inline;" name="mail" placeholder= "Votre email" />
+                    </div>
 				</div>
                 
           
@@ -53,7 +52,7 @@
                 <label for="filiere">
 						Filiere:
 					</label>
-				<select name="filiere">
+				<select class="form-control" style="width:250px; display:inline;" name="filiere">
 					<option value="IR"> IR </option>
 					<option value="AS"> AS </option>
                     <option value="TF"> TF</option>
@@ -67,7 +66,7 @@
                     <label for="promo">
 						Année d'etude:
 					</label>
-                    <select name="promo">
+                    <select class="form-control" style="width:250px; display:inline;" name="promo">
                         <option value="1A">1A</option>
                         <option value="2A">2A</option>
                         <option value="3A">3A</option>
@@ -78,32 +77,36 @@
                 
                 
                 
-                <div>
+                <div class="form-group">
 					<label for="datenaissance">
 						Date de naissance:
 					</label>
-					<input type="date" class="input-medium search-query" name="datenaissance" placeholder="année-mois-jour" />
+                    <div style="display:inline;">
+					   <input type="date" class="form-control" style="width:250px; display:inline;" name="datenaissance" placeholder="année-mois-jour" />
+                    </div>
 				</div>
 				
-                <div>
+                <div class="form-group">
 					<label for="MDP">
 						Mot de passe:
 					</label>
-					<input type="password" class="input-medium search-query" name="MDP" placeholder= "Votre mot de passe" />
+                    <div style="display:inline;">
+					   <input type="password" class="form-control" style="width:250px; display:inline;" name="MDP" placeholder= "Votre mot de passe" />
+                    </div>
 				</div>
                 
-                 <div>
+                 <div class="form-group">
 					<label for="MDPconfirmation">
 						Confirmation de mot de passe:
 					</label>
-					<input type="password" class="input-medium search-query" name="MDPconfirmation" placeholder= "Confirmer votre mot de passe" />
+                    <div style="display:inline;">
+					   <input type="password" class="form-control" style="width:250px; display:inline;" name="MDPconfirmation" placeholder= "Confirmer votre mot de passe" />
+                    </div>
 				</div>              
-                <div >
-				    <label>
-                    <input type="submit" style="width:100px; display:inline;" class="form-control" name="inscription"/>
-					 <a href='inscription.php'><button type="reset" class="btn">Effacer</button></a>
-                    </label>
-                </div>
+                <input type="submit" style="width:100px; display:inline; margin-right:15px;" class="form-control" name="inscription"/>
+                <form  method="post" action="inscription.php">
+                    <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; " value="Effacer" type="submit" name="modif"/>
+                </form>
 			</form>
             
 </section>             
