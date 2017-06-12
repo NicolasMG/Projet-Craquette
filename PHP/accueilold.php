@@ -7,12 +7,6 @@
         die('Erreur : '.$e->getMessage()); 
     }
             $mail=$_SESSION['mail'];
-
-
-$req2="select Prenom,Nom,imageprofil from profil where id=:id";
-$req2=$bdd->prepare($req2);
-$req2->execute(array('id'=>$_SESSION['ID']));
-$data2=$req2->fetch();
 ?>
 <div class="contenu">
     <div id="contenu_gauche">  
@@ -111,23 +105,20 @@ $data2=$req2->fetch();
     <div id="contenu_centre">
         <div id="filactualite">
             <div id="conteneur_du_post">
-				
-				<div id="conteneur_du_post_2">
-					
-					<img class="img-circle" src="<?php echo $_SESSION['imageprofil'] ; ?> "/>
-					<form method="post" action="traitement_news.php">
-						<textarea class="form-control" cols="100" row='10' name="message" placeholder="Quoi de neuf <?php echo $data2['Prenom']; ?> ?"></textarea>
-						<input class="form-control" value="Craquetter" type="submit" name="craquetter"/>
-					</form>
-					<!--<div id="fond"></div>
-                      <a href="#" id="show"> <img src="Images/alarme.png" /> </a>
-                      <script src="modal.js" type="text/javascript"></script>
-                      <div id="modal" class="popup"></div>
-				</div>-->
-			<?php include('news_accueil.php'); ?>			
-			</div>
+
+                <div id="conteneur_du_post_2">
+
+                    <img class="img-circle" src="Images/profil.png" />
+
+
+                    <form method="post" action="traitement_news.php">
+                        <textarea class="form-control" cols="100" row='10' name="message" placeholder="Quoi de neuf ?"></textarea>
+                        <input class="form-control" value="Craquetter" type="submit" name="craquetter"/>
+                    </form>
+                </div>
+            <?php include ('news_accueil.php') ; ?>
+            </div>   
         </div>
-    </div>
     </div>
 
      

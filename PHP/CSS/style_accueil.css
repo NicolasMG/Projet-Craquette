@@ -6,6 +6,9 @@
 
  }
 
+a{
+    color:white;
+}
 
 header{
     width: 100%;
@@ -40,8 +43,8 @@ h4{
     background-size:100% 100%;
     background-attachment: fixed;
     margin-left:200px;
-
 }
+
 
 #profil{
     height:200px;
@@ -209,3 +212,25 @@ h4{
 {
     color:#5a779e;
 }
+    
+    
+    
+    
+    
+@media screen and (max-width: 1450px){
+    #contenu_gauche{
+        margin-left:100px;
+    }
+    #contenu_centre{
+        margin-left:370px;
+    }
+@media screen and (max-width: 1290px){
+    #contenu_gauche{
+        margin-left:0px;
+    }
+    #contenu_centre{
+        margin-left:270px;
+    }
+}
+    
+

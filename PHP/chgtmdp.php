@@ -149,12 +149,12 @@ else{
                         $mail->isSMTP();                                      // Set mailer to use SMTP
                         $mail->Host = 'smtp.gmail.com';         // Specify main and backup SMTP servers
                         $mail->SMTPAuth = true;                               // Enable SMTP authentication
-                        $mail->Username = 'CraquetteMailer@Craquette.fr;                 // SMTP username
+                        $mail->Username = 'david.vergnault87@gmail.com';                 // SMTP username
                         $mail->Password = 'e106684cdf';                           // SMTP password
                         $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
                         $mail->Port = 587;                                    // TCP port to connect to
 
-                        $mail->setFrom('CraquetteMailer@Craquette.fr', 'Craquette');
+                        $mail->setFrom('david.vergnault87@gmail.com', 'Craquette');
                         $mail->addAddress($destinataire);     // Add a recipient
                         /*$mail->addAddress('ellen@example.com');               // Name is optional
                         $mail->addReplyTo('info@example.com', 'Information');
