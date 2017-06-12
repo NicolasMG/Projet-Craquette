@@ -11,7 +11,7 @@
     }
 ?>
 
-		<section style="text-align:center;">
+<section style="text-align:center;">
         <h4 style="margin-bottom:20px; padding-left:80px;">
             Remplisez uniquement les champs que vous souhaitez modifier
         </h4>

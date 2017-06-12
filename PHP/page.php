@@ -81,12 +81,13 @@ if(isset($_POST['creepage'])){
                         $response =$bdd->query('SELECT imagecouverture FROM page WHERE nompage="'.$nom.'"'); 
                         $row = $response->fetch();
                         echo($row['imagecouverture']);                                              
-                                                 ?>">
+                                                 ?>"/>
 
                 <img id="PhotoDeProfil" src="<?php 
                         $response =$bdd->query('SELECT imageprofil FROM page WHERE nompage="'.$nom.'"'); 
                         $row = $response->fetch();
                         echo($row['imageprofil']);               
+
                                              ?>" >  
                 <form  method="post" action="modifpage.php?nom=<?php echo $nom;?>">
                     <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:680px; top:280px;" value="Modifier la page" type="submit" name="modif"/>
@@ -119,16 +120,34 @@ if(isset($_POST['creepage'])){
                         ?>   
                         
                         
+
                         <?php $nom=htmlspecialchars($_GET['nom']); ?>
 
                         <a href='modifpage.php?nom=<?php echo $nom;?>'><button style="left:62%; top:34%;" type="submit" class="btn">Mettre à jour ma page</button></a>
                 
                         <?php }else{ ?>
                         
-                        
-                        <a href='aimepage.php?nom=<?php echo $nom;?>'><button style="left:52%; top:34%;" type="submit" class="btn">J'aime</button></a>
+                            <form  method="post" action="aimepage.php?nom=<?php echo $nom;?>">
+                                <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:680px; top:280px;" value="J'aime" type="submit"      name="modif"/>
+                            </form>
                         
                         <?php }  ?>
+                
+                <p style="display:block; position:absolute; left:3%; top:35%;font-weight: bold; color:white; font-size:20px;"><?php echo $_GET['nom'];
+                        ?>  
+        </div>
+        <div style="display:inline-block;" id="PanneauGauche">
+                <div id="Information">
+                    <div id="Infogenerale">
+                        <!--<p><h2 style="font-size:20px;" >Membres du page :</h2></p>-->
+                    
+                        
+                        
+                        
+                        
+                        
+                        <!--DOIT ETRE VU UNUQUEMENT PAR CREATEUR-->
+                       
                         
                         <p>cette page a <?php 
                             $reponse = $bdd->query('select count(idutil) FROM  aimepage WHERE nompage="'.$nom.'"'); 
