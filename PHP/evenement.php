@@ -104,9 +104,23 @@ if(isset($_POST['creeevenement'])){
                         $row = $response->fetch();
                         echo($row['profilevenement']);               
                                              ?>" >  
+                <?php $nom = htmlspecialchars($_GET['nom']);
+                        $id=$_SESSION['ID'];
+        
+                        $reponse=$bdd->prepare('Select nomevenement From evenement Where createur="'.$id.'" AND nomevenement="'.$nom.'"');
+                        $nom=htmlentities($_GET['nom']);
+                        $reponse->execute(array('.$nom.'=>htmlspecialchars($_GET['nom'])));
+                        $reponse2=$reponse->fetch();
+                        //$_GET['nom'] =$_POST['nompage'];                           
+                        if($reponse2){  
+                        ?>
                 <form  method="post" action="modifevenement.php?nom=<?php echo $nom;?>">
                         <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:680px; top:280px;" value="Modifier l'évènement" type="submit" name="modif"/>
                 </form>
+                    <?php
+                        }
+                    ?>
+            
                 <form  method="post" action="participe.php?nom=<?php echo $nom;?>">
                         <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:490px; top:280px;" value="Je participe" type="submit" name="modif"/>
                 </form>
@@ -114,7 +128,52 @@ if(isset($_POST['creeevenement'])){
                         ?>  
         </div>
         <div style="display:inline-block;" id="PanneauGauche">
-               
+                <div id="Information">
+                    <div id="Infogenerale">
+                          
+                        <p><?php 
+                            $reponse = $bdd->query('select count(idutil) FROM  vientevenement WHERE nomevenement="'.$nom.'"'); 
+                            $row=$reponse->fetch();  
+                            echo $row[0];
+                
+                            
+                            ?>   participant(s)</p>
+                        <p><h2 style="font-size:20px;" >Participant(s) :</h2></p>
+                         <ul>  
+                   <?php       
+                        $id=$_SESSION['ID'];
+                        $sql='SELECT distinct idutil FROM vientevenement Where nomevenement="'.$nom.'"';
+                        $req = $bdd->query($sql)  ; 
+
+
+                        while($row=$req->fetch()){
+                            $idutil=$row['idutil'];
+                           
+
+                            ?>
+                        <li> 
+                            <a href="profilami.php?id=<?php echo $idutil;?>"> <?php $response =$bdd->query('SELECT prenom FROM profil WHERE id="'.$idutil.'"'); 
+                                            $row = $response->fetch();
+                                            echo($row['prenom']); 
+                                            echo " ";
+                                            $response =$bdd->query('SELECT nom FROM profil WHERE id="'.$idutil.'"'); 
+                                            $row = $response->fetch();
+                                            echo($row['nom']);
+                                
+                                ?>
+                            </a>
+                        </li>
+                        <?php 
+                            }
+                           $req->closeCursor();
+                        ?>
+                </ul>
+                     
+                
+                    
+                   <?php $nom=$_GET['nom']; ?>
+                    
+                     <div style="display:inline-block;" id="PanneauGauche">
                 <div id="Information">
                     <div id="Infogenerale">
                         <p><h2 style="font-size:20px;" >Information sur l'événement :</h2></p>
@@ -151,9 +210,13 @@ if(isset($_POST['creeevenement'])){
                     </div>
                 </div>
         </div>
-
                     
-                </div>
+              
+                    
+  
+   
+                    
+                
             </div>
         </div>
         <div id="PanneauDroit">
@@ -175,3 +238,4 @@ if(isset($_POST['creeevenement'])){
      </section> 
 </body>
 </html>
+

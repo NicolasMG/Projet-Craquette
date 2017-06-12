@@ -8,12 +8,11 @@
 	
     include('header_non_co.php');
 	
-    // $reponse2 = $bdd->query('SELECT * FROM profil ORDER BY id DESC'); 
 ?>
 <section style="text-align:center;">
             <form class="form-horizontal" method="post" action="traitement.php" enctype="multipart/form-data">
                 <h2>Inscription</h2>
-
+                <p>Tous les champs sont obligatoires</p>
                 <div class="form-group">
 					<label for="prenom">
 						Prénom:
@@ -90,10 +89,12 @@
                     </div>
 				</div>
                 
+
                 <div class="form-group">
                     <label for="MDP"> 
                         Mot de passe :
                     </label>
+
                     <div style="display:inline;">
                         <input type="password" class="form-control" style="width:250px; display:inline;" name="MDP" placeholder= "Mot de passe" />                    
                     </div>
@@ -101,6 +102,7 @@
                 <div class="form-group">
                     <label for="MDPconfirmation"> 
                        Confirmer mot de passe :
+
                     </label>
                     <div style="display:inline;">
                         <input type="password" class="form-control" style="width:250px; display:inline;" name="MDPconfirmation" placeholder= "Mot de passe" />                    
