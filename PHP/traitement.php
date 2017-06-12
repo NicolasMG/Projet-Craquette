@@ -100,6 +100,9 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                                             $bouton="Voir mon profil";
                                             $valideinscription="profil.php";
                                             $message2= "merci de nous rejoindre";
+                                            
+                                            
+                                            mkdir('fichier"'.$id"'",0777, true);
                                         }
                                     }
                                 }
