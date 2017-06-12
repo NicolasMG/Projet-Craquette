@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <?php
-    include('protection_session.php');
-    //session_start(); Mise en commentaire
     $mail = $_SESSION['mail'];
-   //$mail="rachel.noireau@uha.fr";
-   // echo($mail);
     
     include('header_accueil.php');
     try{ 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 09 Juin 2017 à 18:06
+-- Généré le :  Lun 12 Juin 2017 à 11:00
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.19
 
@@ -17,28 +17,26 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `aimepage`
+-- Base de données :  `siteweb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `baleine`
+-- Structure de la table `aimepage`
 --
 
-CREATE TABLE `baleine` (
-  `aime` int(11) NOT NULL
+CREATE TABLE `aimepage` (
+  `nompage` varchar(225) COLLATE utf8_unicode_ci NOT NULL,
+  `idutil` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Index pour les tables exportées
+-- Contenu de la table `aimepage`
 --
 
---
--- Index pour la table `baleine`
---
-ALTER TABLE `baleine`
-  ADD PRIMARY KEY (`aime`);
+INSERT INTO `aimepage` (`nompage`, `idutil`) VALUES
+('page de rn', 24);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
