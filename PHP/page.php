@@ -104,7 +104,7 @@ if(isset($_POST['creepage'])){
                         
                         
 
-                        <?php $nom=htmlspecialchars($_GET['nom']); ?>
+                        <?php $nom=($_GET['nom']); ?>
 
                         <form  method="post" action="modifpage.php?nom=<?php echo $nom;?>">
                             <input class="form-control" style="display:block; position:absolute; width:170px; display:inline; left:680px; top:280px;" value="Modifier la page" type="submit" name="modif"/>
