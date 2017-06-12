@@ -22,7 +22,7 @@ if(isset($_POST['creegroupe'])){
         $reponse2=$reponse->fetch();
         $_GET['nom'] =$_POST['nomgroupe'];                           
         if($reponse2){
-            echo "Se nom est deja prit il faut en choisir un autre";
+            echo "Ce nom est deja prit il faut en choisir un autre";
             $pbnom="creegroup.php";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
         }else{
