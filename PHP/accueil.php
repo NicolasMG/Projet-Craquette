@@ -152,7 +152,7 @@
                     ?>
                     <li>
                         <a href="profilgroupe.php?nom=<?php echo $row['nomgroupe']; ?>">
-                            <?php echo($row['nomgroupe']); ?>
+                            <?php echo(htmlspecialchars($row['nomgroupe'])); ?>
                         </a>
                     </li>
                     
