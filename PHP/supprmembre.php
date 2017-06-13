@@ -3,7 +3,7 @@
 include('header_accueil.php');
 
         $id=$_GET['id'];
-        $nom=$_GET['nom'];
+        $nom=$_GET['nom']);
         echo $nom;
       /*  $membre1=htmlspecialchars($_POST['membre']);
         $mail=$membre1;//peut etre a changer
@@ -16,7 +16,7 @@ include('header_accueil.php');
         $insertion2->execute();
    // }
  //}
-    $groupe="profilgroupe.php?nom=$nom";
-    echo "<script>window.location = "."'".$groupe."'"."</script>";
+    //$groupe="profilgroupe.php?nom=$nom";
+    //echo "<script>window.location = "."'".$groupe."'"."</script>";
 
 ?>

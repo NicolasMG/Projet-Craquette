@@ -93,7 +93,7 @@ $data2=$req2->fetch();
                             ?>
                         <li> 
                             <a href="evenement.php?nom=<?php echo ($row['nomevenement']);?>"> <?php echo($row['nomevenement']); ?>
-                            </a><a href="supprevenement.php?nom=<?php echo htmlspecialchars($row['nomevenement']);?>"> <span class="glyphicon glyphicon-remove"></span></a>
+                            </a><a href="supprevenement.php?nom=<?php echo ($row['nomevenement']);?>"> <span class="glyphicon glyphicon-remove"></span></a>
                         </li>
                         <?php 
                             }
