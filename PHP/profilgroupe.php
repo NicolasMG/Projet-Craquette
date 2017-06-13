@@ -10,15 +10,23 @@
   
     $mail=$_SESSION['mail'];
     $id=$_SESSION['ID'];
-
 //CREATION DU GROUPE
 if(isset($_POST['creegroupe'])){ 
 	if(!empty($_POST['nomgroupe'])){
-        $nom = htmlspecialchars($_POST['nomgroupe']);
+        $pseudo = ($_POST['nomgroupe']);
+        if(eregi('[^a-zA-Z0-9_]', $pseudo))
+        { 
+            echo "Seul les caractères alpha-numérique et le _ sont acceptés";
+            $pbnom="creegroup.php";
+            echo "<script>window.location = "."'".$pbnom."'"."</script>";
+        }
+        //Si tout est OK on enrégistre le pseudo
+        
+        $nom = ($_POST['nomgroupe']);
         $id=$_SESSION['ID'];
         $reponse=$bdd->prepare('Select nomgroupe From groupe Where nomgroupe="'.$nom.'"');
-        $nom=htmlspecialchars($_POST['nomgroupe']);
-        $reponse->execute(array('.$nom.'=>htmlspecialchars($_POST['nomgroupe'])));
+        $nom=($_POST['nomgroupe']);
+        $reponse->execute(array('.$nom.'=>($_POST['nomgroupe'])));
         $reponse2=$reponse->fetch();
         if($reponse2){
             echo "Ce nom est deja prit il faut en choisir un autre";
@@ -30,7 +38,7 @@ if(isset($_POST['creegroupe'])){
                 if(!empty($_FILES['couverturegroupe'])){ 
                     $imagecouverture = $_FILES['couverturegroupe']; 
                     $nom1=md5(uniqid(rand(),true)); 
-                    $couverture=htmlspecialchars("Images/$nom1");
+                    $couverture=("Images/$nom1");
                     $resultat=move_uploaded_file($_FILES['couverturegroupe']['tmp_name'], $couverture);
                 }
             }
