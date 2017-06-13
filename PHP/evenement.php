@@ -17,10 +17,18 @@
 if(isset($_POST['creeevenement'])){ 
 	if(!empty($_POST['nomevenement'])){
         
+        $pseudo = htmlspecialchars($_POST['nomevenement']);
+        if(preg_match('~[#[{<>}\];]~', $pseudo))
+        { 
+            echo "Seul les caractères alpha-numérique et le _ sont acceptés";
+            $pbnom="creeevenement.php";
+            echo "<script>window.location = "."'".$pbnom."'"."</script>";
+        }
+        //Si tout est OK
+        
         
         
         $nom = htmlspecialchars($_POST['nomevenement']);
-        $id=$_SESSION['ID'];
         
         $reponse=$bdd->prepare('Select nomevenement From evenement Where nomevenement="'.$nom.'"');
         $nomn=htmlspecialchars($_POST['nomevenement']);
@@ -33,16 +41,8 @@ if(isset($_POST['creeevenement'])){
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
             break;
         }
+        $id=$_SESSION['ID'];
         
-        
-        $pseudo = htmlspecialchars($_POST['nomevenement']);
-        if(preg_match('~[#[{<>}\];]~', $pseudo))
-        { 
-            echo "Seul les caractères alpha-numérique et le _ sont acceptés";
-            $pbnom="creeevenement.php";
-            echo "<script>window.location = "."'".$pbnom."'"."</script>";
-        }
-        //Si tout est OK
         
         
         

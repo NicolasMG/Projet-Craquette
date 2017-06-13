@@ -17,11 +17,12 @@
 //CREATION DU PAGE
 if(isset($_POST['creepage'])){ 
 	if(!empty($_POST['nompage'])){
+        
         $pseudo = htmlspecialchars($_POST['nompage']);
         if(preg_match('~[#[{><}\];]~', $pseudo))
         { 
             echo "Seul les caractères alpha-numérique et le _ sont acceptés";
-            $pbnom="accueil.php";
+            $pbnom="creepage.php";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
             break;
         }
