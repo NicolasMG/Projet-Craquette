@@ -28,6 +28,7 @@ if(isset($_POST['modif'])){
           $row = $response->fetch();
           echo($row['imagecouverture']);
       }}
+    
       if(!$_FILES['imageprofil']['error']>0){
       if(!empty($_FILES['imageprofil'])){ 
           $imageprofil = $_FILES['imageprofil']['name']; 
@@ -78,14 +79,14 @@ if(isset($_POST['modif'])){
       if(!empty($_POST['filiere'])){ 
           if($_POST['filiere'] != "ne pas modifier"){
               $filiere = htmlspecialchars($_POST['filiere']); 
-              $response =$bdd->query('Update profil set filiere="'.$filiere.'" WHERE           email="'.$mail.'"'); 
+              $response =$bdd->query('Update profil set filiere="'.$filiere.'" WHERE  email="'.$mail.'"'); 
               $row = $response->fetch();
                 echo($row['filiere']);
           }
       }
     
       if(!empty($_POST['promo'])){ 
-          if($_POST['filiere'] != "ne pas modifier"){
+          if($_POST['promo'] != "ne pas modifier"){
               $promo = htmlspecialchars($_POST['promo']); 
               $response =$bdd->query('Update profil set promo="'.$promo.'" WHERE email="'.$mail.'"'); 
               $row = $response->fetch();
