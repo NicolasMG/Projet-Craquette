@@ -22,5 +22,6 @@ if (isset($_GET['num_tweet'])  and   $data1['liked']=="false"){
 
 
 
+echo "<SCRIPT LANGUAGE='JavaScript'>document.location.href='accueil.php'</SCRIPT>";
 
 ?>
