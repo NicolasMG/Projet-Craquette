@@ -22,6 +22,18 @@ if(isset($_POST['creeevenement'])){
         $nom = htmlspecialchars($_POST['nomevenement']);
         $id=$_SESSION['ID'];
         
+        $reponse=$bdd->prepare('Select nomevenement From evenement Where nomevenement="'.$nom.'"');
+        $nomn=htmlspecialchars($_POST['nomevenement']);
+        $reponse->execute(array('.$nomn.'=>htmlspecialchars($_POST['nomevenement'])));
+        $reponse2=$reponse->fetch();
+                                    
+        if($reponse2){
+            echo "Se nom est deja prit il faut en choisir un autre";
+            $pbnom="creeevenement.php";
+            echo "<script>window.location = "."'".$pbnom."'"."</script>";
+        }
+        
+        
         $pseudo = htmlspecialchars($_POST['nomevenement']);
         if(preg_match('~[#[{}\];]~', $pseudo))
         { 
@@ -41,7 +53,7 @@ if(isset($_POST['creeevenement'])){
 
         $_GET['nom'] =htmlspecialchars($_POST['nomevenement']);                           
         if($reponse2){
-            echo "Se nom est deja prit il faut en choisir un autre";
+            echo "Ce nom est déjà prit il faut en choisir un autre";
             $pbnom="creeevenement.php";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
         }else{
@@ -94,7 +106,7 @@ if(isset($_POST['creeevenement'])){
   
             $insertion = $bdd->prepare('insert into evenement values("'.$nom.'","'.$id.'","'.$date.'","'.$heure.'","'.$lieu.'","'.$commentaire.'","'.$couverture.'","'.$profil.'")'); 
             $insertion->execute(); 
-            
+            //BRYAN
             $bonsite="evenement.php?nom=$nom";
             echo "<script>window.location = "."'".$bonsite."'"."</script>";
         }
