@@ -78,7 +78,7 @@
 			}
 			
 			else {print '<div id="conteneur_newsfeed">
-				<a href="profil.php?num_tweet='.$res['num_tweet'].'&id='.$_SESSION['ID'].'" ><img src='."'".$data3["imageprofil"]."'".'/></a>
+				<a href="profil.php?id='.$_SESSION['ID'].'&id='.$_SESSION['ID'].'" ><img src='."'".$data3["imageprofil"]."'".'/></a>
 					<div id="contenu_droit">
 						<p id="nom_profil">'.$data3['Prenom']." ".$data3['Nom'].'</p>
 							<p id="contenu_int">'.$res['poste'].'</p>

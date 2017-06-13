@@ -179,7 +179,7 @@ if(isset($_POST['creeevenement'])){
                 <p style="display:block; position:absolute; left:25%; top:88%;font-weight: bold; color:black; font-size:20px;"><?php echo $_GET['nom']; ?>  
         </div>
         <div style="display:inline-block;" id="PanneauGauche">
-                <div id="Information">
+                <div id="Information" style="height:98%; overflow-y:scroll;">
                     <div id="Infogenerale">
                            <p><h2 style="font-size:20px;" >Information sur l'événement :</h2></p>
   
@@ -208,7 +208,7 @@ if(isset($_POST['creeevenement'])){
                         ?></p>
                     
                         
-                        <p>Déscription :<?php  $response =$bdd->query('SELECT commentaire FROM evenement WHERE nomevenement="'.$nom.'"'); 
+                        <p>Description :<?php  $response =$bdd->query('SELECT commentaire FROM evenement WHERE nomevenement="'.$nom.'"'); 
                                             $row = $response->fetch();
 
                                             echo(htmlspecialchars($row['commentaire']));
@@ -263,17 +263,11 @@ if(isset($_POST['creeevenement'])){
                     
 
 
-                                            echo(htmlspecialchars($row['lieu']));
-                        ?></p>
+                                            
+                        </p>
                     
                         
-                        <p>Déscription :<?php  $response =$bdd->query('SELECT commentaire FROM evenement WHERE nomevenement="'.$nom.'"'); 
-                                            $row = $response->fetch();
-
-                                            echo(htmlspecialchars($row['commentaire']));
                     
-                        ?>
-                        </p>
                           
                     </div>
                 </div>

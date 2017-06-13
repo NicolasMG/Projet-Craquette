@@ -89,7 +89,7 @@ if(isset($_POST['creegroupe'])){
                     
         </div>
         <div id="PanneauGauche">
-                <div id="Information">
+                <div id="Information" style="height:98%; overflow-y:scroll;">
                     <div id="Infogenerale">
                         <p><h2 style="font-size:20px;" >Membres du groupe :</h2></p>
    
@@ -198,11 +198,11 @@ if(isset($_POST['creegroupe'])){
 
 
         
-    </ul>
+    
     <?php }
     $req->closeCursor();
     ?>
-
+</ul>
        <form method="post">
 
     <p> 
