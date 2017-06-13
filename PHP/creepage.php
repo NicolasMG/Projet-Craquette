@@ -32,7 +32,7 @@
         </div>
 
         <input style="margin-top:50px; width:110px; margin-left:200px;" class="form-control" type="submit" value="Créer" name="creepage"/> 
-        <p>*Champ obligatoire</p>
+        <p style="color:red;">*Champ obligatoire</p>
     </form> 
 
 </section>

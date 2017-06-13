@@ -96,7 +96,7 @@
                 
                  <div class="form-group">
 					<label for="MDPconfirmation">
-						Confirmation de mot de passe:
+						Confirmation de mot de passe(6 caractéres minimum):
 					</label>
                     <div style="display:inline;">
 					   <input type="password" class="form-control" style="width:250px; display:inline;" name="MDPconfirmation" placeholder= "Confirmer votre mot de passe" />
