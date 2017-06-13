@@ -11,7 +11,7 @@
     }
 ?>
 
-<section style="text-align:center;">
+<section id="section_modifprofil">
         <h4 style="margin-bottom:20px; padding-left:80px;">
             Remplisez uniquement les champs que vous souhaitez modifier
         </h4>
