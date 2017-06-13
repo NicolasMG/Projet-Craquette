@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 13 Juin 2017 à 15:27
+-- Généré le :  Mar 13 Juin 2017 à 15:24
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -23,22 +23,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `retweeted_by`
+-- Structure de la table `abonnement`
 --
 
-CREATE TABLE `retweeted_by` (
-  `num_tweet_by` int(250) NOT NULL,
-  `retweeted_by_id` int(250) NOT NULL
+CREATE TABLE `abonnement` (
+  `id1` int(250) DEFAULT NULL,
+  `id2` int(250) DEFAULT NULL,
+  `id3` int(250) DEFAULT NULL,
+  `id4` int(250) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `retweeted_by`
+-- Contenu de la table `abonnement`
 --
 
-INSERT INTO `retweeted_by` (`num_tweet_by`, `retweeted_by_id`) VALUES
-(41, 25),
-(45, 25),
-(47, 25);
+INSERT INTO `abonnement` (`id1`, `id2`, `id3`, `id4`) VALUES
+(25, 15, 17, 30),
+(30, NULL, NULL, NULL);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

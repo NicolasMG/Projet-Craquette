@@ -169,16 +169,49 @@ if(isset($_POST['creeevenement'])){
         <div style="display:inline-block;" id="PanneauGauche">
                 <div id="Information">
                     <div id="Infogenerale">
-                          
-                        <p><?php 
+                           <p><h2 style="font-size:20px;" >Information sur l'événement :</h2></p>
+  
+
+                    
+                        <p>Date : <?php  $response =$bdd->query('SELECT date FROM evenement WHERE nomevenement="'.$nom.'"'); 
+                                            $row = $response->fetch();
+
+                                            echo(htmlspecialchars($row['date']));
+                        ?></p>
+                    
+                    
+                        
+                    
+                        <p>Heure : <?php  $response =$bdd->query('SELECT heure FROM evenement WHERE nomevenement="'.$nom.'"'); 
+                                            $row = $response->fetch();
+
+                                            echo(htmlspecialchars($row['heure']));
+                        ?></p>
+                        
+                    
+                        <p>Lieu : <?php  $response =$bdd->query('SELECT lieu FROM evenement WHERE nomevenement="'.$nom.'"'); 
+                                            $row = $response->fetch();
+
+                                            echo(htmlspecialchars($row['lieu']));
+                        ?></p>
+                    
+                        
+                        <p>Déscription :<?php  $response =$bdd->query('SELECT commentaire FROM evenement WHERE nomevenement="'.$nom.'"'); 
+                                            $row = $response->fetch();
+
+                                            echo(htmlspecialchars($row['commentaire']));
+                    
+                        ?>
+                        </p>
+                        <p></p>
+                        <p><h2 style="font-size:20px;" ><?php 
                             $reponse = $bdd->query('select count(idutil) FROM  vientevenement WHERE nomevenement="'.$nom.'"'); 
                             $row=$reponse->fetch();  
 
                             echo htmlspecialchars($row[0]);
                 
                             
-                            ?>   participant(s)</p>
-                        <p><h2 style="font-size:20px;" >Participant(s) :</h2></p>
+                            ?>   participant(s)</h2></p>
                          <ul>  
                    <?php       
                         $id=$_SESSION['ID'];
@@ -216,43 +249,8 @@ if(isset($_POST['creeevenement'])){
 
                    <?php $nom=htmlspecialchars($_GET['nom']); ?>
                     
-                     <div style="display:inline-block;" id="PanneauGauche">
-                <div id="Information">
-                    <div id="Infogenerale">
-                        <p><h2 style="font-size:20px;" >Information sur l'événement :</h2></p>
-  
 
-                    
-                        <p>Date : <?php  $response =$bdd->query('SELECT date FROM evenement WHERE nomevenement="'.$nom.'"'); 
-                                            $row = $response->fetch();
-
-                                            echo(htmlspecialchars($row['date']));
-                        ?></p>
-                    
-                    
-                        
-                    
-                        <p>Heure : <?php  $response =$bdd->query('SELECT heure FROM evenement WHERE nomevenement="'.$nom.'"'); 
-                                            $row = $response->fetch();
-
-                                            echo(htmlspecialchars($row['heure']));
-                        ?></p>
-                        
-                    
-                        <p>Lieu : <?php  $response =$bdd->query('SELECT lieu FROM evenement WHERE nomevenement="'.$nom.'"'); 
-                                            $row = $response->fetch();
-
-                                            echo(htmlspecialchars($row['lieu']));
-                        ?></p>
-                    
-                        
-                        <p>Déscription :<?php  $response =$bdd->query('SELECT commentaire FROM evenement WHERE nomevenement="'.$nom.'"'); 
-                                            $row = $response->fetch();
-
-                                            echo(htmlspecialchars($row['commentaire']));
-                    
-                        ?>
-                        </p>
+                       
                         <p>CV : <a href="Documents/Mon%20CV.txt">Mon CV</a></p>    
                     </div>
                 </div>
@@ -260,7 +258,7 @@ if(isset($_POST['creeevenement'])){
                     
               
                     
-  
+  </div>
    
                     
                 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 13 Juin 2017 à 15:27
+-- Généré le :  Mar 13 Juin 2017 à 15:26
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -23,22 +23,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `retweeted_by`
+-- Structure de la table `commentaire`
 --
 
-CREATE TABLE `retweeted_by` (
-  `num_tweet_by` int(250) NOT NULL,
-  `retweeted_by_id` int(250) NOT NULL
+CREATE TABLE `commentaire` (
+  `num_tweet_commented` int(11) NOT NULL,
+  `commented_by` int(11) NOT NULL,
+  `commented_for` int(11) NOT NULL,
+  `comment` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `retweeted_by`
+-- Contenu de la table `commentaire`
 --
 
-INSERT INTO `retweeted_by` (`num_tweet_by`, `retweeted_by_id`) VALUES
-(41, 25),
-(45, 25),
-(47, 25);
+INSERT INTO `commentaire` (`num_tweet_commented`, `commented_by`, `commented_for`, `comment`) VALUES
+(65, 25, 15, 'Commenter !'),
+(68, 25, 25, 'test01'),
+(68, 25, 25, 'hdhdhd'),
+(69, 25, 25, 'jgjgjg'),
+(69, 25, 25, 'kkkkk'),
+(69, 25, 25, 'bonjour');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 13 Juin 2017 à 08:30
--- Version du serveur :  5.7.11
--- Version de PHP :  5.6.19
+-- Généré le :  Mar 13 Juin 2017 à 15:25
+-- Version du serveur :  5.7.14
+-- Version de PHP :  5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -34,18 +34,21 @@ CREATE TABLE `actualite` (
   `num_tweet` int(250) NOT NULL,
   `liked` varchar(250) DEFAULT 'false',
   `retweeted` varchar(250) DEFAULT 'false',
-  `retweeted_by` int(250) DEFAULT NULL
+  `retweeted_by` int(250) DEFAULT NULL,
+  `commented` varchar(250) DEFAULT 'false',
+  `commented_by` int(250) DEFAULT NULL,
+  `compteur_comments` int(250) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `actualite`
 --
 
-INSERT INTO `actualite` (`id`, `poste`, `compteur_like`, `compteur_retweet`, `num_tweet`, `liked`, `retweeted`, `retweeted_by`) VALUES
-(25, 'fefef', 12, 12, 1, '1', '0', 15),
-(27, 'utfvjhuvkgjy', 1, 0, 53, 'true', 'false', NULL),
-(27, 'dezqsfsw', 0, 1, 54, 'false', 'true', NULL),
-(27, 'tgrdxg', 0, 0, 55, 'false', 'false', NULL);
+INSERT INTO `actualite` (`id`, `poste`, `compteur_like`, `compteur_retweet`, `num_tweet`, `liked`, `retweeted`, `retweeted_by`, `commented`, `commented_by`, `compteur_comments`) VALUES
+(25, 'hey', 0, 0, 68, 'false', 'false', NULL, 'true', 25, 2),
+(25, 'hey', 0, 0, 69, 'false', 'false', NULL, 'true', 25, 3),
+(25, 'jjjj', 0, 0, 70, 'false', 'false', NULL, 'false', NULL, 0),
+(25, 'fff', 0, 0, 71, 'false', 'false', NULL, 'false', NULL, 0);
 
 --
 -- Index pour les tables exportées
@@ -68,7 +71,7 @@ ALTER TABLE `actualite`
 -- AUTO_INCREMENT pour la table `actualite`
 --
 ALTER TABLE `actualite`
-  MODIFY `num_tweet` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `num_tweet` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
