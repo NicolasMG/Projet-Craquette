@@ -30,7 +30,8 @@ CREATE TABLE `message` (
   `id` int(11) NOT NULL,
   `idutil1` int(11) NOT NULL,
   `idutil2` int(11) NOT NULL,
-  `mp` text COLLATE utf8_unicode_ci NOT NULL
+  `mp` text COLLATE utf8_unicode_ci NOT NULL,
+  `format` varchar(225) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
