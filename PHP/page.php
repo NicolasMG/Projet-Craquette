@@ -17,15 +17,23 @@
 //CREATION DU PAGE
 if(isset($_POST['creepage'])){ 
 	if(!empty($_POST['nompage'])){
+        $pseudo = ($_POST['nompage']);
+        if(eregi('[^a-zA-Z0-9_]', $pseudo))
+        { 
+            echo "Seul les caractères alpha-numérique et le _ sont acceptés";
+            $pbnom="creepage.php";
+            echo "<script>window.location = "."'".$pbnom."'"."</script>";
+        }
+        //Si tout est OK on enrégistre le pseudo
         
-        $nom = htmlspecialchars($_POST['nompage']);
+        $nom = ($_POST['nompage']);
         $id=$_SESSION['ID'];
         
         $reponse=$bdd->prepare('Select nompage From page Where nompage="'.$nom.'"');
-        $nom=htmlspecialchars($_POST['nompage']);
-        $reponse->execute(array('.$nom.'=>htmlspecialchars($_POST['nompage'])));
+        $nom=($_POST['nompage']);
+        $reponse->execute(array('.$nom.'=>($_POST['nompage'])));
         $reponse2=$reponse->fetch();
-        $_GET['nom'] =htmlspecialchars($_POST['nompage']);                           
+        $_GET['nom'] =($_POST['nompage']);                           
         if($reponse2){
             echo "Se nom est deja prit il faut en choisir un autre";
             $pbnom="creepage.php";
@@ -67,7 +75,7 @@ if(isset($_POST['creepage'])){
     
     }else{
         echo "il faut choisir un nom";
-        $pbnom="creepage.php?";
+        $pbnom="creepage.php";
         echo "<script>window.location = "."'".$pbnom."'"."</script>";
         
     }

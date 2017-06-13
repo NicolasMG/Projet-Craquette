@@ -141,7 +141,7 @@ else
             $reponse=$bdd->prepare('Select email From profil');
             $reponse->execute();
             $reponse2=$reponse->fetch();
-            foreach ($reponse2['email'] as &$value){
+            foreach ($reponse2 as &$value){
             if(!($value == $destinataire)){
                 $_SESSION['mailChangementMDP']=$destinataire;
 
