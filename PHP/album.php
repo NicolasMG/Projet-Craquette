@@ -7,11 +7,11 @@
 
 if($id==$idutil){
 ?>
-<section id="section_modifprofil">
+<section id="section_profil">
 <form class="form-horizontal" method="post" action="ajoutimage.php?id=<?php echo $idutil;  ?>" enctype="multipart/form-data">
 
-        <div class="form-group">
-            <label class="col-sm-2 control-label" for="image">
+        <div style="margin-top:50px;" class="form-group">
+            <label  style="width:200px;" class="col-sm-2 control-label" for="image">
                     Ajouter une photo:
             </label>
             <input style="display:inline;" type="file" name="image" id="image"/>

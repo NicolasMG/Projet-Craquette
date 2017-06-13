@@ -3,11 +3,11 @@
     $idmoi=$_SESSION['ID'];
     $idutil=$_GET['id'];
 ?>
-<section id="section_modifprofil">
+<section id="section_profil">
   <form method="post">
 
     <p> 
-    <label for="video"> Ajouter une video(youtube) :</label>
+    <label style="margin-top:50px;"for="video"> Ajouter une video(youtube) :</label>
     
     <input type="text" style="width:300px;" class="form-control" name="video" value="<?php if (isset($_POST['video'])) echo htmlspecialchars($_POST['video']);?>"placeholder= "lien youtube" /> 
     

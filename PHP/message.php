@@ -9,11 +9,10 @@ $data2=$req2->fetch();
 ?>
 
 
-<section>
+<section id="section_profil">
 <?php if (isset($_POST['message'])) echo htmlentities($_POST['message']);?>
         
         
-      <div id="contenu_centre">
         <div id="filactualite">
             <div id="conteneur_du_post">
 				
@@ -63,7 +62,7 @@ while($res = $req->fetch()){
                 $nom=($row['nom']);
     
     if($format=="text"){
-             print '<div id="conteneur_newsfeed" style="width:600px;margin-left:50px; ">
+             print '<div id="conteneur_newsfeed" style="width:600px; ">
 					<a href="profilami.php?id='.$res['idutil1'].'"><img class="img-circle" alt="photo de votre ami" src="'.$idutil.'"/></a>
                     <div id="contenu_droit">
 						<p id="nom_profil" style="margin-bottom:20px;"> '.$prenom.' '.$nom.'
@@ -75,7 +74,7 @@ while($res = $req->fetch()){
     }
         if($format=="image"){
             
-                print '<div id="conteneur_newsfeed" style="width:600px; margin-left:50px;">
+                print '<div id="conteneur_newsfeed" style="width:600px;">
                 <a href="profilami.php?id='.$res['idutil1'].'"><img alt="phtode votre ami" src="'.$idutil.'"/></a>
 					<div id="contenu_droit">
 						<p id="nom_profil"  style="margin-bottom:20px;"> '.$prenom.' '.$nom.'
@@ -88,7 +87,6 @@ while($res = $req->fetch()){
              
 }
  echo "</div>
-        </div>
     </div>
     </div>" ;  
 

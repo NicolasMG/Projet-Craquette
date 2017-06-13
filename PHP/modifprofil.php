@@ -11,7 +11,7 @@
     }
 ?>
 
-<section id="section_modifprofil">
+<section id="section_profil">
         <h4 style="margin-bottom:20px; padding-left:80px;">
             Remplisez uniquement les champs que vous souhaitez modifier
         </h4>
@@ -21,7 +21,7 @@
              
               
                 <div class="form-group">
-					<label class="col-sm-2 control-label" for="imagecouverture">
+					<label style="width:200px;" class="col-sm-2 control-label" for="imagecouverture">
 						Photo de couverture:
 					</label>
                     <input style="display:inline;" type="file" name="imagecouverture" id="imagecouverture"/>
@@ -29,7 +29,7 @@
                 </div>
               
                 <div class="form-group">
-					<label class="col-sm-2 control-label" for="imageprofil">
+					<label style="width:200px;" class="col-sm-2 control-label" for="imageprofil">
 						Photo de profil:
 					</label>
 					<!--<input type="text" class="input-medium search-query" class="form-control" name="imageprofil" placeholder= "Chemin pour l'image" />-->
@@ -41,11 +41,11 @@
                 
 
                 <div class="form-group">
-					<label class="col-sm-2 control-label" for="prenom">
+					<label style="width:200px;" class="col-sm-2 control-label" for="prenom">
 						Prénom:
 					</label>
-                    <div class="col-sm-10">
-					   <input type="text" class="form-control" style="width:250px;" name="prenom" placeholder= "Votre prénom" />
+                    <div class="col-sm-10" style="float:none;">
+					   <input type="text" class="form-control" style="width:200px;" name="prenom" placeholder= "Votre prénom" />
                     </div>
                 </div>
                 
@@ -53,29 +53,29 @@
                 
                 
                 <div class="form-group">
-					<label class="col-sm-2 control-label" for="nom">
+					<label style="width:200px;" class="col-sm-2 control-label" for="nom">
 						Nom:
 					</label>
-                    <div class="col-sm-10"> 
-					   <input type="text" class="form-control" style="width:250px;"  name="nom" placeholder= "Votre nom" />  
+                    <div class="col-sm-10" style="float:none;"> 
+					   <input type="text" class="form-control" style="width:200px;"  name="nom" placeholder= "Votre nom" />  
                     </div>
 				</div>
 
                 <div class="form-group">
-					<label class="col-sm-2 control-label" for="mail">
+					<label style="width:200px;" class="col-sm-2 control-label" for="mail">
 						Mail:
 					</label>
-                    <div class="col-sm-10">
-					   <input type="email" class="form-control" style="width:250px;" name="mail" placeholder= "Votre email" />
+                    <div class="col-sm-10" style="float:none;">
+					   <input type="email" class="form-control" style="width:200px;" name="mail" placeholder= "Votre email" />
                     </div>
 				</div>
                     
               
             <p>
-                <label class="col-sm-2 control-label" for="filiere">
+                <label style="width:200px;" class="col-sm-2 control-label" for="filiere">
 						Filiere:
 				</label>
-				<select class="form-control" style="width:250px;" name="filiere">
+				<select class="form-control" style="width:200px;" name="filiere">
                     <option value="ne pas modifier"> ne pas modifier</option>
 					<option value="IR"> IR </option>
 					<option value="AS"> AS </option>
@@ -87,10 +87,10 @@
 				</select>
             </p>
             <p>
-                <label class="col-sm-2 control-label" for="promo">
+                <label style="width:200px;" class="col-sm-2 control-label" for="promo">
                     Année d'etude:
                 </label>
-                <select class="form-control" style="width:250px;" name="promo">
+                <select class="form-control" style="width:200px;" name="promo">
                     <option value="ne pas modifier"> ne pas modifier</option>
                     <option value="1A"> 1A</option>
                     <option value="2A"> 2A</option>
@@ -103,35 +103,35 @@
               
                 
                 <div class="form-group">
-					<label class="col-sm-2 control-label" for="datenaissance">
+					<label style="width:200px;" class="col-sm-2 control-label" for="datenaissance">
 						Date de naissance:
 					</label>
-                    <div class="col-sm-10">
-					   <input type="date" class="form-control" style="width:250px;" name="datenaissance" placeholder= "année-mois-jour" />
+                    <div class="col-sm-10" style="float:none;">
+					   <input type="date" class="form-control" style="width:200px;" name="datenaissance" placeholder= "année-mois-jour" />
                     </div>
 				</div>
               
               
               <div class="form-group">
-					<label class="col-sm-2 control-label" for="tel">
+					<label style="width:200px;" class="col-sm-2 control-label" for="tel">
 						Numero de telephone :
 					</label>
-                    <div class="col-sm-10">
-					   <input type="text" class="form-control" style="width:250px;" name="tel" placeholder= "Votre numero" />
+                    <div class="col-sm-10" style="float:none;">
+					   <input type="text" class="form-control" style="width:200px;" name="tel" placeholder= "Votre numero" />
                     </div>
 				</div>
 				
                  <div>
-					<label class="col-sm-2 control-label" for="commentaire">
+					<label style="width:200px;" class="col-sm-2 control-label" for="commentaire">
 						Commentaire: 
 					</label>
-                     <div class="col-sm-10">
+                     <div class="col-sm-10" style="float:none;">
 					<textarea  class="form-control" name="commentaire" rows="5" cols="100" style="width:500px;" placeholder= "Decrivez vous..." >
                     </textarea>
                      </div>
                 </div>
     
-    <input style="margin-top:180px; width:110px; margin-left:200px;" class="form-control" type="submit" value="Appliquer" name="modif"/>
+    <input style="margin-top:50px; width:110px; margin-left:200px;" class="form-control" type="submit" value="Appliquer" name="modif"/>
     
     </form>
   
