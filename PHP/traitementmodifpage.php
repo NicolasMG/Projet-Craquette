@@ -41,6 +41,11 @@ if(isset($_POST['modif'])){
           $response =$bdd->query('Update page set nompage="'.$nom2.'" WHERE nompage="'.$nom.'"'); 
           $row = $response->fetch();
           echo($row['nompage']);
+          
+          $response =$bdd->query('Update aimepage set nompage="'.$nom2.'" WHERE nompage="'.$nom.'"'); 
+          $row = $response->fetch();
+          echo($row['nompage']);
+          
           $nom=$nom2;
       }
 }

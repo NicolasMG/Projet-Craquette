@@ -8,6 +8,7 @@
     session_start();
   $id=$_SESSION['ID'];
 $idutil=$_GET['idutil'];
+
 if (isset($_POST['craquetter'])){
      $sql=$bdd->prepare('SELECT max(id) FROM message ');
         $sql->execute();
@@ -23,7 +24,8 @@ if (isset($_POST['craquetter'])){
 
         $req=$bdd->prepare('insert into message values("'.$idefi.'","'.$id.'","'.$idutil.'","'.$message.'","text")');
         $req->execute();
-    }
+    }else{
+    
     if(!empty($_FILES['imageenvoie'])){ 
         $imageprofil = $_FILES['imageenvoie']['name'];             
         $nom1=md5(uniqid(rand(),true)); 
@@ -34,6 +36,7 @@ if (isset($_POST['craquetter'])){
         $req=$bdd->prepare('insert into message values("'.$idefi.'","'.$id.'","'.$idutil.'","'.$nom.'","image")');
         $req->execute();
         echo"coucou";
+    }
     }
 
     
