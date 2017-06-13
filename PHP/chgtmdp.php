@@ -10,17 +10,14 @@ include ('header_non_co.php');
         
     session_start();
 
-if(isset($_POST['Confirmer2'])){ 
+if(isset($_POST['Confirmer2'])){ //3eme partie
     if(!empty($_POST['code'])){ 
         if ($_POST['code']==$_SESSION['binHex']){
             if(!empty($_POST['nouveaumdp'])){ 
                 $nouveaumdp = htmlspecialchars($_POST['nouveaumdp']);
-
                 if(!empty($_POST['confirmermdp'])){
                     $confirmermdp = htmlspecialchars($_POST['confirmermdp']);
-                   
                     if ($nouveaumdp==$confirmermdp){
-
                         $sql=$bdd->prepare('Select Nom,Prenom,id From profil Where email="'.$_SESSION['mailChangementMDP'].'"');
                         $sql->execute(array('.$email.'  =>$_SESSION['mailChangementMDP'])); //ATTIENTION AU email
                         $sel = $sql->fetch();
@@ -28,7 +25,6 @@ if(isset($_POST['Confirmer2'])){
                             $sel['Nom']=> $sel['id'],
                             $sel['Prenom'] => $sel['id'] + 5,
                         ];
-                        
                         $MDPS = password_hash($nouveaumdp ,PASSWORD_DEFAULT, $option);
                         /*
                         $response =$bdd->query('Update profil set motDePasse="'.$MDPS.'" WHERE email="'.$_SESSION['mailChangementMDP'].'"'); 
@@ -36,7 +32,6 @@ if(isset($_POST['Confirmer2'])){
                         */
                         $response = $bdd->prepare('Update profil set motDePasse="'.$MDPS.'" WHERE email="'.$_SESSION['mailChangementMDP'].'"');
                         $response->execute();  // exécution de l'insertion
-                        
                         echo '
     <section style="text-align:center;">
     <p style="margin-top:50px;">Votre mot de passe à bien été changé.</p>
@@ -134,8 +129,9 @@ if(isset($_POST['Confirmer2'])){
 }
 else
 {
-    if(isset($_POST['Confirmer'])){
-        if(!empty($_POST['mail'])){            
+    if(isset($_POST['Confirmer'])){ //2eme partie
+        if(!empty($_POST['mail'])){
+            echo ('hello');
             $destinataire = htmlspecialchars($_POST['mail']);
             //Verifier SQL si mail dans base de donnée
             $reponse=$bdd->prepare('Select email From profil');
@@ -220,7 +216,7 @@ else
             }
         }
     }
-    else{
+    else{   //1ere partie b
         echo '
         <section style="text-align:center;">
             <p style="margin-top:50px;">Veuillez indiquer une adresse Email</p>
@@ -242,7 +238,7 @@ else
         }
     }
     else
-    {
+    { //1ere partie
         echo '
         <section style="text-align:center;">
 

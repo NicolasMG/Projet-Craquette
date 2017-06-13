@@ -95,10 +95,12 @@ if(isset($_POST['modif'])){
       }
     
       if(!empty($_POST['datenaissance'])){ 
-          $datenaissance = htmlspecialchars($_POST['datenaissance']); 
-          $response =$bdd->query('Update profil set datenaissance="'.$datenaissance.'" WHERE email="'.$mail.'"'); 
-          $row = $response->fetch();
-          echo($row['datenaissance']);
+            if($_POST['datenaissance']){
+              $datenaissance = htmlspecialchars($_POST['datenaissance']); 
+              $response =$bdd->query('Update profil set datenaissance="'.$datenaissance.'" WHERE email="'.$mail.'"'); 
+              $row = $response->fetch();
+              echo($row['datenaissance']);
+            }
       }
     
         if(!empty($_POST['tel'])){ 
