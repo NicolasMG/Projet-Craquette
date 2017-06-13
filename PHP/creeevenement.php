@@ -1,6 +1,6 @@
 
 <?php include('header_accueil.php'); ?>
-<section id="section_modifprofil">
+<section id="section_profil">
     <h4 style="margin-bottom:30px; padding-left:180px;">Crée un evenement</h4>
 
     <form method="post" class="form-horizontal" action="evenement.php" enctype="multipart/form-data">

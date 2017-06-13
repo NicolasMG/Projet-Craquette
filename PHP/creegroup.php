@@ -4,13 +4,13 @@
     
    
 ?>
-<section id="section_creepage">
+<section id="section_profil">
 
     <h4 style="margin-bottom:20px; padding-left:180px;" >Crée un groupe</h4>
 
     <form class="form-horizontal" method="post" action="profilgroupe.php" enctype="multipart/form-data">
 
-        <div class="form-group">
+        <div  class="form-group">
             <label style="padding-left:0;" class="col-sm-2 control-label" for="nomgroupe">Nom du groupe* :</label>           
             <div  class="col-sm-10" style="display:inline;">
                 <input class="form-control" style="width:250px; display:inline;" type="text" name="nomgroupe" placeholder="Nom du groupe" />
