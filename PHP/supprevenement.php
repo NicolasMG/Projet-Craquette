@@ -10,5 +10,5 @@ include('header_accueil.php');
   
     $page="accueil.php";
     echo "<script>window.location = "."'".$page."'"."</script>";
-
+    //header('Location: ./album.php?id='.$idutil.'');
 ?>

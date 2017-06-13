@@ -16,6 +16,7 @@ $idutil=$_GET['id'];
 
       }}
 
-     $pbnom="album.php?id='".$id."'";
-        //echo "<script>window.location = "."'".$pbnom."'"."</script>";
+     $pbnom="album.php?id='".$idutil."'";
+    echo "<script>window.location = "."'".$pbnom."'"."</script>";
+    header('Location: ./album.php?id='.$idutil.'');
 ?>

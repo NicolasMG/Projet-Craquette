@@ -51,11 +51,7 @@
 	</head>
 
 	<body>
-<?php    
-        
-   //$url="https://www.youtube.com/embed/a021WhobrLc";    
-        
-?>
+
 <div>
 	<object width="460" height="315" data="<?php echo $url;     ?>">
 		<param name="movie" value="<?php echo $url;    ?>"></param>

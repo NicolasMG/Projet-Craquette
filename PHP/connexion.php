@@ -28,19 +28,6 @@ if(!empty($_POST['mail'])) {
                 
             if($reponse2){
 
-
-
-
-        //verification du mot de passe ici :
-        //$motDePass = /*  */;
-        //$sel = /*  */;
-        //$testMotDePass = password_verify($motDePass, $sel);
-        //if($testMotDePass == 0) {
-        // Mauvais mot de passe
-        //renvoyer sur page de connexion avec message d'erreur;
-        //}
-        //else {    //PAS DE ELSE:FAIRE UNE SUITE DES DIFFERANTES CONDITION
-            //test
         
         session_start();
 

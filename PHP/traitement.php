@@ -114,16 +114,7 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
     }
 }
      
-            //session_start();
-            //$_SESSION['mail']= $mail;
-            
-            
-            
-            /*
-           $response =$bdd->query('SELECT nom FROM profil WHERE email="'.$mail.'"'); 
-            $row = $response->fetch();
-            echo($row['nom']); 
-            */
+
             
             
           
