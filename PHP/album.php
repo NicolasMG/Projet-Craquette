@@ -7,7 +7,7 @@
 
 if($id==$idutil){
 ?>
-<section>
+<section id="section_modifprofil">
 <form class="form-horizontal" method="post" action="ajoutimage.php?id=<?php echo $idutil;  ?>" enctype="multipart/form-data">
 
         <div class="form-group">
@@ -19,12 +19,10 @@ if($id==$idutil){
         </div>
 
         <input style="margin-top:50px; width:110px; height=110px; margin-left:200px;" class="form-control" type="submit" value="Ajouter" name="modif"/> 
-</form>
-</section>
 
 
 
-<br><br><br>
+
 
 <?php
 }
@@ -42,5 +40,6 @@ foreach($files as $filename){
 }
 
 ?>
-
+</form>
+</section>
 

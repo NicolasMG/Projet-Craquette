@@ -3,19 +3,15 @@
     $idmoi=$_SESSION['ID'];
     $idutil=$_GET['id'];
 ?>
+<section id="section_modifprofil">
   <form method="post">
 
     <p> 
-    <label for="video"> Ajouter une video(youtube):</label>
-    <br>
-    <br>
+    <label for="video"> Ajouter une video(youtube) :</label>
     
-    <input type="text" class="form-control" name="video" value="<?php if (isset($_POST['video'])) echo htmlspecialchars($_POST['video']);?>"placeholder= "lien youtube" /> 
+    <input type="text" style="width:300px;" class="form-control" name="video" value="<?php if (isset($_POST['video'])) echo htmlspecialchars($_POST['video']);?>"placeholder= "lien youtube" /> 
     
-        <br>
-
-    
-   <input type="submit" name="nouvelvideo" value="Nouvel video" />
+    <input style="margin-top:50px; width:130px; margin-left:200px;" class="form-control" type="submit" value="Ajouter" name="nouvelvideo"/>
         
         <?php  if(isset($_POST['nouvelvideo'])){  // fonction pas
                                                              
@@ -67,7 +63,7 @@
          }
         $req->closeCursor();
  ?>
-
+</section>
 
 <!--https://openclassrooms.com/courses/inserer-facilement-une-video-dans-sa-page-web-sans-erreurs-->
 
