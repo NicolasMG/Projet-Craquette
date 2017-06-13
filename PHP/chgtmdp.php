@@ -137,11 +137,11 @@ else{
         if(!empty($_POST['mail'])){            
             $destinataire = htmlspecialchars($_POST['mail']);
             //Verifier SQL si mail dans base de donnée
-                $reponse=$bdd->prepare('Select email From profil Where email="'.$destinataire.'"');
-                $reponse->execute(array('.$destinataire.'=>htmlspecialchars($_POST['mail'])));
-                $reponse2=$reponse->fetch();
+            $reponse=$bdd->prepare('Select email From profil Where email="'.$destinataire.'"');
+            $reponse->execute(array('.$destinataire.'=>htmlspecialchars($_POST['mail'])));
+            $reponse2=$reponse->fetch();
 
-                if(!$reponse2){
+            if(!$reponse2[email] == $destinataire){
                 
                         $_SESSION['mailChangementMDP']=$destinataire;
                 
@@ -216,7 +216,7 @@ else{
                 </section>';
                         }
                 }
-                
+            }
         }
         else{
         echo '
