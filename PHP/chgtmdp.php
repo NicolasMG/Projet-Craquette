@@ -137,31 +137,28 @@ else
             $reponse->execute();
             $reponse2=$reponse->fetch();
             foreach ($reponse2 as &$value){
-            if(!($value == $destinataire)){
+            if(($value == $destinataire)){
                 $_SESSION['mailChangementMDP']=$destinataire;
 
                 require 'PHPMailer/PHPMailerAutoload.php';
                 require 'random_compat/lib/random.php';
                 $string = random_bytes(5);
-
                 $mail = new PHPMailer;
-
-
-                $mail->isSMTP();                                      // Set mailer to use SMTP
-                $mail->Host = 'smtp.gmail.com';         // Specify main and backup SMTP servers
-                $mail->SMTPAuth = true;                               // Enable SMTP authentication
-                $mail->Username = 'david.vergnault87@gmail.com';                 // SMTP username
-                $mail->Password = 'e106684cdf';                           // SMTP password
-                $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-                $mail->Port = 587;                                    // TCP port to connect to
+                $mail->isSMTP(); // Set mailer to use SMTP
+                $mail->Host = 'smtp.gmail.com'; // Specify main and backup SMTP servers
+                $mail->SMTPAuth = true;   // Enable SMTP authentication
+                $mail->Username = 'david.vergnault87@gmail.com';  // SMTP username
+                $mail->Password = 'e106684cdf';  // SMTP password
+                $mail->SMTPSecure = 'tls';   // Enable TLS encryption, `ssl` also accepted
+                $mail->Port = 587; // TCP port to connect to
 
                 $mail->setFrom('david.vergnault87@gmail.com', 'Craquette');
                 $mail->addAddress($destinataire);     // Add a recipient
-                /*$mail->addAddress('ellen@example.com');               // Name is optional
+                /*$mail->addAddress('ellen@example.com');    // Name is optional
                 $mail->addReplyTo('info@example.com', 'Information');
 
                 $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-                $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name*/
+                $mail->addAttachment('/tmp/image.jpg', 'new.jpg'); // Optional name*/
                 $mail->isHTML(true);                                  // Set email format to HTML
 
                 $_SESSION['binHex']=bin2hex($string); // binHex dans cookie
