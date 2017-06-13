@@ -3,7 +3,7 @@
 include('header_accueil.php');
 
         $id=$_GET['id'];
-        $nom=htmlspecialchars($_GET['nom']);
+        $nom=$_GET['nom']);
         echo $nom;
       /*  $membre1=htmlspecialchars($_POST['membre']);
         $mail=$membre1;//peut etre a changer

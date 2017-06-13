@@ -17,8 +17,22 @@
 if(isset($_POST['creeevenement'])){ 
 	if(!empty($_POST['nomevenement'])){
         
+        
+        
         $nom = htmlspecialchars($_POST['nomevenement']);
         $id=$_SESSION['ID'];
+        
+        $pseudo = htmlspecialchars($_POST['pseudo']);
+        if(eregi('[^a-zA-Z0-9_]', $pseudo))
+        { 
+            echo "Seul les caractères alpha-numérique et le _ sont acceptés";
+            $pbnom="creeevenement.php";
+            echo "<script>window.location = "."'".$pbnom."'"."</script>";
+        }
+        //Si tout est OK on enrégistre le pseudo
+        
+        
+        
         
         $reponse=$bdd->prepare('Select nomevenement From groupe Where nomevenement="'.$nom.'"');
         $nom=htmlentities($_POST['nomevenement']);
