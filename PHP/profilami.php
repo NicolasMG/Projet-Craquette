@@ -77,7 +77,7 @@
                                         echo($row['promo']);
                     ?></p>
                     
-                    <p>Adresse mail : <?php  $response =$bdd->query('SELECT email FROM profil WHERE id="'.$mail.'"'); 
+                    <p>Email : <?php  $response =$bdd->query('SELECT email FROM profil WHERE id="'.$mail.'"'); 
                                         $row = $response->fetch();
                                         echo($row['email']);
                                         

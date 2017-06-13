@@ -78,7 +78,7 @@
                 
                     
                     
-                        <p>Adresse mail : <?php  
+                        <p>Email : <?php  
                                             echo($mail);
                         ?></p>
                         
@@ -104,7 +104,7 @@
                         </form>
                     
                     
-                        <form method="post" action="video.php">
+                        <form method="post" action="video.php?id=<?php echo $id; ?>">
                             <input class="form-control" style=" display:block; position:absolute; width:100px; display:inline; margin-top:45px;" value="Video" type="submit" name="video"/>
                         </form>
                     </div>
