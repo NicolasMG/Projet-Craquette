@@ -76,7 +76,9 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                                             $_SESSION['mail']= $mail;
                                             $_SESSION['ID']=$idef;
                                             $_SESSION['MDPS']= $sel;
-
+                                            $_SESSION['imageprofil']="Images/profilpardefaut.png";
+                                            
+                                            
                                             $message="Votre profil a bien été créé.";
                                             $bouton="Voir mon profil";
                                             $valideinscription="profil.php";
