@@ -1,8 +1,7 @@
 
 <?php
 include('header_accueil.php');
- //if(isset($_POST['supprmembre'])){ 
-	//if(!empty($_POST['membre'])){ 
+
         $id=$_GET['id'];
         $nom=$_GET['nom'];
         echo $nom;

@@ -12,19 +12,28 @@
     <label for="ami"> A qui voulez vous parler :</label>
     <br>
     <br>
-    <input type="text" class="form-control" name="nouvelconversation" value="<?php if (isset($_POST['nouvelconversation'])) echo htmlspecialchars($_POST['nouvelconversation']);?>"placeholder= "nouvem ami" /> 
+    <input type="text" class="form-control" name="nouvelconversation" value="<?php if (isset($_POST['ami'])) echo htmlspecialchars($_POST['ami']);?>"placeholder= "ami" /> 
     
-        <br>   
-   <input type="submit" name="nouvelconversation" value="Nouvel conversation"/>
-      <?php  if(isset($_POST['nouvelconversation'])){  
+        <br>
+        
+    <?php  //if(isset($_POST['nouvelconversation'])){  ?>
+   <input type="submit" name="new" value="Nouvel conversation" />
+        <?php  if(isset($_POST['nouvelconversation'])){  ?>
+        <?php  
+                                                             
+                                         
+       if(isset($_POST['nouvelconversation'])){                                             
         $mail=$_POST['nouvelconversation'];
         $response =$bdd->query('SELECT id FROM profil WHERE email="'.$mail.'"'); 
         $row = $response->fetch();
         $idutil=$row['id'];          
-        $pbnom="./message.php?idutil='".$idutil."'";
-        echo "<script>window.location = "."'".$pbnom."'"."</script>";
-        echo"coucou";
-        }  ?>
+        $pbnom="message.php?idutil=$idutil";
+        echo "<script>window.location = "."'".$pbnom."'"."</script>";//pb là
+        header('location:'.$pbnom.'');
+        echo $mail;
+        echo $idutil;
+        } 
+}?>
 
 <h3> Mes conversations :</h3>
 <table class="table table-bordered">
