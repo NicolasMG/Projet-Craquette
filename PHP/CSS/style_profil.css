@@ -93,13 +93,15 @@
     
 
 
-
-
-#section_profil table{
-    width:800px; 
-    background-image:url(images/gradientby.jpg);
-}
-
 .enligne{
     display:inline-block;
+}
+
+.marge{
+    padding-left: 50px;
+}
+@media screen and (max-width: 650px){
+    .marge{
+        padding-left:0px;;
+    }
 }

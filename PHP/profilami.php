@@ -96,7 +96,7 @@
                     
                     
                     <form method="post" action="video.php?id=<?php echo $mail; ?>">
-                            <input class="form-control" style=" display:block; position:absolute; width:50px; display:inline;" value="Video" type="submit" name="video"/>
+                            <input class="form-control" style=" display:block; position:absolute; width:100px; display:inline; margin-top:45px;" value="Video" type="submit" name="video"/>
                     </form>
                 </div>
             </div>

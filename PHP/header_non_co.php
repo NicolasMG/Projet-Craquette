@@ -27,7 +27,7 @@
 	<body>
 		<header> <!-- header = en tête page -->
             <div style="height:50px;" class="topnav" id="myTopnav">
-                   <a href="../index.php"><img style="display:inline; padding-left:48%;" class="headerimg" src='Images/logo.png' alt="Logo" /></a>
+                   <a href="../index.php"><img  class="headerimg" src='Images/logo.png' alt="Logo" /></a>
             </div>
 
         </header>
