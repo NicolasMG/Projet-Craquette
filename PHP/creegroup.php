@@ -34,6 +34,6 @@
         </div>
 
         <input style="margin-top:50px; width:110px; margin-left:200px;" class="form-control" type="submit" value="Créer" name="creegroupe"/>     
-        <p>Champ obligatoire</p>
+        <p>*Champ obligatoire</p>
     </form> 
 </section>

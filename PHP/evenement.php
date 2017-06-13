@@ -22,14 +22,26 @@ if(isset($_POST['creeevenement'])){
         $nom = htmlspecialchars($_POST['nomevenement']);
         $id=$_SESSION['ID'];
         
-        $pseudo = htmlspecialchars($_POST['pseudo']);
-        if(eregi('[^a-zA-Z0-9_]', $pseudo))
+        $reponse=$bdd->prepare('Select nomevenement From evenement Where nomevenement="'.$nom.'"');
+        $nomn=htmlspecialchars($_POST['nomevenement']);
+        $reponse->execute(array('.$nomn.'=>htmlspecialchars($_POST['nomevenement'])));
+        $reponse2=$reponse->fetch();
+                                    
+        if($reponse2){
+            echo "Se nom est deja prit il faut en choisir un autre";
+            $pbnom="creeevenement.php";
+            echo "<script>window.location = "."'".$pbnom."'"."</script>";
+        }
+        
+        
+        $pseudo = htmlspecialchars($_POST['nomevenement']);
+        if(preg_match('~[#[{}\];]~', $pseudo))
         { 
             echo "Seul les caractères alpha-numérique et le _ sont acceptés";
             $pbnom="creeevenement.php";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
         }
-        //Si tout est OK on enrégistre le pseudo
+        //Si tout est OK
         
         
         
@@ -41,7 +53,7 @@ if(isset($_POST['creeevenement'])){
 
         $_GET['nom'] =htmlspecialchars($_POST['nomevenement']);                           
         if($reponse2){
-            echo "Se nom est deja prit il faut en choisir un autre";
+            echo "Ce nom est déjà prit il faut en choisir un autre";
             $pbnom="creeevenement.php";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
         }else{
@@ -94,7 +106,7 @@ if(isset($_POST['creeevenement'])){
   
             $insertion = $bdd->prepare('insert into evenement values("'.$nom.'","'.$id.'","'.$date.'","'.$heure.'","'.$lieu.'","'.$commentaire.'","'.$couverture.'","'.$profil.'")'); 
             $insertion->execute(); 
-            
+            //BRYAN
             $bonsite="evenement.php?nom=$nom";
             echo "<script>window.location = "."'".$bonsite."'"."</script>";
         }
@@ -250,8 +262,19 @@ if(isset($_POST['creeevenement'])){
                    <?php $nom=htmlspecialchars($_GET['nom']); ?>
                     
 
-                       
-                        <p>CV : <a href="Documents/Mon%20CV.txt">Mon CV</a></p>    
+
+                                            echo(htmlspecialchars($row['lieu']));
+                        ?></p>
+                    
+                        
+                        <p>Déscription :<?php  $response =$bdd->query('SELECT commentaire FROM evenement WHERE nomevenement="'.$nom.'"'); 
+                                            $row = $response->fetch();
+
+                                            echo(htmlspecialchars($row['commentaire']));
+                    
+                        ?>
+                        </p>
+                          
                     </div>
                 </div>
         </div>

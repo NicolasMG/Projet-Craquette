@@ -14,13 +14,13 @@
 if(isset($_POST['creegroupe'])){ 
 	if(!empty($_POST['nomgroupe'])){
         $pseudo = ($_POST['nomgroupe']);
-        if(eregi('[^a-zA-Z0-9_]', $pseudo))
+        if(preg_match('~[#[{}\];]~', $pseudo))
         { 
             echo "Seul les caractères alpha-numérique et le _ sont acceptés";
             $pbnom="creegroup.php";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
         }
-        //Si tout est OK on enrégistre le pseudo
+        //Si tout est OK
         
         $nom = ($_POST['nomgroupe']);
         $id=$_SESSION['ID'];

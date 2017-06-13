@@ -1,7 +1,7 @@
 <?php 
 
 include('header_accueil.php');
-
+$idutil=$_GET['id'];
 //if(isset($_POST['inscription'])){
     if(!$_FILES['image']['error']>0){
       if(!empty($_FILES['image'])){ 
@@ -16,6 +16,7 @@ include('header_accueil.php');
 
       }}
 
-     $pbnom="album.php";
-        //echo "<script>window.location = "."'".$pbnom."'"."</script>";
+     $pbnom="album.php?id='".$idutil."'";
+    echo "<script>window.location = "."'".$pbnom."'"."</script>";
+    header('Location: ./album.php?id='.$idutil.'');
 ?>

@@ -17,14 +17,14 @@
 //CREATION DU PAGE
 if(isset($_POST['creepage'])){ 
 	if(!empty($_POST['nompage'])){
-        $pseudo = ($_POST['nompage']);
-        if(eregi('[^a-zA-Z0-9_]', $pseudo))
+        $pseudo = htmlspecialchars($_POST['nompage']);
+        if(preg_match('~[#[{}\];]~', $pseudo))
         { 
             echo "Seul les caractères alpha-numérique et le _ sont acceptés";
             $pbnom="creepage.php";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
         }
-        //Si tout est OK on enrégistre le pseudo
+        //Si tout est OK
         
         $nom = ($_POST['nompage']);
         $id=$_SESSION['ID'];
@@ -35,7 +35,7 @@ if(isset($_POST['creepage'])){
         $reponse2=$reponse->fetch();
         $_GET['nom'] =($_POST['nompage']);                           
         if($reponse2){
-            echo "Se nom est deja prit il faut en choisir un autre";
+            echo "Ce nom est déjà prit il faut en choisir un autre";
             $pbnom="creepage.php";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
         }else{
@@ -69,7 +69,7 @@ if(isset($_POST['creepage'])){
       
             $pbnom="page.php?nom='".$nom."'";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
-            
+            //BRYAN 
         }
                   
     

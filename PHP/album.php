@@ -8,7 +8,7 @@
 if($id==$idutil){
 ?>
 <section>
-<form class="form-horizontal" method="post" action="ajoutimage.php" enctype="multipart/form-data">
+<form class="form-horizontal" method="post" action="ajoutimage.php?id=<?php echo $idutil;  ?>" enctype="multipart/form-data">
 
         <div class="form-group">
             <label class="col-sm-2 control-label" for="image">
