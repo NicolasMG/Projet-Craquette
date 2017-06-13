@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 13 Juin 2017 à 07:24
+-- Généré le :  Mar 13 Juin 2017 à 18:23
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -38,7 +38,10 @@ INSERT INTO `list` (`mail`) VALUES
 ('nicolas.greiner@uha.fr'),
 ('jean-michel.feta@uha.fr'),
 ('rabbit.jacob@uha.fr'),
-('ben.nuts@uha.fr');
+('ben.nuts@uha.fr'),
+('david.vergnault@uha.fr'),
+('inconnu.perdu@uha.fr'),
+('dis.ctee@uha.fr');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -18,11 +18,12 @@
 if(isset($_POST['creepage'])){ 
 	if(!empty($_POST['nompage'])){
         $pseudo = htmlspecialchars($_POST['nompage']);
-        if(preg_match('~[#[{}\];]~', $pseudo))
+        if(preg_match('~[#[{><}\];]~', $pseudo))
         { 
             echo "Seul les caractères alpha-numérique et le _ sont acceptés";
-            $pbnom="creepage.php";
+            $pbnom="accueil.php";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
+            break;
         }
         //Si tout est OK
         

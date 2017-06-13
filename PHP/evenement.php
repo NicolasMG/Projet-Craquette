@@ -31,11 +31,12 @@ if(isset($_POST['creeevenement'])){
             echo "Se nom est deja prit il faut en choisir un autre";
             $pbnom="creeevenement.php";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
+            break;
         }
         
         
         $pseudo = htmlspecialchars($_POST['nomevenement']);
-        if(preg_match('~[#[{}\];]~', $pseudo))
+        if(preg_match('~[#[{<>}\];]~', $pseudo))
         { 
             echo "Seul les caractères alpha-numérique et le _ sont acceptés";
             $pbnom="creeevenement.php";

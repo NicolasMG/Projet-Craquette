@@ -14,11 +14,12 @@
 if(isset($_POST['creegroupe'])){ 
 	if(!empty($_POST['nomgroupe'])){
         $pseudo = ($_POST['nomgroupe']);
-        if(preg_match('~[#[{}\];]~', $pseudo))
+        if(preg_match('~[#[{><}\];]~', $pseudo))
         { 
             echo "Seul les caractères alpha-numérique et le _ sont acceptés";
             $pbnom="creegroup.php";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
+            break;
         }
         //Si tout est OK
         
