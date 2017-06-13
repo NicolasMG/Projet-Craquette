@@ -2,50 +2,45 @@
 include ('header_accueil.php');
 $id=$_SESSION['ID'];
 $idutil=$_GET['idutil'];
+$req2="select Prenom from profil where id=".$_GET['idutil'];
+$req2=$bdd->prepare($req2);
+$req2->execute(array('id'=>$_SESSION['ID']));
+$data2=$req2->fetch();
 ?>
 
 
 <section>
-<!--    <form method="post">
-    <label class="col-sm-2 control-label" for="message">
-				Ecrivez votre message: 
-    </label>
-    <input type="textarea" class="input-medium search-query" name="message" value="<?php if (isset($_POST['message'])) echo htmlentities($_POST['message']);?>" placeholder= "message" /> 
-    <br>
-    <div>
-       
-    <br>
-    <div class="col-sm-10">
-       <!-- <textarea  class="form-control" name="message" rows="10" cols="300" style="width:500px;" placeholder= "Ecrivez votre message...." >
-        </textarea>-->
-    </div>
-    <br><br><br><br><br>
- <!--   <input type="submit" value="Envoyer" name="modif"/>-->
-        
-    <!--tableau avec ancien messages-->    
+<?php if (isset($_POST['message'])) echo htmlentities($_POST['message']);?>
         
         
-        
-        
-    </div>
-</section>
-    <form method="post" action="traitementmessage.php?idutil=<?php echo $idutil ; ?>" enctype="multipart/form-data">
-    <div class="form-group">
-        <label class="col-sm-2 control-label" for="imageenvoie">
-            envoyer une image
-        </label>
-        <input style="display:inline;" type="file" name="imageenvoie" id="imageenvoie"/>
-        <input type="hidden" name="MAX_FILE_SIZE" value="12345">
-    </div>
-
-         <textarea cols="46" row='10' name="message" placeholder="Quoi de neuf ?"></textarea>
-          <input class="form-control" value="Craquetter" type="submit" name="craquetter"/>
-   </form>
+      <div id="contenu_centre">
+        <div id="filactualite">
+            <div id="conteneur_du_post">
+				
+				<div id="conteneur_du_post_2">
+					
+					<img class="img-circle" src="<?php echo $_SESSION['imageprofil'] ; ?> "/>
+					<form method="post" action="traitementmessage.php?idutil=<?php echo $idutil ;?>" enctype="multipart/form-data">
+                         
+						<textarea class="form-control" cols="100" row='10' name="message" placeholder="Envoyez un message à <?php echo $data2['Prenom']; ?> !"></textarea>
+                        
+						<input class="form-control" value="Envoyer" type="submit" name="craquetter"/>
+                        <div style="width:200px;" class="form-group">
+                            <input  style="margin-left:-200px; margin-top:-30px; width:400px;"  type="file" name="imageenvoie" id="imageenvoie"/>
+                            <input style="margin-left:-50px; " type="hidden" name="MAX_FILE_SIZE" value="12345">
+                        </div>
+					</form>
+					<!--<div id="fond"></div>
+                      <a href="#" id="show"> <img src="Images/alarme.png" /> </a>
+                      <script src="modal.js" type="text/javascript"></script>
+                      <div id="modal" class="popup"></div>
+				</div>-->
+			
 <?php        
 if(!isset($_GET['id']))
-    $req = "SELECT idutil1,mp,format from message WHERE (idutil1='".$id."' AND idutil2='".$idutil."') OR (idutil1='".$idutil."' AND idutil2='".$id."') ORDER BY message.id DESC limit 50"; //pas sur idutil1
+    $req = "SELECT idutil2,idutil1,mp,format from message WHERE (idutil1='".$id."' AND idutil2='".$idutil."') OR (idutil1='".$idutil."' AND idutil2='".$id."') ORDER BY message.id DESC limit 50"; //pas sur idutil1
 else
-    $req = "SELECT idutil1,mp,format FROM message WHERE id>'".addslashes($_GET['id'])."' ORDER BY id LIMIT 1";//pas sur util 1
+    $req = "SELECT idutil2,idutil1,mp,format FROM message WHERE id>'".addslashes($_GET['id'])."' ORDER BY id LIMIT 1";//pas sur util 1
 $req=$bdd->query($req) or die(print_r($bdd->errorInfo()));
 $first = true;
 while($res = $req->fetch()){
@@ -68,29 +63,53 @@ while($res = $req->fetch()){
                 $nom=($row['nom']);
     
     if($format=="text"){
-    print '<div id="conteneur_newsfeed">
-				<a href="profilami.php?id='.$res['idutil1'].'"><img class="img-circle" alt="phtode votre ami" src="'.$idutil.'"/></a>
+        if ($idutil=$res['idutil1']){
+             print '<div id="conteneur_newsfeed" style="width:400px; margin-left:130px;">
 					<div id="contenu_droit">
-						<p id="nom_profil"> '.$prenom.' '.$nom.'
+						<p id="nom_profil" style="margin-left:200px; margin-bottom:20px;"> '.$prenom.' '.$nom.'
+                        </p>
+				        <p id="contenu_int" >'.$res['mp'].'</p>	
+					</div>
+                    <a href="profilami.php?id='.$res['idutil1'].'"><img class="img-circle" alt="photo de votre ami" src="'.$idutil.'"/></a>
+			 </div>';
+        if ($idutil=$res['idutil2']){
+            print '<div id="conteneur_newsfeed" style="width:400px; ">
+				<a href="profilami.php?id='.$res['idutil1'].'"><img class="img-circle" alt="photonous" src="'.$idutil.'"/></a>
+					<div id="contenu_droit">
+						<p id="nom_profil" style="margin-bottom:20px;"> '.$prenom.' '.$nom.'
                         </p>
 				        <p id="contenu_int">'.$res['mp'].'</p>	
 					</div>
-			</div>';
-    
-    }
+			 </div>';
+        }
+    }}
         if($format=="image"){
-    
-        print '<div id="conteneur_newsfeed">
-				<a href="profilami.php?id='.$res['idutil1'].'"><img class="img-circle" alt="phtode votre ami" src="'.$idutil.'"/></a>
+            if ($idutil=$res['idutil1']){
+                print '<div id="conteneur_newsfeed" style="width:400px; margin-left:130px;">
 					<div id="contenu_droit">
-						<p id="nom_profil"> '.$prenom.' '.$nom.'
+						<p id="nom_profil"  style="margin-left:200px; margin-bottom:20px;"> '.$prenom.' '.$nom.'
                         </p>
-				        <img height=100px width=100px alt="image" id="contenu_int" src='.$res['mp'].'>	
+				        <img style="height:120px; width:120px; margin-top:-25px;" alt="image" id="contenu_int" src='.$res['mp'].'>	
 					</div>
+                    <a href="profilami.php?id='.$res['idutil1'].'"><img class="img-circle" alt="phtode votre ami" src="'.$idutil.'"/></a>
+			</div>';
+            }
+             if ($idutil=$res['idutil2']){
+                  print '<div id="conteneur_newsfeed" style="width:400px; ">
+                  <a href="profilami.php?id='.$res['idutil1'].'"><img class="img-circle" alt="phtode votre ami" src="'.$idutil.'"/></a>
+					<div id="contenu_droit">
+						<p id="nom_profil" style="margin-bottom:20px;> '.$prenom.' '.$nom.'
+                        </p>
+				        <img style="height:120px; width:120px; margin-top:-25px;" alt="image" id="contenu_int" src='.$res['mp'].'>	
+					</div>
+                    
 			</div>';
         }
-}
-    
+}}
+ echo "</div>
+        </div>
+    </div>
+    </div>" ;  
 
 
 

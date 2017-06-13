@@ -104,7 +104,7 @@
                     
                     
                         <form method="post" action="video.php">
-                            <input class="form-control" style=" display:block; position:absolute; width:50px; display:inline;" value="Video" type="submit" name="video"/>
+                            <input class="form-control" style=" display:block; position:absolute; width:100px; display:inline; margin-top:45px;" value="Video" type="submit" name="video"/>
                         </form>
                     </div>
           
@@ -113,7 +113,7 @@
         <div id="PanneauDroit">
             <div id="conteneur_du_post">
 
-                <div id="conteneur_du_post_2">
+                <div id="conteneur_du_post_2" style="margin-botttom:50px;">
 
                     <img class="img-circle" src="Images/profil.png" />
 
@@ -123,7 +123,7 @@
                         <input class="form-control" value="Craquetter" type="submit" name="craquetter"/>
                     </form>
                 </div>
-            <?php include ('news_accueil.php') ; ?>
+            <?php include ('profil_newsfeed.php') ; ?>
             </div>           
         </div>
 
