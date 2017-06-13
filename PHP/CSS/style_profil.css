@@ -91,3 +91,15 @@
     }
 }
     
+
+
+
+
+#section_profil table{
+    width:800px; 
+    background-image:url(images/gradientby.jpg);
+}
+
+.enligne{
+    display:inline-block;
+}

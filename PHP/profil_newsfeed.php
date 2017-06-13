@@ -14,7 +14,6 @@ $data2=$req2->fetch();
 
 
 
-
 			$req = "SELECT id,poste,compteur_like,compteur_retweet,num_tweet,retweeted, retweeted_by FROM actualite ORDER BY num_tweet DESC limit 100";
 			$req=$bdd->query($req) or die(print_r($bdd->errorInfo()));
 			
