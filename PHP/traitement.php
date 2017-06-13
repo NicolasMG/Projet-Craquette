@@ -46,7 +46,7 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                 $mailAdmis = $listMailAdmissible->fetch();
 
                 
-                if(!empty($mailAdmis[mail])){
+                if(!empty($mailAdmis['mail'])){
                     
                     if(!empty($_POST['datenaissance'])){
                         $date = htmlspecialchars($_POST['datenaissance']);
