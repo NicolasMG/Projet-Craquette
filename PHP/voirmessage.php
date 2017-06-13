@@ -7,15 +7,14 @@
     <input class="form-control" style="display:block; position:absolute; width:200px; display:inline; left:480px; top:100px;" value="Démarer une conversation" type="submit" name="conversation"/>
 </form>-->
 <section id="section_profil">
-  <form class="form-group" method="post">
+    <div class="marge">
+  <form style="padding-top:20px; " class="form-group" method="post">
     <label for="ami"> A qui voulez vous parler :</label>
-      <div>
-         <input type="text" style="width:300px; display:inline;" class="form-control" name="nouvelconversation" value="<?php if (isset($_POST['ami'])) echo htmlspecialchars($_POST['ami']);?>"placeholder= "Adresse Email de votre ami" /> 
-        </div>
-        
+    <input type="text" style="width:300px;margin-top:10px; " class="form-control" name="nouvelconversation" value="<?php if (isset($_POST['ami'])) echo htmlspecialchars($_POST['ami']);?>"placeholder= "Adresse Email de votre ami" /> 
         
     <?php  //if(isset($_POST['nouvelconversation'])){  ?>
-   <input type="submit" name="new" value="Nouvel conversation" />
+   <input class="form-control" style="width:170px; margin-top:20px;" type="submit" name="new" value="Nouvel conversation" />
+    </form>
         <?php  if(isset($_POST['nouvelconversation'])){  ?>
         <?php  
                                                              
@@ -45,14 +44,15 @@
         <?php 
       while($row=$req->fetch()){ 
           $idutil=$row['idutil2'];?>
-                <a href="message.php?idutil=<?php echo $idutil; ?>"> <img  src="<?php
+
+      <p style="padding-left:200px;"> <a href="message.php?idutil=<?php echo $idutil; ?>">      <img style="width:150px; height:150px;" src="<?php
                 $response =$bdd->query('SELECT imageprofil FROM profil WHERE id="'.$idutil.'"'); 
                 $row = $response->fetch();
                 $image= ($row['imageprofil']);
                 echo $image;
                ?>" alt="image de votre ami " height="150" /></a>
-                <div class="enligne">
-
+ 
+    
             <?php
                 $response =$bdd->query('SELECT prenom FROM profil WHERE id="'.$idutil.'"'); 
                 $row = $response->fetch();
@@ -65,12 +65,12 @@
             
             <a href="message.php?idutil=<?php echo $idutil; ?>">
                             <?php echo($prenom); echo " "; echo $nom; ?>
-            </a>  
-      </div>
+            </a>  </p> 
         <?php 
             }
             $req->closeCursor();
         ?>
             
+</div>
 
-      </section>
+</section>

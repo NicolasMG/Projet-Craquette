@@ -24,10 +24,10 @@ $data2=$req2->fetch();
                          
 						<textarea class="form-control" cols="100" row='10' name="message" placeholder="Envoyez un message à <?php echo $data2['Prenom']; ?> !"></textarea>
                         
-						<input class="form-control" value="Envoyer" type="submit" name="craquetter"/>
-                        <div style="width:200px;" class="form-group">
-                            <input  style="margin-left:-200px; margin-top:-30px; width:400px;"  type="file" name="imageenvoie" id="imageenvoie"/>
-                            <input style="margin-left:-50px; " type="hidden" name="MAX_FILE_SIZE" value="12345">
+						<input class="form-control" style="margin-right:300px;" value="Envoyer" type="submit" name="craquetter"/>
+                        <div style="width:120px;" class="form-group">
+                            <input  style="margin-left:-150px; margin-top:-30px; width:400px;"  type="file" name="imageenvoie" id="imageenvoie"/>
+                            <input type="hidden" name="MAX_FILE_SIZE" value="12345">
                         </div>
 					</form>
 					<!--<div id="fond"></div>
@@ -63,49 +63,30 @@ while($res = $req->fetch()){
                 $nom=($row['nom']);
     
     if($format=="text"){
-        if ($idutil=$res['idutil1']){
-             print '<div id="conteneur_newsfeed" style="width:500px; margin-left:130px;">
-					<div id="contenu_droit">
-						<p id="nom_profil" style="margin-left:200px; margin-bottom:20px;"> '.$prenom.' '.$nom.'
+             print '<div id="conteneur_newsfeed" style="width:600px;margin-left:50px; ">
+					<a href="profilami.php?id='.$res['idutil1'].'"><img class="img-circle" alt="photo de votre ami" src="'.$idutil.'"/></a>
+                    <div id="contenu_droit">
+						<p id="nom_profil" style="margin-bottom:20px;"> '.$prenom.' '.$nom.'
                         </p>
 				        <p id="contenu_int" >'.$res['mp'].'</p>	
 					</div>
-                    <a href="profilami.php?id='.$res['idutil1'].'"><img class="img-circle" alt="photo de votre ami" src="'.$idutil.'"/></a>
+                    
 			 </div>';
-        if ($idutil=$res['idutil2']){
-            print '<div id="conteneur_newsfeed" style="width:500px; ">
-				<a href="profilami.php?id='.$res['idutil1'].'"><img class="img-circle" alt="photonous" src="'.$idutil.'"/></a>
-					<div id="contenu_droit">
-						<p id="nom_profil" style="margin-bottom:20px;"> '.$prenom.' '.$nom.'
-                        </p>
-				        <p id="contenu_int">'.$res['mp'].'</p>	
-					</div>
-			 </div>';
-        }
-    }}
+    }
         if($format=="image"){
-            if ($idutil=$res['idutil1']){
-                print '<div id="conteneur_newsfeed" style="width:500px; margin-left:130px;">
+            
+                print '<div id="conteneur_newsfeed" style="width:600px; margin-left:50px;">
+                <a href="profilami.php?id='.$res['idutil1'].'"><img alt="phtode votre ami" src="'.$idutil.'"/></a>
 					<div id="contenu_droit">
-						<p id="nom_profil"  style="margin-left:200px; margin-bottom:20px;"> '.$prenom.' '.$nom.'
+						<p id="nom_profil"  style="margin-bottom:20px;"> '.$prenom.' '.$nom.'
                         </p>
-				        <img style="height:120px; width:120px; margin-top:-25px;" alt="image" id="contenu_int" src='.$res['mp'].'>	
-					</div>
-                    <a href="profilami.php?id='.$res['idutil1'].'"><img class="img-circle" alt="phtode votre ami" src="'.$idutil.'"/></a>
-			</div>';
-            }
-             if ($idutil=$res['idutil2']){
-                  print '<div id="conteneur_newsfeed" style="width:500px; ">
-                  <a href="profilami.php?id='.$res['idutil1'].'"><img class="img-circle" alt="phtode votre ami" src="'.$idutil.'"/></a>
-					<div id="contenu_droit">
-						<p id="nom_profil" style="margin-bottom:20px;> '.$prenom.' '.$nom.'
-                        </p>
-				        <img style="height:120px; width:120px; margin-top:-25px;" alt="image" id="contenu_int" src='.$res['mp'].'>	
+				        <img style="height:110px; width:110px; margin-top:-15px;" alt="image" id="contenu_int" src='.$res['mp'].'>	
 					</div>
                     
 			</div>';
-        }
-}}
+            }
+             
+}
  echo "</div>
         </div>
     </div>
