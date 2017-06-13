@@ -1,6 +1,21 @@
 <?php
    
     include('header_accueil.php');
+	
+	
+	$DBhost = "localhost";
+	$DBuser = "root";
+	$DBpass = "";
+	$DBname = "codingcage";
+	
+	try {
+		$DBcon = new PDO("mysql:host=$DBhost;dbname=$DBname",$DBuser,$DBpass);
+		$DBcon->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	} catch(PDOException $ex){
+		die($ex->getMessage());
+	}
+	
+	
     try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); // stocker la connexion à la base de données dans la variable $bdd
     }
@@ -17,32 +32,19 @@
 if(isset($_POST['creeevenement'])){ 
 	if(!empty($_POST['nomevenement'])){
         
+        
+        
+        $nom = htmlspecialchars($_POST['nomevenement']);
+        $id=$_SESSION['ID'];
+        
         $pseudo = htmlspecialchars($_POST['nomevenement']);
-        if(preg_match('~[#[{<>}\];]~', $pseudo))
+        if(preg_match('~[#[{}\];]~', $pseudo))
         { 
             echo "Seul les caractères alpha-numérique et le _ sont acceptés";
             $pbnom="creeevenement.php";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
         }
         //Si tout est OK
-        
-        
-        
-        $nom = htmlspecialchars($_POST['nomevenement']);
-        
-        $reponse=$bdd->prepare('Select nomevenement From evenement Where nomevenement="'.$nom.'"');
-        $nomn=htmlspecialchars($_POST['nomevenement']);
-        $reponse->execute(array('.$nomn.'=>htmlspecialchars($_POST['nomevenement'])));
-        $reponse2=$reponse->fetch();
-                                    
-        if($reponse2){
-            echo "Se nom est deja prit il faut en choisir un autre";
-            $pbnom="creeevenement.php";
-            echo "<script>window.location = "."'".$pbnom."'"."</script>";
-            break;
-        }
-        $id=$_SESSION['ID'];
-        
         
         
         
@@ -54,7 +56,7 @@ if(isset($_POST['creeevenement'])){
 
         $_GET['nom'] =htmlspecialchars($_POST['nomevenement']);                           
         if($reponse2){
-            echo "Ce nom est déjà prit il faut en choisir un autre";
+            echo "Se nom est deja prit il faut en choisir un autre";
             $pbnom="creeevenement.php";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
         }else{
@@ -107,7 +109,15 @@ if(isset($_POST['creeevenement'])){
   
             $insertion = $bdd->prepare('insert into evenement values("'.$nom.'","'.$id.'","'.$date.'","'.$heure.'","'.$lieu.'","'.$commentaire.'","'.$couverture.'","'.$profil.'")'); 
             $insertion->execute(); 
-            //BRYAN
+			
+			$address="http://127.0.0.1/Projet-Craquette-master/PHP/evenement.php?nom=";
+												$address.=$nom;
+												$idef=4000;
+												$idef=$idef+1;
+												$insertion2 = $DBcon->prepare('INSERT INTO tbl_posts VALUES("'.$idef.'","'.$nom.'","'.$address.'")');
+												$insertion2->execute();
+			
+            
             $bonsite="evenement.php?nom=$nom";
             echo "<script>window.location = "."'".$bonsite."'"."</script>";
         }
@@ -180,51 +190,18 @@ if(isset($_POST['creeevenement'])){
                 <p style="display:block; position:absolute; left:25%; top:88%;font-weight: bold; color:black; font-size:20px;"><?php echo $_GET['nom']; ?>  
         </div>
         <div style="display:inline-block;" id="PanneauGauche">
-                <div id="Information" style="height:98%; overflow-y:scroll;">
+                <div id="Information">
                     <div id="Infogenerale">
-                           <p><h2 style="font-size:20px;" >Information sur l'événement :</h2></p>
-  
-
-                    
-                        <p>Date : <?php  $response =$bdd->query('SELECT date FROM evenement WHERE nomevenement="'.$nom.'"'); 
-                                            $row = $response->fetch();
-
-                                            echo(htmlspecialchars($row['date']));
-                        ?></p>
-                    
-                    
-                        
-                    
-                        <p>Heure : <?php  $response =$bdd->query('SELECT heure FROM evenement WHERE nomevenement="'.$nom.'"'); 
-                                            $row = $response->fetch();
-
-                                            echo(htmlspecialchars($row['heure']));
-                        ?></p>
-                        
-                    
-                        <p>Lieu : <?php  $response =$bdd->query('SELECT lieu FROM evenement WHERE nomevenement="'.$nom.'"'); 
-                                            $row = $response->fetch();
-
-                                            echo(htmlspecialchars($row['lieu']));
-                        ?></p>
-                    
-                        
-                        <p>Description :<?php  $response =$bdd->query('SELECT commentaire FROM evenement WHERE nomevenement="'.$nom.'"'); 
-                                            $row = $response->fetch();
-
-                                            echo(htmlspecialchars($row['commentaire']));
-                    
-                        ?>
-                        </p>
-                        <p></p>
-                        <p><h2 style="font-size:20px;" ><?php 
+                          
+                        <p><?php 
                             $reponse = $bdd->query('select count(idutil) FROM  vientevenement WHERE nomevenement="'.$nom.'"'); 
                             $row=$reponse->fetch();  
 
                             echo htmlspecialchars($row[0]);
                 
                             
-                            ?>   participant(s)</h2></p>
+                            ?>   participant(s)</p>
+                        <p><h2 style="font-size:20px;" >Participant(s) :</h2></p>
                          <ul>  
                    <?php       
                         $id=$_SESSION['ID'];
@@ -262,13 +239,43 @@ if(isset($_POST['creeevenement'])){
 
                    <?php $nom=htmlspecialchars($_GET['nom']); ?>
                     
+                     <div style="display:inline-block;" id="PanneauGauche">
+                <div id="Information">
+                    <div id="Infogenerale">
+                        <p><h2 style="font-size:20px;" >Information sur l'événement :</h2></p>
+  
 
+                    
+                        <p>Date : <?php  $response =$bdd->query('SELECT date FROM evenement WHERE nomevenement="'.$nom.'"'); 
+                                            $row = $response->fetch();
 
-                                            
-                        </p>
+                                            echo(htmlspecialchars($row['date']));
+                        ?></p>
+                    
                     
                         
                     
+                        <p>Heure : <?php  $response =$bdd->query('SELECT heure FROM evenement WHERE nomevenement="'.$nom.'"'); 
+                                            $row = $response->fetch();
+
+                                            echo(htmlspecialchars($row['heure']));
+                        ?></p>
+                        
+                    
+                        <p>Lieu : <?php  $response =$bdd->query('SELECT lieu FROM evenement WHERE nomevenement="'.$nom.'"'); 
+                                            $row = $response->fetch();
+
+                                            echo(htmlspecialchars($row['lieu']));
+                        ?></p>
+                    
+                        
+                        <p>Déscription :<?php  $response =$bdd->query('SELECT commentaire FROM evenement WHERE nomevenement="'.$nom.'"'); 
+                                            $row = $response->fetch();
+
+                                            echo(htmlspecialchars($row['commentaire']));
+                    
+                        ?>
+                        </p>
                           
                     </div>
                 </div>
@@ -276,7 +283,7 @@ if(isset($_POST['creeevenement'])){
                     
               
                     
-  </div>
+  
    
                     
                 

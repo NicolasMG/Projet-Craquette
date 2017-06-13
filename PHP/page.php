@@ -1,6 +1,20 @@
 <?php
    
     include('header_accueil.php');
+	
+	$DBhost = "localhost";
+	$DBuser = "root";
+	$DBpass = "";
+	$DBname = "codingcage";
+	
+	try {
+		$DBcon = new PDO("mysql:host=$DBhost;dbname=$DBname",$DBuser,$DBpass);
+		$DBcon->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	} catch(PDOException $ex){
+		die($ex->getMessage());
+	}
+	
+	
     try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); 
     }
@@ -17,14 +31,12 @@
 //CREATION DU PAGE
 if(isset($_POST['creepage'])){ 
 	if(!empty($_POST['nompage'])){
-        
         $pseudo = htmlspecialchars($_POST['nompage']);
-        if(preg_match('~[#[{><}\];]~', $pseudo))
+        if(preg_match('~[#[{}\];]~', $pseudo))
         { 
             echo "Seul les caractères alpha-numérique et le _ sont acceptés";
             $pbnom="creepage.php";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
-            break;
         }
         //Si tout est OK
         
@@ -37,7 +49,7 @@ if(isset($_POST['creepage'])){
         $reponse2=$reponse->fetch();
         $_GET['nom'] =($_POST['nompage']);                           
         if($reponse2){
-            echo "Ce nom est déjà prit il faut en choisir un autre";
+            echo "Se nom est deja prit il faut en choisir un autre";
             $pbnom="creepage.php";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
         }else{
@@ -68,10 +80,17 @@ if(isset($_POST['creepage'])){
   
             $insertion = $bdd->prepare('insert into page values("'.$nom.'","'.$id.'","'.$profil.'","'.$couverture.'")'); 
             $insertion->execute(); 
+			
+			$address="http://127.0.0.1/Projet-Craquette-master/PHP/page.php?id=";
+											$address.=$id;
+											$id3=804;
+											$id3=$id3+1;
+											$insertion2 = $DBcon->prepare('INSERT INTO tbl_posts VALUES("'.$id3.'","'.$nom.'","'.$address.'")');
+											$insertion2->execute();
       
             $pbnom="page.php?nom='".$nom."'";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
-            //BRYAN 
+            
         }
                   
     

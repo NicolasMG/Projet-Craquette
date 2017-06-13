@@ -8,7 +8,9 @@
     }
             $mail=$_SESSION['mail'];
 
-
+$req = "SELECT id,poste,compteur_like,compteur_retweet,num_tweet,retweeted,retweeted_by,commented,commented_by,compteur_comments FROM actualite ORDER BY num_tweet DESC limit 100";
+			$req=$bdd->query($req) or die(print_r($bdd->errorInfo()));
+			$res = $req->fetch();
 $req2="select Prenom,Nom,imageprofil from profil where id=:id";
 $req2=$bdd->prepare($req2);
 $req2->execute(array('id'=>$_SESSION['ID']));
@@ -17,12 +19,12 @@ $data2=$req2->fetch();
 <div class="contenu">
     <div id="contenu_gauche">  
         <div id="profil">
-            <a href='profil.php'><img class="couverture" alt="couverture" title="couverture" src="<?php 
+            <?php echo '<a href="profil.php?num_tweet='.$res['num_tweet'].'">'?><img class="couverture" alt="couverture" title="couverture" src="<?php 
                     $response =$bdd->query('SELECT imagecouverture FROM profil WHERE email="'.$mail.'"'); 
                     $row = $response->fetch();
                     echo($row['imagecouverture']);                                              
                                              ?>"></a>
-            <a href='profil.php'><img class="img-circle" alt="photo_profil" title="photo_profil" src="<?php 
+           <?php echo '<a href="profil.php?num_tweet='.$res['num_tweet'].'">'?><img class="img-circle" alt="photo_profil" title="photo_profil" src="<?php 
                     $response =$bdd->query('SELECT imageprofil FROM profil WHERE email="'.$mail.'"'); 
                     $row = $response->fetch();
                     echo($row['imageprofil']);               

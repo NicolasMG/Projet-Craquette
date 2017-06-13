@@ -52,13 +52,13 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
 				
 			if(!empty($_POST['mail'])){
 				$mail = htmlspecialchars($_POST['mail']);
-				/* 
+				
                 $listMailAdmissible = $admissible->prepare('SELECT mail FROM list where mail="'.$mail.'"');
                 $listMailAdmissible->execute();
                 $mailAdmis = $listMailAdmissible->fetch();
- */
+
                 
-                // if(!empty($mailAdmis['mail'])){
+                if(!empty($mailAdmis['mail'])){
                     
                     if(!empty($_POST['datenaissance'])){
                         $date = htmlspecialchars($_POST['datenaissance']);
@@ -94,9 +94,7 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                                                 $idef = $ide +1 ;
                                                 $insertion = $bdd->prepare('INSERT INTO profil VALUES("'.$idef.'","'.$nom.'","'.$prenom.'","'.$sel.'","'.$mail.'","'.$date.'","'.$promo.'","'.$filiere.'","NULL","NULL","Images/profilpardefaut.png","Images/couverturepardefaut.jpg","NULL")'); // préparation de la requête d'insertion dans la base de données
                                                 $insertion->execute();  // exécution de l'insertion
-												$address="http://127.0.0.1/Projet-Craquettegithub/PHP/profilami?id=";
-												$address.=$idef;
-												$insertion2 = $DBcon->prepare('INSERT INTO tbl_posts VALUES("'.$idef.'","'.$prenom.'","'.$address.'")');
+												$insertion2 = $DBcon->prepare('INSERT INTO tbl_posts VALUES("'.$idef.'","'.$prenom.'","'http://127.0.0.1/Projet-Craquette-master/PHP/profilami.php?$idef.'")');
 												$insertion2->execute();
                                                 session_start();
                                                 $_SESSION['mail']= $mail;
@@ -119,7 +117,7 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                             }
                         }
                     }
-                /* } */
+                }
                 else
                 {
                     $valideinscription="mauvaisMailTraitement.php";

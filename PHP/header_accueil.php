@@ -1,4 +1,16 @@
 <?php  include('protection_session.php'); 
+	$DBhost = "localhost";
+	$DBuser = "root";
+	$DBpass = "";
+	$DBname = "codingcage";
+	
+	try {
+		$DBcon = new PDO("mysql:host=$DBhost;dbname=$DBname",$DBuser,$DBpass);
+		$DBcon->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	} catch(PDOException $ex){
+		die($ex->getMessage());
+	}
+
        try{ 
         $bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root',''); 
     }
@@ -40,11 +52,11 @@
                 <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
             </div>
             <div class="topnav_search">
-                <form class="navbar-form navbar-left">
+                <form class="navbar-form navbar-left" style="margin-bottom:0px; margin-top:0px;">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input id="txtSearch" class="form-control input-lg" type="text" placeholder="Vous recherchez quelqu'un ? ou une page ? c'est ici !" />
                         <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit">
+                            <button class="btn btn-default" type="none" style="font-size:22.5px;">
                                 <i class="glyphicon glyphicon-search"></i>
                             </button>
                         </div>
@@ -53,6 +65,38 @@
                 
                 
             </div>
+			<script>
+$(document).ready(function(){
+	
+	$('#txtSearch').autocomplete({
+	    source: "post_search.php",
+	    minLength: 2,
+	    select: function(event, ui) {
+	        var url = ui.item.id;
+	        if (url != '#') {
+	            location.href = url
+	        }
+	    },
+	    open: function(event, ui) {
+	        $(".ui-autocomplete").css("z-index", 1000)
+	    }
+	})
+	
+});
+</script>
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+
         </div>
         <script>
         function myFunction() {
