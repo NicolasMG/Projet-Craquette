@@ -7,12 +7,18 @@
 	</head>
 
 	<body>
-
+<?php    
+        
+   $url="https://www.youtube.com/embed/a021WhobrLc";    
+        
+        
+        
+?>
 <div>
-	<object width="425" height="355">
-		<param name="movie" value="https://www.youtube.com/embed/a021WhobrLc"></param>
+	<object width="560" height="315" data="<?php echo $url;     ?>">
+		<param name="movie" value="<?php echo $url;    ?>"></param>
 		<param name="wmode" value="transparent"></param>
-	<embed src="https://www.youtube.com/embed/a021WhobrLc" type="application/x-shockwave-flash" wmode="transparent" width="425" height="355"></embed>
+	<embed src="<?php echo $url; ?>" type="application/x-shockwave-flash" wmode="transparent" width="560" height="315"></embed>
 	</object>
 </div>
 
@@ -21,3 +27,6 @@
 </html>
 
 <!--https://openclassrooms.com/courses/inserer-facilement-une-video-dans-sa-page-web-sans-erreurs-->
+
+
+<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/a021WhobrLc" frameborder="0" allowfullscreen></iframe>-->
