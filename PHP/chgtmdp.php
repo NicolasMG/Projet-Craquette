@@ -131,7 +131,6 @@ else
 {
     if(isset($_POST['Confirmer'])){ //2eme partie
         if(!empty($_POST['mail'])){
-            echo ('hello');
             $destinataire = htmlspecialchars($_POST['mail']);
             //Verifier SQL si mail dans base de donnée
             $reponse=$bdd->prepare('Select email From profil');
