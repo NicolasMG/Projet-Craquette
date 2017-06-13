@@ -164,16 +164,16 @@ else{
                         $mail->addAddress($destinataire);     // Add a recipient
                         /*$mail->addAddress('ellen@example.com');               // Name is optional
                         $mail->addReplyTo('info@example.com', 'Information');
-
+                        
                         $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
                         $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name*/
                         $mail->isHTML(true);                                  // Set email format to HTML
-
+                        
                         $_SESSION['binHex']=bin2hex($string); // binHex dans cookie
-
+                        
                         $mail->Subject = 'Changement de mot de passe';
                         $mail->Body    = 'Vous avez fait une demande de changement de mot de passe. Votre code est : <b>'.$_SESSION['binHex'].'</b>';
-
+                        
                         if(!$mail->send()) {
                             echo 'Message could not be sent.';
                             echo 'Mailer Error: ' . $mail->ErrorInfo;

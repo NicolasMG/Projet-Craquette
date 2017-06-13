@@ -93,24 +93,24 @@ if(isset($_POST['creeevenement'])){
         
     }
 }
-
+echo ($_GET['nom']);
 
  $nom=htmlspecialchars($_GET['nom']);  ?>
 <section id="section_profil">
     <div id="Page">
         <div id="photosduprofil">
-                <img style="height:270px; width:851px;"id="PhotoDeCouverture" src="<?php 
+                <img alt="image" style="height:270px; width:851px;"id="PhotoDeCouverture" src="<?php 
                         $response =$bdd->query('SELECT couvertureevenement FROM evenement WHERE nomevenement="'.$nom.'"'); 
                         $row = $response->fetch();
                         echo($row['couvertureevenement']);                                              
                                                  ?>">
 
-                <img id="PhotoDeProfil" src="<?php 
+                <img alt="image" id="PhotoDeProfil" src="<?php 
                         $response =$bdd->query('SELECT profilevenement FROM evenement WHERE nomevenement="'.$nom.'"'); 
                         $row = $response->fetch();
                         echo($row['profilevenement']);               
                                              ?>" >  
-                <?php $nom = htmlspecialchars($_GET['nom']);
+                <?php $nom = htmlspecialchars($_GET['nom']);//affichage du nom
                         $id=$_SESSION['ID'];
         
                         $reponse=$bdd->prepare('Select nomevenement From evenement Where createur="'.$id.'" AND nomevenement="'.$nom.'"');

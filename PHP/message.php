@@ -20,9 +20,9 @@ $idutil=$_GET['idutil'];
         </textarea>-->
     </div>
     <br><br><br><br><br>
- <!--   <input type="submit" value="Envoyer" name="modif"/>-->
+
         
-    <!--tableau avec ancien messages-->    
+   
         
         
         
@@ -30,13 +30,13 @@ $idutil=$_GET['idutil'];
     </div>
 </section>
     <form method="post" action="traitementmessage.php?idutil=<?php echo $idutil ; ?>" enctype="multipart/form-data">
-    <div class="form-group">
-        <label class="col-sm-2 control-label" for="imageenvoie">
-            envoyer une image
-        </label>
-        <input style="display:inline;" type="file" name="imageenvoie" id="imageenvoie"/>
-        <input type="hidden" name="MAX_FILE_SIZE" value="12345">
-    </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="imageenvoie">
+                envoyer une image
+            </label>
+            <input style="display:inline;" type="file" name="imageenvoie" id="imageenvoie"/>
+            <input type="hidden" name="MAX_FILE_SIZE" value="12345">
+        </div>
 
          <textarea cols="46" row='10' name="message" placeholder="Quoi de neuf ?"></textarea>
           <input class="form-control" value="Craquetter" type="submit" name="craquetter"/>

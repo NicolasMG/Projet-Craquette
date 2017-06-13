@@ -57,47 +57,43 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                             if(!empty($_POST['filiere'])){
                                 $filiere = htmlspecialchars($_POST['filiere']);
                                 
-                                
-                                $MDP=htmlspecialchars($_POST['MDP']);
-                                $MDPC=htmlspecialchars($_POST['MDPconfirmation']);
-                                
-                                if(!empty($MDP) && !empty($MDPC)) {
+                                $reponse=$bdd->prepare('Select email From profil Where email="'.$mail.'"');
+                                $mail=htmlentities($_POST['mail']);
+                                $reponse->execute(array('.$mail.'=>htmlspecialchars($_POST['mail'])));
+                                $reponse2=$reponse->fetch();
+
+                                if(!$reponse2['email'] == $_POST['mail']){
+                                    $MDP=htmlspecialchars($_POST['MDP']);
+                                    $MDPC=htmlspecialchars($_POST['MDPconfirmation']);
                                     
-                                    if(strlen($MDP)>5){ // taille du mot de passe
-                                        if($MDP == $MDPC){ 
-                                            $ide = $id[0] ; //id est auto incrementé se serai mieux
-                                            $option = [
-                                                $nom => $ide + 1,
-                                                $prenom => $ide + 6,
-                                            ];
-                                            echo "<br>";
-                                            //echo $MDP;
-                                            $sel = password_hash($MDP,PASSWORD_DEFAULT, $option);
-                                            
-                                            
-                                            $reponse=$bdd->prepare('Select email From profil Where email="'.$mail.'"');
-                                            $mail=htmlentities($_POST['mail']);
-                                            $reponse->execute(array('.$mail.'=>htmlspecialchars($_POST['mail'])));
-                                            $reponse2=$reponse->fetch();
-                                            
-                                            if(!$reponse2){
-                                                
+                                    if(!empty($MDP) && !empty($MDPC)) {
+                                        
+                                        if(strlen($MDP)>5){ // taille du mot de passe
+                                            if($MDP == $MDPC){ 
+                                                $ide = $id[0] ; //id est auto incrementé se serai mieux
+                                                $option = [
+                                                    $nom => $ide + 1,
+                                                    $prenom => $ide + 6,
+                                                ];
+                                                echo "<br>";
+                                                $sel = password_hash($MDP,PASSWORD_DEFAULT, $option);
                                                 
                                                 $idef = $ide +1 ;
                                                 $insertion = $bdd->prepare('INSERT INTO profil VALUES("'.$idef.'","'.$nom.'","'.$prenom.'","'.$sel.'","'.$mail.'","'.$date.'","'.$promo.'","'.$filiere.'","NULL","NULL","Images/profilpardefaut.png","Images/couverturepardefaut.jpg","NULL")'); // préparation de la requête d'insertion dans la base de données
                                                 $insertion->execute();  // exécution de l'insertion
-                                                
-                                                
+
+
                                                 session_start();
                                                 $_SESSION['mail']= $mail;
                                                 $_SESSION['ID']=$idef;
                                                 $_SESSION['MDPS']= $sel;
-                                                
+                                                $_SESSION['imageprofil']="Images/profilpardefaut.png";
+                                            
+                                            
                                                 $message="Votre profil a bien été créé.";
                                                 $bouton="Voir mon profil";
                                                 $valideinscription="profil.php";
                                                 $message2= "merci de nous rejoindre";
-                                                
                                                 
                                                 mkdir("Images/album/fichier".$idef."",0777, true);//ok
                                                 
@@ -111,7 +107,7 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                 }
                 else
                 {
-                    //envoyer sur page mail non admis
+                    $valideinscription="mauvaisMailTraitement.php";
                 }
             }
         }

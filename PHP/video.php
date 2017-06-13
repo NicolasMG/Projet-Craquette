@@ -11,8 +11,6 @@
         
    $url="https://www.youtube.com/embed/a021WhobrLc";    
         
-        
-        
 ?>
 <div>
 	<object width="560" height="315" data="<?php echo $url;     ?>">
