@@ -77,8 +77,10 @@
                                         echo($row['promo']);
                     ?></p>
                     
-                    <p>Adresse mail : <?php  
-                                        echo($mail);
+                    <p>Adresse mail : <?php  $response =$bdd->query('SELECT email FROM profil WHERE id="'.$mail.'"'); 
+                                        $row = $response->fetch();
+                                        echo($row['email']);
+                                        
                     ?></p>
                      <p>Date de naissance : <?php  $response =$bdd->query('SELECT datenaissance FROM profil WHERE id="'.$mail.'"'); 
                                         $row = $response->fetch();
@@ -86,7 +88,16 @@
                     ?></p>
                     
                     <p>Compétences :</p>
-                    <p>CV : <a href="Documents/Mon%20CV.txt">Mon CV</a></p>    
+                    <p>CV : <a href="Documents/Mon%20CV.txt">Mon CV</a></p> 
+                    
+                    <form method="post" action="album.php?id=<?php echo $mail; ?>">
+                            <input class="form-control" style=" display:block; position:absolute; width:130px; display:inline;" value="Album" type="submit" name="ablum"/>
+                    </form>
+                    
+                    
+                    <form method="post" action="video.php?id=<?php echo $mail; ?>">
+                            <input class="form-control" style=" display:block; position:absolute; width:50px; display:inline;" value="Video" type="submit" name="video"/>
+                    </form>
                 </div>
             </div>
     </div>

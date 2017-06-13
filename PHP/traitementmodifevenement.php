@@ -84,7 +84,7 @@ if(isset($_POST['modif'])){
     
       if(!empty($_POST['date'])){ 
           $datenaissance = htmlspecialchars($_POST['date']); 
-          $response =$bdd->query('Update evenement set date="'.$datenaissance.'" WHERE email="'.$nom.'"'); 
+          $response =$bdd->query('Update evenement set date="'.$datenaissance.'" WHERE nomevenement="'.$nom.'"'); 
           $row = $response->fetch();
           echo($row['datenaissance']);
       }

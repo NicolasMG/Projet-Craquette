@@ -17,5 +17,5 @@ include('header_accueil.php');
       }}
 
      $pbnom="album.php";
-        echo "<script>window.location = "."'".$pbnom."'"."</script>";
+        //echo "<script>window.location = "."'".$pbnom."'"."</script>";
 ?>

@@ -3,14 +3,9 @@
     include('header_accueil.php');
 
     $id=$_SESSION['ID'];
+    $idutil=$_GET['id'];
 
-
-
-
-
-
-
-
+if($id==$idutil){
 ?>
 <section>
 <form class="form-horizontal" method="post" action="ajoutimage.php" enctype="multipart/form-data">
@@ -32,8 +27,9 @@
 <br><br><br>
 
 <?php
+}
 $num=0;
-$files=glob("Images/album/fichier".$id."/*");
+$files=glob("Images/album/fichier".$idutil."/*");
 foreach($files as $filename){
     
   ?>  

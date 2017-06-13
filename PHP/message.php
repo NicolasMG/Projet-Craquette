@@ -35,7 +35,7 @@ $data2=$req2->fetch();
                       <script src="modal.js" type="text/javascript"></script>
                       <div id="modal" class="popup"></div>
 				</div>-->
-			
+
 <?php        
 if(!isset($_GET['id']))
     $req = "SELECT idutil2,idutil1,mp,format from message WHERE (idutil1='".$id."' AND idutil2='".$idutil."') OR (idutil1='".$idutil."' AND idutil2='".$id."') ORDER BY message.id DESC limit 50"; //pas sur idutil1

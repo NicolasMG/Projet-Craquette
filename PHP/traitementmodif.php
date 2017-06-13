@@ -43,6 +43,8 @@ if(isset($_POST['modif'])){
           $response =$bdd->query('Update profil set imageprofil="Images/'.$nom1.'" WHERE email="'.$mail.'"'); //ok
           $row = $response->fetch();
           echo($row['imageprofil']);
+          $_SESSION['imageprofil']=$row['imageprofil'];          
+
                 
             
       }}
