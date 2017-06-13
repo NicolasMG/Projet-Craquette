@@ -93,7 +93,7 @@ if(isset($_POST['creeevenement'])){
         
     }
 }
-echo ($_GET['nom']);
+//echo ($_GET['nom']);
 
  $nom=htmlspecialchars($_GET['nom']);  ?>
 <section id="section_profil">

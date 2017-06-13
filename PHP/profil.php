@@ -10,6 +10,7 @@
         
     //session_start();
     $mail=$_SESSION['mail'];
+    $id=$_SESSION['ID'];
    
 ?>
 
@@ -98,7 +99,7 @@
                         ?>
                         </p>
                         <p>CV : <a href="Documents/Mon%20CV.txt">Mon CV</a></p>    
-                        <form method="post" action="album.php">
+                        <form method="post" action="album.php?id=<?php echo $id;  ?>">
                             <input class="form-control" style=" display:block; position:absolute; width:130px; display:inline;" value="Album" type="submit" name="ablum"/>
                         </form>
                     
