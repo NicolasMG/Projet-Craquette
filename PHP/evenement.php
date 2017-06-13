@@ -253,7 +253,7 @@ if(isset($_POST['creeevenement'])){
                     
                         ?>
                         </p>
-                        <p>CV : <a href="Documents/Mon%20CV.txt">Mon CV</a></p>    
+                          
                     </div>
                 </div>
         </div>
