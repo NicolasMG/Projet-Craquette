@@ -22,14 +22,14 @@ if(isset($_POST['creeevenement'])){
         $nom = htmlspecialchars($_POST['nomevenement']);
         $id=$_SESSION['ID'];
         
-        $pseudo = htmlspecialchars($_POST['pseudo']);
-        if(eregi('[^a-zA-Z0-9_]', $pseudo))
+        $pseudo = htmlspecialchars($_POST['nomevenement']);
+        if(preg_match('~[#[{}\];]~', $pseudo))
         { 
             echo "Seul les caractères alpha-numérique et le _ sont acceptés";
             $pbnom="creeevenement.php";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
         }
-        //Si tout est OK on enrégistre le pseudo
+        //Si tout est OK
         
         
         
