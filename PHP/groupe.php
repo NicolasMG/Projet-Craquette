@@ -38,7 +38,7 @@ if(isset($_POST['creegroupe'])){
             $profil="Images/imagegroupeprofil.jpg";
             if(!$_FILES['profilgroupe']['error']>0){
                 if(!empty($_FILES['profilgroupe'])){ 
-                    $imagecouverture = $_FILES['profilgroupe']; 
+                    $imageprofil = $_FILES['profilgroupe']; 
                    
                     $nom1=md5(uniqid(rand(),true)); 
                     $profil="Images/$nom1";
@@ -48,7 +48,7 @@ if(isset($_POST['creegroupe'])){
             
 
             
-            $insertion = $bdd->query('insert into groupe values("'.$id.'","'.$nom.'","admin","Images/imagegroupeprofil.jpg","'.$couverture.'")'); 
+            $insertion = $bdd->query('insert into groupe values("'.$id.'","'.$nom.'","admin","'$profil'","'.$couverture.'")'); 
             $insertion->execute();   
             
             $pbnom="group.php?nom='".$nom"'";

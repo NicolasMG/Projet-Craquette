@@ -74,7 +74,7 @@ if(isset($_POST['creeevenement'])){
             $profil="Images/imagegroupeprofil.jpg";
              if(!$_FILES['profilevenement']['error']>0){
                  if(!empty($_FILES['profilevenement'])){ 
-                    $imagecouverture = $_FILES['profilevenement']; 
+                    $imageprofil = $_FILES['profilevenement']; 
                    
 
                     $nom1=md5(uniqid(rand(),true)); 

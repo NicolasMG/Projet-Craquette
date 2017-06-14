@@ -69,7 +69,7 @@ if(isset($_POST['creepage'])){
             $profil="Images/imagegroupeprofil.jpg";
              if(!$_FILES['imageprofil']['error']>0){
                  if(!empty($_FILES['imageprofil'])){ 
-                    $imagecouverture = $_FILES['imageprofil']; 
+                    $imageprofil = $_FILES['imageprofil']; 
                    
                      $nom1=md5(uniqid(rand(),true)); 
                     $profil="Images/$nom1";

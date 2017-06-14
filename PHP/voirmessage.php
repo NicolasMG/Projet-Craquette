@@ -35,7 +35,7 @@
 <h3> Mes conversations :</h3>     
         <?php       
             $id=$_SESSION['ID'];
-            $sql='SELECT distinct(idutil2) FROM message Where idutil1="'.$id.'" ORDER BY id';
+            $sql='SELECT distinct(idutil1) FROM message Where idutil2="'.$id.'" ORDER BY id';
             $req = $bdd->query($sql)  ; 
           
         ?>    
@@ -43,7 +43,7 @@
         
         <?php 
       while($row=$req->fetch()){ 
-          $idutil=$row['idutil2'];?>
+          $idutil=$row['idutil1'];?>
 
       <p style="padding-left:200px;"> <a href="message.php?idutil=<?php echo $idutil; ?>">      <img style="width:150px; height:150px;" src="<?php
                 $response =$bdd->query('SELECT imageprofil FROM profil WHERE id="'.$idutil.'"'); 
