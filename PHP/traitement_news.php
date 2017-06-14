@@ -14,5 +14,6 @@ $req=$bdd->prepare('insert into actualite (id,poste) values (:id,:message)') or 
 $req->execute(array('id'=>$_SESSION['ID'],'message'=>$message));
 	}
 }
-header('Location: ./accueil.php');
+$pbnom="accueil.php";
+echo "<script>window.location = "."'".$pbnom."'"."</script>";
 ?>

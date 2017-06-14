@@ -96,12 +96,7 @@
 								</form>		
 					</div>
 			</div>';}
-			}			
-			
-			
-			
-
-			
+			}
 			
 	/*<div class="image_like">	
 								 <a href="like_traitement.php?num_tweet='.$res['num_tweet'].'"'.'><img src="like.png" class="image1" /></a>	

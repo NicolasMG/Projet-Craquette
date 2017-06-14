@@ -25,5 +25,8 @@ $req1=$bdd->prepare('select id from actualite where num_tweet=:num_tweet');
 	$req6=$bdd->prepare('insert into commentaire values (:num_tweet_commented,:commented_by,:commented_for,:comment)');
 	$req6->execute(array('num_tweet_commented'=>$_GET['num_tweet'],'commented_by'=>$_SESSION['ID'],'commented_for'=>$data1['id'],'comment'=>$_POST['commentaire']));
 	
-				}
+}
+$pbnom = "accueil.php";
+echo "<script>window.location = "."'".$pbnom."'"."</script>";
+
 ?>

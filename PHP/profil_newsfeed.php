@@ -1,12 +1,12 @@
 <?php 
 
-			$req = "SELECT id,poste,compteur_like,compteur_retweet,num_tweet,retweeted,retweeted_by,commented,commented_by,compteur_comments FROM actualite ORDER BY num_tweet DESC limit 100";
+$req = "SELECT id,poste,compteur_like,compteur_retweet,num_tweet,retweeted,retweeted_by,commented,commented_by,compteur_comments FROM actualite ORDER BY num_tweet DESC limit 100";
 			$req=$bdd->query($req) or die(print_r($bdd->errorInfo()));
 			$res = $req->fetch();
 				
 		
 				$req1=$bdd->prepare('select retweeted,id,poste from actualite where num_tweet=:num_tweet');
-				$req1->execute(array('num_tweet'=>$_GET['num_tweet']));
+				$req1->execute(array('num_tweet'=>23));//$_GET['num_tweet']));
 				$data1=$req1->fetch();
 			
 					
