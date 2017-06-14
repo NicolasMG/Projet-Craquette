@@ -36,15 +36,18 @@ CREATE TABLE `list` (
 
 INSERT INTO `list` (`mail`) VALUES
 ('nicolas.greiner@uha.fr'),
-('jean-michel.feta@uha.fr'),
+('jonathan.weber@uha.fr'),
 ('rabbit.jacob@uha.fr'),
 ('ben.nuts@uha.fr'),
 ('david.vergnault@uha.fr'),
-('inconnu.perdu@uha.fr'),
-('dis.ctee@uha.fr'),
+('jacques.vernay@uha.fr'),
+('vincent.basset@uha.fr'),
 ('bryan.follin@uha.fr'),
 ('saad.bendaoud@uha.fr'),
-('rachel.noireau@uha.fr');
+('rachel.noireau@uha.fr'),
+('fanny.ringler@uha.fr'),
+('louis.planes@uha.fr'),
+('andy.chabalier@uha.fr');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

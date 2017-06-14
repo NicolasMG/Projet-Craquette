@@ -8,7 +8,9 @@
     catch(Exception $e){ // si cela ne fonctionne pas : attraper l'erreur...
         die('Erreur : '.$e->getMessage()); // ... arrêter le processus et afficher l'erreur
     }
- 
+ $req = "SELECT id,poste,compteur_like,compteur_retweet,num_tweet,retweeted,retweeted_by,commented,commented_by,compteur_comments FROM actualite ORDER BY num_tweet DESC limit 100";
+			$req=$bdd->query($req) or die(print_r($bdd->errorInfo()));
+			$res = $req->fetch();
 if(isset($_POST['modif'])){
       
     if(!$_FILES['imagecouverture']['error']>0){
@@ -123,7 +125,7 @@ if(isset($_POST['modif'])){
 ?>
 <section id="section_traitement_modif">
     <p>Les modifications ont bien été effectuées</p>
-    <form  method="post" action="profil.php">
+    <form  method="post" action="profil.php?num_tweet=<?php echo $res['num_tweet']; ?>">
         <input class="form-control" value="Revenir à mon compte" type="submit" name="revenir"/>
     </form>
 </section>

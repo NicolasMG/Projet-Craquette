@@ -17,6 +17,9 @@
     catch(Exception $e){ 
         die('Erreur : '.$e->getMessage()); 
     }
+$req = "SELECT id,poste,compteur_like,compteur_retweet,num_tweet,retweeted,retweeted_by,commented,commented_by,compteur_comments FROM actualite ORDER BY num_tweet DESC limit 100";
+			$req=$bdd->query($req) or die(print_r($bdd->errorInfo()));
+			$res = $req->fetch();
             $mail=$_SESSION['mail'];?>
 <!doctype html>
 <link rel="shortcut icon" href="./Images/favicon.ico">
@@ -44,7 +47,7 @@
                 <a class="active" href="deconnexion.php"><span class="glyphicon glyphicon-off"></span></a>
                 <a class="active" href="voirmessage.php"><span class="glyphicon glyphicon-comment"></span></a>
                 <a class="active" href="accueil.php"><span class="glyphicon glyphicon-home"></span></a>
-                <a href='profil.php'><img style="width:30px; height:30px; margin-top:12px;" class="img-circle" alt="photo_profil" title="photo_profil" src="<?php 
+                <a href="profil.php?num_tweet=<?php echo $res['num_tweet'] ;?>" ><img style="width:30px; height:30px; margin-top:12px;" class="img-circle" alt="photo_profil" title="photo_profil" src="<?php 
                     $response =$bdd->query('SELECT imageprofil FROM profil WHERE email="'.$mail.'"'); 
                     $row = $response->fetch();
                     echo($row['imageprofil']);               

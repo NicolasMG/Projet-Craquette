@@ -49,7 +49,7 @@ if(isset($_POST['creepage'])){
         $reponse2=$reponse->fetch();
         $_GET['nom'] =($_POST['nompage']);                           
         if($reponse2){
-            echo "Se nom est deja prit il faut en choisir un autre";
+            echo "Ce nom est deja prit il faut en choisir un autre";
             $pbnom="creepage.php";
             echo "<script>window.location = "."'".$pbnom."'"."</script>";
         }else{
@@ -81,11 +81,16 @@ if(isset($_POST['creepage'])){
             $insertion = $bdd->prepare('insert into page values("'.$nom.'","'.$id.'","'.$profil.'","'.$couverture.'")'); 
             $insertion->execute(); 
 			
-			$address="http://127.0.0.1/Projet-Craquette-master/PHP/page.php?id=";
-											$address.=$id;
-											$id3=804;
-											$id3=$id3+1;
-											$insertion2 = $DBcon->prepare('INSERT INTO tbl_posts VALUES("'.$id3.'","'.$nom.'","'.$address.'")');
+			$address="page.php?nom=";
+            
+                                            $sql=$bdd->prepare('SELECT max(Id) FROM profil ');
+                                            $sql->execute();
+                                            $ide = $sql->fetch();
+            
+											$address.=$nom;
+											//$id3=804;
+											$idf=$ide[0]+1;
+											$insertion2 = $DBcon->prepare('INSERT INTO tbl_posts VALUES("'.$idf.'","'.$nom.'","'.$address.'")');
 											$insertion2->execute();
       
             $pbnom="page.php?nom='".$nom."'";

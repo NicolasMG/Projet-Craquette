@@ -136,8 +136,12 @@ else
             $reponse=$bdd->prepare('Select email From profil');
             $reponse->execute();
             $reponse2=$reponse->fetch();
-            foreach ($reponse2 as &$value){
-            if(($value == $destinataire)){
+          /*  foreach ($reponse2 as &$value){
+                            echo $value;
+                echo " ";
+                echo $destinataire;
+            if($value == $destinataire){*/
+
                 $_SESSION['mailChangementMDP']=$destinataire;
 
                 require 'PHPMailer/PHPMailerAutoload.php';
@@ -207,9 +211,8 @@ else
 
                 </form>
         </section>';
-                break;
-                }
-            }
+               /* }
+            }*/
         }
     }
     else{   //1ere partie b

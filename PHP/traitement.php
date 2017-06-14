@@ -33,7 +33,9 @@
     $sql=$bdd->prepare('SELECT max(Id) FROM profil ');
     $sql->execute();
     $id = $sql->fetch();
-
+$req = "SELECT id,poste,compteur_like,compteur_retweet,num_tweet,retweeted,retweeted_by,commented,commented_by,compteur_comments FROM actualite ORDER BY num_tweet DESC limit 100";
+			$req=$bdd->query($req) or die(print_r($bdd->errorInfo()));
+			$res = $req->fetch();
 ?>
     
 <?php
@@ -94,7 +96,7 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                                                 $idef = $ide +1 ;
                                                 $insertion = $bdd->prepare('INSERT INTO profil VALUES("'.$idef.'","'.$nom.'","'.$prenom.'","'.$sel.'","'.$mail.'","'.$date.'","'.$promo.'","'.$filiere.'","NULL","NULL","Images/profilpardefaut.png","Images/couverturepardefaut.jpg","NULL")'); // préparation de la requête d'insertion dans la base de données
                                                 $insertion->execute();  // exécution de l'insertion
-												$address="http://127.0.0.1/Projet-Craquettegithub/PHP/profilami?id=";
+												$address="profilami.php?id=";
 												$address.=$idef;
 												$insertion2 = $DBcon->prepare('INSERT INTO tbl_posts VALUES("'.$idef.'","'.$prenom.'","'.$address.'")');
 												$insertion2->execute();
@@ -107,7 +109,7 @@ if(isset($_POST['inscription'])){ // si le bouton envoi a été cliqué
                                             
                                                 $message="Votre profil a bien été créé.";
                                                 $bouton="Voir mon profil";
-                                                $valideinscription="profil.php";
+                                                $valideinscription="profil.php?num_tweet=".$res['num_tweet'];
                                                 $message2= "merci de nous rejoindre";
                                                 
                                                 mkdir("Images/album/fichier".$idef."",0777, true);//ok
