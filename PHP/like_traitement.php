@@ -1,7 +1,7 @@
 <?php
 session_start();
 try{
-	$bdd = new PDO('mysql:host=localhost;dbname=siteweb;charset=utf8','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));//le array permet d'afficher les ereurs
+	$bdd = new PDO('mysql:host=localhost;dbname=siteweb2;charset=utf8','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));//le array permet d'afficher les ereurs
 }
 catch (Exception $e){
 	die('connection failed : '.$e->getMessage());

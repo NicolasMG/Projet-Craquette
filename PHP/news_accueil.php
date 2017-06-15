@@ -1,14 +1,20 @@
 <?php 
 
-			$req = "SELECT id,poste,compteur_like,compteur_retweet,num_tweet,retweeted,retweeted_by,commented,commented_by,compteur_comments FROM actualite ORDER BY num_tweet DESC limit 100";
+
+				
+			$req = "SELECT * FROM actualite order by date_time desc limit 100";
 			$req=$bdd->query($req) or die(print_r($bdd->errorInfo()));
 			$res = $req->fetch();
-				
-		
-
+			$num_ligne=$req->rowcount();
 			
-					
-				while($res = $req->fetch()){
+		$req1=$bdd-> query("SELECT * FROM commentaire ");
+		$req1->execute();
+		$num_ligne1=$req1->rowcount();
+			
+				if($num_ligne !=0){
+				do{
+				
+				
 				$req3="select Prenom,Nom,imageprofil from profil where id=:id"; //personne qui a tweeter
 				$req3=$bdd->prepare($req3);
 				$req3->execute(array('id'=>$res['id']));
@@ -24,79 +30,117 @@
 			$data5=$req5->fetch();
 				
 				//on récupère le contenu du commentaire
-			$req6=$bdd->prepare("select comment from commentaire where num_tweet_commented=:num_tweet_commented");  //personne qui a commenté
+			$req6=$bdd->prepare("select comment,comment_time from commentaire where num_tweet_commented=:num_tweet_commented ORDER BY comment_time desc limit 100");  
 			$req6->execute(array('num_tweet_commented'=>$res['num_tweet']));
 			$data6=$req6->fetch();
+				
+			$req7=$bdd->prepare('select num_tweet from actualite where retweeted_by=:retweeted_by');	
+			$req7->execute(array('retweeted_by'=>$res['retweeted_by']));
+			$data7=$req7->fetch();
+				
+			$req8=$bdd->prepare("select poste from actualite where num_tweet=:num_tweet");
+			$req8->execute(array('num_tweet'=>$res['retweeted_contenu']));
+			$data8=$req8->fetch();
 				
 				
 				/*if($data3['id'] in select abonnement1,abonnement3 .... from profil2 where id=$_session[id] and retweeted_by in select {abos} where id=$_session[id])*/
 				
+			
+			if ($res['retweeted']=="true"){
 				
-					if ($res['commented']=="true"){
+				print '<div class="wrapper_poste_num2">
+					<div id="conteneur_newsfeed">
+					<a href="profil.php?num_tweet='.$data7['num_tweet'].'"><img src=Images/'."'".$data4["imageprofil"]."'".'/></a>
+						<div id="contenu_droit">
+							<p id="nom_profil">'.$data4['Prenom']." ".$data4['Nom'].' a re-craquetter le poste de '.$data3['Prenom']." ".$data3['Nom'].'</p>
+								<p id="contenu_int">'.$data8['poste'].'</p>
+								
+								
+							</div>
+					</div>
+										
+								
+					
+				</div>';
+				
+				
+				
+				
+							
+			}
 			
-			
-		
-			print '<div id="conteneur_newsfeed">
-				<a href="profil.php?num_tweet='.$res['num_tweet'].'">'?><img class="img-circle" alt="photo_profil" title="photo_profil" src="<?php 
-                    $response =$bdd->query('SELECT imageprofil FROM profil WHERE email="'.$mail.'"'); 
-                    $row = $response->fetch();
-                    echo($row['imageprofil']);               
-                                         ?>" <?php print'</a>
+				print '<div class="wrapper_poste_num1">
+				<div id="conteneur_newsfeed">
+				<a href="profil.php?num_tweet='.$res['num_tweet'].'"><img src=Images/'."'".$data3["imageprofil"]."'".'/></a>
 					<div id="contenu_droit">
 						<p id="nom_profil">'.$data3['Prenom']." ".$data3['Nom'].'</p>
 							<p id="contenu_int">'.$res['poste'].'</p>
-							<div class="image_like">	
-								<a href="like_traitement.php?num_tweet='.$res['num_tweet'].'"'.'><img src="Images/like.png" class="image1" /></a>	
-								<p class="like">'.$res['compteur_like'].'</p>
-								<a href="retweet_traitement?num_tweet='.$res['num_tweet'].'"'.'><img src="Images/retweet.png" class="image2" /></a>
-								<p class="retweet" >'.$res['compteur_retweet'].'</p>
-								<img src="Images/message.png" class="image3" />
+							<div class="image_like">';	
+								
+								if ($res['id']!=$_SESSION['ID']){
+										echo '<img src="Images/like.png" class="image1" />';
+									}
+									else {
+										echo'<a href="like_traitement.php?num_tweet='.$res['num_tweet'].'"'.'><img src="Images/like.png" class="image1" /></a>';
+									}
+									echo '<p class="like">'.$res['compteur_like'].'</p>';
+									if ($res['id']!=$_SESSION['ID']){
+										echo '<img src="Images/retweet.png" class="image2" />';
+									}
+									else {
+										echo'<a href="retweet_traitement?num_tweet='.$res['num_tweet'].'"'.'><img src="Images/retweet.png" class="image2" /></a>';
+									}
+								
+								print '<img src="Images/message.png" class="image3" />
 								<p class="comment" >'.$res['compteur_comments'].'</p>
 							</div>
-								<div class="commentaire_conteneur" style="margin-top: 50px;">
-								<div class="conteneur_commentaire_poste">
-								<p>'.$data5['Prenom']." ".$data5['Nom'].' a commenté ce poste </p>
-								<p id="contenu_int_commentaire">'.$data6['comment'].'</p>
-								</div>
-								
-								
-								</div>
-								<form method="POST" style="display:inline;flex-direction:row;justify-content:center;align-items:flex-end; margin-left:0px; margin-top:20px;" action="message_traitement.php?num_tweet='.$res['num_tweet'].'" id="form_comment">	
-									<input type="text" name="commentaire" class="commentaire" placeholder="Laissez un commentaire à '.$data3['Prenom'].' !"/>
-									<input  type="submit" name="submit_comment" value="Commenter !" id="envoi_comment" />
-									
+					</div>
+				</div>
+				
+					<form method="POST" action="message_traitement.php?num_tweet='.$res['num_tweet'].'" class="form_comment">	
+									<img src="Images/'.$_SESSION['imageprofil'].'" />
+									<div class="form_comment_droit">	
+										<input type="text" name="commentaire" class="commentaire" placeholder="Laissez un commentaire à '.$data3['Prenom'].' !"/>
+										<input  type="submit" name="submit_comment" value="Commenter !" id="envoi_comment" />
+									</div>
 								</form>			
 								
-					</div>
 					
+			</div>	
+				
+				
+							';
+				
+			
+			
+			if ($res['commented']=="true"){
 					
-			</div>';
+					if($num_ligne1 !=0){
+					do{
+								print '
+								
+									<div class="commentaire_int">
+										<img src="Images/'.$data5['imageprofil'].'" />
+										<div class="commentaire_int_droit">
+											<p>'.$data5['Prenom']." ".$data5['Nom'].' a commenté ce poste </p>
+											<p id="contenu_int_commentaire">'.$data6['comment'].'</p>
+										</div>
+									</div>
+		
+								';
+					
+			}while($data6=$req6->fetch());
+					}
+			
+		
+			}			
 			
 			
 			
-			}
-			
-			else {print '<div id="conteneur_newsfeed">
-				<a href="profil.php?num_tweet='.$res['num_tweet'].'" ><img src=Images/'."'".$data3["imageprofil"]."'".'/></a>
-					<div id="contenu_droit">
-						<p id="nom_profil">'.$data3['Prenom']." ".$data3['Nom'].'</p>
-							<p id="contenu_int">'.$res['poste'].'</p>
-							<div class="image_like">	
-								<a href="like_traitement.php?num_tweet='.$res['num_tweet'].'"'.'><img src="Images/like.png" class="image1" /></a>	
-								<p class="like">'.$res['compteur_like'].'</p>
-								<a href="retweet_traitement.php?num_tweet='.$res['num_tweet'].'"'.'><img src="Images/retweet.png" class="image2" /></a>
-								<p class="retweet" >'.$res['compteur_retweet'].'</p>
-								<img src="Images/message.png" class="image3" />
-								<p class="comment" >'.$res['compteur_comments'].'</p>
-							</div>
-							<form style="display:inline;flex-direction:row;justify-content:center;align-items:flex-end; margin-left:0px;margin-top:20px;" method="POST" action="message_traitement.php?num_tweet='.$res['num_tweet'].'" id="form_comment">	
-									<input type="text" name="commentaire" class="commentaire" placeholder="Laissez un commentaire à '.$data3['Prenom'].' !"/>
-									<input  type="submit" name="submit_comment" value="Commenter !" id="envoi_comment" />
-									
-								</form>		
-					</div>
-			</div>';}
-			}
+				}while($res = $req->fetch());
+				}
+				
+			$req->closeCursor();
 			
 	/*<div class="image_like">	
 								 <a href="like_traitement.php?num_tweet='.$res['num_tweet'].'"'.'><img src="like.png" class="image1" /></a>	

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 13 Juin 2017 à 15:26
+-- Généré le :  Jeu 15 Juin 2017 à 08:51
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `siteweb`
+-- Base de données :  `siteweb2`
 --
 
 -- --------------------------------------------------------
@@ -30,21 +30,39 @@ CREATE TABLE `commentaire` (
   `num_tweet_commented` int(11) NOT NULL,
   `commented_by` int(11) NOT NULL,
   `commented_for` int(11) NOT NULL,
-  `comment` text NOT NULL
+  `comment` text NOT NULL,
+  `num_comment` int(250) NOT NULL,
+  `comment_time` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `commentaire`
 --
 
-INSERT INTO `commentaire` (`num_tweet_commented`, `commented_by`, `commented_for`, `comment`) VALUES
-(65, 25, 15, 'Commenter !'),
-(68, 25, 25, 'test01'),
-(68, 25, 25, 'hdhdhd'),
-(69, 25, 25, 'jgjgjg'),
-(69, 25, 25, 'kkkkk'),
-(69, 25, 25, 'bonjour');
+INSERT INTO `commentaire` (`num_tweet_commented`, `commented_by`, `commented_for`, `comment`, `num_comment`, `comment_time`) VALUES
+(96, 25, 25, 'hey', 3, '2017-06-14 21:25:34'),
+(97, 25, 25, 'salut', 4, '2017-06-14 21:31:53'),
+(97, 15, 25, 'salut 2', 5, '2017-06-14 21:37:18');
 
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `commentaire`
+--
+ALTER TABLE `commentaire`
+  ADD KEY `num_comment` (`num_comment`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `commentaire`
+--
+ALTER TABLE `commentaire`
+  MODIFY `num_comment` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -131,6 +131,34 @@
 	
 }
 
-.commentaire_conteneur{
-    
+.wrapper_poste_num1{
+	border:2px solid blue;
+}
+.wrapper_poste_num2{
+	border:2px solid blue;
+}
+.commentaire_int_droit{
+	display:flex;
+	flex-direction:column;
+	justify-content:flex-start;
+	color:red;
+}
+.commentaire_int{
+	display:flex;
+	flex-direction:row;
+	justify-content:space-around;
+}
+.form_comment{
+	display:flex;
+	flex-direction:row;
+	justify-content:space-around;
+}
+.form_comment_droit{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+}
+.commentaire{
+	width:300px;
+	overflow: auto;
 }
